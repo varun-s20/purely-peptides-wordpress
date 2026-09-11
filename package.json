@@ -1,0 +1,11 @@
+{
+  "name": "veridian-biosciences",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Scientific ecommerce website. Plain HTML, one global stylesheet, one global script.",
+  "scripts": {
+    "build": "node build.js",
+    "start": "node build.js && node serve.js",
+    "serve": "node serve.js"
+  }
+}

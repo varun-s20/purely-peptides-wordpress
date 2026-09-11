@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quality &amp; testing | Purely Peptides</title>
+<meta name="description" content="How Purely Peptides tests and documents research materials: RP-HPLC purity, mass spectrometry identity, published method conditions and lot-level certificates.">
+<link rel="canonical" href="https://purelypeptides.com/quality/">
+<meta property="og:title" content="Quality &amp; testing | Purely Peptides">
+<meta property="og:description" content="How Purely Peptides tests and documents research materials: RP-HPLC purity, mass spectrometry identity, published method conditions and lot-level certificates.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#378189">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='8' fill='%23378189'/%3E%3Cpath d='M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap">
+<script>document.documentElement.classList.add('has-js')</script>
+<link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body class="">
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- The utility strip sits OUTSIDE the sticky header on purpose. Inside it, the
+     header had to shrink on scroll to stay a reasonable size, and shrinking a
+     sticky element changes document height, which nudges scrollY, which
+     re-crosses the threshold - a visible flicker loop. Out here it just
+     scrolls away once, for free, and the header below keeps a constant
+     height. -->
+<div class="utility">
+    <div class="wrap utility__inner">
+      <div class="utility__group">
+        <button class="utility__note" type="button" data-modal-open="region" style="background:none;border:0;color:inherit;cursor:pointer;font:inherit;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18 15 15 0 0 1 0-18Z"/></svg><span>United States - <span data-region-label>MA</span> · USD</span>
+        </button>
+        <span class="utility__sep utility__group--mobilehide"></span>
+        <span class="utility__note utility__group--mobilehide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v6.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M8.5 3h7M7.5 14h9"/></svg><span>For laboratory research use only</span></span>
+      </div>
+      <div class="utility__group utility__group--desk">
+        <a href="contact.html">Support</a>
+        <span class="utility__sep"></span>
+        <a href="orders.html">Orders</a>
+        <span class="utility__sep"></span>
+        <a href="account.html#wishlist">Wishlist</a>
+        <span class="utility__sep"></span>
+        <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header class="site-header" data-header>
+  <div class="wrap masthead">
+    <a class="logo" href="index.html">
+      <span class="logo__mark" aria-hidden="true">
+        <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+          <rect width="34" height="34" rx="9" fill="#378189"/>
+          <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
+                stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
+                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+        </svg>
+      </span>
+      <span class="logo__word">
+        <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+        <span class="logo__sub">Research materials</span>
+      </span>
+    </a>
+
+    <div class="masthead__search searchwrap">
+      <form class="searchbar" action="search.html" method="get" role="search" autocomplete="off">
+        <span class="searchbar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></span>
+        <label class="visually-hidden" for="site-search">Search products, CAS numbers, SKU or lot number</label>
+        <input id="site-search" name="q" type="search" placeholder="Search products, CAS, SKU, articles or lot numbers"
+               data-suggest aria-expanded="false" aria-controls="suggest-panel" aria-autocomplete="list" role="combobox">
+        <button class="btn btn--primary" type="submit">Search</button>
+      </form>
+      <div class="suggest" id="suggest-panel" data-open="false" role="listbox" aria-label="Search suggestions"></div>
+    </div>
+
+    <div class="masthead__actions">
+      <button class="iconbtn mobile-toggle" type="button" data-mobile-open aria-label="Open menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg><span>Menu</span>
+      </button>
+      <button class="iconbtn search-toggle" type="button" data-search-open aria-label="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg><span>Search</span>
+      </button>
+      <a class="iconbtn" href="account.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v1"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
+      <a class="iconbtn iconbtn--optional" href="products.html#quick-order"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span>Quick order</span></a>
+      <button class="iconbtn" type="button" data-cart-open aria-label="Open cart, 2 items">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg><span>Cart</span><span class="iconbtn__badge" data-cart-count>2</span>
+      </button>
+    </div>
+  </div>
+
+  <nav class="primary-nav" aria-label="Primary">
+    <div class="wrap">
+      <ul class="primary-nav__list">
+        <li>
+        <button class="primary-nav__link" type="button" data-mega="products" aria-expanded="false" aria-controls="mega-products">
+          Products<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </li><li><a class="primary-nav__link" href="research.html">Research</a></li><li>
+        <button class="primary-nav__link" type="button" data-mega="quality" aria-expanded="false" aria-controls="mega-quality" aria-current="page">
+          Quality &amp; Testing<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+      </li><li><a class="primary-nav__link" href="applications.html">Applications</a></li><li><a class="primary-nav__link" href="wholesale.html">Wholesale</a></li><li><a class="primary-nav__link" href="certificates.html">Resources</a></li><li><a class="primary-nav__link" href="contact.html">Support</a></li>
+        <li class="primary-nav__right">
+          <a class="link-arrow" href="certificates.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><span>Verify a batch</span></a>
+        </li>
+      </ul>
+    </div>
+    
+  <div class="mega" id="mega-products" data-open="false" role="region" aria-label="Shop by category">
+    <div class="wrap mega__inner">
+      
+    <div class="mega__col">
+      <h3>Shop by category</h3>
+      <ul class="mega__list">
+        <li><a href="category-research-peptides.html">Research Peptides<span class="n">3</span></a></li><li><a href="category-protein-research.html">Protein Research<span class="n">4</span></a></li><li><a href="category-metabolic-research.html">Metabolic Research<span class="n">4</span></a></li><li><a href="category-cellular-research.html">Cellular Research<span class="n">5</span></a></li><li><a href="category-cognitive-research.html">Cognitive Research<span class="n">2</span></a></li><li><a href="category-blends.html">Blends<span class="n">2</span></a></li><li><a href="products.html" style="font-weight:600">All products</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Shop by research area</h3>
+      <ul class="mega__list">
+        <li><a href="products.html?area=Metabolism">Metabolism</a></li><li><a href="products.html?area=Cell%20Signalling">Cell Signalling</a></li><li><a href="products.html?area=Cellular%20Repair">Cellular Repair</a></li><li><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a></li><li><a href="products.html?area=Neuroscience">Neuroscience</a></li><li><a href="products.html?area=Endocrine%20Research">Endocrine Research</a></li><li><a href="products.html">Other areas</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Quality &amp; documentation</h3>
+      <ul class="mega__list">
+        <li><a href="certificates.html">Certificates of analysis</a></li><li><a href="certificates.html#verify">Batch verification</a></li><li><a href="quality.html#testing">Testing standards</a></li><li><a href="quality.html">Quality process</a></li><li><a href="research-use-policy.html">Research use policy</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Featured</h3>
+      <ul class="mega__list">
+        <li><a href="products.html?sort=newest">New research materials</a></li><li><a href="products.html?sort=featured">Most viewed</a></li><li><a href="research.html">Research library</a></li><li><a href="wholesale.html">Wholesale programme</a></li>
+      </ul>
+    </div>
+      <div class="mega__feature">
+        <span class="eyebrow">New</span>
+        <h3>Batch verification</h3>
+        <p>Enter a lot number to open the analytical documentation issued for that exact production run.</p>
+        <a class="btn btn--onDark btn--sm" href="certificates.html">Verify a batch</a>
+      </div>
+    </div>
+  </div>
+    
+  <div class="mega" id="mega-quality" data-open="false" role="region" aria-label="How we test">
+    <div class="wrap mega__inner">
+      
+    <div class="mega__col">
+      <h3>How we test</h3>
+      <ul class="mega__list">
+        <li><a href="quality.html">Quality process</a></li><li><a href="quality.html#testing">Testing standards</a></li><li><a href="quality.html#methods">Analytical methods</a></li><li><a href="quality.html#labs">Third-party laboratories</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Documentation</h3>
+      <ul class="mega__list">
+        <li><a href="certificates.html">Certificate library</a></li><li><a href="certificates.html">Search by lot number</a></li><li><a href="article-what-a-certificate-of-analysis-contains.html">How to read a COA</a></li><li><a href="article-reading-an-hplc-purity-result.html">Reading an HPLC result</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Policies</h3>
+      <ul class="mega__list">
+        <li><a href="research-use-policy.html">Research use policy</a></li><li><a href="shipping.html">Shipping &amp; handling</a></li><li><a href="shipping.html#returns">Returns</a></li><li><a href="terms.html">Terms of sale</a></li>
+      </ul>
+    </div>
+    <div class="mega__col">
+      <h3>Support</h3>
+      <ul class="mega__list">
+        <li><a href="contact.html?topic=documentation">Documentation support</a></li><li><a href="contact.html?topic=product">Product specifications</a></li><li><a href="faq.html">Frequently asked questions</a></li><li><a href="contact.html">Contact the team</a></li>
+      </ul>
+    </div>
+      <div class="mega__feature">
+        <span class="eyebrow">Method</span>
+        <h3>What we test for</h3>
+        <p>Every eligible lot is assessed by reversed-phase HPLC for purity and by mass spectrometry for identity.</p>
+        <a class="btn btn--onDark btn--sm" href="quality.html">Read the process</a>
+      </div>
+    </div>
+  </div>
+  </nav>
+</header>
+<div class="nav-scrim" data-scrim data-open="false"></div>
+<main id="main">
+
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+    <li><a href="index.html">Home</a></li><li class="sep" aria-hidden="true">/</li><li aria-current="page">Quality &amp; Testing</li>
+  </ol></div></nav>
+
+<section class="hero" style="border-bottom:1px solid var(--rule)">
+  <div class="wrap hero__inner" style="padding-block:64px 72px">
+    <div class="hero__copy">
+      <span class="eyebrow">Quality &amp; testing</span>
+      <h1 class="hero__title" style="font-size:var(--t-h1)">Testing is recorded against a lot, not a product line.</h1>
+      <p class="hero__lede">
+        A certificate that applies to a category tells you very little. Ours applies to one production
+        run, carries the method that produced each result, and stays retrievable after the lot is gone.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary btn--lg" href="certificates.html">Search the certificate library</a>
+        <a class="btn btn--secondary btn--lg" href="article-what-a-certificate-of-analysis-contains.html">How to read a COA</a>
+      </div>
+    </div>
+    <div class="hero__figure"><div class="hero__frame" style="aspect-ratio:4/5" data-graph><svg viewBox="0 0 480 600" role="img" aria-label="Analytical worksheet showing a chromatographic trace above a tabulated result set">
+    <rect width="480" height="600" fill="#F6F6F4"/>
+    <rect x="36" y="40" width="408" height="520" fill="#FFFFFF" stroke="#D7D7D7"/>
+    <rect x="36" y="40" width="408" height="7" fill="#378189"/>
+    <g font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#65797C">
+      <text x="60" y="82">ANALYTICAL RECORD</text>
+      <text x="420" y="82" text-anchor="end">BP-260910</text>
+    </g>
+    <line x1="60" y1="96" x2="420" y2="96" stroke="#D7D7D7"/>
+    <g transform="translate(60, 112)">
+      
+    <line x1="0" y1="28" x2="360" y2="28" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="53" x2="360" y2="53" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="77" x2="360" y2="77" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="101" x2="360" y2="101" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="126" x2="360" y2="126" stroke="#EDF6F7" stroke-width="1"/><line x1="36" y1="0" x2="36" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="72" y1="0" x2="72" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="108" y1="0" x2="108" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="144" y1="0" x2="144" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="180" y1="0" x2="180" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="216" y1="0" x2="216" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="324" y1="0" x2="324" y2="146" stroke="#EDF6F7" stroke-width="1"/>
+    <line x1="0" y1="146" x2="360" y2="146" stroke="#C1C1C1" stroke-width="1"/>
+    <path class="trace" d="M0.0 145.5 L1.5 145.6 L3.0 145.1 L4.5 145.1 L6.0 145.3 L7.5 145.1 L9.0 145.6 L10.5 145.4 L12.0 145.5 L13.5 145.9 L15.0 146.0 L16.5 146.3 L18.0 146.4 L19.5 146.3 L21.0 146.2 L22.5 145.9 L24.0 145.7 L25.5 145.9 L27.0 145.4 L28.5 145.4 L30.0 145.4 L31.5 145.3 L33.0 145.4 L34.5 145.1 L36.0 145.2 L37.5 145.1 L39.0 144.6 L40.5 144.4 L42.0 143.3 L43.5 142.1 L45.0 140.7 L46.5 139.4 L48.0 138.1 L49.5 136.9 L51.0 136.4 L52.5 136.9 L54.0 137.2 L55.5 138.3 L57.0 139.5 L58.5 140.5 L60.0 139.8 L61.5 137.9 L63.0 135.2 L64.5 133.6 L66.0 134.6 L67.5 138.3 L69.0 142.0 L70.5 144.4 L72.0 145.6 L73.5 146.0 L75.0 145.9 L76.5 145.4 L78.0 145.2 L79.5 145.5 L81.0 145.5 L82.5 145.2 L84.0 145.3 L85.5 145.5 L87.0 145.8 L88.5 146.0 L90.0 145.8 L91.5 145.9 L93.0 146.0 L94.5 146.3 L96.0 146.1 L97.5 146.2 L99.0 146.0 L100.5 145.7 L102.0 145.7 L103.5 145.3 L105.0 145.1 L106.5 145.5 L108.0 145.2 L109.5 145.1 L111.0 145.4 L112.5 145.6 L114.0 145.8 L115.5 146.1 L117.0 146.3 L118.5 146.2 L120.0 146.3 L121.5 146.3 L123.0 145.9 L124.5 146.0 L126.0 145.7 L127.5 145.6 L129.0 145.1 L130.5 144.9 L132.0 144.6 L133.5 144.5 L135.0 143.7 L136.5 143.3 L138.0 141.7 L139.5 139.5 L141.0 135.9 L142.5 130.9 L144.0 124.5 L145.5 116.4 L147.0 105.9 L148.5 94.1 L150.0 81.2 L151.5 68.2 L153.0 55.7 L154.5 45.0 L156.0 37.1 L157.5 32.3 L159.0 31.8 L160.5 35.6 L162.0 43.2 L163.5 53.5 L165.0 66.0 L166.5 78.6 L168.0 91.9 L169.5 103.7 L171.0 114.1 L172.5 122.8 L174.0 129.6 L175.5 134.5 L177.0 138.5 L178.5 141.0 L180.0 142.5 L181.5 143.4 L183.0 144.3 L184.5 144.7 L186.0 144.8 L187.5 144.1 L189.0 142.6 L190.5 138.9 L192.0 135.1 L193.5 131.9 L195.0 131.5 L196.5 134.4 L198.0 138.8 L199.5 142.1 L201.0 144.1 L202.5 145.0 L204.0 145.0 L205.5 145.1 L207.0 145.2 L208.5 145.2 L210.0 145.2 L211.5 145.6 L213.0 145.4 L214.5 145.6 L216.0 146.0 L217.5 146.3 L219.0 146.2 L220.5 146.5 L222.0 146.1 L223.5 146.3 L225.0 145.9 L226.5 145.4 L228.0 145.3 L229.5 145.4 L231.0 145.1 L232.5 144.9 L234.0 145.2 L235.5 145.2 L237.0 145.6 L238.5 145.8 L240.0 145.5 L241.5 145.7 L243.0 145.2 L244.5 144.2 L246.0 143.1 L247.5 141.4 L249.0 139.3 L250.5 137.9 L252.0 136.3 L253.5 136.2 L255.0 136.9 L256.5 138.1 L258.0 140.3 L259.5 142.0 L261.0 143.4 L262.5 144.4 L264.0 145.3 L265.5 145.8 L267.0 146.1 L268.5 146.2 L270.0 146.2 L271.5 146.0 L273.0 146.1 L274.5 146.0 L276.0 145.9 L277.5 145.4 L279.0 145.3 L280.5 145.5 L282.0 145.4 L283.5 145.0 L285.0 145.0 L286.5 145.3 L288.0 144.8 L289.5 144.2 L291.0 143.7 L292.5 142.7 L294.0 142.9 L295.5 143.2 L297.0 144.4 L298.5 145.0 L300.0 145.7 L301.5 145.4 L303.0 145.4 L304.5 145.4 L306.0 145.4 L307.5 145.3 L309.0 145.0 L310.5 145.3 L312.0 145.4 L313.5 145.5 L315.0 145.8 L316.5 146.1 L318.0 146.2 L319.5 146.5 L321.0 146.1 L322.5 146.4 L324.0 146.0 L325.5 146.1 L327.0 145.9 L328.5 145.4 L330.0 145.3 L331.5 145.1 L333.0 145.2 L334.5 145.4 L336.0 145.6 L337.5 145.6 L339.0 145.8 L340.5 145.7 L342.0 145.9 L343.5 146.4 L345.0 146.1 L346.5 146.4 L348.0 146.0 L349.5 145.8 L351.0 145.8 L352.5 145.8 L354.0 145.4 L355.5 145.2 L357.0 145.4 L358.5 145.1 L360.0 145.4" fill="none" stroke="#378189" stroke-width="1.4"
+          stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+    <text x="0" y="162" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">0 MIN</text>
+     <text x="360" y="162" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">30 MIN</text>
+  
+    </g>
+    <line x1="60" y1="300" x2="420" y2="300" stroke="#071112"/>
+    <g font-family="Noto Sans, sans-serif" font-size="10">
+      <text x="60" y="326" fill="#65797C">METHOD</text><text x="420" y="326" text-anchor="end" fill="#071112">RP-HPLC</text><line x1="60" y1="334" x2="420" y2="334" stroke="#EDF6F7"/><text x="60" y="352" fill="#65797C">DETECTION</text><text x="420" y="352" text-anchor="end" fill="#071112">220 NM</text><line x1="60" y1="360" x2="420" y2="360" stroke="#EDF6F7"/><text x="60" y="378" fill="#65797C">COLUMN</text><text x="420" y="378" text-anchor="end" fill="#071112">C18 4.6 × 250 MM</text><line x1="60" y1="386" x2="420" y2="386" stroke="#EDF6F7"/><text x="60" y="404" fill="#65797C">RT (MAIN)</text><text x="420" y="404" text-anchor="end" fill="#071112">13.42 MIN</text><line x1="60" y1="412" x2="420" y2="412" stroke="#EDF6F7"/><text x="60" y="430" fill="#65797C">AREA %</text><text x="420" y="430" text-anchor="end" fill="#071112">99.4</text><line x1="60" y1="438" x2="420" y2="438" stroke="#EDF6F7"/><text x="60" y="456" fill="#65797C">IDENTITY</text><text x="420" y="456" text-anchor="end" fill="#071112">CONFORMS - ESI-MS</text><line x1="60" y1="464" x2="420" y2="464" stroke="#EDF6F7"/><text x="60" y="482" fill="#65797C">TESTED</text><text x="420" y="482" text-anchor="end" fill="#071112">10 SEP 2026</text><line x1="60" y1="490" x2="420" y2="490" stroke="#EDF6F7"/>
+    </g>
+    <g transform="translate(60, 522)">
+      <rect width="120" height="22" rx="3" fill="#EEF7E8" stroke="#CBE4BC"/>
+      <text x="60" y="15" text-anchor="middle" font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#3F7E27">VERIFIED LOT</text>
+    </g>
+  </svg></div></div>
+  </div>
+</section>
+
+<section class="trust" aria-labelledby="trust-heading">
+    <div class="wrap">
+      <h2 id="trust-heading" class="visually-hidden">Why researchers order from Purely Peptides</h2>
+      <div class="trust__grid">
+      <div class="trust__item">
+        <div class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></div>
+        <h3>Batch-specific certificates</h3>
+        <p>Documentation is issued against an individual production lot, not a product line.</p>
+      </div><div class="trust__item">
+        <div class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M8 15l3.5-5 3 3L20 7"/></svg></div>
+        <h3>Analytical testing</h3>
+        <p>Purity by reversed-phase HPLC and identity by mass spectrometry, reported per lot.</p>
+      </div><div class="trust__item">
+        <div class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7h10v9H3z"/><path d="M13 10h4l3 3v3h-7z"/><circle cx="7" cy="18.5" r="1.6"/><circle cx="17" cy="18.5" r="1.6"/></svg></div>
+        <h3>US fulfilment</h3>
+        <p>Orders ship from Massachusetts with tracked handling and cold-chain options.</p>
+      </div><div class="trust__item">
+        <div class="trust__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 3v6.5L4.6 18a2 2 0 0 0 1.7 3h11.4a2 2 0 0 0 1.7-3L14 9.5V3"/><path d="M8.5 3h7M7.5 14h9"/></svg></div>
+        <h3>Research use only</h3>
+        <p>Supplied to laboratories and research organisations for in-vitro investigation.</p>
+      </div>
+    </div></div>
+  </section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+    <div class="section-head__text">
+      <h2>The process, end to end</h2>
+      <p>What happens between a finished production lot and the certificate you can open before ordering.</p>
+    </div>
+    
+  </div>
+    <div class="steps" style="max-width:900px">
+      <div class="step"><span class="step__n">01</span><div><h3>Receive</h3><p>Material arrives from the synthesis facility with its manufacturing record and lot identifier. Nothing is filled or listed before that identifier exists.</p></div></div><div class="step"><span class="step__n">02</span><div><h3>Sample</h3><p>A sample is drawn from the finished, filled lot rather than from bulk material, so the tested material is the material that ships.</p></div></div><div class="step"><span class="step__n">03</span><div><h3>Test</h3><p>Purity by reversed-phase HPLC, identity by electrospray mass spectrometry, appearance by visual inspection against specification.</p></div></div><div class="step"><span class="step__n">04</span><div><h3>Record</h3><p>Results are written to the lot record with the method conditions, the testing laboratory and the date.</p></div></div><div class="step"><span class="step__n">05</span><div><h3>Publish</h3><p>The certificate is published to the library and linked from every product page the lot fills.</p></div></div><div class="step"><span class="step__n">06</span><div><h3>Retain</h3><p>Documents stay searchable after the lot sells out, so an experiment can be traced back years later.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--mist" id="testing">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+    <div class="section-head__text">
+      <h2>What we test for</h2>
+      <p>Three determinations appear on every certificate. Each answers a different question.</p>
+    </div>
+    
+  </div>
+    <div class="grid grid-3">
+      <div class="icard">
+        <span class="label">Purity</span>
+        <h3>Reversed-phase HPLC</h3>
+        <p>Area percent under stated gradient conditions at 220 nm, on a C18 column. Reports how much of the detected material is the main component.</p>
+        <div style="border:1px solid var(--rule);border-radius:var(--r-sm);margin-top:12px;padding:8px;background:var(--paper)" data-graph><svg viewBox="0 0 300 80" role="img" aria-label="Reversed-phase HPLC chromatogram trace" preserveAspectRatio="none">
+    
+    <line x1="0" y1="58" x2="300" y2="58" stroke="#C1C1C1" stroke-width="1"/>
+    <path class="trace" d="M0.0 58.0 L1.3 57.8 L2.5 57.8 L3.8 57.8 L5.0 57.7 L6.3 57.7 L7.5 57.7 L8.8 57.7 L10.0 58.0 L11.3 58.0 L12.5 58.0 L13.7 58.0 L15.0 58.2 L16.3 58.1 L17.5 58.1 L18.8 57.9 L20.0 57.9 L21.3 57.9 L22.5 57.9 L23.8 57.7 L25.0 57.7 L26.3 57.7 L27.5 57.7 L28.8 57.9 L30.0 57.8 L31.3 57.9 L32.5 58.0 L33.8 58.1 L35.0 58.1 L36.3 58.0 L37.5 58.2 L38.8 58.1 L40.0 58.0 L41.3 58.0 L42.5 57.9 L43.8 57.8 L45.0 57.6 L46.3 57.4 L47.5 57.1 L48.8 56.5 L50.0 55.9 L51.3 55.1 L52.5 54.6 L53.8 54.6 L55.0 55.1 L56.3 56.0 L57.5 56.8 L58.8 57.4 L60.0 57.8 L61.3 57.8 L62.5 58.0 L63.8 57.9 L65.0 57.8 L66.3 57.7 L67.5 57.7 L68.8 57.8 L70.0 57.8 L71.3 57.8 L72.5 57.9 L73.8 57.9 L75.0 57.9 L76.3 58.0 L77.5 58.0 L78.8 58.0 L80.0 58.0 L81.3 58.0 L82.5 58.0 L83.8 58.0 L85.0 57.8 L86.3 57.7 L87.5 57.7 L88.8 57.7 L90.0 57.7 L91.2 57.7 L92.5 57.9 L93.8 57.9 L95.0 58.0 L96.3 58.0 L97.5 58.1 L98.8 58.1 L100.0 58.2 L101.3 58.1 L102.5 58.1 L103.8 58.0 L105.0 57.9 L106.3 57.7 L107.5 57.7 L108.8 57.6 L110.0 57.6 L111.3 57.4 L112.5 57.4 L113.8 57.0 L115.0 56.5 L116.3 55.9 L117.5 54.6 L118.8 53.0 L120.0 50.8 L121.3 48.0 L122.5 44.7 L123.8 40.7 L125.0 36.3 L126.3 31.9 L127.5 27.8 L128.8 24.2 L130.0 21.5 L131.3 20.2 L132.5 19.9 L133.8 21.1 L135.0 23.4 L136.3 26.5 L137.5 30.2 L138.8 33.9 L140.0 37.5 L141.3 40.9 L142.5 43.9 L143.8 46.5 L145.0 48.9 L146.3 50.9 L147.5 52.6 L148.8 54.2 L150.0 55.5 L151.3 56.3 L152.5 56.9 L153.8 57.3 L155.0 57.4 L156.3 57.5 L157.5 57.3 L158.8 57.1 L160.0 56.7 L161.3 56.1 L162.5 55.4 L163.7 55.0 L165.0 54.6 L166.3 54.6 L167.5 54.7 L168.8 55.3 L170.0 55.8 L171.3 56.4 L172.5 56.8 L173.8 57.0 L175.0 57.0 L176.3 56.7 L177.5 55.9 L178.8 55.0 L180.0 54.2 L181.3 53.7 L182.5 53.5 L183.8 53.9 L185.0 54.7 L186.3 55.6 L187.5 56.5 L188.8 57.0 L190.0 57.5 L191.3 57.6 L192.5 57.6 L193.8 57.7 L195.0 57.8 L196.3 57.8 L197.5 57.9 L198.8 58.0 L200.0 58.0 L201.2 58.0 L202.5 58.1 L203.8 58.1 L205.0 58.0 L206.3 58.1 L207.5 58.0 L208.8 58.0 L210.0 57.9 L211.3 57.7 L212.5 57.7 L213.8 57.7 L215.0 57.7 L216.3 57.8 L217.5 57.8 L218.8 57.8 L220.0 57.9 L221.3 57.9 L222.5 58.0 L223.8 58.0 L225.0 58.1 L226.3 58.0 L227.5 58.0 L228.8 58.0 L230.0 58.0 L231.3 57.8 L232.5 57.8 L233.8 57.8 L235.0 57.7 L236.3 57.7 L237.5 57.7 L238.7 57.8 L240.0 57.9 L241.3 57.9 L242.5 58.0 L243.8 58.1 L245.0 58.0 L246.3 58.2 L247.5 58.2 L248.8 58.0 L250.0 57.9 L251.3 57.9 L252.5 57.8 L253.8 57.8 L255.0 57.8 L256.3 57.8 L257.5 57.8 L258.8 57.7 L260.0 57.9 L261.3 57.9 L262.5 58.0 L263.8 57.9 L265.0 58.1 L266.3 58.2 L267.5 58.1 L268.8 58.1 L270.0 58.0 L271.3 57.9 L272.5 57.9 L273.8 57.8 L275.0 57.9 L276.3 57.7 L277.5 57.7 L278.8 57.7 L280.0 57.8 L281.3 57.9 L282.5 57.9 L283.8 58.0 L285.0 58.0 L286.3 58.1 L287.5 58.1 L288.8 58.1 L290.0 58.0 L291.3 58.1 L292.5 58.0 L293.8 57.9 L295.0 57.8 L296.3 57.8 L297.5 57.7 L298.8 57.7 L300.0 57.7" fill="none" stroke="#378189" stroke-width="1.4"
+          stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+    
+  </svg></div>
+      </div>
+      <div class="icard">
+        <span class="label">Identity</span>
+        <h3>Electrospray mass spectrometry</h3>
+        <p>Observed mass compared against the calculated mass for the stated sequence. Confirms the main component is the compound on the label.</p>
+      </div>
+      <div class="icard">
+        <span class="label">Appearance</span>
+        <h3>Visual inspection</h3>
+        <p>Colour and physical form checked against specification. Deviations are recorded rather than corrected, because they can indicate a handling issue upstream.</p>
+      </div>
+    </div>
+
+    <div class="notice" style="margin-top:32px;max-width:80ch">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.01"/></svg>
+      <div><strong>What these methods do not establish.</strong> Area-percent purity does not measure net peptide content, water, residual solvents, counterion load or endotoxin. Where a study depends on one of those, request that determination specifically - it is a separate test, not an inference from the purity figure.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="methods">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+    <div class="section-head__text">
+      <h2>Method conditions</h2>
+      <p>Published so a result can be compared like for like against another laboratory.</p>
+    </div>
+    
+  </div>
+    <table class="spec" style="max-width:860px">
+      <tbody>
+        <tr><th scope="row">Instrument class</th><td>Analytical HPLC with UV/DAD detection</td></tr>
+        <tr><th scope="row">Column</th><td class="mono">C18, 4.6 × 250 mm, 5 µm, 100 Å</td></tr>
+        <tr><th scope="row">Mobile phase A</th><td class="mono">Water + 0.1% TFA</td></tr>
+        <tr><th scope="row">Mobile phase B</th><td class="mono">Acetonitrile + 0.1% TFA</td></tr>
+        <tr><th scope="row">Gradient</th><td class="mono">5–65% B over 30 min, sequence dependent</td></tr>
+        <tr><th scope="row">Flow rate</th><td class="mono">1.0 mL/min</td></tr>
+        <tr><th scope="row">Detection</th><td class="mono">220 nm (peptide bond)</td></tr>
+        <tr><th scope="row">Identity method</th><td>ESI-MS, positive ion mode</td></tr>
+        <tr><th scope="row">Purity specification</th><td class="mono">≥ 98.0% area, unless stated otherwise on the product page</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section section--mist" id="labs">
+  <div class="wrap">
+    <div class="qsplit">
+      <div>
+        <span class="eyebrow">Testing laboratories</span>
+        <h2>Independent testing, named on the document</h2>
+        <p class="muted" style="margin-top:16px;max-width:52ch">
+          Analytical work is contracted to independent laboratories, and the laboratory is named on the
+          certificate rather than left implicit. Where testing has been performed in-house, the certificate
+          says so - the distinction matters when you are evaluating the document.
+        </p>
+        <p class="muted" style="margin-top:16px;max-width:52ch">
+          Reports are published as received. We do not re-issue a certificate to present a result differently,
+          and out-of-specification lots are not released.
+        </p>
+        <a class="btn btn--secondary" style="margin-top:24px" href="certificates.html">Browse certificates</a>
+      </div>
+      <div class="qsplit__art" style="aspect-ratio:4/5" data-graph><svg viewBox="0 0 480 600" role="img" aria-label="Analytical worksheet showing a chromatographic trace above a tabulated result set">
+    <rect width="480" height="600" fill="#F6F6F4"/>
+    <rect x="36" y="40" width="408" height="520" fill="#FFFFFF" stroke="#D7D7D7"/>
+    <rect x="36" y="40" width="408" height="7" fill="#378189"/>
+    <g font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#65797C">
+      <text x="60" y="82">ANALYTICAL RECORD</text>
+      <text x="420" y="82" text-anchor="end">BP-260910</text>
+    </g>
+    <line x1="60" y1="96" x2="420" y2="96" stroke="#D7D7D7"/>
+    <g transform="translate(60, 112)">
+      
+    <line x1="0" y1="28" x2="360" y2="28" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="53" x2="360" y2="53" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="77" x2="360" y2="77" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="101" x2="360" y2="101" stroke="#EDF6F7" stroke-width="1"/><line x1="0" y1="126" x2="360" y2="126" stroke="#EDF6F7" stroke-width="1"/><line x1="36" y1="0" x2="36" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="72" y1="0" x2="72" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="108" y1="0" x2="108" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="144" y1="0" x2="144" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="180" y1="0" x2="180" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="216" y1="0" x2="216" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="252" y1="0" x2="252" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="146" stroke="#EDF6F7" stroke-width="1"/><line x1="324" y1="0" x2="324" y2="146" stroke="#EDF6F7" stroke-width="1"/>
+    <line x1="0" y1="146" x2="360" y2="146" stroke="#C1C1C1" stroke-width="1"/>
+    <path class="trace" d="M0.0 145.5 L1.5 145.6 L3.0 145.1 L4.5 145.1 L6.0 145.3 L7.5 145.1 L9.0 145.6 L10.5 145.4 L12.0 145.5 L13.5 145.9 L15.0 146.0 L16.5 146.3 L18.0 146.4 L19.5 146.3 L21.0 146.2 L22.5 145.9 L24.0 145.7 L25.5 145.9 L27.0 145.4 L28.5 145.4 L30.0 145.4 L31.5 145.3 L33.0 145.4 L34.5 145.1 L36.0 145.2 L37.5 145.1 L39.0 144.6 L40.5 144.4 L42.0 143.3 L43.5 142.1 L45.0 140.7 L46.5 139.4 L48.0 138.1 L49.5 136.9 L51.0 136.4 L52.5 136.9 L54.0 137.2 L55.5 138.3 L57.0 139.5 L58.5 140.5 L60.0 139.8 L61.5 137.9 L63.0 135.2 L64.5 133.6 L66.0 134.6 L67.5 138.3 L69.0 142.0 L70.5 144.4 L72.0 145.6 L73.5 146.0 L75.0 145.9 L76.5 145.4 L78.0 145.2 L79.5 145.5 L81.0 145.5 L82.5 145.2 L84.0 145.3 L85.5 145.5 L87.0 145.8 L88.5 146.0 L90.0 145.8 L91.5 145.9 L93.0 146.0 L94.5 146.3 L96.0 146.1 L97.5 146.2 L99.0 146.0 L100.5 145.7 L102.0 145.7 L103.5 145.3 L105.0 145.1 L106.5 145.5 L108.0 145.2 L109.5 145.1 L111.0 145.4 L112.5 145.6 L114.0 145.8 L115.5 146.1 L117.0 146.3 L118.5 146.2 L120.0 146.3 L121.5 146.3 L123.0 145.9 L124.5 146.0 L126.0 145.7 L127.5 145.6 L129.0 145.1 L130.5 144.9 L132.0 144.6 L133.5 144.5 L135.0 143.7 L136.5 143.3 L138.0 141.7 L139.5 139.5 L141.0 135.9 L142.5 130.9 L144.0 124.5 L145.5 116.4 L147.0 105.9 L148.5 94.1 L150.0 81.2 L151.5 68.2 L153.0 55.7 L154.5 45.0 L156.0 37.1 L157.5 32.3 L159.0 31.8 L160.5 35.6 L162.0 43.2 L163.5 53.5 L165.0 66.0 L166.5 78.6 L168.0 91.9 L169.5 103.7 L171.0 114.1 L172.5 122.8 L174.0 129.6 L175.5 134.5 L177.0 138.5 L178.5 141.0 L180.0 142.5 L181.5 143.4 L183.0 144.3 L184.5 144.7 L186.0 144.8 L187.5 144.1 L189.0 142.6 L190.5 138.9 L192.0 135.1 L193.5 131.9 L195.0 131.5 L196.5 134.4 L198.0 138.8 L199.5 142.1 L201.0 144.1 L202.5 145.0 L204.0 145.0 L205.5 145.1 L207.0 145.2 L208.5 145.2 L210.0 145.2 L211.5 145.6 L213.0 145.4 L214.5 145.6 L216.0 146.0 L217.5 146.3 L219.0 146.2 L220.5 146.5 L222.0 146.1 L223.5 146.3 L225.0 145.9 L226.5 145.4 L228.0 145.3 L229.5 145.4 L231.0 145.1 L232.5 144.9 L234.0 145.2 L235.5 145.2 L237.0 145.6 L238.5 145.8 L240.0 145.5 L241.5 145.7 L243.0 145.2 L244.5 144.2 L246.0 143.1 L247.5 141.4 L249.0 139.3 L250.5 137.9 L252.0 136.3 L253.5 136.2 L255.0 136.9 L256.5 138.1 L258.0 140.3 L259.5 142.0 L261.0 143.4 L262.5 144.4 L264.0 145.3 L265.5 145.8 L267.0 146.1 L268.5 146.2 L270.0 146.2 L271.5 146.0 L273.0 146.1 L274.5 146.0 L276.0 145.9 L277.5 145.4 L279.0 145.3 L280.5 145.5 L282.0 145.4 L283.5 145.0 L285.0 145.0 L286.5 145.3 L288.0 144.8 L289.5 144.2 L291.0 143.7 L292.5 142.7 L294.0 142.9 L295.5 143.2 L297.0 144.4 L298.5 145.0 L300.0 145.7 L301.5 145.4 L303.0 145.4 L304.5 145.4 L306.0 145.4 L307.5 145.3 L309.0 145.0 L310.5 145.3 L312.0 145.4 L313.5 145.5 L315.0 145.8 L316.5 146.1 L318.0 146.2 L319.5 146.5 L321.0 146.1 L322.5 146.4 L324.0 146.0 L325.5 146.1 L327.0 145.9 L328.5 145.4 L330.0 145.3 L331.5 145.1 L333.0 145.2 L334.5 145.4 L336.0 145.6 L337.5 145.6 L339.0 145.8 L340.5 145.7 L342.0 145.9 L343.5 146.4 L345.0 146.1 L346.5 146.4 L348.0 146.0 L349.5 145.8 L351.0 145.8 L352.5 145.8 L354.0 145.4 L355.5 145.2 L357.0 145.4 L358.5 145.1 L360.0 145.4" fill="none" stroke="#378189" stroke-width="1.4"
+          stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
+    <text x="0" y="162" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">0 MIN</text>
+     <text x="360" y="162" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">30 MIN</text>
+  
+    </g>
+    <line x1="60" y1="300" x2="420" y2="300" stroke="#071112"/>
+    <g font-family="Noto Sans, sans-serif" font-size="10">
+      <text x="60" y="326" fill="#65797C">METHOD</text><text x="420" y="326" text-anchor="end" fill="#071112">RP-HPLC</text><line x1="60" y1="334" x2="420" y2="334" stroke="#EDF6F7"/><text x="60" y="352" fill="#65797C">DETECTION</text><text x="420" y="352" text-anchor="end" fill="#071112">220 NM</text><line x1="60" y1="360" x2="420" y2="360" stroke="#EDF6F7"/><text x="60" y="378" fill="#65797C">COLUMN</text><text x="420" y="378" text-anchor="end" fill="#071112">C18 4.6 × 250 MM</text><line x1="60" y1="386" x2="420" y2="386" stroke="#EDF6F7"/><text x="60" y="404" fill="#65797C">RT (MAIN)</text><text x="420" y="404" text-anchor="end" fill="#071112">13.42 MIN</text><line x1="60" y1="412" x2="420" y2="412" stroke="#EDF6F7"/><text x="60" y="430" fill="#65797C">AREA %</text><text x="420" y="430" text-anchor="end" fill="#071112">99.4</text><line x1="60" y1="438" x2="420" y2="438" stroke="#EDF6F7"/><text x="60" y="456" fill="#65797C">IDENTITY</text><text x="420" y="456" text-anchor="end" fill="#071112">CONFORMS - ESI-MS</text><line x1="60" y1="464" x2="420" y2="464" stroke="#EDF6F7"/><text x="60" y="482" fill="#65797C">TESTED</text><text x="420" y="482" text-anchor="end" fill="#071112">10 SEP 2026</text><line x1="60" y1="490" x2="420" y2="490" stroke="#EDF6F7"/>
+    </g>
+    <g transform="translate(60, 522)">
+      <rect width="120" height="22" rx="3" fill="#EEF7E8" stroke="#CBE4BC"/>
+      <text x="60" y="15" text-anchor="middle" font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#3F7E27">VERIFIED LOT</text>
+    </g>
+  </svg></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+    <div class="section-head__text">
+      <h2>Questions we get asked</h2>
+      
+    </div>
+    <a class="link-arrow" href="faq.html"><span>All FAQs</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
+  </div>
+    <div style="max-width:840px">
+      <div class="acc">
+    <div class="acc__item">
+      <h3 style="margin:0">
+        <button class="acc__btn" type="button" aria-expanded="true" aria-controls="quality-faq-0" data-acc>
+          Why do two suppliers report different purity for the same peptide?<span class="acc__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="acc__panel" id="quality-faq-0" data-open="true"><div><div class="inner">Because purity is method-dependent. A gradient that co-elutes an impurity with the main peak reports a higher figure than one that resolves it. Compare methods before comparing numbers. <a class="link" href="article-reading-an-hplc-purity-result.html">More on reading a purity result</a>.</div></div></div>
+    </div><div class="acc__item">
+      <h3 style="margin:0">
+        <button class="acc__btn" type="button" aria-expanded="false" aria-controls="quality-faq-1" data-acc>
+          Do you test every lot?<span class="acc__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="acc__panel" id="quality-faq-1" data-open="false"><div><div class="inner">Every lot released for sale carries analytical documentation. Where a lot is pending testing, the product page shows that state rather than displaying another lot's result.</div></div></div>
+    </div><div class="acc__item">
+      <h3 style="margin:0">
+        <button class="acc__btn" type="button" aria-expanded="false" aria-controls="quality-faq-2" data-acc>
+          Can I get documentation for a lot I bought previously?<span class="acc__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="acc__panel" id="quality-faq-2" data-open="false"><div><div class="inner">Yes. Archived lots stay searchable in the <a class="link" href="certificates.html">certificate library</a>, and lots your account has received are listed in your account.</div></div></div>
+    </div><div class="acc__item">
+      <h3 style="margin:0">
+        <button class="acc__btn" type="button" aria-expanded="false" aria-controls="quality-faq-3" data-acc>
+          Do you provide endotoxin or net peptide content data?<span class="acc__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="acc__panel" id="quality-faq-3" data-open="false"><div><div class="inner">Not as standard. Both are separate determinations and can be requested for a specific lot - contact the documentation team before ordering so the testing can be arranged.</div></div></div>
+    </div><div class="acc__item">
+      <h3 style="margin:0">
+        <button class="acc__btn" type="button" aria-expanded="false" aria-controls="quality-faq-4" data-acc>
+          What happens if a lot fails specification?<span class="acc__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="acc__panel" id="quality-faq-4" data-open="false"><div><div class="inner">It is not released. There is no partial release, and results from a previous lot are never presented in its place.</div></div></div>
+    </div>
+  </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer__signup">
+      <div>
+        <h2>Method notes, straight to your inbox</h2>
+        <p>
+          A short monthly note on analytical method, handling and storage, written by the team that
+          runs our testing programme. No promotional mail, and one click to stop it.
+        </p>
+      </div>
+      <a class="btn btn--accent btn--lg" href="contact.html?topic=newsletter">Sign up now</a>
+    </div>
+
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a class="logo" href="index.html">
+          <span class="logo__mark" aria-hidden="true">
+            <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+              <rect width="34" height="34" rx="9" fill="#6DB9C1"/>
+              <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
+                    stroke="#071112" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
+                    stroke="#071112" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
+            </svg>
+          </span>
+          <span class="logo__word">
+            <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+            <span class="logo__sub">Research materials</span>
+          </span>
+        </a>
+        <address class="footer__addr">
+          84 Kendall Court, Suite 300<br>Cambridge, MA 02142<br>United States<br>
+          <a href="mailto:support@purelypeptides.com">support@purelypeptides.com</a><br>
+          <a href="tel:+16175550148">+1 (617) 555-0148</a>
+        </address>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a><a href="https://x.com/" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.5 5.6zm-1.1 16h1.8L7.7 4.9H5.8z"/></svg></a><a href="https://www.youtube.com/" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.78 2 12 2 12s0 3.22.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.22 22 12 22 12s0-3.22-.4-4.8ZM10 15.2V8.8l5.2 3.2z"/></svg></a><a href="https://www.facebook.com/" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a>
+        </div>
+      </div>
+      <nav aria-labelledby="f-products">
+        <h2 id="f-products">Products</h2>
+        <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Products<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="footer__list"><li><a href="products.html">All products</a></li><li><a href="category-research-peptides.html">Research peptides</a></li><li><a href="category-blends.html">Blends</a></li><li><a href="products.html?sort=newest">New materials</a></li></ul>
+      </nav><nav aria-labelledby="f-quality">
+        <h2 id="f-quality">Quality</h2>
+        <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Quality<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="footer__list"><li><a href="certificates.html">Certificates</a></li><li><a href="certificates.html">Batch verification</a></li><li><a href="quality.html#testing">Testing</a></li><li><a href="quality.html">Quality process</a></li></ul>
+      </nav><nav aria-labelledby="f-research">
+        <h2 id="f-research">Research</h2>
+        <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Research<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="footer__list"><li><a href="research.html">Research library</a></li><li><a href="research.html?filter=Methods">Technical resources</a></li><li><a href="applications.html">Applications</a></li><li><a href="faq.html">FAQs</a></li></ul>
+      </nav><nav aria-labelledby="f-ordering">
+        <h2 id="f-ordering">Ordering</h2>
+        <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Ordering<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="footer__list"><li><a href="shipping.html">Shipping</a></li><li><a href="shipping.html#returns">Returns</a></li><li><a href="wholesale.html">Wholesale</a></li><li><a href="orders.html">Order tracking</a></li></ul>
+      </nav><nav aria-labelledby="f-company">
+        <h2 id="f-company">Company</h2>
+        <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Company<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="footer__list"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="research-use-policy.html">Research use policy</a></li></ul>
+      </nav>
+    </div>
+
+    <p class="footer__disclaimer">
+      <strong>Research use only.</strong> All materials supplied by Purely Peptides LLC are intended exclusively for
+      laboratory research and in-vitro investigation by qualified professionals. They are not drugs, foods, cosmetics
+      or medical devices, and are not for human or veterinary use, diagnostic use, or any form of consumption.
+      Nothing on this site is a claim of therapeutic effect. Purchasers are responsible for compliance with all
+      applicable laws and institutional requirements governing the handling and disposal of research materials.
+    </p>
+
+    <div class="footer__legal">
+      <span>© 2026 Purely Peptides LLC. All rights reserved.</span>
+      <span class="row" style="gap:20px">
+        <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="research-use-policy.html">Research use policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-nav" data-mobile-nav data-open="false" role="dialog" aria-modal="true" aria-label="Site menu">
+  <div class="mobile-nav__head">
+    <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+    <button class="iconbtn" type="button" data-mobile-close aria-label="Close menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="mobile-nav__body">
+    <form class="searchbar" action="search.html" method="get" role="search" style="margin-bottom:16px">
+      <span class="searchbar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></span>
+      <label class="visually-hidden" for="m-search">Search</label>
+      <input id="m-search" name="q" type="search" placeholder="Search products, CAS, SKU or lot">
+    </form>
+    
+    <div class="mobile-nav__group">
+      <button class="mobile-nav__trigger" type="button" data-mnav aria-expanded="false">Products<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+           <div class="mobile-nav__panel" data-open="false"><div>
+             <a href="category-research-peptides.html">Research Peptides</a><a href="category-protein-research.html">Protein Research</a><a href="category-metabolic-research.html">Metabolic Research</a><a href="category-cellular-research.html">Cellular Research</a><a href="category-cognitive-research.html">Cognitive Research</a><a href="category-blends.html">Blends</a><a href="products.html">All products</a>
+           </div></div>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <button class="mobile-nav__trigger" type="button" data-mnav aria-expanded="false">Research area<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+           <div class="mobile-nav__panel" data-open="false"><div>
+             <a href="products.html?area=Metabolism">Metabolism</a><a href="products.html?area=Cell%20Signalling">Cell Signalling</a><a href="products.html?area=Cellular%20Repair">Cellular Repair</a><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a><a href="products.html?area=Neuroscience">Neuroscience</a><a href="products.html?area=Endocrine%20Research">Endocrine Research</a>
+           </div></div>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <button class="mobile-nav__trigger" type="button" data-mnav aria-expanded="false">Quality &amp; testing<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+           <div class="mobile-nav__panel" data-open="false"><div>
+             <a href="quality.html">Quality process</a><a href="certificates.html">Certificate library</a><a href="quality.html#testing">Testing standards</a><a href="research-use-policy.html">Research use policy</a>
+           </div></div>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <a class="mobile-nav__trigger" href="research.html">Research library<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="m9 6 6 6-6 6"/></svg></a>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <a class="mobile-nav__trigger" href="applications.html">Applications<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="m9 6 6 6-6 6"/></svg></a>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <a class="mobile-nav__trigger" href="wholesale.html">Wholesale<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="m9 6 6 6-6 6"/></svg></a>
+    </div>
+    
+    <div class="mobile-nav__group">
+      <a class="mobile-nav__trigger" href="contact.html">Support<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14"><path d="m9 6 6 6-6 6"/></svg></a>
+    </div>
+  </div>
+  <div class="mobile-nav__foot">
+    <a class="btn btn--secondary btn--block" href="login.html">Sign in</a>
+    <a class="btn btn--primary btn--block" href="certificates.html">Verify a batch</a>
+  </div>
+</div>
+
+<aside class="cart-drawer" data-cart-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Order summary">
+  <div class="cart-drawer__head">
+    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small">(2 items)</span></h2>
+    <button class="modal__close" type="button" data-cart-close aria-label="Close order summary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <div class="cart-drawer__body">
+    <div class="cart-line">
+      <div class="cart-line__media"><img src="img/prod-b.jpg" alt="BPC-157 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="cart-line__name">BPC-157</div>
+        <div class="cart-line__meta">10 mg · PP-1001 · LOT BP-260910</div>
+        <div class="cart-line__foot">
+          <span class="mono small">Qty 2</span>
+          <span class="mono">$156.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="cart-line">
+      <div class="cart-line__media"><img src="img/prod-a.jpg" alt="GHK-Cu supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
+      <div>
+        <div class="cart-line__name">GHK-Cu</div>
+        <div class="cart-line__meta">50 mg · PP-1003 · LOT GH-260803</div>
+        <div class="cart-line__foot">
+          <span class="mono small">Qty 1</span>
+          <span class="mono">$38.00</span>
+        </div>
+      </div>
+    </div>
+    <div class="notice notice--accent" style="margin-top:24px">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
+      <div>Certificates for both lots are attached to this order and will be available in your account after checkout.</div>
+    </div>
+  </div>
+  <div class="cart-drawer__foot">
+    <div class="trow"><span>Subtotal</span><span class="num">$194.00</span></div>
+    <div class="trow"><span>Shipping</span><span class="num muted">Calculated at checkout</span></div>
+    <a class="btn btn--primary btn--block btn--lg" href="checkout.html" style="margin-top:12px">Proceed to checkout</a>
+    <a class="btn btn--secondary btn--block" href="cart.html" style="margin-top:8px">View full order</a>
+  </div>
+</aside>
+
+<div class="modal-scrim" data-modal="region" data-open="false" role="dialog" aria-modal="true" aria-labelledby="region-title">
+  <div class="modal">
+    <div class="modal__head">
+      <div>
+        <h2 id="region-title" style="font-size:var(--t-h3)">Shipping destination</h2>
+        <p class="small muted" style="margin-top:6px">Shipping rates, tax and availability follow the destination state.</p>
+      </div>
+      <button class="modal__close" type="button" data-modal-close aria-label="Close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+    </div>
+    <div class="modal__body">
+      <div class="grid grid-2" style="gap:0 24px">
+        <label class="check">
+              <input type="radio" name="region" value="MA" data-region-set>
+              <span>Massachusetts<span class="check__count">MA</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="TX" data-region-set>
+              <span>Texas<span class="check__count">TX</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="FL" data-region-set>
+              <span>Florida<span class="check__count">FL</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="IL" data-region-set>
+              <span>Illinois<span class="check__count">IL</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="CA" data-region-set>
+              <span>California<span class="check__count">Restricted</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="NY" data-region-set>
+              <span>New York<span class="check__count">Restricted</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="LA" data-region-set>
+              <span>Louisiana<span class="check__count">Restricted</span></span>
+            </label><label class="check">
+              <input type="radio" name="region" value="WA" data-region-set>
+              <span>Washington<span class="check__count">WA</span></span>
+            </label>
+      </div>
+      <div class="notice" style="margin-top:16px">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.01"/></svg>
+        <div>Three states currently restrict shipment of these materials: <strong>California, New York and Louisiana</strong>. Selecting one of them blocks checkout rather than failing after payment.</div>
+      </div>
+    </div>
+    <div class="modal__foot">
+      <button class="btn btn--secondary" type="button" data-modal-close>Cancel</button>
+      <button class="btn btn--primary" type="button" data-modal-close>Save region</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-region" data-toasts aria-live="polite" aria-atomic="false"></div>
+
+<!-- Age + intended-use gate. Rendered hidden and revealed by script, so it
+     never blocks a crawler or a no-JS reader from the content behind it -
+     it is a declaration of intent, not a security control, and pretending
+     otherwise would be the wrong kind of theatre. -->
+<div class="agegate" data-agegate hidden role="dialog" aria-modal="true" aria-labelledby="agegate-title">
+  <div class="agegate__card">
+    <span class="agegate__mark" aria-hidden="true">
+      <svg width="40" height="40" viewBox="0 0 34 34" fill="none">
+        <rect width="34" height="34" rx="9" fill="#378189"/>
+        <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
+              stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+    <span class="eyebrow">Before you continue</span>
+    <h2 id="agegate-title">Laboratory research use only</h2>
+    <p>
+      Purely Peptides LLC supplies materials for in-vitro laboratory research by qualified
+      professionals. Nothing on this site is a drug, food, cosmetic or medical device, and nothing
+      here is for human or veterinary use, diagnostic use, or consumption of any kind.
+    </p>
+    <ul class="agegate__list">
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am 18 years of age or older</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am purchasing for laboratory research purposes</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I will not administer these materials to humans or animals</li>
+    </ul>
+    <div class="agegate__actions">
+      <button class="btn btn--primary btn--lg" type="button" data-agegate-accept>I confirm - enter the site</button>
+      <a class="btn btn--secondary btn--lg" href="https://www.nih.gov/" rel="noopener">I do not confirm</a>
+    </div>
+    <p class="agegate__fine">
+      Your confirmation is stored in this browser so you are not asked again. See our
+      <a class="link" href="research-use-policy.html">research use policy</a> and
+      <a class="link" href="terms.html">terms</a>.
+    </p>
+  </div>
+</div>
+<script src="js/script.js" defer></script>
+</body>
+</html>
