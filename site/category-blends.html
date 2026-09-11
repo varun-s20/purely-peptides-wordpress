@@ -41,7 +41,7 @@
         <span class="utility__sep"></span>
         <a href="orders.html">Orders</a>
         <span class="utility__sep"></span>
-        <a href="account.html#wishlist">Wishlist</a>
+        <a href="account.html#wishlist">Wishlist <span class="utility__badge" data-wish-count hidden>0</span></a>
         <span class="utility__sep"></span>
         <a href="login.html">Sign in</a>
       </div>
@@ -87,8 +87,8 @@
       </button>
       <a class="iconbtn" href="account.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v1"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
       <a class="iconbtn iconbtn--optional" href="products.html#quick-order"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span>Quick order</span></a>
-      <button class="iconbtn" type="button" data-cart-open aria-label="Open cart, 2 items">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg><span>Cart</span><span class="iconbtn__badge" data-cart-count>2</span>
+      <button class="iconbtn" type="button" data-cart-open aria-label="Open your order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg><span>Cart</span><span class="iconbtn__badge" data-cart-count hidden>0</span>
       </button>
     </div>
   </div>
@@ -208,79 +208,79 @@
     <div class="filters__inner">
       <div class="filters__head">
         <h2>Filters</h2>
-        <button class="btn-text" type="button">Clear all</button>
+        <button class="btn-text" type="button" data-filters-clear>Clear all</button>
         <button class="modal__close filters__close" type="button" data-filters-close aria-label="Close filters"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
-      <div class="fgroup">
+      <div class="fgroup" data-facet="cat">
     <button class="fgroup__btn" type="button" aria-expanded="true" data-fgroup>
       Category<span class="acc__icon" aria-hidden="true"></span>
     </button>
     <div class="fgroup__panel" data-open="true"><div><div class="inner">
       <label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="cat" value="research-peptides">
         <span>Research Peptides<span class="check__count">3</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="cat" value="protein-research">
         <span>Protein Research<span class="check__count">4</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="cat" value="metabolic-research">
         <span>Metabolic Research<span class="check__count">4</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="cat" value="cellular-research">
         <span>Cellular Research<span class="check__count">5</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="cat" value="cognitive-research">
         <span>Cognitive Research<span class="check__count">2</span></span>
       </label><label class="check">
-        <input type="checkbox" checked>
+        <input type="checkbox" checked data-filter="cat" value="blends">
         <span>Blends<span class="check__count">2</span></span>
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" data-facet="area">
     <button class="fgroup__btn" type="button" aria-expanded="true" data-fgroup>
       Research area<span class="acc__icon" aria-hidden="true"></span>
     </button>
     <div class="fgroup__panel" data-open="true"><div><div class="inner">
       <label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Metabolism">
         <span>Metabolism<span class="check__count">3</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Cell Signalling">
         <span>Cell Signalling<span class="check__count">2</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Cellular Repair">
         <span>Cellular Repair<span class="check__count">4</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Inflammatory Research">
         <span>Inflammatory Research<span class="check__count">3</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Neuroscience">
         <span>Neuroscience<span class="check__count">3</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="area" value="Endocrine Research">
         <span>Endocrine Research<span class="check__count">5</span></span>
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" data-facet="form">
     <button class="fgroup__btn" type="button" aria-expanded="true" data-fgroup>
       Form<span class="acc__icon" aria-hidden="true"></span>
     </button>
     <div class="fgroup__panel" data-open="true"><div><div class="inner">
       <label class="check">
-        <input type="checkbox">
-        <span>Lyophilised powder<span class="check__count">19</span></span>
+        <input type="checkbox" data-filter="form" value="Lyophilised powder">
+        <span>Lyophilised powder<span class="check__count">20</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="form" value="Solution">
         <span>Solution<span class="check__count">0</span></span>
       </label><label class="check">
-        <input type="checkbox">
-        <span>Blend<span class="check__count">2</span></span>
+        <input type="checkbox" data-filter="form" value="Blend">
+        <span>Blend<span class="check__count">0</span></span>
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" >
     <button class="fgroup__btn" type="button" aria-expanded="false" data-fgroup>
       Available size<span class="acc__icon" aria-hidden="true"></span>
     </button>
@@ -303,24 +303,24 @@
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" data-facet="stock">
     <button class="fgroup__btn" type="button" aria-expanded="false" data-fgroup>
       Availability<span class="acc__icon" aria-hidden="true"></span>
     </button>
     <div class="fgroup__panel" data-open="false"><div><div class="inner">
       <label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="stock" value="in-stock">
         <span>In stock<span class="check__count">17</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="stock" value="low-stock">
         <span>Low stock<span class="check__count">2</span></span>
       </label><label class="check">
-        <input type="checkbox">
+        <input type="checkbox" data-filter="stock" value="out-of-stock">
         <span>Backorder<span class="check__count">1</span></span>
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" >
     <button class="fgroup__btn" type="button" aria-expanded="false" data-fgroup>
       Documentation<span class="acc__icon" aria-hidden="true"></span>
     </button>
@@ -337,7 +337,7 @@
       </label>
     </div></div></div>
   </div>
-      <div class="fgroup">
+      <div class="fgroup" >
     <button class="fgroup__btn" type="button" aria-expanded="false" data-fgroup>
       Product type<span class="acc__icon" aria-hidden="true"></span>
     </button>
@@ -356,7 +356,7 @@
   </div>
       <div class="filters__apply">
         <button class="btn btn--secondary" type="button" data-filters-close>Cancel</button>
-        <button class="btn btn--primary" style="flex:1" type="button" data-filters-close>Show 20 products</button>
+        <button class="btn btn--primary" style="flex:1" type="button" data-filters-close data-filters-apply>Show all products</button>
       </div>
     </div>
   </aside>
@@ -367,18 +367,18 @@
       <form class="searchbar" style="flex:1;max-width:340px" action="search.html" method="get" role="search">
         <span class="searchbar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg></span>
         <label class="visually-hidden" for="within">Search within results</label>
-        <input id="within" name="q" type="search" placeholder="Search within blends">
+        <input id="within" name="q" type="search" data-within autocomplete="off" placeholder="Search within blends">
       </form>
     </div>
     <div class="toolbar__right">
-      <span class="results-count">2 results</span>
+      <span class="results-count" data-results-count>2 results</span>
       <label class="visually-hidden" for="sort">Sort products</label>
-      <select class="select" id="sort" style="width:auto;min-width:170px">
-        <option>Sort: Featured</option>
-        <option>Name A–Z</option>
-        <option>Newest first</option>
-        <option>Price, low to high</option>
-        <option>Price, high to low</option>
+      <select class="select" id="sort" data-sort style="width:auto;min-width:170px">
+        <option value="featured">Sort: Featured</option>
+        <option value="name">Name A–Z</option>
+        <option value="newest">Newest first</option>
+        <option value="price-asc">Price, low to high</option>
+        <option value="price-desc">Price, high to low</option>
       </select>
       <div class="viewtoggle" role="group" aria-label="Result layout">
         <button type="button" aria-pressed="true" data-view="grid" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="16" height="16"><rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/></svg></button>
@@ -387,10 +387,26 @@
     </div>
   </div>
     
+  <div class="empty" data-results-empty hidden style="margin-top:24px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.6-3.6"/></svg>
+    <h3>No products match these filters</h3>
+    <p>Clear a filter or widen the search. If a compound is not listed, we will confirm whether it can be sourced.</p>
+    <div class="row" style="justify-content:center;gap:10px">
+      <button class="btn btn--secondary" type="button" data-filters-clear>Clear all filters</button>
+      <a class="btn btn--primary" href="contact.html?topic=product">Request a material</a>
+    </div>
+  </div>
   <div data-results-grid>
-    <div class="product-grid"><article class="pcard">
+    <div class="product-grid"><article class="pcard" data-slug="repair-blend-r2" data-cat="blends" data-area="Cellular Repair" data-form="Lyophilised powder" data-stock="in-stock" data-price="118" data-name="Repair Blend R-2" data-sku="PP-2001" data-cas="Mixture - see components" data-added="2026-04-18" data-sizes="10 mg">
     <div class="pcard__media"><img src="img/prod-c.jpg" alt="Repair Blend R-2 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="repair-blend-r2">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="repair-blend-r2" data-wish-label="Repair Blend R-2" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="repair-blend-r2" data-name="Repair Blend R-2"
+                >
+          Add to order
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Blends</span>
@@ -405,9 +421,16 @@
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard">
+  </article><article class="pcard" data-slug="metabolic-blend-m1" data-cat="blends" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="138" data-name="Metabolic Blend M-1" data-sku="PP-2002" data-cas="Mixture - see components" data-added="2026-04-18" data-sizes="10 mg">
     <div class="pcard__media"><img src="img/prod-a.jpg" alt="Metabolic Blend M-1 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="metabolic-blend-m1">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="metabolic-blend-m1" data-wish-label="Metabolic Blend M-1" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="metabolic-blend-m1" data-name="Metabolic Blend M-1"
+                >
+          Add to order
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Blends</span>
@@ -425,7 +448,7 @@
   </article></div>
   </div>
   <div data-results-list hidden style="padding-top:8px">
-    <article class="prow">
+    <article class="prow" data-slug="repair-blend-r2" data-cat="blends" data-area="Cellular Repair" data-form="Lyophilised powder" data-stock="in-stock" data-price="118" data-name="Repair Blend R-2" data-sku="PP-2001" data-cas="Mixture - see components" data-added="2026-04-18" data-sizes="10 mg">
     <div class="prow__media"><img src="img/prod-c.jpg" alt="Repair Blend R-2 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
     <div class="prow__head">
       <h3 class="prow__name"><a href="product-repair-blend-r2.html">Repair Blend R-2</a></h3>
@@ -439,9 +462,13 @@
     </div>
     <div class="prow__buy">
       <span class="pcard__price">$118.00<small>/ 10 mg</small></span>
-      <a class="btn btn--secondary btn--sm" href="product-repair-blend-r2.html">View product</a>
+      <div class="row" style="gap:6px;flex-wrap:nowrap">
+        <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick
+                data-slug="repair-blend-r2" data-name="Repair Blend R-2" >Add</button>
+        <a class="btn btn--secondary btn--sm" href="product-repair-blend-r2.html">View</a>
+      </div>
     </div>
-  </article><article class="prow">
+  </article><article class="prow" data-slug="metabolic-blend-m1" data-cat="blends" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="138" data-name="Metabolic Blend M-1" data-sku="PP-2002" data-cas="Mixture - see components" data-added="2026-04-18" data-sizes="10 mg">
     <div class="prow__media"><img src="img/prod-a.jpg" alt="Metabolic Blend M-1 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
     <div class="prow__head">
       <h3 class="prow__name"><a href="product-metabolic-blend-m1.html">Metabolic Blend M-1</a></h3>
@@ -455,7 +482,11 @@
     </div>
     <div class="prow__buy">
       <span class="pcard__price">$138.00<small>/ 10 mg</small></span>
-      <a class="btn btn--secondary btn--sm" href="product-metabolic-blend-m1.html">View product</a>
+      <div class="row" style="gap:6px;flex-wrap:nowrap">
+        <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick
+                data-slug="metabolic-blend-m1" data-name="Metabolic Blend M-1" >Add</button>
+        <a class="btn btn--secondary btn--sm" href="product-metabolic-blend-m1.html">View</a>
+      </div>
     </div>
   </article>
   </div>
@@ -631,41 +662,28 @@
 
 <aside class="cart-drawer" data-cart-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Order summary">
   <div class="cart-drawer__head">
-    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small">(2 items)</span></h2>
+    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small" data-cart-countword>(0 items)</span></h2>
     <button class="modal__close" type="button" data-cart-close aria-label="Close order summary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="cart-drawer__body">
-    <div class="cart-line">
-      <div class="cart-line__media"><img src="img/prod-b.jpg" alt="BPC-157 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
-      <div>
-        <div class="cart-line__name">BPC-157</div>
-        <div class="cart-line__meta">10 mg · PP-1001 · LOT BP-260910</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 2</span>
-          <span class="mono">$156.00</span>
-        </div>
-      </div>
+    <div data-cart-lines></div>
+
+    <div class="empty" data-cart-empty hidden>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg>
+      <h3>Your order is empty</h3>
+      <p>Materials you add will appear here, with the certificate for the lot that ships.</p>
+      <a class="btn btn--secondary" href="products.html">Browse the catalogue</a>
     </div>
-    <div class="cart-line">
-      <div class="cart-line__media"><img src="img/prod-a.jpg" alt="GHK-Cu supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
-      <div>
-        <div class="cart-line__name">GHK-Cu</div>
-        <div class="cart-line__meta">50 mg · PP-1003 · LOT GH-260803</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 1</span>
-          <span class="mono">$38.00</span>
-        </div>
-      </div>
-    </div>
-    <div class="notice notice--accent" style="margin-top:24px">
+
+    <div class="notice notice--accent" data-cart-docnote hidden style="margin-top:24px">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
-      <div>Certificates for both lots are attached to this order and will be available in your account after checkout.</div>
+      <div>Certificates for every lot in this order are attached and will be available in your account after checkout.</div>
     </div>
   </div>
   <div class="cart-drawer__foot">
-    <div class="trow"><span>Subtotal</span><span class="num">$194.00</span></div>
+    <div class="trow"><span>Subtotal</span><span class="num" data-cart-subtotal>$0.00</span></div>
     <div class="trow"><span>Shipping</span><span class="num muted">Calculated at checkout</span></div>
-    <a class="btn btn--primary btn--block btn--lg" href="checkout.html" style="margin-top:12px">Proceed to checkout</a>
+    <a class="btn btn--primary btn--block btn--lg" href="checkout.html" style="margin-top:12px" data-cart-checkout data-region-gated>Proceed to checkout</a>
     <a class="btn btn--secondary btn--block" href="cart.html" style="margin-top:8px">View full order</a>
   </div>
 </aside>
@@ -757,6 +775,10 @@
     </p>
   </div>
 </div>
+<script src="js/catalogue.js" defer></script>
+<script src="js/store.js" defer></script>
 <script src="js/script.js" defer></script>
+<script src="js/catalog.js" defer></script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>

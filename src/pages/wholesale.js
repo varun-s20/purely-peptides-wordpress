@@ -128,7 +128,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
     <li class="stepper__step" data-state="todo"><span class="stepper__n">4</span><span class="stepper__label">Review</span></li>
   </ol>
 
-  <form novalidate>
+  <form data-validate data-success="Application received. A confirmation has been sent to your email.">
     <fieldset class="fieldset">
       <legend>Organisation</legend>
       <div class="form-grid">
@@ -200,8 +200,8 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
     <div class="row" style="justify-content:space-between;gap:12px">
       <button class="btn btn--secondary" type="button">Back</button>
       <div class="row" style="gap:12px">
-        <button class="btn btn--ghost" type="button" data-toast="Application saved. Return any time from the link in your email.">Save and finish later</button>
-        <button class="btn btn--primary btn--lg" type="button" data-toast="Application received. A confirmation has been sent to your email.">Submit application</button>
+        <button class="btn btn--ghost" type="submit" formnovalidate data-toast="Application saved. Return any time from the link in your email.">Save and finish later</button>
+        <button class="btn btn--primary btn--lg" type="submit">Submit application</button>
       </div>
     </div>
   </form>

@@ -52,37 +52,20 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Order' }])}
 <div class="pagehead">
   <div class="wrap">
     <h1>Your order</h1>
-    <p>${LINES.length} materials · ${LINES.reduce((s, l) => s + l.qty, 0)} vials. Documentation for each lot is attached automatically.</p>
+    <p data-cart-summaryline>Documentation for each lot is attached automatically.</p>
   </div>
 </div>
 
 <div class="wrap cart">
   <div>
-    ${LINES.map(
-      (l) => `<div class="cart-row">
-      <div class="cart-row__media">${productShot(l.sku, l.name)}</div>
-      <div>
-        <h2 style="font-size:var(--t-h4)"><a href="/products/${l.slug}/" style="text-decoration:none">${esc(l.name)}</a></h2>
-        <div class="pcard__meta" style="margin-top:8px">
-          <span>${esc(l.sku)}</span><span>${esc(l.size)} vial</span><span>Lot ${esc(l.lot)}</span>
-        </div>
-        <div class="row" style="gap:6px;margin-top:10px">
-          <span class="status status--ok">${icons.check}In stock</span>
-          <span class="status status--flat">${icons.doc}COA attached</span>
-        </div>
-        ${l.qty >= 2 ? `<div class="volume-note">${icons.info}Order 10 or more vials of this size for volume pricing</div>` : ''}
-      </div>
-      <div class="cart-row__actions">
-        <div class="qty" data-qty>
-          <button type="button" aria-label="Decrease quantity of ${esc(l.name)}" data-step="-1">−</button>
-          <input type="number" value="${l.qty}" min="1" aria-label="Quantity of ${esc(l.name)}">
-          <button type="button" aria-label="Increase quantity of ${esc(l.name)}" data-step="1">+</button>
-        </div>
-        <span class="cart-row__price">${money(l.qty * l.unit)}</span>
-        <button class="btn-text" type="button" data-toast="${esc(l.name)} removed from your order">Remove</button>
-      </div>
-    </div>`
-    ).join('')}
+    <div data-cart-rows></div>
+
+    <div class="empty" data-cart-empty hidden>
+      ${icons.cart}
+      <h3>Your order is empty</h3>
+      <p>Nothing has been added yet. Every material you add arrives with the analytical record for the lot that ships.</p>
+      <a class="btn btn--primary" href="/products/">Browse the catalogue</a>
+    </div>
 
     <div class="row" style="justify-content:space-between;margin-top:24px">
       <a class="link-arrow" href="/products/">${icons.arrow}<span>Continue browsing the catalogue</span></a>
@@ -140,7 +123,27 @@ function checkout() {
   </div>
 </div>
 
-<form class="wrap checkout" novalidate>
+<div class="empty" data-order-placed hidden style="max-width:560px;margin:64px auto">
+  ${icons.checkCircle}
+  <h3>Order placed</h3>
+  <p>A confirmation is on its way to your email. The certificate of analysis for every lot in this
+  order is already in your account, and tracking follows when the parcel is scanned.</p>
+  <div class="row" style="justify-content:center;gap:10px">
+    <a class="btn btn--primary" href="/orders/">View your orders</a>
+    <a class="btn btn--secondary" href="/products/">Continue browsing</a>
+  </div>
+</div>
+
+<div class="empty" data-checkout-empty hidden style="max-width:520px;margin:64px auto">
+  ${icons.cart}
+  <h3>There is nothing to check out</h3>
+  <p>Your order is empty. Add a material and its documentation follows it through to delivery.</p>
+  <a class="btn btn--primary" href="/products/">Browse the catalogue</a>
+</div>
+
+<form class="wrap checkout" data-checkout-form data-validate
+      data-success="Order placed. Confirmation sent to your email."
+      data-success-action="clear-cart">
   <div>
     <fieldset class="fieldset">
       <legend>Contact</legend>
@@ -192,10 +195,10 @@ function checkout() {
           <span class="field__hint">Used by the courier for delivery only.</span>
         </label>
       </div>
-      <div class="field field--error">
-        <label class="field__label" for="delivery-note">Delivery instructions</label>
-        <input class="input" id="delivery-note" value="Leave with reception" aria-describedby="err-1" aria-invalid="true">
-        <span class="field__error" id="err-1">${icons.alert} Cold-chain orders must be received in person. Remove this instruction or select standard shipping.</span>
+      <div class="field">
+        <label class="field__label" for="delivery-note">Delivery instructions <span class="field__opt">(optional)</span></label>
+        <input class="input" id="delivery-note" placeholder="Loading bay, room number, receiving hours">
+        <span class="field__hint">Cold-chain orders must be signed for; instructions to leave a parcel unattended cannot be followed.</span>
       </div>
     </fieldset>
 
@@ -244,24 +247,13 @@ function checkout() {
       </div>
     </fieldset>
 
-    <button class="btn btn--primary btn--lg btn--block" type="button" data-region-gated data-toast="Order placed. Confirmation sent to your email.">Place order - <span data-sum-total>${money(total)}</span></button>
+    <button class="btn btn--primary btn--lg btn--block" type="submit" data-region-gated>Place order - <span data-sum-total>${money(total)}</span></button>
     <p class="small muted center" style="margin-top:16px">You will receive an order confirmation by email. Certificates for each lot appear in your account once the order is despatched.</p>
   </div>
 
   <aside class="checkout__summary">
     <h2>Order summary</h2>
-    <div class="checkout__lines">
-      ${LINES.map(
-        (l) => `<div class="cart-line">
-        <div class="cart-line__media">${productShot(l.sku, l.name)}</div>
-        <div>
-          <div class="cart-line__name">${esc(l.name)}</div>
-          <div class="cart-line__meta">${esc(l.size)} · ${esc(l.sku)}<br>Lot ${esc(l.lot)}</div>
-          <div class="cart-line__foot"><span class="mono small">Qty ${l.qty}</span><span class="mono">${money(l.qty * l.unit)}</span></div>
-        </div>
-      </div>`
-      ).join('')}
-    </div>
+    <div class="checkout__lines" data-checkout-lines></div>
     <div class="checkout__totals">
       ${shipNote}
       <div class="trow"><span>Subtotal</span><span class="num" data-sum-subtotal>${money(subtotal)}</span></div>

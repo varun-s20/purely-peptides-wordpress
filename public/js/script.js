@@ -291,6 +291,8 @@
   /* --------------------------------------------------------------- toasts */
 
   var toastRegion = $('[data-toasts]');
+  window.PP = window.PP || {};
+
   function toast(message) {
     if (!toastRegion) return;
     var el = document.createElement('div');
@@ -305,20 +307,14 @@
     el.querySelector('.toast__close').addEventListener('click', remove);
   }
 
+  // store.js has no toast of its own; this is the bridge.
+  window.PP.toast = toast;
+
   $$('[data-toast]').forEach(function (b) {
     b.addEventListener('click', function () { toast(b.getAttribute('data-toast')); });
   });
 
-  $$('[data-add-to-order]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var name = b.getAttribute('data-name') || 'Item';
-      var qtyInput = $('#qty');
-      var qty = qtyInput ? parseInt(qtyInput.value, 10) || 1 : 1;
-      var badge = $('[data-cart-count]');
-      if (badge) badge.textContent = String((parseInt(badge.textContent, 10) || 0) + qty);
-      toast(name + ' added to your order (' + qty + ')');
-    });
-  });
+  /* Cart and wishlist behaviour live in store.js, which owns the state. */
 
   $$('[data-quickview]').forEach(function (b) {
     b.addEventListener('click', function (e) {
@@ -649,7 +645,11 @@
     var r = REGIONS[code] || REGIONS.MA;
     var subEl = $('[data-sum-subtotal]');
     if (!subEl) return;
-    var sub = parseFloat(subEl.textContent.replace(/[^0-9.]/g, '')) || 0;
+    // The live cart is the authority; the rendered figure is only a fallback
+    // for the split second before store.js has run.
+    var sub = (window.PP && window.PP.subtotal) ? window.PP.subtotal()
+      : parseFloat(subEl.textContent.replace(/[^0-9.]/g, '')) || 0;
+    subEl.textContent = money(sub);
     var ship = sub >= FREE_SHIP_OVER ? 0 : r.ship;
     var tax = +(sub * r.tax).toFixed(2);
     var total = sub + ship + COLD_PACK + tax;
@@ -693,6 +693,9 @@
     if (input.value === currentRegion()) input.checked = true;
   });
   applyRegion();
+  // Totals depend on the cart as well as the destination, so a cart change
+  // has to re-run the same calculation.
+  window.PP.onCartChange = function () { applyRegion(); };
 
   /* ------------------------------------------------------- graph draw-on */
 
@@ -791,6 +794,100 @@
       else if (!calm.matches) { var q = heroVideo.play(); if (q && q.catch) q.catch(function () {}); }
     });
   }
+
+
+  /* ------------------------------------------------------- account actions
+
+     Reorder restores a past order into the live cart. The subscription
+     controls change the card they belong to rather than only announcing a
+     change - a button that claims something happened and leaves the screen
+     identical is worse than no button. */
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest) return;
+
+    var ro = e.target.closest('[data-reorder]');
+    if (ro && window.PP && window.PP.addToCart) {
+      var lines;
+      try { lines = JSON.parse(ro.getAttribute('data-reorder')); } catch (err) { lines = []; }
+      var added = 0;
+      lines.forEach(function (l) {
+        window.PP.addToCart({ slug: l.slug, size: l.size, qty: l.qty, mode: 'once', freq: null });
+        added += l.qty;
+      });
+      toast(added
+        ? 'Order ' + ro.getAttribute('data-order') + ' added to your order (' + added + (added === 1 ? ' vial)' : ' vials)')
+        : 'Nothing from that order is still available');
+      return;
+    }
+
+    var card = e.target.closest('.sub');
+    if (!card) return;
+
+    function weeksOut(n) {
+      var d = new Date();
+      d.setDate(d.getDate() + n * 7);
+      return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+    function reprice() {
+      var qty = parseInt($('[data-sub-qtyval]', card).textContent, 10) || 1;
+      var unit = parseFloat($('[data-sub-price]', card).getAttribute('data-unit')) || 0;
+      var tiers = (window.PP && window.PP.VOLUME_TIERS) || [];
+      var rate = 0;
+      tiers.forEach(function (t) { if (qty >= t.min && qty <= t.max) rate = t.rate; });
+      var sub = (window.PP && window.PP.SUB_RATE) || 0.1;
+      $('[data-sub-price]', card).textContent = money(unit * qty * (1 - rate) * (1 - sub));
+    }
+
+    if (e.target.closest('[data-sub-skip]')) {
+      var weeks = parseInt($('[data-sub-next]', card).getAttribute('data-sub-weeks'), 10) || 8;
+      $('[data-sub-next]', card).textContent = weeksOut(weeks * 2);
+      toast('Next delivery skipped. The one after it is unchanged.');
+      return;
+    }
+
+    if (e.target.closest('[data-sub-qty]')) {
+      var el = $('[data-sub-qtyval]', card);
+      var current = parseInt(el.textContent, 10) || 1;
+      var next = window.prompt('Vials per delivery', String(current));
+      if (next === null) return;
+      var n = Math.max(1, Math.min(999, parseInt(next, 10) || current));
+      el.textContent = String(n);
+      reprice();
+      toast('Quantity updated to ' + n + '. Volume pricing recalculated.');
+      return;
+    }
+
+    if (e.target.closest('[data-sub-toggle]')) {
+      var btn = e.target.closest('[data-sub-toggle]');
+      var paused = card.getAttribute('data-state') === 'paused';
+      card.setAttribute('data-state', paused ? 'active' : 'paused');
+      btn.textContent = paused ? 'Pause' : 'Resume';
+      var status = $('.status', card);
+      if (status) {
+        status.className = 'status status--' + (paused ? 'ok' : 'warn');
+        status.lastChild.textContent = paused ? 'Active' : 'Paused';
+      }
+      var label = $('[data-sub-nextlabel]', card);
+      if (label) label.textContent = paused ? 'Next delivery' : 'Resumes';
+      toast(paused ? 'Subscription resumed.' : 'Subscription paused. Resume any time.');
+      return;
+    }
+
+    if (e.target.closest('[data-sub-cancel]')) {
+      if (!window.confirm('Cancel this subscription? No further deliveries will be sent.')) return;
+      card.style.transition = 'opacity 200ms var(--ease-out)';
+      card.style.opacity = '0';
+      setTimeout(function () {
+        card.remove();
+        var host = $('.subs');
+        if (host && !host.children.length) {
+          host.innerHTML = '<p class="muted small">No active subscriptions. Subscribe &amp; Save is offered on every product page.</p>';
+        }
+      }, 210);
+      toast('Subscription cancelled. No further deliveries will be sent.');
+    }
+  });
 
   /* ------------------------------------------------------- sticky header */
 

@@ -65,7 +65,13 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Certificates' }])}
       <button class="btn btn--secondary btn--sm" type="button" data-toast="Preparing a CSV of ${lots.length} records">${icons.download} Export list</button>
     </div>
 
-    <table class="dtable dtable--zebra dtable--stack">
+    <p class="small muted" data-coa-count hidden style="margin-bottom:12px"></p>
+      <div class="empty" data-coa-empty hidden style="margin:24px 0">
+        ${icons.doc}
+        <h3>No records match that search</h3>
+        <p>Check the lot number printed on the vial label, or search by product name instead.</p>
+      </div>
+      <table class="dtable dtable--zebra dtable--stack">
       <caption>Certificates are issued per production lot. Purity is reported as chromatographic area percent.</caption>
       <thead>
         <tr><th>Product</th><th>Lot</th><th>Size</th><th>Test date</th><th>Purity</th><th>Status</th><th>Certificate</th></tr>

@@ -187,6 +187,27 @@ without JavaScript nothing can be left permanently hidden. Under `prefers-reduce
 travel and scale go away but colour and opacity transitions stay - reduced motion means gentler,
 not mute.
 
+**State.** Cart and wishlist are real, and live in `localStorage` - there is no server, so that is
+the whole persistence layer. `public/js/store.js` owns them: one source of truth, one render pass,
+and the DOM is never the state. Every surface (badge, drawer, cart page, checkout, account
+wishlist) renders from it, and a `storage` listener keeps two open tabs in step.
+
+A cart line is identified by slug + size + purchase mode + frequency, so the same product bought
+once and bought on subscription are two lines rather than one ambiguous one. Adding the same line
+twice merges the quantity.
+
+`build.js` emits `site/js/catalogue.js` from the same `src/data.js` the pages use, so the cart can
+render a product the current page never server-rendered. Image and link paths are resolved **at
+build time** and baked into that file - anything built in the browser misses the link rewriter and
+404s on a flat file-system copy.
+
+**Catalogue logic.** Filters, sort, search-within and quick order are in `public/js/catalog.js`.
+Every product is already in the DOM, so filtering hides rows rather than fetching: the facts each
+filter needs (`data-cat`, `data-area`, `data-form`, `data-stock`, `data-price`, `data-added`) sit
+on the card. Checkboxes OR within a facet and AND across facets. Quick order validates each pasted
+line against the catalogue and reports failures per line, because a paste of twenty lines with one
+typo should say which line.
+
 **Commerce surface.** Subscribe & Save sits on every product page: the volume tier and the
 subscription discount stack, and the panel prints the arithmetic (list → volume → subscription →
 per delivery) rather than a blended number the buyer has to trust. Subscriptions are managed from

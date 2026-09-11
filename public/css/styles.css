@@ -762,15 +762,20 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
 }
 .pcard__media svg { width: 100%; height: 100%; }
 .pcard__quick {
+  z-index: 3;
   position: absolute; inset-inline: 12px; bottom: 12px;
   opacity: 0; transform: translateY(6px);
   transition: opacity var(--base) var(--ease), transform var(--base) var(--ease);
 }
-.pcard:hover .pcard__quick, .pcard:focus-within .pcard__quick { opacity: 1; transform: none; }
+.pcard:hover .pcard__quick, .pcard:focus-within .pcard__quick {
+  z-index: 3; opacity: 1; transform: none; }
 .pcard__body { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .pcard__name { font-size: var(--t-h4); font-weight: 600; letter-spacing: -0.01em; }
 .pcard__name a { text-decoration: none; }
-.pcard__name a::after { content: ''; position: absolute; inset: 0; }
+/* The card-wide click target sits behind its own controls, or the quick-add
+   button and the wishlist heart become unclickable - the overlay swallows
+   them. z-index: 0 keeps the overlay under the two positioned controls. */
+.pcard__name a::after { content: ''; position: absolute; inset: 0; z-index: 0; }
 .pcard { position: relative; }
 .pcard__meta {
   display: flex; flex-wrap: wrap; gap: 4px 12px;
@@ -1537,6 +1542,95 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
 }
 .email__frame iframe { width: 100%; height: 760px; border: 0; display: block; }
 @media (max-width: 700px) { .email__frame iframe { height: 620px; } }
+
+/* ------------------------------------------------------- form validation */
+
+/* Sits above the form and is role=alert, so a screen reader hears the count
+   before focus lands on the first bad field. */
+.formsummary {
+  /* The checkout form is itself a grid, so the injected summary has to span
+     it or it becomes column one and pushes every field sideways. */
+  grid-column: 1 / -1;
+  margin-bottom: var(--s-3); padding: 12px 14px;
+  border: 1px solid #F0C4C3; border-left: 3px solid var(--stop);
+  border-radius: var(--r-sm); background: var(--stop-tint);
+  color: var(--stop); font-size: var(--t-small); line-height: 1.5;
+}
+.formsummary strong { font-weight: 700; }
+.field__opt { color: var(--slate); font-weight: 400; }
+
+/* The invalid ring is only shown once the field has actually been submitted -
+   :invalid alone would flag every empty required field on first paint. */
+.field--error .input, .field--error .select, .field--error .textarea { border-color: var(--stop); }
+.field--error .input:focus, .field--error .select:focus, .field--error .textarea:focus {
+  box-shadow: 0 0 0 3px var(--stop-tint); border-color: var(--stop);
+}
+.check.field--error > span { color: var(--stop); }
+.check.field--error input { border-color: var(--stop); }
+
+/* --------------------------------------------------------- bulk order report */
+
+.bulk-report { margin-top: 14px; font-size: var(--t-small); }
+.bulk-report__ok {
+  margin: 0 0 8px; padding: 8px 12px; border-radius: var(--r-sm);
+  background: var(--ok-tint); color: var(--ok); border: 1px solid #CBE4BC; font-weight: 600;
+}
+.bulk-report__bad {
+  margin: 0; padding: 8px 12px 8px 28px; border-radius: var(--r-sm);
+  background: var(--stop-tint); color: var(--stop); border: 1px solid #F0C4C3;
+  line-height: 1.6;
+}
+p.bulk-report__bad { padding-left: 12px; font-weight: 600; }
+
+/* ============================================================ WISHLIST */
+
+.wishlist { display: grid; gap: var(--s-2); }
+.wishrow {
+  display: grid; grid-template-columns: 72px minmax(0, 1fr) auto;
+  gap: var(--s-3); align-items: center;
+  padding: var(--s-2); border: 1px solid var(--rule); border-radius: var(--r-md);
+  background: var(--paper);
+}
+.wishrow__media { aspect-ratio: 1; border-radius: var(--r-sm); overflow: hidden; background: var(--mist); }
+.wishrow__media img { width: 100%; height: 100%; object-fit: cover; }
+.wishrow__name { font-size: var(--t-h4); margin-bottom: 3px; }
+.wishrow__name a { text-decoration: none; padding-block: 3px; }
+.wishrow__meta { font-size: var(--t-micro); color: var(--slate); margin: 0; }
+.wishrow__actions { display: flex; align-items: center; gap: var(--s-2); }
+@media (max-width: 620px) {
+  .wishrow { grid-template-columns: 56px minmax(0, 1fr); }
+  .wishrow__actions { grid-column: 1 / -1; justify-content: space-between; }
+}
+
+/* The saved state has to read at a glance without colour alone carrying it,
+   so the glyph fills as well as changing hue. */
+.wishbtn svg, .wishdot svg { transition: transform var(--press) var(--ease-out), fill var(--fast) var(--ease); fill: transparent; }
+.wishbtn[aria-pressed='true'], .wishdot[aria-pressed='true'] { color: var(--stop); border-color: currentColor; }
+.wishbtn[aria-pressed='true'] svg, .wishdot[aria-pressed='true'] svg { fill: currentColor; }
+.wishbtn:active svg, .wishdot:active svg { transform: scale(0.88); }
+
+.wishdot {
+  position: absolute; top: 10px; right: 10px; z-index: 3;
+  display: grid; place-items: center;
+  width: 34px; height: 34px; padding: 0;
+  border: 1px solid var(--rule); border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.92); color: var(--slate); cursor: pointer;
+  transition: background-color var(--fast) var(--ease), color var(--fast) var(--ease), border-color var(--fast) var(--ease);
+}
+.wishdot:hover { background: #FFFFFF; color: var(--stop); }
+
+.utility__badge {
+  display: inline-block; min-width: 16px; padding: 0 5px; margin-left: 5px;
+  background: var(--orange); color: var(--ink);
+  border-radius: var(--r-pill);
+  font-size: 10px; font-weight: 700; line-height: 16px; text-align: center;
+}
+
+/* ------------------------------------------------------------ cart rows */
+
+.cart-row__name { font-size: var(--t-h4); margin-bottom: 4px; }
+.cart-row__name a { text-decoration: none; padding-block: 3px; }
+.cart-row__hint { font-size: var(--t-micro); color: var(--slate); margin-top: 8px; }
 
 /* ======================================================== SUBSCRIPTIONS */
 

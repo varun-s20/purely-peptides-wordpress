@@ -165,11 +165,11 @@ ${C.crumbs([
     </div>
 
     <div class="pdp__buy">
-      <button class="btn btn--primary btn--lg" type="button" data-add-to-order data-name="${esc(p.name)}"
+      <button class="btn btn--primary btn--lg" type="button" data-add-to-order data-slug="${esc(p.slug)}" data-name="${esc(p.name)}"
         ${p.stock === 'out-of-stock' ? 'disabled' : ''}>
         ${p.stock === 'out-of-stock' ? 'Notify me when available' : 'Add to order'}
       </button>
-      <button class="btn btn--secondary btn--lg" type="button" aria-label="Save ${esc(p.name)} to wishlist" data-toast="Saved to your wishlist">${icons.heart}</button>
+      <button class="btn btn--secondary btn--lg wishbtn" type="button" data-wish-toggle="${esc(p.slug)}" data-wish-label="${esc(p.name)}" aria-pressed="false">${icons.heart}</button>
     </div>
 
     <ul class="pdp__assur" style="list-style:none;padding:0">
@@ -200,7 +200,7 @@ ${C.crumbs([
     </div>
     <div class="subnav__buy">
       <span class="mono small nowrap">${money(size.price)} / ${esc(size.label)}</span>
-      <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-name="${esc(p.name)}">Add to order</button>
+      <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick data-slug="${esc(p.slug)}" data-name="${esc(p.name)}">Add to order</button>
     </div>
   </div>
 </nav>
@@ -339,7 +339,7 @@ ${C.crumbs([
     <div class="pdp-sticky__price">${money(size.price)}</div>
     <div class="pdp-sticky__name">${esc(p.name)} · ${esc(size.label)}</div>
   </div>
-  <button class="btn btn--primary" type="button" data-add-to-order data-name="${esc(p.name)}">Add to order</button>
+  <button class="btn btn--primary" type="button" data-add-to-order data-slug="${esc(p.slug)}" data-name="${esc(p.name)}">Add to order</button>
 </div>`;
 
   return page({

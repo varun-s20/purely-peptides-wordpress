@@ -354,7 +354,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
 </div>
 
 <div class="wrap contact">
-  <form novalidate>
+  <form data-validate data-success="Message sent. We reply during business hours." data-success-action="reset">
     <fieldset class="fieldset">
       <legend style="font-size:var(--t-h4)">What is your question about?</legend>
       <div class="grid grid-2" style="gap:0 24px">
@@ -386,7 +386,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
 
     <label class="check"><input type="checkbox"><span>Send me a copy of this message.</span></label>
 
-    <button class="btn btn--primary btn--lg" style="margin-top:24px" type="button" data-toast="Message sent. We reply during business hours.">Send message</button>
+    <button class="btn btn--primary btn--lg" style="margin-top:24px" type="submit">Send message</button>
   </form>
 
   <aside class="stack-3">

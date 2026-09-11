@@ -41,7 +41,7 @@
         <span class="utility__sep"></span>
         <a href="orders.html">Orders</a>
         <span class="utility__sep"></span>
-        <a href="account.html#wishlist">Wishlist</a>
+        <a href="account.html#wishlist">Wishlist <span class="utility__badge" data-wish-count hidden>0</span></a>
         <span class="utility__sep"></span>
         <a href="login.html">Sign in</a>
       </div>
@@ -87,8 +87,8 @@
       </button>
       <a class="iconbtn" href="account.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-1a5 5 0 0 0-5-5H9a5 5 0 0 0-5 5v1"/><circle cx="12" cy="7" r="4"/></svg><span>Account</span></a>
       <a class="iconbtn iconbtn--optional" href="products.html#quick-order"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span>Quick order</span></a>
-      <button class="iconbtn" type="button" data-cart-open aria-label="Open cart, 2 items">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg><span>Cart</span><span class="iconbtn__badge" data-cart-count>2</span>
+      <button class="iconbtn" type="button" data-cart-open aria-label="Open your order">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg><span>Cart</span><span class="iconbtn__badge" data-cart-count hidden>0</span>
       </button>
     </div>
   </div>
@@ -308,11 +308,11 @@
     </div>
 
     <div class="pdp__buy">
-      <button class="btn btn--primary btn--lg" type="button" data-add-to-order data-name="Sermorelin"
+      <button class="btn btn--primary btn--lg" type="button" data-add-to-order data-slug="sermorelin" data-name="Sermorelin"
         >
         Add to order
       </button>
-      <button class="btn btn--secondary btn--lg" type="button" aria-label="Save Sermorelin to wishlist" data-toast="Saved to your wishlist"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <button class="btn btn--secondary btn--lg wishbtn" type="button" data-wish-toggle="sermorelin" data-wish-label="Sermorelin" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
     </div>
 
     <ul class="pdp__assur" style="list-style:none;padding:0">
@@ -346,7 +346,7 @@
     </div>
     <div class="subnav__buy">
       <span class="mono small nowrap">$46.00 / 2 mg</span>
-      <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-name="Sermorelin">Add to order</button>
+      <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick data-slug="sermorelin" data-name="Sermorelin">Add to order</button>
     </div>
   </div>
 </nav>
@@ -521,9 +521,16 @@
 
   <section class="pdp-section">
     <h2>Related research materials</h2>
-    <div class="grid grid-4" style="margin-top:24px"><article class="pcard">
+    <div class="grid grid-4" style="margin-top:24px"><article class="pcard" data-slug="ipamorelin" data-cat="protein-research" data-area="Endocrine Research" data-form="Lyophilised powder" data-stock="low-stock" data-price="42" data-name="Ipamorelin" data-sku="PP-1007" data-cas="170851-70-4" data-added="2026-02-27" data-sizes="5 mg|10 mg">
     <div class="pcard__media"><img src="img/prod-b.jpg" alt="Ipamorelin supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="ipamorelin">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="ipamorelin" data-wish-label="Ipamorelin" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="ipamorelin" data-name="Ipamorelin"
+                >
+          Add to order
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Protein Research</span>
@@ -538,9 +545,16 @@
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard">
+  </article><article class="pcard" data-slug="cjc-1295" data-cat="protein-research" data-area="Endocrine Research" data-form="Lyophilised powder" data-stock="in-stock" data-price="48" data-name="CJC-1295 (no DAC)" data-sku="PP-1008" data-cas="863288-34-0" data-added="2025-10-19" data-sizes="2 mg|5 mg">
     <div class="pcard__media"><img src="img/prod-c.jpg" alt="CJC-1295 (no DAC) supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="cjc-1295">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="cjc-1295" data-wish-label="CJC-1295 (no DAC)" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="cjc-1295" data-name="CJC-1295 (no DAC)"
+                >
+          Add to order
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Protein Research</span>
@@ -555,9 +569,16 @@
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard">
+  </article><article class="pcard" data-slug="mots-c" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="68" data-name="MOTS-c" data-sku="PP-1010" data-cas="1627580-64-6" data-added="2026-04-02" data-sizes="5 mg|10 mg">
     <div class="pcard__media"><img src="img/prod-b.jpg" alt="MOTS-c supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="mots-c">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="mots-c" data-wish-label="MOTS-c" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="mots-c" data-name="MOTS-c"
+                >
+          Add to order
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Metabolic Research</span>
@@ -572,9 +593,16 @@
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard">
+  </article><article class="pcard" data-slug="aod-9604" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="out-of-stock" data-price="56" data-name="AOD-9604" data-sku="PP-1011" data-cas="221231-10-3" data-added="2025-09-08" data-sizes="2 mg|5 mg">
     <div class="pcard__media"><img src="img/prod-c.jpg" alt="AOD-9604 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="aod-9604">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="aod-9604" data-wish-label="AOD-9604" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="aod-9604" data-name="AOD-9604"
+                disabled>
+          Out of stock
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">Metabolic Research</span>
@@ -598,7 +626,7 @@
     <div class="pdp-sticky__price">$46.00</div>
     <div class="pdp-sticky__name">Sermorelin · 2 mg</div>
   </div>
-  <button class="btn btn--primary" type="button" data-add-to-order data-name="Sermorelin">Add to order</button>
+  <button class="btn btn--primary" type="button" data-add-to-order data-slug="sermorelin" data-name="Sermorelin">Add to order</button>
 </div>
 </main>
 
@@ -738,41 +766,28 @@
 
 <aside class="cart-drawer" data-cart-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Order summary">
   <div class="cart-drawer__head">
-    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small">(2 items)</span></h2>
+    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small" data-cart-countword>(0 items)</span></h2>
     <button class="modal__close" type="button" data-cart-close aria-label="Close order summary"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="cart-drawer__body">
-    <div class="cart-line">
-      <div class="cart-line__media"><img src="img/prod-b.jpg" alt="BPC-157 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
-      <div>
-        <div class="cart-line__name">BPC-157</div>
-        <div class="cart-line__meta">10 mg · PP-1001 · LOT BP-260910</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 2</span>
-          <span class="mono">$156.00</span>
-        </div>
-      </div>
+    <div data-cart-lines></div>
+
+    <div class="empty" data-cart-empty hidden>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/></svg>
+      <h3>Your order is empty</h3>
+      <p>Materials you add will appear here, with the certificate for the lot that ships.</p>
+      <a class="btn btn--secondary" href="products.html">Browse the catalogue</a>
     </div>
-    <div class="cart-line">
-      <div class="cart-line__media"><img src="img/prod-a.jpg" alt="GHK-Cu supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
-      <div>
-        <div class="cart-line__name">GHK-Cu</div>
-        <div class="cart-line__meta">50 mg · PP-1003 · LOT GH-260803</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 1</span>
-          <span class="mono">$38.00</span>
-        </div>
-      </div>
-    </div>
-    <div class="notice notice--accent" style="margin-top:24px">
+
+    <div class="notice notice--accent" data-cart-docnote hidden style="margin-top:24px">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>
-      <div>Certificates for both lots are attached to this order and will be available in your account after checkout.</div>
+      <div>Certificates for every lot in this order are attached and will be available in your account after checkout.</div>
     </div>
   </div>
   <div class="cart-drawer__foot">
-    <div class="trow"><span>Subtotal</span><span class="num">$194.00</span></div>
+    <div class="trow"><span>Subtotal</span><span class="num" data-cart-subtotal>$0.00</span></div>
     <div class="trow"><span>Shipping</span><span class="num muted">Calculated at checkout</span></div>
-    <a class="btn btn--primary btn--block btn--lg" href="checkout.html" style="margin-top:12px">Proceed to checkout</a>
+    <a class="btn btn--primary btn--block btn--lg" href="checkout.html" style="margin-top:12px" data-cart-checkout data-region-gated>Proceed to checkout</a>
     <a class="btn btn--secondary btn--block" href="cart.html" style="margin-top:8px">View full order</a>
   </div>
 </aside>
@@ -864,6 +879,10 @@
     </p>
   </div>
 </div>
+<script src="js/catalogue.js" defer></script>
+<script src="js/store.js" defer></script>
 <script src="js/script.js" defer></script>
+<script src="js/catalog.js" defer></script>
+<script src="js/forms.js" defer></script>
 </body>
 </html>

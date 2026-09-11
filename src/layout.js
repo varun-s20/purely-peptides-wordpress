@@ -169,7 +169,7 @@ function header(active) {
         <span class="utility__sep"></span>
         <a href="/orders/">Orders</a>
         <span class="utility__sep"></span>
-        <a href="/account/#wishlist">Wishlist</a>
+        <a href="/account/#wishlist">Wishlist <span class="utility__badge" data-wish-count hidden>0</span></a>
         <span class="utility__sep"></span>
         <a href="/login/">Sign in</a>
       </div>
@@ -215,8 +215,8 @@ function header(active) {
       </button>
       <a class="iconbtn" href="/account/">${icons.user}<span>Account</span></a>
       <a class="iconbtn iconbtn--optional" href="/products/#quick-order">${icons.bolt}<span>Quick order</span></a>
-      <button class="iconbtn" type="button" data-cart-open aria-label="Open cart, 2 items">
-        ${icons.cart}<span>Cart</span><span class="iconbtn__badge" data-cart-count>2</span>
+      <button class="iconbtn" type="button" data-cart-open aria-label="Open your order">
+        ${icons.cart}<span>Cart</span><span class="iconbtn__badge" data-cart-count hidden>0</span>
       </button>
     </div>
   </div>
@@ -419,41 +419,28 @@ function overlays() {
   return `
 <aside class="cart-drawer" data-cart-drawer data-open="false" role="dialog" aria-modal="true" aria-label="Order summary">
   <div class="cart-drawer__head">
-    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small">(2 items)</span></h2>
+    <h2 style="font-size:var(--t-h4)">Your order <span class="mono muted small" data-cart-countword>(0 items)</span></h2>
     <button class="modal__close" type="button" data-cart-close aria-label="Close order summary">${icons.close}</button>
   </div>
   <div class="cart-drawer__body">
-    <div class="cart-line">
-      <div class="cart-line__media">${require('./art').productShot('PP-1001', 'BPC-157')}</div>
-      <div>
-        <div class="cart-line__name">BPC-157</div>
-        <div class="cart-line__meta">10 mg · PP-1001 · LOT BP-260910</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 2</span>
-          <span class="mono">$156.00</span>
-        </div>
-      </div>
+    <div data-cart-lines></div>
+
+    <div class="empty" data-cart-empty hidden>
+      ${icons.cart}
+      <h3>Your order is empty</h3>
+      <p>Materials you add will appear here, with the certificate for the lot that ships.</p>
+      <a class="btn btn--secondary" href="/products/">Browse the catalogue</a>
     </div>
-    <div class="cart-line">
-      <div class="cart-line__media">${require('./art').productShot('PP-1003', 'GHK-Cu')}</div>
-      <div>
-        <div class="cart-line__name">GHK-Cu</div>
-        <div class="cart-line__meta">50 mg · PP-1003 · LOT GH-260803</div>
-        <div class="cart-line__foot">
-          <span class="mono small">Qty 1</span>
-          <span class="mono">$38.00</span>
-        </div>
-      </div>
-    </div>
-    <div class="notice notice--accent" style="margin-top:24px">
+
+    <div class="notice notice--accent" data-cart-docnote hidden style="margin-top:24px">
       ${icons.doc}
-      <div>Certificates for both lots are attached to this order and will be available in your account after checkout.</div>
+      <div>Certificates for every lot in this order are attached and will be available in your account after checkout.</div>
     </div>
   </div>
   <div class="cart-drawer__foot">
-    <div class="trow"><span>Subtotal</span><span class="num">$194.00</span></div>
+    <div class="trow"><span>Subtotal</span><span class="num" data-cart-subtotal>$0.00</span></div>
     <div class="trow"><span>Shipping</span><span class="num muted">Calculated at checkout</span></div>
-    <a class="btn btn--primary btn--block btn--lg" href="/checkout/" style="margin-top:12px">Proceed to checkout</a>
+    <a class="btn btn--primary btn--block btn--lg" href="/checkout/" style="margin-top:12px" data-cart-checkout data-region-gated>Proceed to checkout</a>
     <a class="btn btn--secondary btn--block" href="/cart/" style="margin-top:8px">View full order</a>
   </div>
 </aside>
@@ -571,7 +558,11 @@ ${body}
 ${footer()}
 ${mobileNav()}
 ${overlays()}
+<script src="/js/catalogue.js" defer></script>
+<script src="/js/store.js" defer></script>
 <script src="/js/script.js" defer></script>
+<script src="/js/catalog.js" defer></script>
+<script src="/js/forms.js" defer></script>
 </body>
 </html>`;
 }

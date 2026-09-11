@@ -139,6 +139,20 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account' }])}
       </table>
     </section>
 
+    <section style="margin-top:48px" id="wishlist">
+      ${C.sectionHead({
+        title: 'Wishlist',
+        body: 'Materials you have saved. Kept in this browser, so it survives a reload without an account.',
+      })}
+      <div class="wishlist" data-wish-list></div>
+      <div class="empty" data-wish-empty hidden>
+        ${icons.heart}
+        <h3>Nothing saved yet</h3>
+        <p>Use the heart on any product to keep it here for later.</p>
+        <a class="btn btn--secondary" href="/products/">Browse the catalogue</a>
+      </div>
+    </section>
+
     <!-- Subscriptions are customer-managed: pause, skip the next delivery,
          change quantity or cancel, without contacting anyone. -->
     <section style="margin-top:48px" id="subscriptions">
@@ -159,24 +173,24 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account' }])}
         <div class="sub__head">
           <div>
             <h3 class="sub__name"><a href="/products/${s.name.toLowerCase()}/">${esc(s.name)}</a></h3>
-            <p class="sub__meta"><span class="mono">${esc(s.sku)}</span> · ${esc(s.size)} vial · qty ${s.qty}</p>
+            <p class="sub__meta"><span class="mono">${esc(s.sku)}</span> · ${esc(s.size)} vial · qty <span data-sub-qtyval>${s.qty}</span></p>
           </div>
           <span class="status status--${s.state === 'active' ? 'ok' : 'warn'}">
             ${s.state === 'active' ? icons.refresh : icons.clock}${s.state === 'active' ? 'Active' : 'Paused'}
           </span>
         </div>
         <dl class="sub__rows">
-          <div><dt>Frequency</dt><dd>Every ${s.every} weeks</dd></div>
-          <div><dt>${s.state === 'active' ? 'Next delivery' : 'Resumes'}</dt><dd class="mono">${esc(s.next)}</dd></div>
+          <div><dt>Frequency</dt><dd data-sub-every>Every ${s.every} weeks</dd></div>
+          <div><dt data-sub-nextlabel>${s.state === 'active' ? 'Next delivery' : 'Resumes'}</dt><dd class="mono" data-sub-next data-sub-weeks="${s.every}">${esc(s.next)}</dd></div>
           <div><dt>Volume discount</dt><dd class="mono">−${Math.round(vol * 100)}%</dd></div>
           <div><dt>Subscribe &amp; Save</dt><dd class="mono">−10%</dd></div>
-          <div><dt>Per delivery</dt><dd class="mono sub__price">${money(per)}</dd></div>
+          <div><dt>Per delivery</dt><dd class="mono sub__price" data-sub-price data-unit="${s.unit}">${money(per)}</dd></div>
         </dl>
         <div class="sub__actions">
-          <button class="btn btn--secondary btn--sm" type="button" data-toast="Next delivery skipped. The one after is unchanged.">Skip next</button>
-          <button class="btn btn--secondary btn--sm" type="button" data-toast="Quantity updated. Volume pricing recalculated.">Change quantity</button>
-          <button class="btn btn--secondary btn--sm" type="button" data-toast="${s.state === 'active' ? 'Subscription paused. Resume any time.' : 'Subscription resumed.'}">${s.state === 'active' ? 'Pause' : 'Resume'}</button>
-          <button class="btn btn--ghost btn--sm" type="button" data-toast="Subscription cancelled. No further deliveries will be sent.">Cancel</button>
+          <button class="btn btn--secondary btn--sm" type="button" data-sub-skip>Skip next</button>
+          <button class="btn btn--secondary btn--sm" type="button" data-sub-qty>Change quantity</button>
+          <button class="btn btn--secondary btn--sm" type="button" data-sub-toggle>${s.state === 'active' ? 'Pause' : 'Resume'}</button>
+          <button class="btn btn--ghost btn--sm" type="button" data-sub-cancel>Cancel</button>
         </div>
       </article>`;
           })
@@ -260,7 +274,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account', href: '/account/' 
           <td data-label="Total" class="mono">${money(o.total)}</td>
           <td data-label="Status">${statusBadge(o.status)}</td>
           <td data-label="Tracking" class="mono micro">${esc(o.track)}</td>
-          <td data-label="Actions"><button class="btn-text" type="button" data-toast="Order ${esc(o.id)} added to your cart">Reorder</button></td>
+          <td data-label="Actions"><button class="btn-text" type="button" data-reorder='${JSON.stringify(o.lines.map((l) => ({ slug: l.slug, size: l.size, qty: l.qty })))}' data-order="${esc(o.id)}">Reorder</button></td>
         </tr>`
         ).join('')}
       </tbody>
@@ -293,7 +307,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account', href: '/account/' 
       </div>
       <div class="row" style="gap:8px">
         ${statusBadge(o.status)}
-        <button class="btn btn--secondary btn--sm" type="button" data-toast="Order ${esc(o.id)} added to your cart">Reorder</button>
+        <button class="btn btn--secondary btn--sm" type="button" data-reorder='${JSON.stringify(o.lines.map((l) => ({ slug: l.slug, size: l.size, qty: l.qty })))}' data-order="${esc(o.id)}">Reorder</button>
       </div>
     </div>
 
@@ -373,20 +387,20 @@ function login() {
         <button role="tab" aria-selected="false">Create account</button>
       </div>
 
-      <form novalidate>
+      <form data-validate data-success="Signed in as Dr. Amara Osei">
         <label class="field">
           <span class="field__label">Email address</span>
-          <input class="input" type="email" autocomplete="email" placeholder="name@institution.edu">
+          <input class="input" type="email" required autocomplete="email" placeholder="name@institution.edu">
         </label>
         <label class="field">
           <span class="field__label">Password</span>
-          <input class="input" type="password" autocomplete="current-password">
+          <input class="input" type="password" required minlength="8" autocomplete="current-password">
         </label>
         <div class="row" style="justify-content:space-between;margin-bottom:24px">
           <label class="check"><input type="checkbox"><span>Keep me signed in</span></label>
           <a class="btn-text" href="/contact/">Forgot password?</a>
         </div>
-        <button class="btn btn--primary btn--lg btn--block" type="button" data-toast="Signed in as Dr. Amara Osei">Sign in</button>
+        <button class="btn btn--primary btn--lg btn--block" type="submit">Sign in</button>
       </form>
 
       <p class="small muted center" style="margin-top:24px">

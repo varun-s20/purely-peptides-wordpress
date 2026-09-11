@@ -111,12 +111,19 @@ const PRODUCT_SHOTS = ['prod-a', 'prod-b', 'prod-c'];
  * `variant` steps to the next shot in the rotation - the product page uses it
  * for the second gallery frame.
  */
-function productShot(sku, name, opts = {}) {
+/** Which of the three shots a SKU resolves to. Exported so the build can bake
+ *  the same answer into the client catalogue - the cart renders products the
+ *  page was never server-rendered with, and the photo must not change. */
+function productShotName(sku, variant = 0) {
   // Not rng(): SKUs run PP-1001..PP-1020 and that generator maps 18 of the
   // 20 onto the same shot. A plain rolling hash spreads sequential keys evenly.
   let h = 0;
   for (const ch of String(sku)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-  const shot = PRODUCT_SHOTS[(h + (opts.variant || 0)) % PRODUCT_SHOTS.length];
+  return PRODUCT_SHOTS[(h + variant) % PRODUCT_SHOTS.length];
+}
+
+function productShot(sku, name, opts = {}) {
+  const shot = productShotName(sku, opts.variant || 0);
   const alt = name
     ? `${name} supplied as lyophilised powder in a sealed glass vial`
     : 'Lyophilised research material in a sealed glass vial';
@@ -240,5 +247,5 @@ const icons = {
 
 module.exports = {
   chromatogram, tracePath, labPlate, icons, rng,
-  photo, productShot, categoryPhoto, articlePhoto,
+  photo, productShot, productShotName, categoryPhoto, articlePhoto,
 };

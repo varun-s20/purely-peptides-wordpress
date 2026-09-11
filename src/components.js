@@ -40,11 +40,24 @@ function sectionHead({ title, body, action, id }) {
 
 /* ------------------------------------------------------------ product card */
 
+const facets = (p) =>
+  `data-slug="${p.slug}" data-cat="${p.category}" data-area="${esc(p.area)}" ` +
+  `data-form="${esc(p.form)}" data-stock="${p.stock}" data-price="${p.sizes[0].price}" ` +
+  `data-name="${esc(p.name)}" data-sku="${esc(p.sku)}" data-cas="${esc(p.cas)}" ` +
+  `data-added="${p.added}" data-sizes="${esc(p.sizes.map((s) => s.label).join('|'))}"`;
+
 function productCard(p) {
   const size = p.sizes[0];
-  return `<article class="pcard">
+  return `<article class="pcard" ${facets(p)}>
     <div class="pcard__media">${productShot(p.sku, p.name)}
-      <div class="pcard__quick"><button class="btn btn--secondary btn--sm btn--block" type="button" data-quickview="${p.slug}">Quick view</button></div>
+      <button class="wishdot" type="button" data-wish-toggle="${p.slug}" data-wish-label="${esc(p.name)}" aria-pressed="false">${icons.heart}</button>
+      <div class="pcard__quick">
+        <button class="btn btn--primary btn--sm btn--block" type="button"
+                data-add-to-order data-quick data-slug="${p.slug}" data-name="${esc(p.name)}"
+                ${p.stock === 'out-of-stock' ? 'disabled' : ''}>
+          ${p.stock === 'out-of-stock' ? 'Out of stock' : 'Add to order'}
+        </button>
+      </div>
     </div>
     <div class="pcard__body">
       <span class="tag">${esc(catName(p.category))}</span>
@@ -66,7 +79,7 @@ function productCard(p) {
 
 function productRow(p) {
   const size = p.sizes[0];
-  return `<article class="prow">
+  return `<article class="prow" ${facets(p)}>
     <div class="prow__media">${productShot(p.sku, p.name)}</div>
     <div class="prow__head">
       <h3 class="prow__name"><a href="/products/${p.slug}/">${esc(p.name)}</a></h3>
@@ -80,7 +93,11 @@ function productRow(p) {
     </div>
     <div class="prow__buy">
       <span class="pcard__price">${money(size.price)}<small>/ ${esc(size.label)}</small></span>
-      <a class="btn btn--secondary btn--sm" href="/products/${p.slug}/">View product</a>
+      <div class="row" style="gap:6px;flex-wrap:nowrap">
+        <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick
+                data-slug="${p.slug}" data-name="${esc(p.name)}" ${p.stock === 'out-of-stock' ? 'disabled' : ''}>Add</button>
+        <a class="btn btn--secondary btn--sm" href="/products/${p.slug}/">View</a>
+      </div>
     </div>
   </article>`;
 }
