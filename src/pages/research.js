@@ -84,7 +84,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Research' }])}
 
   return page({
     title: 'Research & technical resources',
-    description: 'Analytical methods, quality documentation guidance and peptide handling notes from the Purely Peptides technical team.',
+    description: 'Analytical methods, quality documentation guidance and peptide handling notes from the Purely Peptides Hub technical team.',
     canonical: '/research/',
     active: 'Research',
     body,
@@ -310,7 +310,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Research', href: '/research/
       description: a.excerpt,
       datePublished: a.date,
       author: { '@type': 'Person', name: a.author, jobTitle: a.role },
-      publisher: { '@type': 'Organization', name: 'Purely Peptides LLC' },
+      publisher: { '@type': 'Organization', name: 'Purely Peptides Hub LLC' },
       articleSection: a.category,
     },
   });

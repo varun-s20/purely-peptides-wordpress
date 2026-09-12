@@ -64,10 +64,10 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Design system' }])}
       <div class="grid grid-4" style="margin-bottom:32px">
         ${swatch('Paper', '--paper', '#FFFFFF', 'Default canvas')}
         ${swatch('Mist', '--mist', '#F6F6F4', 'Alternating section ground')}
-        ${swatch('Mist deep', '--mist-deep', '#EDF6F7', 'Table zebra, hover fill')}
+        ${swatch('Mist deep', '--mist-deep', '#E8F7FA', 'Table zebra, hover fill')}
         ${swatch('Rule', '--rule', '#D7D7D7', 'Hairline divider')}
         ${swatch('Rule input', '--rule-input', '#828894', 'Form boundary, 3:1')}
-        ${swatch('Ink', '--ink', '#071112', 'Headings, 18.9:1')}
+        ${swatch('Ink', '--ink', '#051214', 'Headings, 18.9:1')}
         ${swatch('Body ink', '--body-ink', '#3B3B3B', 'Running body copy, 10.9:1')}
         ${swatch('Slate', '--slate', '#5C6E71', 'Secondary text, 5.3:1')}
         ${swatch('Slate light', '--slate-light', '#5C6E71', 'Tertiary text, 5.0:1 on mist')}
@@ -82,14 +82,14 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Design system' }])}
         <span class="mono">--orange</span>. Orange is never a surface behind body copy.
       </p>
       <div class="grid grid-4" style="margin-bottom:32px">
-        ${swatch('Teal', '--teal', '#378189', 'Filled buttons, rules')}
+        ${swatch('Teal', '--teal', '#1DAFCB', 'Filled buttons, rules')}
         ${swatch('Teal deep', '--teal-deep', '#2C656B', 'Link text, bands, hover')}
-        ${swatch('Teal tint', '--teal-tint', '#EDF6F7', 'Selected state wash')}
-        ${swatch('Aqua', '--aqua', '#6DB9C1', 'Accent on dark grounds')}
-        ${swatch('Orange', '--orange', '#FF7223', 'CTA fill, arrows, rules')}
+        ${swatch('Teal tint', '--teal-tint', '#E8F7FA', 'Selected state wash')}
+        ${swatch('Aqua', '--aqua', '#64E4F9', 'Accent on dark grounds')}
+        ${swatch('Orange', '--orange', '#C7E119', 'CTA fill, arrows, rules')}
         ${swatch('Orange deep', '--orange-deep', '#E25D10', 'Hover on filled surfaces')}
         ${swatch('Orange text', '--orange-text', '#BE4A0A', 'Accent words, 5.0:1')}
-        ${swatch('Bottle', '--bottle', '#071112', 'Dark sections, utility bar')}
+        ${swatch('Bottle', '--bottle', '#051214', 'Dark sections, utility bar')}
       </div>
 
       <h3 class="label" style="margin-bottom:12px">Status</h3>
@@ -419,7 +419,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Design system' }])}
 
   return page({
     title: 'Design system',
-    description: 'Colour, typography, spacing, components and states for the Purely Peptides interface.',
+    description: 'Colour, typography, spacing, components and states for the Purely Peptides Hub interface.',
     canonical: '/styleguide/',
     active: null,
     body,

@@ -3,53 +3,52 @@
 const { page, esc, money } = require('../layout');
 const C = require('../components');
 const { icons, productShot } = require('../art');
-const { lots } = require('../data');
+const { lots, researchFields } = require('../data');
 
 const LINE = (name, slug, size, lot, qty, unit) => ({ name, slug, size, lot, qty, unit });
 
 const ORDERS = [
   {
-    id: 'PP-84120', date: '02 Sep 2026', total: 232.0, status: 'shipped', track: '1Z-994-772-01',
+    id: 'PPH-84120', date: '02 Sep 2026', total: 240.0, status: 'shipped', track: '1Z-994-772-01',
     lines: [
-      LINE('BPC-157', 'bpc-157', '10 mg', 'BP-260910', 2, 78),
-      LINE('GHK-Cu', 'ghk-cu', '50 mg', 'GH-260803', 1, 38),
-      LINE('KPV', 'kpv', '10 mg', 'KP-260904', 1, 36),
+      LINE('BPC-157', 'bpc-157', '10 mg', 'BP10-0318', 2, 75),
+      LINE('GHK-Cu', 'ghk-cu', '50 mg', 'GHK50-0616', 1, 45),
+      LINE('Sermorelin', 'sermorelin', '5 mg', 'SERMO5-0318', 1, 50),
     ],
     steps: [['Received', '02 Sep, 10:14'], ['Prepared', '02 Sep, 15:40'], ['Despatched', '03 Sep, 08:02'], ['In transit', '04 Sep, 06:30']],
     done: 4,
   },
   {
-    id: 'PP-83771', date: '14 Aug 2026', total: 78.0, status: 'delivered', track: '1Z-994-661-08',
-    lines: [LINE('BPC-157', 'bpc-157', '10 mg', 'BP-260910', 1, 78)],
+    id: 'PPH-83771', date: '14 Aug 2026', total: 75.0, status: 'delivered', track: '1Z-994-661-08',
+    lines: [LINE('BPC-157', 'bpc-157', '10 mg', 'BP10-0318', 1, 75)],
     steps: [['Received', '14 Aug, 09:22'], ['Prepared', '14 Aug, 13:05'], ['Despatched', '15 Aug, 08:10'], ['Delivered', '17 Aug, 11:48']],
     done: 4,
   },
   {
-    id: 'PP-83402', date: '27 Jun 2026', total: 512.5, status: 'delivered', track: '1Z-994-512-44',
+    id: 'PPH-83402', date: '27 Jun 2026', total: 525.0, status: 'delivered', track: '1Z-994-512-44',
     lines: [
-      LINE('TB-500', 'tb-500', '5 mg', 'TB-260722', 2, 112),
-      LINE('Semax', 'semax', '30 mg', 'SX-260605', 1, 142),
-      LINE('Selank', 'selank', '10 mg', 'SL-260501', 1, 54),
-      LINE('Epitalon', 'epitalon', '10 mg', 'EP-260318', 1, 44),
+      LINE('Semaglutide', 'semaglutide', '10 mg', 'SEMA10-0616', 2, 110),
+      LINE('Retatrutide', 'retatrutide', '10 mg', 'RETA10-0616', 1, 160),
+      LINE('GHK-Cu', 'ghk-cu', '100 mg', 'GHK100-0616', 1, 75),
+      LINE('TB-500', 'tb-500', '10 mg', 'TB10-0318', 1, 95),
     ],
     steps: [['Received', '27 Jun, 11:31'], ['Prepared', '27 Jun, 16:20'], ['Despatched', '28 Jun, 08:04'], ['Delivered', '30 Jun, 14:12']],
     done: 4,
   },
   {
-    id: 'PP-82995', date: '09 May 2026', total: 146.0, status: 'delivered', track: '1Z-994-390-17',
+    id: 'PPH-82995', date: '09 May 2026', total: 230.0, status: 'delivered', track: '1Z-994-390-17',
     lines: [
-      LINE('Ipamorelin', 'ipamorelin', '10 mg', 'IP-260812', 1, 72),
-      LINE('CJC-1295 (no DAC)', 'cjc-1295', '5 mg', 'CJ-260626', 1, 98),
+      LINE('Tirzepatide', 'tirzepatide', '10 mg', 'TIR10-0528', 1, 135),
+      LINE('NAD+', 'nad', '500 mg', 'ND5-011726', 1, 95),
     ],
     steps: [['Received', '09 May, 08:47'], ['Prepared', '09 May, 12:15'], ['Despatched', '10 May, 07:55'], ['Delivered', '12 May, 09:30']],
     done: 4,
   },
   {
-    id: 'PP-82611', date: '18 Mar 2026', total: 388.0, status: 'delivered', track: '1Z-994-221-63',
+    id: 'PPH-82611', date: '18 Mar 2026', total: 175.0, status: 'delivered', track: '1Z-994-221-63',
     lines: [
-      LINE('MOTS-c', 'mots-c', '10 mg', 'MO-260728', 2, 118),
-      LINE('Thymosin α-1', 'thymosin-alpha-1', '5 mg', 'TA-260411', 1, 74),
-      LINE('Glutathione (reduced)', 'glutathione', '500 mg', 'GS-260901', 1, 96),
+      LINE('Tesamorelin', 'tesamorelin', '10 mg', 'TESA10-0803', 1, 120),
+      LINE('AOD-9604', 'aod-9604', '5 mg', 'AOD5-0803', 1, 55),
     ],
     steps: [['Received', '18 Mar, 14:02'], ['Prepared', '19 Mar, 09:40'], ['Despatched', '19 Mar, 16:18'], ['Delivered', '23 Mar, 10:05']],
     done: 4,
@@ -104,7 +103,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account' }])}
 
     <div class="quickactions">
       <a class="quickaction" href="/orders/">${icons.refresh}Reorder</a>
-      <a class="quickaction" href="/orders/pp-84120/">${icons.truck}Track order</a>
+      <a class="quickaction" href="/orders/pph-84120/">${icons.truck}Track order</a>
       <a class="quickaction" href="/certificates/">${icons.checkCircle}Verify a lot</a>
       <a class="quickaction" href="/certificates/">${icons.download}Download documents</a>
     </div>
@@ -230,7 +229,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account' }])}
   </div>
 </div>`;
 
-  return page({ title: 'Account overview', description: 'Your Purely Peptides account: orders, batch documentation, addresses and wholesale settings.', canonical: '/account/', active: null, body });
+  return page({ title: 'Account overview', description: 'Your Purely Peptides Hub account: orders, batch documentation, addresses and wholesale settings.', canonical: '/account/', active: null, body });
 }
 
 /* ----------------------------------------------------------------- orders */
@@ -283,7 +282,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Account', href: '/account/' 
   </div>
 </div>`;
 
-  return page({ title: 'Orders', description: 'Your Purely Peptides order history, tracking and reorder options.', canonical: '/orders/', active: null, body });
+  return page({ title: 'Orders', description: 'Your Purely Peptides Hub order history, tracking and reorder options.', canonical: '/orders/', active: null, body });
 }
 
 /* ------------------------------------------------------------ order detail */
@@ -379,36 +378,88 @@ function login() {
   <div class="auth__panel">
     <div class="auth__form">
       <span class="eyebrow">Account</span>
-      <h1 style="font-size:var(--t-h2);margin-bottom:8px">Sign in</h1>
+      <h1 style="font-size:var(--t-h2);margin-bottom:8px" data-tab-title>Sign in</h1>
       <p class="muted small" style="margin-bottom:32px">Order history, batch documentation and account pricing.</p>
 
-      <div class="tabs" style="margin-bottom:24px" role="tablist">
-        <button role="tab" aria-selected="true">Sign in</button>
-        <button role="tab" aria-selected="false">Create account</button>
+      <div data-tabs>
+        <div class="tabs" style="margin-bottom:24px" role="tablist">
+          <button type="button" role="tab" data-tab="signin" aria-selected="true">Sign in</button>
+          <button type="button" role="tab" data-tab="create" aria-selected="false">Create account</button>
+        </div>
+
+        <div data-panel="signin">
+          <form data-validate data-success="Signed in as Dr. Amara Osei">
+            <label class="field">
+              <span class="field__label">Email address</span>
+              <input class="input" type="email" required autocomplete="email" placeholder="name@institution.edu">
+            </label>
+            <label class="field">
+              <span class="field__label">Password</span>
+              <input class="input" type="password" required minlength="8" autocomplete="current-password">
+            </label>
+            <div class="row" style="justify-content:space-between;margin-bottom:24px">
+              <label class="check"><input type="checkbox"><span>Keep me signed in</span></label>
+              <a class="btn-text" href="/contact/">Forgot password?</a>
+            </div>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Sign in</button>
+          </form>
+        </div>
+
+        <!-- The fields here are the same set checkout collects, because they are
+             the ones the merchant account requires: a named organisation and a
+             declared field of research on every account. Dropping either from
+             this path would let an account exist that cannot legally order. -->
+        <div data-panel="create" hidden>
+          <form data-validate data-success="Account created. A confirmation has been sent to your email.">
+            <div class="form-grid">
+              <label class="field field--full">
+                <span class="field__label">Email address<span class="field__req" aria-hidden="true">*</span></span>
+                <input class="input" type="email" name="email" required autocomplete="email" placeholder="name@institution.edu">
+                <span class="field__hint">This becomes your username. Certificates are sent here.</span>
+              </label>
+              <label class="field">
+                <span class="field__label">Password<span class="field__req" aria-hidden="true">*</span></span>
+                <input class="input" type="password" name="password" required minlength="8" autocomplete="new-password">
+                <span class="field__hint">8 characters or more.</span>
+              </label>
+              <label class="field">
+                <span class="field__label">Confirm<span class="field__req" aria-hidden="true">*</span></span>
+                <input class="input" type="password" name="password2" required minlength="8" autocomplete="new-password">
+              </label>
+              <label class="field">
+                <span class="field__label">Full name<span class="field__req" aria-hidden="true">*</span></span>
+                <input class="input" type="text" name="name" required autocomplete="name">
+              </label>
+              <label class="field">
+                <span class="field__label">Company or institution<span class="field__req" aria-hidden="true">*</span></span>
+                <input class="input" type="text" name="company" required autocomplete="organization">
+              </label>
+              <label class="field field--full">
+                <span class="field__label">Field of research<span class="field__req" aria-hidden="true">*</span></span>
+                <select class="select" name="research-field" required>
+                  <option value="">Select your field of research</option>
+                  ${researchFields.map((f) => `<option>${esc(f)}</option>`).join('')}
+                </select>
+              </label>
+            </div>
+            <label class="check" style="margin:4px 0 24px">
+              <input type="checkbox" name="ack-ruo" required>
+              <span>I confirm materials bought on this account are for laboratory research only, and
+              not for human or veterinary therapeutic use.</span>
+            </label>
+            <button class="btn btn--primary btn--lg btn--block" type="submit">Create account</button>
+          </form>
+        </div>
       </div>
 
-      <form data-validate data-success="Signed in as Dr. Amara Osei">
-        <label class="field">
-          <span class="field__label">Email address</span>
-          <input class="input" type="email" required autocomplete="email" placeholder="name@institution.edu">
-        </label>
-        <label class="field">
-          <span class="field__label">Password</span>
-          <input class="input" type="password" required minlength="8" autocomplete="current-password">
-        </label>
-        <div class="row" style="justify-content:space-between;margin-bottom:24px">
-          <label class="check"><input type="checkbox"><span>Keep me signed in</span></label>
-          <a class="btn-text" href="/contact/">Forgot password?</a>
-        </div>
-        <button class="btn btn--primary btn--lg btn--block" type="submit">Sign in</button>
-      </form>
-
       <p class="small muted center" style="margin-top:24px">
-        New to Purely Peptides? <a class="link" href="/wholesale/apply/">Apply for an account</a> or order as a guest at checkout.
+        Ordering for an organisation on net terms or account pricing?
+        <a class="link" href="/wholesale/apply/">Apply for a wholesale account</a>.
       </p>
     </div>
   </div>
   <div class="auth__art on-dark">
+   <div class="auth__art-inner">
     <span class="eyebrow">Why an account</span>
     <h2 style="font-size:var(--t-h2);max-width:16ch">Your documentation stays with your orders.</h2>
     <ul>
@@ -417,10 +468,11 @@ function login() {
       <li>${icons.building}<span>Purchase orders, consolidated invoicing and account pricing for approved organisations.</span></li>
       <li>${icons.truck}<span>Tracking and delivery history recorded against each order.</span></li>
     </ul>
+   </div>
   </div>
 </div>`;
 
-  return page({ title: 'Sign in', description: 'Sign in to your Purely Peptides account for orders, batch documentation and account pricing.', canonical: '/login/', active: null, body });
+  return page({ title: 'Sign in', description: 'Sign in to your Purely Peptides Hub account for orders, batch documentation and account pricing.', canonical: '/login/', active: null, body });
 }
 
 module.exports = { dashboard, orders, orderDetail, login, ORDERS };

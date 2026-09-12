@@ -68,7 +68,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Certificates' }])}
     <p class="small muted" data-coa-count hidden style="margin-bottom:12px"></p>
       <div class="empty" data-coa-empty hidden style="margin:24px 0">
         ${icons.doc}
-        <h3>No records match that search</h3>
+        <h2>No records match that search</h2>
         <p>Check the lot number printed on the vial label, or search by product name instead.</p>
       </div>
       <table class="dtable dtable--zebra dtable--stack">
@@ -85,7 +85,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Certificates' }])}
 
 <section class="section section--mist">
   <div class="wrap">
-    ${C.sectionHead({ title: 'Reading the documentation', body: 'What each field on a Purely Peptides certificate records, and how to interpret it.' })}
+    ${C.sectionHead({ title: 'Reading the documentation', body: 'What each field on a Purely Peptides Hub certificate records, and how to interpret it.' })}
     <div class="grid grid-3">
       <div class="icard"><h3>Purity is method-specific</h3><p>The reported figure is area percent under stated chromatographic conditions. Different methods can return different numbers for the same material.</p><a class="link-arrow" href="/research/reading-an-hplc-purity-result/"><span>How to read a result</span>${icons.arrow}</a></div>
       <div class="icard"><h3>Identity is a separate test</h3><p>Purity says how much of one component is present. Mass spectrometry confirms that component is the sequence on the label.</p><a class="link-arrow" href="/research/mass-spectrometry-as-an-identity-check/"><span>Identity testing</span>${icons.arrow}</a></div>
@@ -96,7 +96,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Certificates' }])}
 
   return page({
     title: 'Certificates & batch documentation',
-    description: 'Search Purely Peptides certificates of analysis by product or lot number. Purity, identity and testing dates for every documented production lot.',
+    description: 'Search Purely Peptides Hub certificates of analysis by product or lot number. Purity, identity and testing dates for every documented production lot.',
     canonical: '/certificates/',
     active: 'Resources',
     body,
@@ -134,19 +134,24 @@ ${C.crumbs([
         </div>
         <div class="row" style="gap:8px">
           <button class="btn btn--secondary btn--sm" type="button" onclick="window.print()">Print</button>
-          <button class="btn btn--primary btn--sm" type="button" data-toast="Certificate COA-${esc(lot.lot)}.pdf downloaded">${icons.download} Download PDF</button>
+          <a class="btn btn--primary btn--sm" href="${lot.doc}" target="_blank" rel="noopener">${icons.download} Download ${esc(lot.docType)}</a>
         </div>
       </div>
 
       <div class="coa-doc__page">
         <div class="row" style="justify-content:space-between;align-items:flex-start">
           <div>
-            <strong style="font-size:var(--t-h4)">${esc(brand.legal)}</strong>
-            <p class="small muted" style="margin-top:6px">${esc(brand.address.join(', '))}</p>
+            <span class="label">Analysis performed by</span>
+            <strong style="font-size:var(--t-h4);display:block;margin-top:4px">${esc(lot.lab)}</strong>
+            <p class="small muted" style="margin-top:6px">
+              Independent analytical laboratory.${lot.vendor ? ` Material supplied by ${esc(lot.vendor)}.` : ''}
+              ${lot.verifyUrl ? `<br><a class="link" href="${lot.verifyUrl}" target="_blank" rel="noopener">Verify this certificate with the laboratory</a>` : ''}
+            </p>
           </div>
           <div style="text-align:right">
             <span class="label">Issued</span>
             <span class="mono">${esc(lot.date)}</span>
+            ${lot.received ? `<div style="margin-top:8px"><span class="label">Sample received</span><span class="mono">${esc(lot.received)}</span></div>` : ''}
           </div>
         </div>
 
@@ -170,27 +175,47 @@ ${C.crumbs([
 
         <h2 style="font-size:var(--t-h4);margin-bottom:16px">Analytical results</h2>
         <table class="dtable dtable--stack" style="margin-bottom:24px">
-          <thead><tr><th>Test</th><th>Method</th><th>Specification</th><th>Result</th></tr></thead>
+          <thead><tr><th>Test</th><th>Method</th><th>Result</th><th>Status</th></tr></thead>
           <tbody>
-            <tr><td data-label="Test">Purity</td><td data-label="Method" class="mono">RP-HPLC, 220 nm</td><td data-label="Specification" class="mono">≥ 98.0%</td><td data-label="Result"><strong class="mono">${esc(lot.purity)}</strong></td></tr>
-            <tr><td data-label="Test">Identity</td><td data-label="Method" class="mono">ESI-MS</td><td data-label="Specification">Conforms to structure</td><td data-label="Result"><strong>${esc(lot.identity)}</strong></td></tr>
-            <tr><td data-label="Test">Appearance</td><td data-label="Method">Visual</td><td data-label="Specification">White to off-white powder</td><td data-label="Result"><strong>Conforms</strong></td></tr>
+            <tr><td data-label="Test">Identity</td><td data-label="Method" class="mono">${esc(lot.identity.includes('LC-MS') ? 'LC-MS/MS' : 'MALDI-MS')}</td><td data-label="Result"><strong>${esc(lot.product)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Conforms</span></td></tr>
+            <tr><td data-label="Test">Overall purity</td><td data-label="Method" class="mono">${esc(lot.method)}</td><td data-label="Result"><strong class="mono">${esc(lot.purity)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Conforms</span></td></tr>
+            ${lot.content ? `<tr><td data-label="Test">Net peptide content</td><td data-label="Method" class="mono">HPLC quantitation</td><td data-label="Result"><strong class="mono">${esc(lot.content)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Conforms</span></td></tr>` : ''}
+            ${lot.endotoxin ? `<tr><td data-label="Test">Endotoxin</td><td data-label="Method" class="mono">USP &lt;85&gt;</td><td data-label="Result"><strong class="mono">${esc(lot.endotoxin)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Pass</span></td></tr>` : ''}
+            ${lot.heavyMetals ? `<tr><td data-label="Test">Heavy metals</td><td data-label="Method" class="mono">USP &lt;232&gt;</td><td data-label="Result"><strong class="mono">${esc(lot.heavyMetals)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Conforms</span></td></tr>` : ''}
+            ${lot.sterility ? `<tr><td data-label="Test">Sterility</td><td data-label="Method" class="mono">USP &lt;71&gt;</td><td data-label="Result"><strong class="mono">${esc(lot.sterility)}</strong></td><td data-label="Status"><span class="status status--ok">${icons.check}Conforms</span></td></tr>` : ''}
+            ${lot.retention ? `<tr><td data-label="Test">Retention time</td><td data-label="Method" class="mono">${esc(lot.method)}</td><td data-label="Result"><strong class="mono">${esc(lot.retention)}</strong></td><td data-label="Status"><span class="muted small">Recorded</span></td></tr>` : ''}
           </tbody>
         </table>
 
-        <span class="label" style="margin-bottom:10px">Chromatogram - C18, 4.6 × 250 mm, 0.1% TFA gradient</span>
-        <div class="coa-doc__trace" data-graph>${chromatogram(lot.lot, { w: 720, h: 220 })}</div>
+        ${lot.note ? `<div class="notice notice--warn" style="margin-bottom:24px">${icons.info}<div>${esc(lot.note)}</div></div>` : ''}
+
+        <span class="label" style="margin-bottom:10px">Issued document</span>
+        <p class="small muted" style="margin-bottom:12px">
+          The values above are transcribed from the document issued by ${esc(lot.lab)}. That document,
+          including the chromatogram and mass spectrum, is the record of testing - open it below.
+        </p>
+        <figure class="coa-doc__embed">
+          <a href="${lot.doc}" target="_blank" rel="noopener" aria-label="Open the full certificate for lot ${esc(lot.lot)}">
+            <img src="/doc/coa/preview/${lot.lot.toLowerCase()}.jpg"
+                 alt="Certificate of analysis for lot ${esc(lot.lot)}, issued by ${esc(lot.lab)}"
+                 loading="lazy" width="1020" height="1320">
+          </a>
+          <figcaption>
+            <span>Page 1 of the certificate issued by ${esc(lot.lab)}.</span>
+            <a class="link-arrow" href="${lot.doc}" target="_blank" rel="noopener"><span>Open the full ${esc(lot.docType === 'Image' ? 'certificate' : 'PDF')}</span>${icons.arrow}</a>
+          </figcaption>
+        </figure>
 
         <div class="coa-doc__rule"></div>
 
         <div class="row" style="justify-content:space-between;align-items:flex-end;gap:24px">
           <div>
-            <span class="label">Released by</span>
-            <p class="small" style="margin-top:6px">Dr. Ines Karlsson<br><span class="muted">Head of Analytical Services</span></p>
+            <span class="label">Testing laboratory</span>
+            <p class="small" style="margin-top:6px">${esc(lot.lab)}${lot.vendor ? `<br><span class="muted">Material vendor: ${esc(lot.vendor)}</span>` : ''}</p>
           </div>
           <div style="text-align:right">
             <span class="label">Document reference</span>
-            <span class="mono small">COA-${esc(lot.lot)}-R1</span>
+            <span class="mono small">${esc(lot.accession ? 'COA ' + lot.accession : 'COA-' + lot.lot)}</span>
           </div>
         </div>
       </div>
@@ -207,9 +232,10 @@ ${C.crumbs([
           ['Lot', lot.lot],
           ['Purity', lot.purity],
           ['Method', lot.method],
-          ['Identity', 'Conforms'],
+          ['Identity', lot.identity],
           ['Tested', lot.date],
           ['Laboratory', lot.lab],
+          ...(lot.vendor ? [['Vendor', lot.vendor]] : []),
         ]
           .map(
             ([k, v]) => `<div style="display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid var(--rule);padding-bottom:10px">
@@ -224,7 +250,7 @@ ${C.crumbs([
       <span class="label">Other lots of this product</span>
       <ul style="list-style:none;padding:0;margin:14px 0 0;display:grid;gap:2px">
         ${lots
-          .filter((l) => l.slug === lot.slug)
+          .filter((l) => l.slug === lot.slug && l.doc)
           .map(
             (l) => `<li><a href="/certificates/${l.lot.toLowerCase()}/" style="display:flex;justify-content:space-between;gap:12px;padding:9px 0;text-decoration:none;border-bottom:1px solid var(--rule)">
           <span class="mono small"${l.lot === lot.lot ? ' style="color:var(--verdigris);font-weight:500"' : ''}>${esc(l.lot)}</span>

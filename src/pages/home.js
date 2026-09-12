@@ -155,7 +155,8 @@ const valueProps = [
 module.exports = function home() {
   const featured = products.filter((p) => p.featured).slice(0, 4);
   const posts = articles.filter((a) => a.featured).slice(0, 3);
-  const demoLot = lots.find((l) => l.lot === 'BP-260910');
+  // First documented lot, so the example on the homepage is always a real one.
+  const demoLot = lots.find((l) => l.doc);
 
   const body = `
 <!-- 1 ─ VIDEO HERO ──────────────────────────────────────────────────── -->
@@ -218,7 +219,7 @@ ${C.trustBar()}
     <div>
       <h2>Know what you are looking for?</h2>
       <p class="muted" style="margin-top:12px;max-width:44ch">
-        Search the catalogue by product name, CAS registry number, Purely Peptides SKU or a lot number
+        Search the catalogue by product name, CAS registry number, Purely Peptides Hub SKU or a lot number
         printed on a vial you already hold.
       </p>
     </div>
@@ -233,7 +234,7 @@ ${C.trustBar()}
       <form class="searchbar searchbar--lg" action="/search/" method="get" role="search">
         <span class="searchbar__icon">${icons.search}</span>
         <label class="visually-hidden" for="finder-q">Search products, CAS, SKU or lot number</label>
-        <input id="finder-q" name="q" type="search" placeholder="e.g. BPC-157, 137525-51-0, PP-1001 or BP-260910">
+        <input id="finder-q" name="q" type="search" placeholder="e.g. BPC-157, 137525-51-0, PPH-3001 or BP10-0318">
         <button class="btn btn--primary" type="submit">Search</button>
       </form>
       <div class="finder__examples">
@@ -241,8 +242,8 @@ ${C.trustBar()}
         <a href="/products/bpc-157/">BPC-157</a>
         <a href="/products/tb-500/">TB-500</a>
         <a href="/products/ghk-cu/">GHK-Cu</a>
-        <a href="/certificates/bp-260910/">BP-260910</a>
-        <a href="/products/category/blends/">Blends</a>
+        <a href="/certificates/bp10-0318/">BP10-0318</a>
+        <a href="/products/category/${categories[categories.length - 1].slug}/">${esc(categories[categories.length - 1].name)}</a>
       </div>
     </div>
   </div>
@@ -299,7 +300,7 @@ ${C.trustBar()}
         <div class="searchbar">
           <span class="searchbar__icon">${icons.doc}</span>
           <label class="visually-hidden" for="verify-lot">Lot number</label>
-          <input id="verify-lot" class="input--mono" name="lot" type="text" placeholder="BP-260910" spellcheck="false">
+          <input id="verify-lot" class="input--mono" name="lot" type="text" placeholder="BP10-0318" spellcheck="false">
           <button class="btn btn--onDark" type="submit">Verify</button>
         </div>
         <p class="verify__hint">Lot numbers appear on the vial label and on your order confirmation.</p>
@@ -412,7 +413,7 @@ ${C.trustBar()}
   return page({
     title: 'Research materials with lot-level documentation',
     description:
-      'Purely Peptides supplies research peptides and related materials with lot-specific analytical documentation, transparent specifications and streamlined ordering for laboratories.',
+      'Purely Peptides Hub supplies research peptides and related materials with lot-specific analytical documentation, transparent specifications and streamlined ordering for laboratories.',
     canonical: '/',
     active: null,
     body,
@@ -420,7 +421,7 @@ ${C.trustBar()}
       '@context': 'https://schema.org',
       '@type': 'Organization',
       name: brand.legal,
-      url: 'https://purelypeptides.com',
+      url: 'https://purelypeptideshub.com',
       email: brand.email,
       telephone: brand.phone,
       address: {

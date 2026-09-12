@@ -1,0 +1,8 @@
+node_modules/
+
+# Client source material. Contains the AllayPay merchant-account correspondence,
+# application screenshots and the raw inventory sheet - internal, not ours to
+# publish. The certificates and safety data sheets that belong on the website
+# are copied into public/doc/ and tracked from there.
+mdnjuan/
+mdnjuan.pdf

@@ -186,4 +186,36 @@
     });
   });
 
+  /* ------------------------------------------------------------------ tabs
+     A [role=tablist] whose buttons carry data-tab swaps the sibling
+     [data-panel] of the same name. The search page wires its own scope tabs
+     against the result set; this is for the static case, where the only job
+     is showing one panel and hiding the rest. */
+  $$('[data-tabs]').forEach(function (root) {
+    var tabs = $$('[data-tab]', root);
+    var panels = $$('[data-panel]', root);
+    if (!tabs.length || !panels.length) return;
+
+    // The heading belongs outside the panels so the page keeps one h1; it
+    // takes its text from the active tab rather than contradicting it.
+    var heading = $('[data-tab-title]', root.parentElement || root);
+
+    function select(key) {
+      var active = null;
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-tab') === key;
+        if (on) active = t;
+        t.setAttribute('aria-selected', String(on));
+      });
+      panels.forEach(function (p) { p.hidden = p.getAttribute('data-panel') !== key; });
+      if (heading && active) heading.textContent = active.textContent.trim();
+    }
+
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { select(t.getAttribute('data-tab')); });
+    });
+    select((tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0])
+      .getAttribute('data-tab'));
+  });
+
 })();

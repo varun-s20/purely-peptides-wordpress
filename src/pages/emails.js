@@ -18,11 +18,11 @@ const C = require('../components');
 const { icons } = require('../art');
 const { brand } = require('../data');
 
-const INK = '#071112';
+const INK = '#051214';
 const BODY = '#3B3B3B';
 const MUTED = '#5C6E71';
-const TEAL = '#378189';
-const ORANGE = '#FF7223';
+const TEAL = '#1DAFCB';
+const ORANGE = '#C7E119';
 const RULE = '#D7D7D7';
 const MIST = '#F6F6F4';
 
@@ -30,7 +30,7 @@ const SLAB = "'Rokkitt', Rockwell, Georgia, serif";
 const SANS = "'Noto Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif";
 
 const ORDER = {
-  id: 'PP-84251',
+  id: 'PPH-84251',
   date: '12 September 2026',
   lines: [
     { name: 'BPC-157', sku: 'PP-1001', size: '5 mg', lot: 'BP-260910', qty: 2, unit: 46 },
@@ -64,7 +64,7 @@ const lineItems = () => ORDER.lines.map((l) => `
   <td style="padding:14px 0;border-bottom:1px solid ${RULE}">
     <div style="font-family:${SLAB};font-size:16px;font-weight:600;color:${INK}">${esc(l.name)}</div>
     <div style="font-family:${SANS};font-size:12px;color:${MUTED};padding-top:4px">
-      ${esc(l.size)} vial &middot; ${esc(l.sku)} &middot; Lot <a href="https://purelypeptides.com/certificates/${l.lot.toLowerCase()}/" style="color:${TEAL};font-weight:600">${esc(l.lot)}</a>
+      ${esc(l.size)} vial &middot; ${esc(l.sku)} &middot; Lot <a href="https://purelypeptideshub.com/certificates/${l.lot.toLowerCase()}/" style="color:${TEAL};font-weight:600">${esc(l.lot)}</a>
     </div>
   </td>
   <td align="right" valign="top" style="padding:14px 0;border-bottom:1px solid ${RULE};font-family:${SANS};font-size:13px;color:${INK};white-space:nowrap">
@@ -91,7 +91,7 @@ function shell(preheader, heading, intro, content) {
       <tr><td style="padding:22px 28px;background:${INK}">
         <table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>
           <td style="font-family:${SLAB};font-size:20px;font-weight:700;color:#FFFFFF;letter-spacing:-0.01em">
-            Purely<span style="font-weight:400;color:#6DB9C1">Peptides</span>
+            Purely<span style="font-weight:400;color:#64E4F9">Peptides Hub</span>
           </td>
         </tr></table>
       </td></tr>
@@ -113,7 +113,7 @@ function shell(preheader, heading, intro, content) {
         <p style="margin:0;font-family:${SANS};font-size:12px;line-height:1.6;color:${MUTED}">
           ${brand.address.map(esc).join(', ')} &middot;
           <a href="mailto:${brand.email}" style="color:${TEAL}">${esc(brand.email)}</a> &middot;
-          <a href="https://purelypeptides.com/account/" style="color:${TEAL}">Your account</a>
+          <a href="https://purelypeptideshub.com/account/" style="color:${TEAL}">Your account</a>
         </p>
       </td></tr>
 
@@ -147,8 +147,8 @@ const TEMPLATES = [
       `
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${lineItems()}</table>
 ${totals}
-${btn('View your order', 'https://purelypeptides.com/orders/pp-84251/')}
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#EDF6F7;border-radius:6px">
+${btn('View your order', 'https://purelypeptideshub.com/orders/pp-84251/')}
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E8F7FA;border-radius:6px">
   <tr><td style="padding:14px 16px;font-family:${SANS};font-size:13px;line-height:1.6;color:${BODY}">
     <strong style="color:${INK}">Lot documentation.</strong> The certificate of analysis for each lot in this
     order is retained in your account permanently, including after the lot leaves stock.
@@ -163,7 +163,7 @@ ${btn('View your order', 'https://purelypeptides.com/orders/pp-84251/')}
     html: shell(
       `Order ${ORDER.id} has shipped - tracking enclosed.`,
       'Your order is on its way',
-      `Order <strong style="color:${INK}">${ORDER.id}</strong> left our Massachusetts facility today with cold-pack handling. Tracking is live below.`,
+      `Order <strong style="color:${INK}">${ORDER.id}</strong> left our US facility today with cold-pack handling. Tracking is live below.`,
       `
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border:1px solid ${RULE};border-radius:6px">
   <tr><td style="padding:16px">
@@ -172,7 +172,7 @@ ${btn('View your order', 'https://purelypeptides.com/orders/pp-84251/')}
     <div style="font-family:${SANS};font-size:13px;color:${MUTED};padding-top:6px">Estimated delivery: 15 September 2026</div>
   </td></tr>
 </table>
-${btn('Track this shipment', 'https://purelypeptides.com/orders/pp-84251/', ORANGE, INK)}
+${btn('Track this shipment', 'https://purelypeptideshub.com/orders/pp-84251/', ORANGE, INK)}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">${lineItems()}</table>
 <p style="margin:18px 0 0;font-family:${SANS};font-size:13px;line-height:1.6;color:${BODY}">
   <strong style="color:${INK}">On arrival:</strong> transfer to the storage condition printed on the
@@ -195,7 +195,7 @@ ${totals}
   ${row('Billed to', 'Kendall Institute, Cambridge MA')}
   ${row('Purchase order', 'KI-2026-0912')}
 </table>
-${btn('Download receipt (PDF)', 'https://purelypeptides.com/orders/pp-84251/')}`
+${btn('Download receipt (PDF)', 'https://purelypeptideshub.com/orders/pp-84251/')}`
     ),
   },
 ];

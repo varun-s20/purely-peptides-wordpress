@@ -50,7 +50,7 @@ function tracePath(seed, w, h, opts = {}) {
 function chromatogram(seed, opts = {}) {
   const w = opts.w || 600;
   const h = opts.h || 200;
-  const stroke = opts.stroke || '#378189';
+  const stroke = opts.stroke || '#1DAFCB';
   const grid = opts.grid !== false;
   const d = tracePath(seed, w, h, { top: 14, pad: 22, minor: opts.minor, mainAt: opts.mainAt });
   let gridLines = '';
@@ -65,8 +65,8 @@ function chromatogram(seed, opts = {}) {
     }
   }
   const label = opts.axis === false ? '' :
-    `<text x="0" y="${h - 6}" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">0 MIN</text>
-     <text x="${w}" y="${h - 6}" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">30 MIN</text>`;
+    `<text x="0" y="${h - 6}" font-family="Noto Sans, sans-serif" font-size="9" fill="#5C6E71" letter-spacing="1">0 MIN</text>
+     <text x="${w}" y="${h - 6}" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#5C6E71" letter-spacing="1">30 MIN</text>`;
   return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${opts.alt || 'Reversed-phase HPLC chromatogram trace'}" preserveAspectRatio="none">
     ${gridLines}
     <line x1="0" y1="${h - 22}" x2="${w}" y2="${h - 22}" stroke="#C1C1C1" stroke-width="1"/>
@@ -131,16 +131,17 @@ function productShot(sku, name, opts = {}) {
 }
 
 const CATEGORY_PHOTOS = {
-  'research-peptides': ['cat-peptides', 'A tray of sealed glass vials awaiting labelling'],
-  'protein-research': ['cat-protein', 'A researcher pipetting a sample into glassware at the bench'],
   'metabolic-research': ['cat-metabolic', 'A plate reader and pipette tips set out for an assay run'],
-  'cellular-research': ['cat-cellular', 'Medium being dispensed into a multi-well cell culture plate'],
+  'growth-factor-research': ['cat-protein', 'A researcher pipetting a sample into glassware at the bench'],
+  'cell-signalling-research': ['cat-cellular', 'Medium being dispensed into a multi-well cell culture plate'],
   'cognitive-research': ['cat-cognitive', 'A fluorescence micrograph of labelled neural tissue'],
+  'melanocortin-research': ['cat-peptides', 'A tray of sealed glass vials awaiting labelling'],
+  cofactors: ['cat-protein', 'A researcher pipetting a sample into glassware at the bench'],
   blends: ['cat-blends', 'A solution being dispensed into a vial during blending'],
 };
 
 function categoryPhoto(slug) {
-  const [name, alt] = CATEGORY_PHOTOS[slug] || CATEGORY_PHOTOS['research-peptides'];
+  const [name, alt] = CATEGORY_PHOTOS[slug] || CATEGORY_PHOTOS['metabolic-research'];
   return photo(name, alt, 880, 400);
 }
 
@@ -169,19 +170,19 @@ function labPlate() {
   return `<svg viewBox="0 0 480 600" role="img" aria-label="Analytical worksheet showing a chromatographic trace above a tabulated result set">
     <rect width="480" height="600" fill="#F6F6F4"/>
     <rect x="36" y="40" width="408" height="520" fill="#FFFFFF" stroke="#D7D7D7"/>
-    <rect x="36" y="40" width="408" height="7" fill="#378189"/>
-    <g font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#65797C">
+    <rect x="36" y="40" width="408" height="7" fill="#1DAFCB"/>
+    <g font-family="Noto Sans, sans-serif" font-size="9" letter-spacing="1" fill="#5C6E71">
       <text x="60" y="82">ANALYTICAL RECORD</text>
       <text x="420" y="82" text-anchor="end">BP-260910</text>
     </g>
     <line x1="60" y1="96" x2="420" y2="96" stroke="#D7D7D7"/>
     <g transform="translate(60, 112)">
-      ${chromatogram('BP-260910-plate', { w: 360, h: 168, gridColor: '#EDF6F7' }).replace(/<svg[^>]*>|<\/svg>/g, '')}
+      ${chromatogram('BP-260910-plate', { w: 360, h: 168, gridColor: '#E8F7FA' }).replace(/<svg[^>]*>|<\/svg>/g, '')}
     </g>
-    <line x1="60" y1="300" x2="420" y2="300" stroke="#071112"/>
+    <line x1="60" y1="300" x2="420" y2="300" stroke="#051214"/>
     <g font-family="Noto Sans, sans-serif" font-size="10">
       ${[['METHOD', 'RP-HPLC'], ['DETECTION', '220 NM'], ['COLUMN', 'C18 4.6 × 250 MM'], ['RT (MAIN)', '13.42 MIN'], ['AREA %', '99.4'], ['IDENTITY', 'CONFORMS - ESI-MS'], ['TESTED', '10 SEP 2026']]
-        .map(([k, v], i) => `<text x="60" y="${326 + i * 26}" fill="#65797C">${k}</text><text x="420" y="${326 + i * 26}" text-anchor="end" fill="#071112">${v}</text><line x1="60" y1="${334 + i * 26}" x2="420" y2="${334 + i * 26}" stroke="#EDF6F7"/>`).join('')}
+        .map(([k, v], i) => `<text x="60" y="${326 + i * 26}" fill="#5C6E71">${k}</text><text x="420" y="${326 + i * 26}" text-anchor="end" fill="#051214">${v}</text><line x1="60" y1="${334 + i * 26}" x2="420" y2="${334 + i * 26}" stroke="#E8F7FA"/>`).join('')}
     </g>
     <g transform="translate(60, 522)">
       <rect width="120" height="22" rx="3" fill="#EEF7E8" stroke="#CBE4BC"/>

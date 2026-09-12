@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Design system | Purely Peptides</title>
-<meta name="description" content="Colour, typography, spacing, components and states for the Purely Peptides interface.">
-<link rel="canonical" href="https://purelypeptides.com/styleguide/">
-<meta property="og:title" content="Design system | Purely Peptides">
-<meta property="og:description" content="Colour, typography, spacing, components and states for the Purely Peptides interface.">
+<title>Design system | Purely Peptides Hub</title>
+<meta name="description" content="Colour, typography, spacing, components and states for the Purely Peptides Hub interface.">
+<link rel="canonical" href="https://purelypeptideshub.com/styleguide/">
+<meta property="og:title" content="Design system | Purely Peptides Hub">
+<meta property="og:description" content="Colour, typography, spacing, components and states for the Purely Peptides Hub interface.">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#378189">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='8' fill='%23378189'/%3E%3Cpath d='M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#051214">
+<link rel="icon" type="image/png" href="img/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap">
@@ -51,18 +51,14 @@
 
 <header class="site-header" data-header>
   <div class="wrap masthead">
+    <!-- The supplied lockup sets "PURELY" in white, so it disappears on a light
+         ground. The mark is used as artwork and the wordmark is set in type,
+         which keeps the header legible on paper and crisp at every density.
+         The full colour lockup is used on the dark footer, where it works. -->
     <a class="logo" href="index.html">
-      <span class="logo__mark" aria-hidden="true">
-        <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-          <rect width="34" height="34" rx="9" fill="#378189"/>
-          <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-                stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
-                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-        </svg>
-      </span>
+      <img class="logo__mark" src="img/brand/mark.png" width="40" height="40" alt="" aria-hidden="true">
       <span class="logo__word">
-        <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+        <span class="logo__name">Purely<span class="logo__name2">Peptides Hub</span></span>
         <span class="logo__sub">Research materials</span>
       </span>
     </a>
@@ -117,13 +113,13 @@
     <div class="mega__col">
       <h3>Shop by category</h3>
       <ul class="mega__list">
-        <li><a href="category-research-peptides.html">Research Peptides<span class="n">3</span></a></li><li><a href="category-protein-research.html">Protein Research<span class="n">4</span></a></li><li><a href="category-metabolic-research.html">Metabolic Research<span class="n">4</span></a></li><li><a href="category-cellular-research.html">Cellular Research<span class="n">5</span></a></li><li><a href="category-cognitive-research.html">Cognitive Research<span class="n">2</span></a></li><li><a href="category-blends.html">Blends<span class="n">2</span></a></li><li><a href="products.html" style="font-weight:600">All products</a></li>
+        <li><a href="category-metabolic-research.html">Metabolic Research<span class="n">7</span></a></li><li><a href="category-growth-factor-research.html">Growth Factor Research<span class="n">4</span></a></li><li><a href="category-cell-signalling-research.html">Cell Signalling Research<span class="n">5</span></a></li><li><a href="category-cognitive-research.html">Cognitive Research<span class="n">2</span></a></li><li><a href="category-melanocortin-research.html">Melanocortin Research<span class="n">3</span></a></li><li><a href="category-cofactors.html">Cofactors &amp; Nucleotides<span class="n">1</span></a></li><li><a href="category-blends.html">Blends<span class="n">3</span></a></li><li><a href="products.html" style="font-weight:600">All products</a></li>
       </ul>
     </div>
     <div class="mega__col">
       <h3>Shop by research area</h3>
       <ul class="mega__list">
-        <li><a href="products.html?area=Metabolism">Metabolism</a></li><li><a href="products.html?area=Cell%20Signalling">Cell Signalling</a></li><li><a href="products.html?area=Cellular%20Repair">Cellular Repair</a></li><li><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a></li><li><a href="products.html?area=Neuroscience">Neuroscience</a></li><li><a href="products.html?area=Endocrine%20Research">Endocrine Research</a></li><li><a href="products.html">Other areas</a></li>
+        <li><a href="products.html?area=Metabolism">Metabolism</a></li><li><a href="products.html?area=Endocrine%20Research">Endocrine Research</a></li><li><a href="products.html?area=Cell%20Signalling">Cell Signalling</a></li><li><a href="products.html?area=Neuroscience">Neuroscience</a></li><li><a href="products.html?area=Receptor%20Pharmacology">Receptor Pharmacology</a></li><li><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a></li><li><a href="products.html?area=Redox%20%26%20Cofactor">Redox &amp; Cofactor</a></li><li><a href="products.html">Other areas</a></li>
       </ul>
     </div>
     <div class="mega__col">
@@ -165,7 +161,7 @@
     <div class="mega__col">
       <h3>Policies</h3>
       <ul class="mega__list">
-        <li><a href="research-use-policy.html">Research use policy</a></li><li><a href="shipping.html">Shipping &amp; handling</a></li><li><a href="shipping.html#returns">Returns</a></li><li><a href="terms.html">Terms of sale</a></li>
+        <li><a href="research-use-policy.html">Research use policy</a></li><li><a href="shipping.html">Shipping &amp; handling</a></li><li><a href="refunds.html">Refunds &amp; returns</a></li><li><a href="chargebacks.html">Chargeback policy</a></li><li><a href="terms.html">Terms &amp; conditions</a></li>
       </ul>
     </div>
     <div class="mega__col">
@@ -241,11 +237,11 @@
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#EDF6F7;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#E8F7FA;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Mist deep</div>
       <div class="mono micro muted" style="margin-top:4px">--mist-deep</div>
-      <div class="mono micro" style="color:var(--slate)">#EDF6F7</div>
+      <div class="mono micro" style="color:var(--slate)">#E8F7FA</div>
       <div class="micro muted" style="margin-top:6px">Table zebra, hover fill</div>
     </div>
   </div>
@@ -271,11 +267,11 @@
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#071112;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#051214;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Ink</div>
       <div class="mono micro muted" style="margin-top:4px">--ink</div>
-      <div class="mono micro" style="color:var(--slate)">#071112</div>
+      <div class="mono micro" style="color:var(--slate)">#051214</div>
       <div class="micro muted" style="margin-top:6px">Headings, 18.9:1</div>
     </div>
   </div>
@@ -322,11 +318,11 @@
       <div class="grid grid-4" style="margin-bottom:32px">
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#378189;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#1DAFCB;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Teal</div>
       <div class="mono micro muted" style="margin-top:4px">--teal</div>
-      <div class="mono micro" style="color:var(--slate)">#378189</div>
+      <div class="mono micro" style="color:var(--slate)">#1DAFCB</div>
       <div class="micro muted" style="margin-top:6px">Filled buttons, rules</div>
     </div>
   </div>
@@ -342,31 +338,31 @@
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#EDF6F7;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#E8F7FA;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Teal tint</div>
       <div class="mono micro muted" style="margin-top:4px">--teal-tint</div>
-      <div class="mono micro" style="color:var(--slate)">#EDF6F7</div>
+      <div class="mono micro" style="color:var(--slate)">#E8F7FA</div>
       <div class="micro muted" style="margin-top:6px">Selected state wash</div>
     </div>
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#6DB9C1;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#64E4F9;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Aqua</div>
       <div class="mono micro muted" style="margin-top:4px">--aqua</div>
-      <div class="mono micro" style="color:var(--slate)">#6DB9C1</div>
+      <div class="mono micro" style="color:var(--slate)">#64E4F9</div>
       <div class="micro muted" style="margin-top:6px">Accent on dark grounds</div>
     </div>
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#FF7223;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#C7E119;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Orange</div>
       <div class="mono micro muted" style="margin-top:4px">--orange</div>
-      <div class="mono micro" style="color:var(--slate)">#FF7223</div>
+      <div class="mono micro" style="color:var(--slate)">#C7E119</div>
       <div class="micro muted" style="margin-top:6px">CTA fill, arrows, rules</div>
     </div>
   </div>
@@ -392,11 +388,11 @@
   </div>
         
   <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden">
-    <div style="height:72px;background:#071112;border-bottom:1px solid var(--rule)"></div>
+    <div style="height:72px;background:#051214;border-bottom:1px solid var(--rule)"></div>
     <div style="padding:12px 14px">
       <div style="font-size:var(--t-small);font-weight:600">Bottle</div>
       <div class="mono micro muted" style="margin-top:4px">--bottle</div>
-      <div class="mono micro" style="color:var(--slate)">#071112</div>
+      <div class="mono micro" style="color:var(--slate)">#051214</div>
       <div class="micro muted" style="margin-top:6px">Dark sections, utility bar</div>
     </div>
   </div>
@@ -716,111 +712,111 @@
     <section id="sg-6" style="margin-bottom:64px">
       <h2 style="font-size:var(--t-h2);margin-bottom:24px">Cards &amp; rows</h2>
       <div class="label" style="margin-bottom:12px">Product card</div>
-      <div class="grid grid-3" style="margin-bottom:32px"><article class="pcard" data-slug="bpc-157" data-cat="research-peptides" data-area="Cellular Repair" data-form="Lyophilised powder" data-stock="in-stock" data-price="46" data-name="BPC-157" data-sku="PP-1001" data-cas="137525-51-0" data-added="2026-02-11" data-sizes="5 mg|10 mg">
-    <div class="pcard__media"><img src="img/prod-b.jpg" alt="BPC-157 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <button class="wishdot" type="button" data-wish-toggle="bpc-157" data-wish-label="BPC-157" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+      <div class="grid grid-3" style="margin-bottom:32px"><article class="pcard" data-slug="semaglutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="65" data-name="Semaglutide" data-sku="PPH-1001" data-cas="910463-68-2" data-added="2026-06-25" data-sizes="5 mg|10 mg|20 mg|30 mg|50 mg">
+    <div class="pcard__media"><img src="img/prod-c.jpg" alt="Semaglutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+      <button class="wishdot" type="button" data-wish-toggle="semaglutide" data-wish-label="Semaglutide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
-                data-add-to-order data-quick data-slug="bpc-157" data-name="BPC-157"
+                data-add-to-order data-quick data-slug="semaglutide" data-name="Semaglutide"
                 >
           Add to order
         </button>
       </div>
     </div>
     <div class="pcard__body">
-      <span class="tag">Research Peptides</span>
-      <h3 class="pcard__name"><a href="product-bpc-157.html">BPC-157</a></h3>
+      <span class="tag">Metabolic Research</span>
+      <h3 class="pcard__name"><a href="product-semaglutide.html">Semaglutide</a></h3>
       <div class="pcard__meta">
-        <span>CAS 137525-51-0</span>
-        <span>5 mg · 10 mg</span>
+        <span>CAS 910463-68-2</span>
+        <span>5 mg · 10 mg · 20 mg · 30 mg · 50 mg</span>
       </div>
-      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>COA available</span></div>
+      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$46.00<small>/ 5 mg</small></span>
+        <span class="pcard__price">$65.00<small>/ 5 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard" data-slug="tb-500" data-cat="research-peptides" data-area="Cellular Repair" data-form="Lyophilised powder" data-stock="in-stock" data-price="52" data-name="TB-500" data-sku="PP-1002" data-cas="885340-08-9" data-added="2026-01-22" data-sizes="2 mg|5 mg">
-    <div class="pcard__media"><img src="img/prod-c.jpg" alt="TB-500 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <button class="wishdot" type="button" data-wish-toggle="tb-500" data-wish-label="TB-500" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+  </article><article class="pcard" data-slug="tirzepatide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="135" data-name="Tirzepatide" data-sku="PPH-1002" data-cas="2023788-19-2" data-added="2026-06-17" data-sizes="10 mg|20 mg|30 mg|60 mg|100 mg">
+    <div class="pcard__media"><img src="img/prod-a.jpg" alt="Tirzepatide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+      <button class="wishdot" type="button" data-wish-toggle="tirzepatide" data-wish-label="Tirzepatide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
-                data-add-to-order data-quick data-slug="tb-500" data-name="TB-500"
+                data-add-to-order data-quick data-slug="tirzepatide" data-name="Tirzepatide"
                 >
           Add to order
         </button>
       </div>
     </div>
     <div class="pcard__body">
-      <span class="tag">Research Peptides</span>
-      <h3 class="pcard__name"><a href="product-tb-500.html">TB-500</a></h3>
+      <span class="tag">Metabolic Research</span>
+      <h3 class="pcard__name"><a href="product-tirzepatide.html">Tirzepatide</a></h3>
       <div class="pcard__meta">
-        <span>CAS 885340-08-9</span>
-        <span>2 mg · 5 mg</span>
+        <span>CAS 2023788-19-2</span>
+        <span>10 mg · 20 mg · 30 mg · 60 mg · 100 mg</span>
       </div>
-      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>COA available</span></div>
+      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$52.00<small>/ 2 mg</small></span>
+        <span class="pcard__price">$135.00<small>/ 10 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard" data-slug="ghk-cu" data-cat="cellular-research" data-area="Cellular Repair" data-form="Lyophilised powder (blue)" data-stock="in-stock" data-price="38" data-name="GHK-Cu" data-sku="PP-1003" data-cas="89030-95-5" data-added="2026-03-04" data-sizes="50 mg|100 mg">
-    <div class="pcard__media"><img src="img/prod-a.jpg" alt="GHK-Cu supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
-      <button class="wishdot" type="button" data-wish-toggle="ghk-cu" data-wish-label="GHK-Cu" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
+  </article><article class="pcard" data-slug="retatrutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="160" data-name="Retatrutide" data-sku="PPH-1003" data-cas="2381089-83-2" data-added="2026-06-25" data-sizes="10 mg|20 mg|30 mg">
+    <div class="pcard__media"><img src="img/prod-b.jpg" alt="Retatrutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+      <button class="wishdot" type="button" data-wish-toggle="retatrutide" data-wish-label="Retatrutide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
-                data-add-to-order data-quick data-slug="ghk-cu" data-name="GHK-Cu"
+                data-add-to-order data-quick data-slug="retatrutide" data-name="Retatrutide"
                 >
           Add to order
         </button>
       </div>
     </div>
     <div class="pcard__body">
-      <span class="tag">Cellular Research</span>
-      <h3 class="pcard__name"><a href="product-ghk-cu.html">GHK-Cu</a></h3>
+      <span class="tag">Metabolic Research</span>
+      <h3 class="pcard__name"><a href="product-retatrutide.html">Retatrutide</a></h3>
       <div class="pcard__meta">
-        <span>CAS 89030-95-5</span>
-        <span>50 mg · 100 mg</span>
+        <span>CAS 2381089-83-2</span>
+        <span>10 mg · 20 mg · 30 mg</span>
       </div>
-      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>COA available</span></div>
+      <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$38.00<small>/ 50 mg</small></span>
+        <span class="pcard__price">$160.00<small>/ 10 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
   </article></div>
 
       <div class="label" style="margin-bottom:12px">Product list row</div>
-      <div style="margin-bottom:32px"><article class="prow" data-slug="bpc-157" data-cat="research-peptides" data-area="Cellular Repair" data-form="Lyophilised powder" data-stock="in-stock" data-price="46" data-name="BPC-157" data-sku="PP-1001" data-cas="137525-51-0" data-added="2026-02-11" data-sizes="5 mg|10 mg">
-    <div class="prow__media"><img src="img/prod-b.jpg" alt="BPC-157 supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
+      <div style="margin-bottom:32px"><article class="prow" data-slug="semaglutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="65" data-name="Semaglutide" data-sku="PPH-1001" data-cas="910463-68-2" data-added="2026-06-25" data-sizes="5 mg|10 mg|20 mg|30 mg|50 mg">
+    <div class="prow__media"><img src="img/prod-c.jpg" alt="Semaglutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async"></div>
     <div class="prow__head">
-      <h3 class="prow__name"><a href="product-bpc-157.html">BPC-157</a></h3>
-      <p class="prow__desc">A 15-amino-acid synthetic peptide derived from a sequence of human gastric juice protein BPC. Widely used as a reference material in tissue repair and gastrointestinal model research.</p>
-      <div class="row" style="gap:6px;margin-top:10px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>COA available</span></div>
+      <h3 class="prow__name"><a href="product-semaglutide.html">Semaglutide</a></h3>
+      <p class="prow__desc">Acylated GLP-1 receptor agonist analogue used as a reference ligand in incretin receptor research.</p>
+      <div class="row" style="gap:6px;margin-top:10px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
     </div>
     <div class="prow__cells" style="display:contents">
-      <div class="prow__cell"><span class="label">CAS</span><span class="prow__val">137525-51-0</span></div>
+      <div class="prow__cell"><span class="label">CAS</span><span class="prow__val">910463-68-2</span></div>
       <div class="prow__cell"><span class="label">Form</span><span class="prow__val">Lyophilised</span></div>
-      <div class="prow__cell"><span class="label">Purity</span><span class="prow__val">99.4%</span></div>
+      <div class="prow__cell"><span class="label">Purity</span><span class="prow__val">≥ 99%</span></div>
     </div>
     <div class="prow__buy">
-      <span class="pcard__price">$46.00<small>/ 5 mg</small></span>
+      <span class="pcard__price">$65.00<small>/ 5 mg</small></span>
       <div class="row" style="gap:6px;flex-wrap:nowrap">
         <button class="btn btn--primary btn--sm" type="button" data-add-to-order data-quick
-                data-slug="bpc-157" data-name="BPC-157" >Add</button>
-        <a class="btn btn--secondary btn--sm" href="product-bpc-157.html">View</a>
+                data-slug="semaglutide" data-name="Semaglutide" >Add</button>
+        <a class="btn btn--secondary btn--sm" href="product-semaglutide.html">View</a>
       </div>
     </div>
   </article></div>
 
       <div class="label" style="margin-bottom:12px">Category panel &amp; research card</div>
       <div class="grid grid-2" style="margin-bottom:32px">
-        <a class="cat-panel" href="category-research-peptides.html">
-    <div class="cat-panel__art"><img src="img/cat-peptides.jpg" alt="A tray of sealed glass vials awaiting labelling" width="880" height="400" loading="lazy" decoding="async"></div>
-    <h3 class="cat-panel__title">Research Peptides</h3>
-    <p class="cat-panel__blurb">Lyophilised peptides supplied with lot-specific analytical documentation.</p>
+        <a class="cat-panel" href="category-metabolic-research.html">
+    <div class="cat-panel__art"><img src="img/cat-metabolic.jpg" alt="A plate reader and pipette tips set out for an assay run" width="880" height="400" loading="lazy" decoding="async"></div>
+    <h3 class="cat-panel__title">Metabolic Research</h3>
+    <p class="cat-panel__blurb">Incretin analogues and mitochondrial peptides used in energy-substrate and adipocyte models.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">3 materials</span>
+      <span class="cat-panel__count">7 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a>
@@ -838,28 +834,28 @@
     <div class="result-card__head">
       <div>
         <span class="label">Lot</span>
-        <strong class="mono" style="font-size:var(--t-h4)">BP-260910</strong>
+        <strong class="mono" style="font-size:var(--t-h4)">BP10-0318</strong>
       </div>
       <span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg>Documentation available</span>
     </div>
     <div class="result-card__grid">
       <div class="result-card__cell"><span class="label">Product</span><span class="result-card__val">BPC-157</span></div>
-      <div class="result-card__cell"><span class="label">Reported purity</span><span class="result-card__val">99.4%</span></div>
-      <div class="result-card__cell"><span class="label">Method</span><span class="result-card__val">RP-HPLC</span></div>
-      <div class="result-card__cell"><span class="label">Test date</span><span class="result-card__val">10 Sep 2026</span></div>
+      <div class="result-card__cell"><span class="label">Reported purity</span><span class="result-card__val">99.8%</span></div>
+      <div class="result-card__cell"><span class="label">Method</span><span class="result-card__val">RP-HPLC (214 nm)</span></div>
+      <div class="result-card__cell"><span class="label">Test date</span><span class="result-card__val">3 Apr 2026</span></div>
     </div>
     <div class="result-card__trace" data-graph>
       <span class="label" style="margin:14px 0 6px">Chromatogram</span>
       <svg viewBox="0 0 520 84" role="img" aria-label="Reversed-phase HPLC chromatogram trace" preserveAspectRatio="none">
     <line x1="0" y1="14" x2="520" y2="14" stroke="#F6F6F4" stroke-width="1"/><line x1="0" y1="25" x2="520" y2="25" stroke="#F6F6F4" stroke-width="1"/><line x1="0" y1="35" x2="520" y2="35" stroke="#F6F6F4" stroke-width="1"/><line x1="0" y1="45" x2="520" y2="45" stroke="#F6F6F4" stroke-width="1"/><line x1="0" y1="56" x2="520" y2="56" stroke="#F6F6F4" stroke-width="1"/><line x1="52" y1="0" x2="52" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="104" y1="0" x2="104" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="156" y1="0" x2="156" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="208" y1="0" x2="208" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="260" y1="0" x2="260" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="312" y1="0" x2="312" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="364" y1="0" x2="364" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="416" y1="0" x2="416" y2="62" stroke="#F6F6F4" stroke-width="1"/><line x1="468" y1="0" x2="468" y2="62" stroke="#F6F6F4" stroke-width="1"/>
     <line x1="0" y1="62" x2="520" y2="62" stroke="#C1C1C1" stroke-width="1"/>
-    <path class="trace" d="M0.0 61.9 L2.2 61.9 L4.3 61.8 L6.5 61.8 L8.7 61.6 L10.8 61.6 L13.0 61.8 L15.2 61.9 L17.3 61.9 L19.5 61.9 L21.7 62.1 L23.8 62.1 L26.0 62.1 L28.2 62.1 L30.3 62.1 L32.5 61.9 L34.7 62.0 L36.8 61.8 L39.0 61.7 L41.2 61.8 L43.3 61.7 L45.5 61.6 L47.7 61.7 L49.8 61.8 L52.0 61.8 L54.2 61.8 L56.3 61.9 L58.5 62.1 L60.7 62.2 L62.8 62.0 L65.0 62.0 L67.2 62.0 L69.3 62.1 L71.5 62.0 L73.7 61.8 L75.8 61.8 L78.0 61.8 L80.2 61.8 L82.3 61.8 L84.5 61.6 L86.7 61.8 L88.8 61.8 L91.0 61.9 L93.2 61.9 L95.3 62.0 L97.5 62.1 L99.7 62.1 L101.8 62.1 L104.0 61.9 L106.2 61.8 L108.3 61.5 L110.5 61.1 L112.7 60.8 L114.8 60.3 L117.0 59.7 L119.2 59.4 L121.3 59.4 L123.5 59.2 L125.7 59.2 L127.8 59.4 L130.0 59.2 L132.2 59.3 L134.3 59.4 L136.5 59.6 L138.7 59.9 L140.8 60.1 L143.0 60.5 L145.2 60.8 L147.3 61.1 L149.5 61.3 L151.7 61.4 L153.8 61.6 L156.0 61.6 L158.2 61.7 L160.3 61.8 L162.5 61.9 L164.7 61.9 L166.8 62.0 L169.0 62.0 L171.2 62.1 L173.3 62.2 L175.5 62.0 L177.7 62.0 L179.8 61.9 L182.0 61.9 L184.2 61.7 L186.3 61.8 L188.5 61.6 L190.7 61.5 L192.8 61.4 L195.0 61.2 L197.2 60.8 L199.3 60.5 L201.5 59.5 L203.7 58.3 L205.8 56.6 L208.0 54.1 L210.2 51.1 L212.3 47.4 L214.5 43.1 L216.7 38.3 L218.8 33.6 L221.0 29.1 L223.2 25.2 L225.3 22.3 L227.5 20.6 L229.7 20.5 L231.8 21.9 L234.0 24.6 L236.2 28.4 L238.3 32.7 L240.5 37.3 L242.7 41.6 L244.8 45.5 L247.0 48.5 L249.2 50.9 L251.3 52.4 L253.5 53.8 L255.7 54.9 L257.8 56.1 L260.0 57.4 L262.2 58.8 L264.3 59.8 L266.5 60.7 L268.7 61.2 L270.8 61.6 L273.0 61.9 L275.2 61.8 L277.3 61.9 L279.5 61.9 L281.7 61.8 L283.8 61.4 L286.0 61.0 L288.2 60.2 L290.3 59.7 L292.5 59.0 L294.7 58.5 L296.8 58.2 L299.0 58.4 L301.2 58.8 L303.3 59.3 L305.5 60.0 L307.7 60.8 L309.8 61.3 L312.0 61.6 L314.2 61.8 L316.3 62.0 L318.5 62.0 L320.7 62.0 L322.8 61.9 L325.0 62.0 L327.2 62.0 L329.3 61.8 L331.5 61.8 L333.7 61.8 L335.8 61.6 L338.0 61.7 L340.2 61.8 L342.3 61.7 L344.5 61.9 L346.7 62.0 L348.8 62.0 L351.0 62.0 L353.2 62.0 L355.3 61.4 L357.5 60.6 L359.7 59.7 L361.8 59.5 L364.0 59.9 L366.2 60.8 L368.3 61.3 L370.5 61.6 L372.7 61.6 L374.8 61.8 L377.0 61.8 L379.2 61.9 L381.3 61.9 L383.5 62.0 L385.7 62.0 L387.8 62.0 L390.0 62.1 L392.2 62.2 L394.3 62.0 L396.5 62.1 L398.7 62.0 L400.8 61.8 L403.0 61.8 L405.2 61.8 L407.3 61.7 L409.5 61.7 L411.7 61.7 L413.8 61.8 L416.0 61.8 L418.2 61.8 L420.3 62.1 L422.5 62.0 L424.7 62.1 L426.8 62.0 L429.0 62.1 L431.2 62.0 L433.3 61.9 L435.5 61.9 L437.7 61.9 L439.8 61.8 L442.0 61.8 L444.2 61.8 L446.3 61.8 L448.5 61.7 L450.7 61.8 L452.8 61.9 L455.0 61.8 L457.2 62.0 L459.3 62.1 L461.5 62.1 L463.7 62.2 L465.8 62.1 L468.0 62.0 L470.2 61.9 L472.3 61.9 L474.5 61.8 L476.7 61.7 L478.8 61.7 L481.0 61.7 L483.2 61.8 L485.3 61.8 L487.5 61.8 L489.7 61.8 L491.8 62.0 L494.0 62.1 L496.2 62.0 L498.3 62.0 L500.5 62.1 L502.7 62.1 L504.8 61.9 L507.0 62.0 L509.2 61.8 L511.3 61.8 L513.5 61.7 L515.7 61.8 L517.8 61.6 L520.0 61.7" fill="none" stroke="#378189" stroke-width="1.4"
+    <path class="trace" d="M0.0 62.0 L2.2 61.9 L4.3 61.8 L6.5 61.7 L8.7 61.7 L10.8 61.7 L13.0 61.8 L15.2 61.7 L17.3 61.9 L19.5 61.9 L21.7 62.0 L23.8 62.0 L26.0 62.1 L28.2 62.0 L30.3 62.1 L32.5 62.0 L34.7 61.9 L36.8 61.8 L39.0 61.8 L41.2 61.7 L43.3 61.8 L45.5 61.6 L47.7 61.8 L49.8 61.8 L52.0 61.8 L54.2 61.9 L56.3 62.0 L58.5 62.1 L60.7 62.1 L62.8 62.1 L65.0 62.1 L67.2 62.1 L69.3 62.0 L71.5 62.0 L73.7 61.8 L75.8 61.8 L78.0 61.8 L80.2 61.8 L82.3 61.6 L84.5 61.8 L86.7 61.8 L88.8 61.9 L91.0 61.9 L93.2 61.9 L95.3 61.9 L97.5 62.1 L99.7 62.0 L101.8 61.9 L104.0 61.9 L106.2 61.5 L108.3 61.0 L110.5 60.3 L112.7 59.7 L114.8 59.3 L117.0 59.4 L119.2 60.0 L121.3 60.6 L123.5 61.1 L125.7 61.5 L127.8 61.8 L130.0 62.0 L132.2 62.1 L134.3 62.1 L136.5 62.1 L138.7 62.1 L140.8 62.0 L143.0 61.9 L145.2 62.0 L147.3 61.9 L149.5 61.7 L151.7 61.8 L153.8 61.8 L156.0 61.7 L158.2 61.8 L160.3 61.7 L162.5 61.9 L164.7 61.9 L166.8 62.0 L169.0 62.0 L171.2 62.2 L173.3 62.1 L175.5 62.1 L177.7 62.0 L179.8 61.9 L182.0 61.8 L184.2 61.8 L186.3 61.8 L188.5 61.6 L190.7 61.5 L192.8 61.4 L195.0 61.1 L197.2 60.9 L199.3 60.5 L201.5 59.6 L203.7 58.3 L205.8 56.6 L208.0 54.2 L210.2 51.2 L212.3 47.3 L214.5 43.1 L216.7 38.5 L218.8 33.7 L221.0 29.0 L223.2 25.2 L225.3 22.3 L227.5 20.7 L229.7 20.5 L231.8 22.0 L234.0 24.7 L236.2 28.4 L238.3 32.7 L240.5 37.7 L242.7 42.3 L244.8 46.6 L247.0 50.5 L249.2 53.4 L251.3 55.9 L253.5 57.0 L255.7 57.5 L257.8 57.4 L260.0 57.9 L262.2 58.9 L264.3 60.1 L266.5 61.0 L268.7 61.6 L270.8 61.7 L273.0 62.0 L275.2 62.1 L277.3 62.1 L279.5 62.0 L281.7 62.0 L283.8 62.1 L286.0 61.9 L288.2 62.0 L290.3 61.8 L292.5 61.7 L294.7 61.6 L296.8 61.3 L299.0 61.1 L301.2 60.6 L303.3 60.4 L305.5 60.1 L307.7 60.2 L309.8 60.6 L312.0 60.8 L314.2 61.2 L316.3 61.7 L318.5 61.8 L320.7 61.6 L322.8 60.9 L325.0 59.9 L327.2 58.9 L329.3 58.4 L331.5 58.7 L333.7 59.7 L335.8 60.5 L338.0 61.2 L340.2 61.7 L342.3 61.8 L344.5 61.9 L346.7 62.0 L348.8 62.1 L351.0 62.1 L353.2 62.0 L355.3 62.0 L357.5 61.6 L359.7 60.8 L361.8 59.8 L364.0 58.5 L366.2 57.5 L368.3 57.0 L370.5 57.4 L372.7 58.5 L374.8 59.6 L377.0 60.7 L379.2 61.4 L381.3 61.7 L383.5 62.0 L385.7 62.1 L387.8 62.1 L390.0 62.1 L392.2 62.0 L394.3 62.0 L396.5 62.1 L398.7 61.9 L400.8 61.9 L403.0 61.7 L405.2 61.7 L407.3 61.7 L409.5 61.7 L411.7 61.7 L413.8 61.7 L416.0 61.8 L418.2 62.0 L420.3 62.0 L422.5 62.1 L424.7 62.0 L426.8 62.2 L429.0 62.0 L431.2 62.0 L433.3 62.0 L435.5 61.9 L437.7 61.8 L439.8 61.8 L442.0 61.8 L444.2 61.8 L446.3 61.8 L448.5 61.7 L450.7 61.9 L452.8 62.0 L455.0 61.9 L457.2 62.0 L459.3 62.0 L461.5 62.1 L463.7 62.1 L465.8 62.2 L468.0 62.1 L470.2 62.1 L472.3 61.8 L474.5 61.9 L476.7 61.8 L478.8 61.8 L481.0 61.7 L483.2 61.7 L485.3 61.8 L487.5 61.8 L489.7 61.9 L491.8 61.9 L494.0 62.0 L496.2 62.1 L498.3 62.0 L500.5 62.1 L502.7 62.0 L504.8 62.0 L507.0 61.9 L509.2 61.8 L511.3 61.9 L513.5 61.8 L515.7 61.7 L517.8 61.6 L520.0 61.8" fill="none" stroke="#1DAFCB" stroke-width="1.4"
           stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
     
   </svg>
     </div>
     <div class="result-card__foot">
-      <a class="btn btn--primary" href="certificate-bp-260910.html">View certificate</a>
+      <a class="btn btn--primary" href="certificate-bp10-0318.html">View certificate</a>
       <a class="btn btn--secondary" href="product-bpc-157.html">Go to product</a>
     </div>
   </div></div>
@@ -881,28 +877,28 @@
         <thead><tr><th>Product</th><th>Lot</th><th>Size</th><th>Test date</th><th>Purity</th><th>Status</th><th>Certificate</th></tr></thead>
         <tbody><tr>
     <td data-label="Product"><a class="link" href="product-bpc-157.html">BPC-157</a></td>
-    <td data-label="Lot" class="mono">BP-260910</td>
+    <td data-label="Lot" class="mono">BP10-0318</td>
     <td data-label="Size" class="mono">10 mg</td>
-    <td data-label="Test date" class="mono">10 Sep 2026</td>
-    <td data-label="Purity" class="mono">99.4%</td>
+    <td data-label="Test date" class="mono">3 Apr 2026</td>
+    <td data-label="Purity" class="mono">99.8%</td>
     <td data-label="Status"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Available</span></td>
-    <td data-label="Certificate"><a class="link-arrow" href="certificate-bp-260910.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
+    <td data-label="Certificate"><a class="link-arrow" href="certificate-bp10-0318.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
   </tr><tr>
     <td data-label="Product"><a class="link" href="product-bpc-157.html">BPC-157</a></td>
-    <td data-label="Lot" class="mono">BP-260418</td>
+    <td data-label="Lot" class="mono">BP5-0318</td>
     <td data-label="Size" class="mono">5 mg</td>
-    <td data-label="Test date" class="mono">18 Apr 2026</td>
-    <td data-label="Purity" class="mono">99.1%</td>
+    <td data-label="Test date" class="mono">3 Apr 2026</td>
+    <td data-label="Purity" class="mono">99.7%</td>
     <td data-label="Status"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Available</span></td>
-    <td data-label="Certificate"><a class="link-arrow" href="certificate-bp-260418.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
+    <td data-label="Certificate"><a class="link-arrow" href="certificate-bp5-0318.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
   </tr><tr>
-    <td data-label="Product"><a class="link" href="product-bpc-157.html">BPC-157</a></td>
-    <td data-label="Lot" class="mono">BP-251129</td>
-    <td data-label="Size" class="mono">5 mg</td>
-    <td data-label="Test date" class="mono">29 Nov 2025</td>
-    <td data-label="Purity" class="mono">98.9%</td>
-    <td data-label="Status"><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.2l3.2 2"/></svg>Archived</span></td>
-    <td data-label="Certificate"><a class="link-arrow" href="certificate-bp-251129.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
+    <td data-label="Product"><a class="link" href="product-tb-500.html">TB-500</a></td>
+    <td data-label="Lot" class="mono">TB10-0318</td>
+    <td data-label="Size" class="mono">10 mg</td>
+    <td data-label="Test date" class="mono">3 Apr 2026</td>
+    <td data-label="Purity" class="mono">99.8%</td>
+    <td data-label="Status"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Available</span></td>
+    <td data-label="Certificate"><a class="link-arrow" href="certificate-tb10-0318.html"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></td>
   </tr></tbody>
       </table>
     </section>
@@ -1119,10 +1115,10 @@
         <svg viewBox="0 0 720 200" role="img" aria-label="Reversed-phase HPLC chromatogram trace" preserveAspectRatio="none">
     <line x1="0" y1="34" x2="720" y2="34" stroke="#EDEDEA" stroke-width="1"/><line x1="0" y1="63" x2="720" y2="63" stroke="#EDEDEA" stroke-width="1"/><line x1="0" y1="93" x2="720" y2="93" stroke="#EDEDEA" stroke-width="1"/><line x1="0" y1="123" x2="720" y2="123" stroke="#EDEDEA" stroke-width="1"/><line x1="0" y1="152" x2="720" y2="152" stroke="#EDEDEA" stroke-width="1"/><line x1="72" y1="0" x2="72" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="144" y1="0" x2="144" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="216" y1="0" x2="216" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="288" y1="0" x2="288" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="360" y1="0" x2="360" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="432" y1="0" x2="432" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="504" y1="0" x2="504" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="576" y1="0" x2="576" y2="178" stroke="#EDEDEA" stroke-width="1"/><line x1="648" y1="0" x2="648" y2="178" stroke="#EDEDEA" stroke-width="1"/>
     <line x1="0" y1="178" x2="720" y2="178" stroke="#C1C1C1" stroke-width="1"/>
-    <path class="trace" d="M0.0 177.7 L3.0 177.6 L6.0 177.3 L9.0 177.2 L12.0 176.7 L15.0 176.8 L18.0 177.4 L21.0 177.5 L24.0 177.8 L27.0 177.5 L30.0 178.3 L33.0 178.5 L36.0 178.3 L39.0 178.5 L42.0 178.4 L45.0 177.8 L48.0 177.9 L51.0 177.5 L54.0 177.1 L57.0 177.3 L60.0 176.8 L63.0 176.8 L66.0 176.8 L69.0 177.2 L72.0 177.4 L75.0 177.3 L78.0 177.6 L81.0 178.4 L84.0 178.6 L87.0 178.0 L90.0 178.2 L93.0 178.2 L96.0 178.3 L99.0 178.0 L102.0 177.3 L105.0 177.4 L108.0 177.2 L111.0 177.3 L114.0 177.3 L117.0 176.8 L120.0 177.2 L123.0 177.2 L126.0 177.8 L129.0 177.6 L132.0 178.1 L135.0 178.3 L138.0 178.3 L141.0 178.2 L144.0 177.6 L147.0 177.4 L150.0 176.2 L153.0 175.0 L156.0 173.8 L159.0 172.1 L162.0 170.2 L165.0 169.0 L168.0 169.1 L171.0 168.6 L174.0 168.5 L177.0 169.0 L180.0 168.5 L183.0 168.8 L186.0 169.1 L189.0 169.9 L192.0 170.7 L195.0 171.6 L198.0 173.0 L201.0 173.9 L204.0 175.0 L207.0 175.7 L210.0 175.9 L213.0 176.6 L216.0 176.7 L219.0 176.8 L222.0 177.2 L225.0 177.8 L228.0 177.7 L231.0 178.1 L234.0 178.0 L237.0 178.3 L240.0 178.6 L243.0 178.0 L246.0 177.9 L249.0 177.6 L252.0 177.7 L255.0 177.1 L258.0 177.3 L261.0 176.8 L264.0 176.2 L267.0 176.1 L270.0 175.2 L273.0 174.1 L276.0 172.7 L279.0 169.5 L282.0 165.4 L285.0 159.7 L288.0 151.2 L291.0 140.8 L294.0 128.3 L297.0 113.6 L300.0 97.1 L303.0 81.1 L306.0 65.5 L309.0 52.3 L312.0 42.3 L315.0 36.6 L318.0 36.3 L321.0 40.8 L324.0 50.3 L327.0 63.2 L330.0 78.0 L333.0 93.6 L336.0 108.3 L339.0 121.8 L342.0 131.9 L345.0 140.0 L348.0 145.3 L351.0 150.0 L354.0 153.6 L357.0 157.9 L360.0 162.4 L363.0 167.2 L366.0 170.6 L369.0 173.5 L372.0 175.2 L375.0 176.5 L378.0 177.6 L381.0 177.4 L384.0 177.5 L387.0 177.7 L390.0 177.4 L393.0 176.1 L396.0 174.7 L399.0 172.0 L402.0 170.0 L405.0 167.8 L408.0 166.1 L411.0 165.0 L414.0 165.8 L417.0 167.1 L420.0 168.8 L423.0 171.1 L426.0 173.8 L429.0 175.6 L432.0 176.8 L435.0 177.4 L438.0 178.0 L441.0 177.9 L444.0 178.0 L447.0 177.7 L450.0 178.0 L453.0 177.9 L456.0 177.2 L459.0 177.3 L462.0 177.4 L465.0 176.8 L468.0 177.1 L471.0 177.3 L474.0 177.1 L477.0 177.6 L480.0 177.9 L483.0 177.9 L486.0 178.1 L489.0 177.8 L492.0 176.0 L495.0 173.2 L498.0 170.2 L501.0 169.5 L504.0 170.8 L507.0 173.9 L510.0 175.7 L513.0 176.5 L516.0 176.7 L519.0 177.3 L522.0 177.2 L525.0 177.6 L528.0 177.6 L531.0 177.9 L534.0 178.1 L537.0 178.1 L540.0 178.3 L543.0 178.6 L546.0 178.1 L549.0 178.2 L552.0 177.9 L555.0 177.4 L558.0 177.4 L561.0 177.3 L564.0 177.1 L567.0 176.9 L570.0 177.1 L573.0 177.3 L576.0 177.3 L579.0 177.5 L582.0 178.2 L585.0 178.0 L588.0 178.2 L591.0 178.1 L594.0 178.3 L597.0 177.9 L600.0 177.8 L603.0 177.8 L606.0 177.7 L609.0 177.4 L612.0 177.3 L615.0 177.2 L618.0 177.2 L621.0 177.0 L624.0 177.4 L627.0 177.7 L630.0 177.5 L633.0 177.9 L636.0 178.5 L639.0 178.5 L642.0 178.6 L645.0 178.4 L648.0 178.1 L651.0 177.6 L654.0 177.8 L657.0 177.4 L660.0 176.9 L663.0 177.1 L666.0 176.9 L669.0 177.2 L672.0 177.4 L675.0 177.4 L678.0 177.5 L681.0 177.9 L684.0 178.3 L687.0 178.0 L690.0 178.1 L693.0 178.2 L696.0 178.2 L699.0 177.8 L702.0 177.8 L705.0 177.4 L708.0 177.4 L711.0 177.1 L714.0 177.3 L717.0 176.8 L720.0 177.1" fill="none" stroke="#378189" stroke-width="1.4"
+    <path class="trace" d="M0.0 177.7 L3.0 177.6 L6.0 177.3 L9.0 177.2 L12.0 176.7 L15.0 176.8 L18.0 177.4 L21.0 177.5 L24.0 177.8 L27.0 177.5 L30.0 178.3 L33.0 178.5 L36.0 178.3 L39.0 178.5 L42.0 178.4 L45.0 177.8 L48.0 177.9 L51.0 177.5 L54.0 177.1 L57.0 177.3 L60.0 176.8 L63.0 176.8 L66.0 176.8 L69.0 177.2 L72.0 177.4 L75.0 177.3 L78.0 177.6 L81.0 178.4 L84.0 178.6 L87.0 178.0 L90.0 178.2 L93.0 178.2 L96.0 178.3 L99.0 178.0 L102.0 177.3 L105.0 177.4 L108.0 177.2 L111.0 177.3 L114.0 177.3 L117.0 176.8 L120.0 177.2 L123.0 177.2 L126.0 177.8 L129.0 177.6 L132.0 178.1 L135.0 178.3 L138.0 178.3 L141.0 178.2 L144.0 177.6 L147.0 177.4 L150.0 176.2 L153.0 175.0 L156.0 173.8 L159.0 172.1 L162.0 170.2 L165.0 169.0 L168.0 169.1 L171.0 168.6 L174.0 168.5 L177.0 169.0 L180.0 168.5 L183.0 168.8 L186.0 169.1 L189.0 169.9 L192.0 170.7 L195.0 171.6 L198.0 173.0 L201.0 173.9 L204.0 175.0 L207.0 175.7 L210.0 175.9 L213.0 176.6 L216.0 176.7 L219.0 176.8 L222.0 177.2 L225.0 177.8 L228.0 177.7 L231.0 178.1 L234.0 178.0 L237.0 178.3 L240.0 178.6 L243.0 178.0 L246.0 177.9 L249.0 177.6 L252.0 177.7 L255.0 177.1 L258.0 177.3 L261.0 176.8 L264.0 176.2 L267.0 176.1 L270.0 175.2 L273.0 174.1 L276.0 172.7 L279.0 169.5 L282.0 165.4 L285.0 159.7 L288.0 151.2 L291.0 140.8 L294.0 128.3 L297.0 113.6 L300.0 97.1 L303.0 81.1 L306.0 65.5 L309.0 52.3 L312.0 42.3 L315.0 36.6 L318.0 36.3 L321.0 40.8 L324.0 50.3 L327.0 63.2 L330.0 78.0 L333.0 93.6 L336.0 108.3 L339.0 121.8 L342.0 131.9 L345.0 140.0 L348.0 145.3 L351.0 150.0 L354.0 153.6 L357.0 157.9 L360.0 162.4 L363.0 167.2 L366.0 170.6 L369.0 173.5 L372.0 175.2 L375.0 176.5 L378.0 177.6 L381.0 177.4 L384.0 177.5 L387.0 177.7 L390.0 177.4 L393.0 176.1 L396.0 174.7 L399.0 172.0 L402.0 170.0 L405.0 167.8 L408.0 166.1 L411.0 165.0 L414.0 165.8 L417.0 167.1 L420.0 168.8 L423.0 171.1 L426.0 173.8 L429.0 175.6 L432.0 176.8 L435.0 177.4 L438.0 178.0 L441.0 177.9 L444.0 178.0 L447.0 177.7 L450.0 178.0 L453.0 177.9 L456.0 177.2 L459.0 177.3 L462.0 177.4 L465.0 176.8 L468.0 177.1 L471.0 177.3 L474.0 177.1 L477.0 177.6 L480.0 177.9 L483.0 177.9 L486.0 178.1 L489.0 177.8 L492.0 176.0 L495.0 173.2 L498.0 170.2 L501.0 169.5 L504.0 170.8 L507.0 173.9 L510.0 175.7 L513.0 176.5 L516.0 176.7 L519.0 177.3 L522.0 177.2 L525.0 177.6 L528.0 177.6 L531.0 177.9 L534.0 178.1 L537.0 178.1 L540.0 178.3 L543.0 178.6 L546.0 178.1 L549.0 178.2 L552.0 177.9 L555.0 177.4 L558.0 177.4 L561.0 177.3 L564.0 177.1 L567.0 176.9 L570.0 177.1 L573.0 177.3 L576.0 177.3 L579.0 177.5 L582.0 178.2 L585.0 178.0 L588.0 178.2 L591.0 178.1 L594.0 178.3 L597.0 177.9 L600.0 177.8 L603.0 177.8 L606.0 177.7 L609.0 177.4 L612.0 177.3 L615.0 177.2 L618.0 177.2 L621.0 177.0 L624.0 177.4 L627.0 177.7 L630.0 177.5 L633.0 177.9 L636.0 178.5 L639.0 178.5 L642.0 178.6 L645.0 178.4 L648.0 178.1 L651.0 177.6 L654.0 177.8 L657.0 177.4 L660.0 176.9 L663.0 177.1 L666.0 176.9 L669.0 177.2 L672.0 177.4 L675.0 177.4 L678.0 177.5 L681.0 177.9 L684.0 178.3 L687.0 178.0 L690.0 178.1 L693.0 178.2 L696.0 178.2 L699.0 177.8 L702.0 177.8 L705.0 177.4 L708.0 177.4 L711.0 177.1 L714.0 177.3 L717.0 176.8 L720.0 177.1" fill="none" stroke="#1DAFCB" stroke-width="1.4"
           stroke-linejoin="round" stroke-linecap="round" pathLength="1"/>
-    <text x="0" y="194" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">0 MIN</text>
-     <text x="720" y="194" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#65797C" letter-spacing="1">30 MIN</text>
+    <text x="0" y="194" font-family="Noto Sans, sans-serif" font-size="9" fill="#5C6E71" letter-spacing="1">0 MIN</text>
+     <text x="720" y="194" text-anchor="end" font-family="Noto Sans, sans-serif" font-size="9" fill="#5C6E71" letter-spacing="1">30 MIN</text>
   </svg>
       </div>
 
@@ -1133,7 +1129,7 @@
         </div>
         <div>
           <div class="label" style="margin-bottom:12px">Category photograph</div>
-          <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;aspect-ratio:1;display:grid;place-items:center"><img src="img/cat-protein.jpg" alt="A researcher pipetting a sample into glassware at the bench" width="880" height="400" loading="lazy" decoding="async"></div>
+          <div style="border:1px solid var(--rule);border-radius:var(--r-md);overflow:hidden;aspect-ratio:1;display:grid;place-items:center"><img src="img/cat-metabolic.jpg" alt="A plate reader and pipette tips set out for an assay run" width="880" height="400" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <div class="label" style="margin-bottom:12px">Photography direction</div>
@@ -1164,25 +1160,14 @@
 
     <div class="footer__grid">
       <div class="footer__brand">
-        <a class="logo" href="index.html">
-          <span class="logo__mark" aria-hidden="true">
-            <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-              <rect width="34" height="34" rx="9" fill="#6DB9C1"/>
-              <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-                    stroke="#071112" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
-                    stroke="#071112" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-            </svg>
-          </span>
-          <span class="logo__word">
-            <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
-            <span class="logo__sub">Research materials</span>
-          </span>
+        <!-- Dark ground, so the supplied full-colour lockup is used as-is. -->
+        <a class="logo logo--full" href="index.html">
+          <img src="img/brand/logo-ondark.png" width="210" height="213" alt="Purely Peptides Hub - Innovation, Quality, Research.">
         </a>
         <address class="footer__addr">
-          84 Kendall Court, Suite 300<br>Cambridge, MA 02142<br>United States<br>
-          <a href="mailto:support@purelypeptides.com">support@purelypeptides.com</a><br>
-          <a href="tel:+16175550148">+1 (617) 555-0148</a>
+          Address line 1<br>City, State ZIP<br>United States<br>
+          <a href="mailto:support@purelypeptideshub.com">support@purelypeptideshub.com</a><br>
+          <a href="tel:+10000000000">+1 (000) 000-0000</a>
         </address>
         <div class="footer__social">
           <a href="https://www.linkedin.com/" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21h-4v-5.6c0-1.34-.03-3.06-1.9-3.06-1.9 0-2.2 1.45-2.2 2.96V21H9z"/></svg></a><a href="https://x.com/" rel="noopener" aria-label="X"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 8.2 10h-6.4l-5-6.1L4.7 21H1.5l7.5-8.6L1.2 3h6.6l4.5 5.6zm-1.1 16h1.8L7.7 4.9H5.8z"/></svg></a><a href="https://www.youtube.com/" rel="noopener" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.27 5 12 5 12 5s-6.27 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2C2 8.78 2 12 2 12s0 3.22.4 4.8a2.5 2.5 0 0 0 1.76 1.77C5.73 19 12 19 12 19s6.27 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77C22 15.22 22 12 22 12s0-3.22-.4-4.8ZM10 15.2V8.8l5.2 3.2z"/></svg></a><a href="https://www.facebook.com/" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.5-3.89 3.77-3.89 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.89h-2.33v6.99A10 10 0 0 0 22 12Z"/></svg></a>
@@ -1191,7 +1176,7 @@
       <nav aria-labelledby="f-products">
         <h2 id="f-products">Products</h2>
         <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Products<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
-        <ul class="footer__list"><li><a href="products.html">All products</a></li><li><a href="category-research-peptides.html">Research peptides</a></li><li><a href="category-blends.html">Blends</a></li><li><a href="products.html?sort=newest">New materials</a></li></ul>
+        <ul class="footer__list"><li><a href="products.html">All products</a></li><li><a href="category-metabolic-research.html">Metabolic Research</a></li><li><a href="category-growth-factor-research.html">Growth Factor Research</a></li><li><a href="products.html?sort=newest">New materials</a></li></ul>
       </nav><nav aria-labelledby="f-quality">
         <h2 id="f-quality">Quality</h2>
         <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Quality<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
@@ -1203,26 +1188,29 @@
       </nav><nav aria-labelledby="f-ordering">
         <h2 id="f-ordering">Ordering</h2>
         <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Ordering<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
-        <ul class="footer__list"><li><a href="shipping.html">Shipping</a></li><li><a href="shipping.html#returns">Returns</a></li><li><a href="wholesale.html">Wholesale</a></li><li><a href="orders.html">Order tracking</a></li></ul>
+        <ul class="footer__list"><li><a href="shipping.html">Shipping</a></li><li><a href="refunds.html">Refunds &amp; returns</a></li><li><a href="wholesale.html">Wholesale</a></li><li><a href="orders.html">Order tracking</a></li></ul>
       </nav><nav aria-labelledby="f-company">
         <h2 id="f-company">Company</h2>
         <button class="footer__acc-toggle" type="button" data-facc aria-expanded="false">Company<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
-        <ul class="footer__list"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="research-use-policy.html">Research use policy</a></li></ul>
+        <ul class="footer__list"><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li><li><a href="terms.html">Terms &amp; conditions</a></li><li><a href="privacy.html">Privacy</a></li><li><a href="chargebacks.html">Chargeback policy</a></li><li><a href="research-use-policy.html">Research use policy</a></li></ul>
       </nav>
     </div>
 
+    <!-- First sentence is the exact wording required by our payment
+         processor's research-use-only site rules. Do not reword it. -->
     <p class="footer__disclaimer">
-      <strong>Research use only.</strong> All materials supplied by Purely Peptides LLC are intended exclusively for
-      laboratory research and in-vitro investigation by qualified professionals. They are not drugs, foods, cosmetics
-      or medical devices, and are not for human or veterinary use, diagnostic use, or any form of consumption.
-      Nothing on this site is a claim of therapeutic effect. Purchasers are responsible for compliance with all
+      <strong>All products sold on this website are intended for research and identification purposes only. These products are not intended for human dosing, injection, or ingestion.</strong>
+      Materials supplied by Purely Peptides Hub are for laboratory, academic and institutional research by
+      qualified professionals. They are not drugs, foods, dietary supplements, cosmetics or medical devices,
+      and are not for human or animal consumption, diagnostic use or clinical application. Nothing on this site
+      is a claim of therapeutic, performance or health effect. Purchasers are responsible for compliance with all
       applicable laws and institutional requirements governing the handling and disposal of research materials.
     </p>
 
     <div class="footer__legal">
-      <span>© 2026 Purely Peptides LLC. All rights reserved.</span>
-      <span class="row" style="gap:20px">
-        <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="research-use-policy.html">Research use policy</a>
+      <span>© 2026 Purely Peptides Hub. All rights reserved.</span>
+      <span class="row" style="gap:20px;flex-wrap:wrap">
+        <a href="terms.html">Terms</a><a href="privacy.html">Privacy</a><a href="shipping.html">Shipping</a><a href="refunds.html">Refunds &amp; returns</a><a href="chargebacks.html">Chargebacks</a><a href="research-use-policy.html">Research use policy</a>
       </span>
     </div>
   </div>
@@ -1230,7 +1218,7 @@
 
 <div class="mobile-nav" data-mobile-nav data-open="false" role="dialog" aria-modal="true" aria-label="Site menu">
   <div class="mobile-nav__head">
-    <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+    <span class="logo__name">Purely<span class="logo__name2">Peptides Hub</span></span>
     <button class="iconbtn" type="button" data-mobile-close aria-label="Close menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
   <div class="mobile-nav__body">
@@ -1243,14 +1231,14 @@
     <div class="mobile-nav__group">
       <button class="mobile-nav__trigger" type="button" data-mnav aria-expanded="false">Products<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
            <div class="mobile-nav__panel" data-open="false"><div>
-             <a href="category-research-peptides.html">Research Peptides</a><a href="category-protein-research.html">Protein Research</a><a href="category-metabolic-research.html">Metabolic Research</a><a href="category-cellular-research.html">Cellular Research</a><a href="category-cognitive-research.html">Cognitive Research</a><a href="category-blends.html">Blends</a><a href="products.html">All products</a>
+             <a href="category-metabolic-research.html">Metabolic Research</a><a href="category-growth-factor-research.html">Growth Factor Research</a><a href="category-cell-signalling-research.html">Cell Signalling Research</a><a href="category-cognitive-research.html">Cognitive Research</a><a href="category-melanocortin-research.html">Melanocortin Research</a><a href="category-cofactors.html">Cofactors &amp; Nucleotides</a><a href="category-blends.html">Blends</a><a href="products.html">All products</a>
            </div></div>
     </div>
     
     <div class="mobile-nav__group">
       <button class="mobile-nav__trigger" type="button" data-mnav aria-expanded="false">Research area<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="14" height="14" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
            <div class="mobile-nav__panel" data-open="false"><div>
-             <a href="products.html?area=Metabolism">Metabolism</a><a href="products.html?area=Cell%20Signalling">Cell Signalling</a><a href="products.html?area=Cellular%20Repair">Cellular Repair</a><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a><a href="products.html?area=Neuroscience">Neuroscience</a><a href="products.html?area=Endocrine%20Research">Endocrine Research</a>
+             <a href="products.html?area=Metabolism">Metabolism</a><a href="products.html?area=Endocrine%20Research">Endocrine Research</a><a href="products.html?area=Cell%20Signalling">Cell Signalling</a><a href="products.html?area=Neuroscience">Neuroscience</a><a href="products.html?area=Receptor%20Pharmacology">Receptor Pharmacology</a><a href="products.html?area=Inflammatory%20Research">Inflammatory Research</a><a href="products.html?area=Redox%20%26%20Cofactor">Redox &amp; Cofactor</a>
            </div></div>
     </div>
     
@@ -1362,34 +1350,29 @@
 
 <div class="toast-region" data-toasts aria-live="polite" aria-atomic="false"></div>
 
-<!-- Age + intended-use gate. Rendered hidden and revealed by script, so it
-     never blocks a crawler or a no-JS reader from the content behind it -
-     it is a declaration of intent, not a security control, and pretending
-     otherwise would be the wrong kind of theatre. -->
+<!-- 21+ age and intended-use gate, shown before the site can be used. Our
+     payment processor requires a 21+ verification popup ahead of entry, so
+     this is a condition of the merchant account, not decoration. It renders
+     hidden and is revealed by script so it never blocks a crawler or a
+     no-JS reader; it is a declaration of intent, not a security control. -->
 <div class="agegate" data-agegate hidden role="dialog" aria-modal="true" aria-labelledby="agegate-title">
   <div class="agegate__card">
-    <span class="agegate__mark" aria-hidden="true">
-      <svg width="40" height="40" viewBox="0 0 34 34" fill="none">
-        <rect width="34" height="34" rx="9" fill="#378189"/>
-        <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-              stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span class="eyebrow">Before you continue</span>
-    <h2 id="agegate-title">Laboratory research use only</h2>
+    <img class="agegate__mark" src="img/brand/mark.png" width="56" height="56" alt="" aria-hidden="true">
+    <span class="eyebrow">Before you enter</span>
+    <h2 id="agegate-title">You must be 21 or over</h2>
     <p>
-      Purely Peptides LLC supplies materials for in-vitro laboratory research by qualified
-      professionals. Nothing on this site is a drug, food, cosmetic or medical device, and nothing
-      here is for human or veterinary use, diagnostic use, or consumption of any kind.
+      Purely Peptides Hub supplies materials for laboratory, academic and institutional research by
+      qualified professionals. Nothing on this site is a drug, food, dietary supplement, cosmetic or
+      medical device, and nothing here is for human dosing, injection or ingestion.
     </p>
     <ul class="agegate__list">
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am 18 years of age or older</li>
-      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am purchasing for laboratory research purposes</li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am <strong>21 years of age or older</strong></li>
+      <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I am purchasing for laboratory research purposes only</li>
       <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>I will not administer these materials to humans or animals</li>
     </ul>
     <div class="agegate__actions">
-      <button class="btn btn--primary btn--lg" type="button" data-agegate-accept>I confirm - enter the site</button>
-      <a class="btn btn--secondary btn--lg" href="https://www.nih.gov/" rel="noopener">I do not confirm</a>
+      <button class="btn btn--primary btn--lg" type="button" data-agegate-accept>I am 21 or over - enter</button>
+      <a class="btn btn--secondary btn--lg" href="https://www.nih.gov/" rel="noopener">I am under 21 - exit</a>
     </div>
     <p class="agegate__fine">
       Your confirmation is stored in this browser so you are not asked again. See our

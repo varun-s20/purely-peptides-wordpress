@@ -14,7 +14,13 @@ const stockBadge = (stock) => {
   return `<span class="status status--stop">${icons.close}Backorder</span>`;
 };
 
-const docBadge = () => `<span class="status status--flat">${icons.doc}COA available</span>`;
+// Reflects whether a certificate actually exists for that product. Our payment
+// processor requires a lab report per product, and a badge that claims one
+// where none is on file is the kind of thing that fails an underwriting review.
+const docBadge = (p) =>
+  p && p.hasCoa === false
+    ? `<span class="status status--warn">${icons.clock}Lab report pending</span>`
+    : `<span class="status status--flat">${icons.doc}Lab report</span>`;
 
 function crumbs(trail) {
   return `<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
@@ -66,7 +72,7 @@ function productCard(p) {
         <span>CAS ${esc(p.cas)}</span>
         <span>${esc(p.sizes.map((s) => s.label).join(' · '))}</span>
       </div>
-      <div class="row" style="gap:6px">${stockBadge(p.stock)}${docBadge()}</div>
+      <div class="row" style="gap:6px">${stockBadge(p.stock)}${docBadge(p)}</div>
       <div class="pcard__foot">
         <span class="pcard__price">${money(size.price)}<small>/ ${esc(size.label)}</small></span>
         <span class="link-arrow"><span>View</span>${icons.arrow}</span>
@@ -84,7 +90,7 @@ function productRow(p) {
     <div class="prow__head">
       <h3 class="prow__name"><a href="/products/${p.slug}/">${esc(p.name)}</a></h3>
       <p class="prow__desc">${esc(p.summary)}</p>
-      <div class="row" style="gap:6px;margin-top:10px">${stockBadge(p.stock)}${docBadge()}</div>
+      <div class="row" style="gap:6px;margin-top:10px">${stockBadge(p.stock)}${docBadge(p)}</div>
     </div>
     <div class="prow__cells" style="display:contents">
       <div class="prow__cell"><span class="label">CAS</span><span class="prow__val">${esc(p.cas)}</span></div>
@@ -134,6 +140,8 @@ function lotRow(l) {
   const st =
     l.status === 'available'
       ? `<span class="status status--ok">${icons.check}Available</span>`
+      : l.status === 'pending'
+      ? `<span class="status status--warn">${icons.clock}Awaiting COA</span>`
       : `<span class="status status--flat">${icons.clock}Archived</span>`;
   return `<tr>
     <td data-label="Product"><a class="link" href="/products/${l.slug}/">${esc(l.product)}</a></td>
@@ -142,7 +150,9 @@ function lotRow(l) {
     <td data-label="Test date" class="mono">${esc(l.date)}</td>
     <td data-label="Purity" class="mono">${esc(l.purity)}</td>
     <td data-label="Status">${st}</td>
-    <td data-label="Certificate"><a class="link-arrow" href="/certificates/${l.lot.toLowerCase()}/"><span>View</span>${icons.arrow}</a></td>
+    <td data-label="Certificate">${l.doc
+      ? `<a class="link-arrow" href="/certificates/${l.lot.toLowerCase()}/"><span>View</span>${icons.arrow}</a>`
+      : '<span class="muted small">Pending</span>'}</td>
   </tr>`;
 }
 
@@ -152,12 +162,12 @@ function trustBar() {
   const items = [
     { icon: icons.doc, title: 'Batch-specific certificates', body: 'Documentation is issued against an individual production lot, not a product line.' },
     { icon: icons.chart, title: 'Analytical testing', body: 'Purity by reversed-phase HPLC and identity by mass spectrometry, reported per lot.' },
-    { icon: icons.truck, title: 'US fulfilment', body: 'Orders ship from Massachusetts with tracked handling and cold-chain options.' },
+    { icon: icons.truck, title: 'US fulfilment', body: 'Orders ship from our US facility with tracked handling and cold-chain options.' },
     { icon: icons.flask, title: 'Research use only', body: 'Supplied to laboratories and research organisations for in-vitro investigation.' },
   ];
   return `<section class="trust" aria-labelledby="trust-heading">
     <div class="wrap">
-      <h2 id="trust-heading" class="visually-hidden">Why researchers order from Purely Peptides</h2>
+      <h2 id="trust-heading" class="visually-hidden">Why researchers order from Purely Peptides Hub</h2>
       <div class="trust__grid">
       ${items
         .map(

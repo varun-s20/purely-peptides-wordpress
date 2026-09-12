@@ -1,5 +1,5 @@
 /* =========================================================================
-   Purely Peptides - global stylesheet
+   Purely Peptides Hub - global stylesheet
    ------------------------------------------------------------------------
    1. TOKENS      colour, type scale, spacing, radii, motion
    2. BASE        reset, typography, layout primitives
@@ -16,11 +16,11 @@
   /* ---- colour: neutrals (≈75% of surface area) ---- */
   --paper:        #FFFFFF;
   --mist:         #F6F6F4;   /* soft tinted background */
-  --mist-deep:    #EDF6F7;   /* table zebra, hover fill - pale teal wash */
+  --mist-deep:    #E8F7FA;   /* table zebra, hover fill - pale cyan wash */
   --rule:         #D7D7D7;   /* hairline border */
   --rule-strong:  #C1C1C1;   /* emphasised border on non-interactive surfaces */
   --rule-input:   #828894;   /* form control boundary - 3:1 per WCAG 1.4.11 */
-  --ink:          #071112;   /* headings, primary text */
+  --ink:          #051214;   /* headings, primary text - logo ink */
   --body-ink:     #3B3B3B;   /* running body copy */
   /* One step darker than the reference site's muted grey, which lands at
      4.2:1 on the tinted ground. These clear 4.5:1 on both paper and mist. */
@@ -28,23 +28,31 @@
   --slate-light:  #5C6E71;   /* tertiary text */
 
   /* ---- colour: brand accent (≈10%) ----
-     Teal carries interaction; orange carries the call to action. */
-  --teal:           #378189;
-  --teal-deep:      #2C656B;
-  --teal-tint:      #EDF6F7;
-  --orange:         #FF7223;  /* fills, arrows, rules - never small text */
-  --orange-deep:    #E25D10;  /* hover on filled surfaces */
-  --orange-text:    #BE4A0A;  /* the same accent at 4.5:1, for actual words */
-  --orange-tint:    #FFF1E9;
+     Taken from the Purely Peptides Hub logo: cyan #1DAFCB and lime #C7E119
+     over near-black #051214. Cyan carries interaction, lime carries the single
+     call to action on a screen.
+
+     Neither brand colour clears 4.5:1 as text on paper - cyan reads 2.7:1 and
+     lime 1.5:1 - so each has a darkened companion used wherever the accent has
+     to be *words*, while the bright values stay for fills, rules and arrows.
+     Lime buttons set ink on lime rather than white on lime for the same
+     reason. */
+  --teal:           #1DAFCB;  /* brand cyan - fills, marks, rules */
+  --teal-deep:      #0E7B90;  /* the same hue at 4.9:1 - links and accent text */
+  --teal-tint:      #E8F7FA;
+  --orange:         #C7E119;  /* brand lime - CTA fill, arrows, never small text */
+  --orange-deep:    #B2CA12;  /* hover on filled surfaces */
+  --orange-text:    #5F6E07;  /* the accent at 5.7:1, for actual words */
+  --orange-tint:    #F5FBDC;
   --leaf:           #6CC04A;
 
   /* Legacy aliases - the whole sheet was written against these names. */
   --verdigris:      var(--teal);
   --verdigris-deep: var(--teal-deep);
   --verdigris-tint: var(--teal-tint);
-  --aqua:           #6DB9C1;  /* muted secondary */
-  --bottle:         #071112;  /* dark section ground */
-  --bottle-soft:    #17282A;  /* dark section card */
+  --aqua:           #64E4F9;  /* logo light cyan - secondary on dark grounds */
+  --bottle:         #051214;  /* dark section ground - logo ink */
+  --bottle-soft:    #0F2226;  /* dark section card */
 
   /* ---- colour: status. Never used alone - always paired with a glyph ---- */
   --ok:       #3F7E27;
@@ -54,7 +62,7 @@
   --stop:     #C5221F;
   --stop-tint:#FCECEB;
 
-  --focus:    #378189;
+  --focus:    #0E7B90;
   --focus-ring: 0 0 0 2px var(--paper), 0 0 0 4px var(--focus);
 
   /* ---- type families ----
@@ -583,7 +591,12 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
 .check input[type='radio']:checked {
   background-image: radial-gradient(circle, #FFF 0 3.5px, transparent 3.5px);
 }
-.check > span { display: flex; flex: 1; gap: 12px; justify-content: space-between; align-items: baseline; }
+/* Default to normal text flow. This span often holds a whole sentence with
+   <strong> and links in it - as flex, every inline child became a flex item
+   and the sentence broke into columns. The two-up layout is only wanted for
+   the filter rows, which are the ones carrying a .check__count badge. */
+.check > span { display: block; flex: 1; }
+.check > span:has(.check__count) { display: flex; gap: 12px; justify-content: space-between; align-items: baseline; }
 .check__count { color: var(--slate-light); font-family: var(--mono); font-size: var(--t-micro); flex: none; }
 
 /* search input with leading icon + submit */
@@ -977,11 +990,16 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
 }
 
 .logo { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
-.logo__mark { flex: none; }
+.logo__mark { flex: none; width: 40px; height: 40px; object-fit: contain; }
+.logo--full { display: block; }
+.logo--full img { display: block; width: 210px; height: auto; max-width: 100%; }
 .logo__word { display: flex; flex-direction: column; line-height: 1; }
 /* Two weights in one wordmark: "Purely" reads as the qualifier, "Peptides"
    as the noun. Cheaper than a bespoke lockup and it survives at 16px. */
-.logo__name { font-family: var(--slab); font-size: 1.375rem; font-weight: 700; letter-spacing: -0.012em; color: var(--ink); line-height: 1; }
+.logo__name { font-family: var(--slab); font-size: 1.25rem; font-weight: 700; letter-spacing: -0.012em; color: var(--ink); line-height: 1; white-space: nowrap; }
+/* "Purely Peptides Hub" is long enough to wrap mid-name in the masthead,
+   which reads as a different company. Keep it on one line and let the
+   type size give way instead. */
 .logo__name2 { font-weight: 400; color: var(--teal-deep); }
 .footer__brand .logo__name2, .mobile-nav__head .logo__name2 { color: var(--aqua); }
 .logo__sub { font-family: var(--sans); font-size: 8.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--slate); margin-top: 5px; }
@@ -1433,7 +1451,7 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
      the action icons crowding the wordmark. Flex instead of patching tracks. */
   .masthead { display: flex; align-items: center; justify-content: space-between; gap: var(--s-2); padding-block: 10px; }
   .masthead__search { display: none; }
-  .logo__name { font-size: 1.1875rem; }
+  .logo__name { font-size: 1.0625rem; }
   .primary-nav, .utility__group--desk { display: none; }
   .mobile-toggle, .search-toggle { display: inline-flex; }
   .site-header { border-bottom: 1px solid var(--rule); }
@@ -1461,9 +1479,9 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
      icons in a toolbar. */
   :root { --gutter: 14px; }
   .iconbtn { min-width: 38px; padding-inline: 4px; }
-  .logo__name { font-size: 1.0625rem; }
+  .logo__name { font-size: 0.9375rem; }
   .logo { gap: 8px; }
-  .logo__mark svg { width: 30px; height: 30px; }
+  .logo__mark { width: 32px; height: 32px; }
 }
 
 
@@ -1694,7 +1712,7 @@ p.bulk-report__bad { padding-left: 12px; font-weight: 600; }
   animation: agegate-in 320ms var(--ease-out) both;
 }
 @keyframes agegate-in { from { opacity: 0; transform: translateY(10px) scale(0.985); } }
-.agegate__mark { display: block; margin-bottom: var(--s-3); }
+.agegate__mark { display: block; width: 56px; height: 56px; object-fit: contain; margin-bottom: var(--s-3); }
 .agegate__card h2 { font-size: var(--t-h2); margin-bottom: var(--s-2); }
 .agegate__card > p { color: var(--slate); font-size: var(--t-small); line-height: 1.65; }
 .agegate__list { list-style: none; margin: var(--s-3) 0; padding: 0; display: grid; gap: 10px; }
@@ -2478,13 +2496,21 @@ p.bulk-report__bad { padding-left: 12px; font-weight: 600; }
 /* ================================================================= AUTH */
 
 .auth { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 70vh; }
-.auth__panel { padding: var(--s-7) var(--s-5); display: grid; place-items: center; }
-.auth__form { width: min(420px, 100%); }
-.auth__art { background: var(--bottle); color: #D8DEDF; padding: var(--s-7) var(--s-5); display: flex; flex-direction: column; justify-content: center; }
+/* Both columns are top-aligned and share the same block padding, so the
+   "Why an account" eyebrow lands on the same line as "Account" beside it -
+   and stays there whichever tab is open. Centring either one would move that
+   line every time the form changes height. */
+.auth__panel { padding: var(--s-7) var(--s-5); display: grid; place-items: start center; }
+.auth__form { width: min(470px, 100%); }
+.auth__art { background: var(--bottle); color: #D8DEDF; padding: var(--s-7) var(--s-5); display: flex; flex-direction: column; justify-content: flex-start; }
+/* The art column still stretches to whatever the form beside it needs, so the
+   copy sticks to the viewport on the taller tab rather than scrolling away -
+   the same treatment the product gallery gets. */
+.auth__art-inner { position: sticky; top: calc(var(--header-h) + 24px); }
 .auth__art ul { list-style: none; padding: 0; margin: var(--s-4) 0 0; display: grid; gap: 14px; }
 .auth__art li { display: flex; gap: 11px; font-size: var(--t-small); color: #B5BCBD; }
 .auth__art svg { flex: none; color: var(--aqua); margin-top: 2px; }
-@media (max-width: 900px) { .auth { grid-template-columns: minmax(0, 1fr); } .auth__art { order: -1; padding-block: var(--s-5); } }
+@media (max-width: 900px) { .auth { grid-template-columns: minmax(0, 1fr); } .auth__art { order: -1; padding-block: var(--s-5); } .auth__art-inner { position: static; } }
 
 /* ================================================================ SEARCH */
 
@@ -2509,3 +2535,60 @@ p.bulk-report__bad { padding-left: 12px; font-weight: 600; }
 
 .policy { padding-block: var(--s-5) var(--s-8); display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: var(--s-5); align-items: start; }
 @media (max-width: 900px) { .policy { grid-template-columns: minmax(0, 1fr); } }
+
+/* ---------------------------------------------------- research-use notices
+   The per-product disclaimer is a condition of the merchant account, so it is
+   styled to be read rather than skimmed past: it sits directly under the buy
+   controls, at body size, on a tinted rule. */
+.pdp__ruo {
+  margin: 20px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--warn);
+  background: var(--warn-tint);
+  color: var(--ink);
+  font-size: var(--t-small);
+  font-weight: 600;
+  line-height: 1.5;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
+}
+
+/* Size option: stock state sits under the price so a buyer sees it before
+   choosing, not after adding to the order. */
+.opt__stock {
+  display: block;
+  margin-top: 3px;
+  font-size: var(--t-nano);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--slate);
+}
+.opt[aria-pressed="true"] .opt__stock { color: inherit; opacity: 0.75; }
+.opt[data-backorder="true"] .opt__stock { color: var(--warn); }
+
+.taglist { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+.taglist .tag { font-family: var(--mono); }
+
+/* The issued certificate is the record; the transcription above it is a
+   convenience. Give the real document room without letting a tall PDF push
+   the rest of the page off screen. */
+.coa-doc__embed {
+  margin: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  background: var(--mist);
+  overflow: hidden;
+}
+.coa-doc__embed a { display: block; }
+.coa-doc__embed img { display: block; width: 100%; height: auto; background: var(--paper); }
+.coa-doc__embed figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px var(--s-2);
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-top: 1px solid var(--rule);
+  font-size: var(--t-small);
+  color: var(--slate);
+}

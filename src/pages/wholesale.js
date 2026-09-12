@@ -219,7 +219,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
 
   return page({
     title: 'Wholesale application',
-    description: 'Apply for a Purely Peptides wholesale account: organisation details, research context and purchasing preferences.',
+    description: 'Apply for a Purely Peptides Hub wholesale account: organisation details, research context and purchasing preferences.',
     canonical: '/wholesale/apply/',
     active: 'Wholesale',
     body,

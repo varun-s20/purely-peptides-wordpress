@@ -16,6 +16,16 @@ const TYPES = {
   '.xml': 'application/xml',
   '.txt': 'text/plain; charset=utf-8',
   '.json': 'application/json',
+  // The certificates are served as real files, so the preview server has to
+  // know their types or the inline viewer gets an octet-stream and gives up.
+  '.pdf': 'application/pdf',
+  '.png': 'image/png',
+  '.jpg': 'image/jpeg',
+  '.jpeg': 'image/jpeg',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
+  '.mp4': 'video/mp4',
+  '.woff2': 'font/woff2',
 };
 
 http
@@ -33,7 +43,7 @@ http
     }
     send(res, 200, fs.readFileSync(file), TYPES[path.extname(file)] || 'application/octet-stream');
   })
-  .listen(PORT, () => console.log(`Veridian preview → http://localhost:${PORT}`));
+  .listen(PORT, () => console.log(`Purely Peptides Hub preview - http://localhost:${PORT}`));
 
 function send(res, code, body, type) {
   res.writeHead(code, { 'Content-Type': type || 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' });

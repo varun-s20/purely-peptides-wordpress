@@ -3,11 +3,15 @@
 const { page, esc, money } = require('../layout');
 const C = require('../components');
 const { icons, productShot, chromatogram } = require('../art');
-const { products, lots, articles } = require('../data');
+const { products, lots, articles, brand, sdsFor } = require('../data');
 
 module.exports = function productPage(p) {
   const productLots = lots.filter((l) => l.slug === p.slug);
-  const current = productLots[0];
+  // The lot that ships is the newest one with a certificate actually on file.
+  // Falling back to any lot would imply documentation we do not hold.
+  const current = productLots.find((l) => l.doc) || null;
+  const pendingLots = productLots.filter((l) => !l.doc);
+  const sds = sdsFor(p.slug);
   const related = products.filter((r) => r.slug !== p.slug && (r.area === p.area || r.category === p.category)).slice(0, 4);
   const size = p.sizes[0];
   const tint = p.slug === 'ghk-cu' ? '#D6E4EE' : '#F6F6F4';
@@ -33,7 +37,7 @@ module.exports = function productPage(p) {
 
   const specRows = [
     ['Product name', esc(p.name)],
-    ['Purely Peptides SKU', `<span class="mono">${esc(p.sku)}</span>`],
+    ['Purely Peptides Hub SKU', `<span class="mono">${esc(p.sku)}</span>`],
     ['CAS number', `<span class="mono">${esc(p.cas)}</span>`],
     ['Molecular formula', `<span class="mono">${esc(p.formula)}</span>`],
     ['Molecular weight', `<span class="mono">${esc(p.mw)}</span>`],
@@ -42,7 +46,13 @@ module.exports = function productPage(p) {
     ['Purity (reported)', `<span class="mono">${esc(p.purity)}</span> - ${esc(p.method)}`],
     ['Available sizes', esc(p.sizes.map((s) => s.label).join(', '))],
     ['Storage', esc(p.storage)],
-    ['Intended use', 'Laboratory research use only. Not for human or veterinary use.'],
+    ['Safety data sheet', sds
+      ? `<a class="link" href="${sds.doc}" target="_blank" rel="noopener">Download SDS (PDF)</a> <span class="muted small">&middot; ${esc(sds.ref)}</span>`
+      : '<span class="muted">Being prepared - available on request</span>'],
+    ['Certificate of analysis', current
+      ? `<a class="link" href="/certificates/${current.lot.toLowerCase()}/">Lot ${esc(current.lot)}</a>`
+      : '<span class="muted">Pending for the current lot</span>'],
+    ['Intended use', 'Laboratory, academic and institutional research use only. Not for human dosing, injection or ingestion.'],
   ];
 
   const body = `
@@ -78,8 +88,11 @@ ${C.crumbs([
 
     <div class="row" style="gap:8px;margin-bottom:20px">
       ${C.stockBadge(p.stock)}
-      <span class="status status--flat">${icons.doc}Certificate available</span>
+      ${current
+        ? `<span class="status status--ok">${icons.doc}Lab report available</span>`
+        : `<span class="status status--warn">${icons.clock}Lab report pending</span>`}
       ${current ? `<span class="status status--flat">${icons.box}Current lot ${esc(current.lot)}</span>` : ''}
+      ${sds ? `<span class="status status--flat">${icons.doc}SDS on file</span>` : ''}
     </div>
 
     <div class="pdp__price">
@@ -92,9 +105,10 @@ ${C.crumbs([
       <div class="optset" role="group" aria-labelledby="size-label">
         ${p.sizes
           .map(
-            (s, i) => `<button class="opt" type="button" aria-pressed="${i === 0}" data-size data-value="${s.price}" data-label="${esc(s.label)}">
+            (s, i) => `<button class="opt" type="button" aria-pressed="${i === 0}" data-size data-value="${s.price}" data-label="${esc(s.label)}"${s.stock === 'backorder' ? ' data-backorder="true"' : ''}>
           <span class="opt__size">${esc(s.label)}</span>
           <span class="opt__price">${money(s.price)}</span>
+          <span class="opt__stock">${s.stock === 'in-stock' ? 'In stock' : 'To order'}</span>
         </button>`
           )
           .join('')}
@@ -175,7 +189,7 @@ ${C.crumbs([
     <ul class="pdp__assur" style="list-style:none;padding:0">
       <li>${icons.doc}Lot documentation issued for the vial you receive</li>
       <li>${icons.lock}Secure checkout, purchase orders accepted on account</li>
-      <li>${icons.truck}Tracked despatch from Massachusetts, next business day</li>
+      <li>${icons.truck}Tracked despatch from our US facility, next business day</li>
     </ul>
 
     <div class="pdp__wholesale">
@@ -183,7 +197,13 @@ ${C.crumbs([
       <a class="link-arrow" href="/wholesale/"><span>Wholesale options</span>${icons.arrow}</a>
     </div>
 
-    <div style="margin-top:20px">${C.researchNotice()}</div>
+    <!-- Exact per-product wording required by our payment processor. Every
+         product page must carry it verbatim. Do not reword or abbreviate. -->
+    <p class="pdp__ruo">${esc(brand.productDisclaimer)}</p>
+    <div style="margin-top:16px">${C.researchNotice(
+      'This material is supplied for laboratory, academic and institutional research by qualified professionals. It is not for human dosing, injection or ingestion, not for veterinary use, and no therapeutic, performance or health claim is made or implied.'
+    )}</div>
+    ${p.verify ? `<div class="notice" style="margin-top:12px">${icons.info}<div><strong>Identity data pending.</strong> CAS number, molecular formula and molecular weight for this material are being confirmed with the supplier and will be published here with the first release lot.</div></div>` : ''}
   </div>
 </div>
 
@@ -268,19 +288,31 @@ ${C.crumbs([
           <div><span class="label">Identity</span><div class="lotpanel__val" style="font-size:var(--t-small)">${esc(current.identity)}</div></div>
           <div><span class="label">Test date</span><div class="lotpanel__val" style="font-size:var(--t-small)">${esc(current.date)}</div></div>
         </div>
+        <!-- Schematic, not the measured trace. The real chromatogram is in the
+             certificate; drawing one and labelling it as data would be a lie
+             on a page whose whole argument is that the data is real. -->
         <div class="lotpanel__trace" data-graph>
-          <span class="label" style="margin-bottom:8px">RP-HPLC · 220 nm · C18</span>
+          <span class="label" style="margin-bottom:8px">Schematic · measured trace is in the certificate</span>
           ${chromatogram(current.lot, { w: 620, h: 110 })}
         </div>
       </div>
       <div class="lotpanel__aside">
         <span class="label">Certificate</span>
-        <p class="small muted">Issued ${esc(current.date)} by ${esc(current.lab)}.</p>
+        <p class="small muted">Issued ${esc(current.date)} by ${esc(current.lab)}, an independent analytical laboratory.</p>
         <a class="btn btn--primary btn--block" href="/certificates/${current.lot.toLowerCase()}/">View certificate</a>
-        <a class="btn btn--secondary btn--block" href="/certificates/${current.lot.toLowerCase()}/">${icons.download} Download PDF</a>
+        <a class="btn btn--secondary btn--block" href="${current.doc}" target="_blank" rel="noopener">${icons.download} Download ${esc(current.docType)}</a>
+        ${sds ? `<a class="btn btn--secondary btn--block" href="${sds.doc}" target="_blank" rel="noopener">${icons.download} Safety data sheet</a>` : ''}
         <a class="link-arrow" style="margin-top:8px" href="/certificates/?product=${p.slug}"><span>View all ${productLots.length} lots</span>${icons.arrow}</a>
       </div>
-    </div>` : '<div class="empty"><h3>No documentation on file yet</h3><p>Testing for the current lot is in progress. Contact the documentation team for an expected date.</p></div>'}
+    </div>` : `<div class="notice notice--warn">${icons.clock}<div><strong>A lab report for the current lot is not yet published.</strong>
+      Testing documentation for this material is being issued and will appear here, and in the
+      <a class="link" href="/certificates/">certificate library</a>, as soon as it is released.
+      ${sds ? `The <a class="link" href="${sds.doc}" target="_blank" rel="noopener">safety data sheet</a> is available now.` : ''}
+      Ask the documentation team for an expected date before ordering.</div></div>`}
+
+    ${pendingLots.length ? `<h3 style="margin:40px 0 12px;font-size:var(--t-h4)">Lots awaiting documentation</h3>
+    <p class="small muted" style="max-width:64ch;margin-bottom:16px">These lots appear in current inventory. Their certificates have not been issued to us yet, so they are listed here rather than shown as documented.</p>
+    <ul class="taglist">${pendingLots.map((l) => `<li class="tag">${esc(l.lot)} · ${esc(l.size)}</li>`).join('')}</ul>` : ''}
 
     ${productLots.length > 1 ? `<h3 style="margin:40px 0 16px;font-size:var(--t-h4)">Lot history</h3>
     <table class="dtable dtable--zebra dtable--stack">
@@ -307,7 +339,7 @@ ${C.crumbs([
     <h2>Shipping</h2>
     <div class="split split--even" style="margin-top:24px">
       <div class="stack-3">
-        <p class="muted">Orders placed before 14:00 ET on a business day are despatched the same day from our Massachusetts facility. Tracking is issued on despatch and recorded against the order in your account.</p>
+        <p class="muted">Orders placed before 14:00 ET on a business day are despatched the same day from our US facility. Tracking is issued on despatch and recorded against the order in your account.</p>
         <table class="spec">
           <tbody>
             <tr><th scope="row">Domestic (US)</th><td>1–3 business days, tracked</td></tr>
@@ -344,7 +376,7 @@ ${C.crumbs([
 
   return page({
     title: `${p.name} - ${p.sku}`,
-    description: `${p.name} (CAS ${p.cas}), ${p.form.toLowerCase()}, reported purity ${p.purity}. Supplied with lot-specific analytical documentation for laboratory research use.`,
+    description: `${p.name}${p.verify ? '' : ` (CAS ${p.cas})`}, ${p.form.toLowerCase()}. Research use only. Supplied with lot-specific analytical documentation for laboratory research.`,
     canonical: `/products/${p.slug}/`,
     active: 'Products',
     body,
@@ -356,9 +388,15 @@ ${C.crumbs([
       description: p.summary,
       category: C.catName(p.category),
       additionalProperty: [
-        { '@type': 'PropertyValue', name: 'CAS Number', value: p.cas },
-        { '@type': 'PropertyValue', name: 'Molecular Formula', value: p.formula },
-        { '@type': 'PropertyValue', name: 'Molecular Weight', value: p.mw },
+        // Omitted entirely when the value is unconfirmed - a structured-data
+        // field saying "On request" is worse than no field at all.
+        ...(p.verify
+          ? []
+          : [
+              { '@type': 'PropertyValue', name: 'CAS Number', value: p.cas },
+              { '@type': 'PropertyValue', name: 'Molecular Formula', value: p.formula },
+              { '@type': 'PropertyValue', name: 'Molecular Weight', value: p.mw },
+            ]),
         { '@type': 'PropertyValue', name: 'Purity', value: p.purity },
       ],
       offers: {
@@ -366,7 +404,7 @@ ${C.crumbs([
         price: size.price.toFixed(2),
         priceCurrency: 'USD',
         availability: p.stock === 'out-of-stock' ? 'https://schema.org/BackOrder' : 'https://schema.org/InStock',
-        url: `https://purelypeptides.com/products/${p.slug}/`,
+        url: `https://purelypeptideshub.com/products/${p.slug}/`,
       },
     },
   });

@@ -22,12 +22,12 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: title }])}
 <div class="wrap policy">
   <nav class="article__toc" aria-label="Contents">
     <h2>Contents</h2>
-    ${sections.map((s, i) => `<a href="#p${i + 1}"${i === 0 ? ' class="is-active"' : ''}>${esc(s.h)}</a>`).join('')}
+    ${sections.map((s, i) => `<a href="#${s.id || 'p' + (i + 1)}"${i === 0 ? ' class="is-active"' : ''}>${esc(s.h)}</a>`).join('')}
   </nav>
   <div>
     ${note ? `<div class="notice notice--warn" style="margin-bottom:32px">${icons.info}<div>${note}</div></div>` : ''}
     <div class="prose">
-      ${sections.map((s, i) => `<h2 id="p${i + 1}">${esc(s.h)}</h2>${s.body}`).join('')}
+      ${sections.map((s, i) => `<h2 id="${s.id || 'p' + (i + 1)}">${esc(s.h)}</h2>${s.body}`).join('')}
     </div>
     <div class="card" style="padding:24px;margin-top:48px">
       <h2 style="font-size:var(--t-h4);margin-bottom:8px">Questions about this policy</h2>
@@ -172,7 +172,7 @@ ${C.trustBar()}
 
   return page({
     title: 'Quality & testing',
-    description: 'How Purely Peptides tests and documents research materials: RP-HPLC purity, mass spectrometry identity, published method conditions and lot-level certificates.',
+    description: 'How Purely Peptides Hub tests and documents research materials: RP-HPLC purity, mass spectrometry identity, published method conditions and lot-level certificates.',
     canonical: '/quality/',
     active: 'Quality & Testing',
     body,
@@ -245,7 +245,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Applications' }])}
 
   return page({
     title: 'Research areas & applications',
-    description: 'Purely Peptides research materials grouped by research area: metabolism, cell signalling, cellular repair, inflammatory research, neuroscience and endocrine research.',
+    description: 'Purely Peptides Hub research materials grouped by research area: metabolism, cell signalling, cellular repair, inflammatory research, neuroscience and endocrine research.',
     canonical: '/applications/',
     active: 'Applications',
     body,
@@ -263,7 +263,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'About' }])}
     <span class="eyebrow">About</span>
     <h1>A supplier built around the paperwork.</h1>
     <p>
-      Purely Peptides was founded by analytical chemists who spent years chasing suppliers for documents that
+      Purely Peptides Hub was founded by analytical chemists who spent years chasing suppliers for documents that
       should have arrived with the vial.
     </p>
   </div>
@@ -336,7 +336,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'About' }])}
   </div>
 </section>`;
 
-  return page({ title: 'About Purely Peptides', description: 'Purely Peptides supplies research materials to laboratories with lot-level analytical documentation as a default, not an add-on.', canonical: '/about/', active: null, body });
+  return page({ title: 'About Purely Peptides Hub', description: 'Purely Peptides Hub supplies research materials to laboratories with lot-level analytical documentation as a default, not an add-on.', canonical: '/about/', active: null, body });
 }
 
 /* ---------------------------------------------------------------- contact */
@@ -378,7 +378,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
       <label class="field"><span class="field__label">Name<span class="field__req" aria-hidden="true">*</span></span><input class="input" required autocomplete="name"></label>
       <label class="field"><span class="field__label">Email<span class="field__req" aria-hidden="true">*</span></span><input class="input" type="email" required autocomplete="email"></label>
       <label class="field"><span class="field__label">Organisation</span><input class="input" autocomplete="organization"></label>
-      <label class="field"><span class="field__label">Order or lot number</span><input class="input input--mono" placeholder="PP-84120 or BP-260910"><span class="field__hint">Speeds up documentation and order questions.</span></label>
+      <label class="field"><span class="field__label">Order or lot number</span><input class="input input--mono" placeholder="PPH-84120 or BP10-0318"><span class="field__hint">Speeds up documentation and order questions.</span></label>
       <label class="field field--full"><span class="field__label">Message<span class="field__req" aria-hidden="true">*</span></span>
         <textarea class="textarea" required rows="6" placeholder="Include the product name and, where relevant, the lot number."></textarea>
       </label>
@@ -410,7 +410,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
   </aside>
 </div>`;
 
-  return page({ title: 'Contact', description: 'Contact Purely Peptides for product specifications, order support, documentation requests or wholesale enquiries.', canonical: '/contact/', active: 'Support', body });
+  return page({ title: 'Contact', description: 'Contact Purely Peptides Hub for product specifications, order support, documentation requests or wholesale enquiries.', canonical: '/contact/', active: 'Support', body });
 }
 
 /* -------------------------------------------------------------------- FAQ */
@@ -420,8 +420,8 @@ function faq() {
     {
       h: 'Ordering',
       items: [
-        { q: 'Who can order from Purely Peptides?', a: 'We supply laboratories, research institutions and organisations conducting in-vitro research. A research-use confirmation is required at checkout, and we do not sell to consumers.' },
-        { q: 'Do I need an account to order?', a: 'No. You can order as a guest. An account retains order history and gives access to documentation for lots you have received.' },
+        { q: 'Who can order from Purely Peptides Hub?', a: 'We supply laboratories, research institutions and organisations conducting in-vitro research. A research-use confirmation is required at checkout, and we do not sell to consumers.' },
+        { q: 'Do I need an account to order?', a: 'Yes. An account is required and we do not offer guest checkout. Orders are released only to identified research accounts, and your order history and lot documentation stay attached to the account. You create one during checkout.' },
         { q: 'Can I order against a purchase order?', a: 'Yes, on an approved wholesale account. <a class="link" href="/wholesale/apply/">Apply for an account</a> to enable PO ordering and net terms.' },
         { q: 'Is there a minimum order?', a: 'No minimum. Volume pricing applies automatically from ten vials of the same size.' },
       ],
@@ -446,7 +446,7 @@ function faq() {
     {
       h: 'Shipping & returns',
       items: [
-        { q: 'When do orders ship?', a: 'Orders placed before 14:00 ET on a business day are despatched the same day from Massachusetts.' },
+        { q: 'When do orders ship?', a: 'Orders placed before 14:00 ET on a business day are despatched the same day from our US facility.' },
         { q: 'Do you ship internationally?', a: 'Yes, with tracked service and import documentation. Some materials cannot be shipped to every destination; restrictions are applied at checkout.' },
         { q: 'Can I return an order?', a: 'Unopened material in its original packaging can be returned within 14 days. Opened vials cannot be returned, because chain of custody is broken. See <a class="link" href="/shipping/">shipping and returns</a>.' },
       ],
@@ -487,7 +487,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'FAQ' }])}
 
   return page({
     title: 'Frequently asked questions',
-    description: 'Answers on ordering, documentation, storage, shipping and returns for Purely Peptides research materials.',
+    description: 'Answers on ordering, documentation, storage, shipping and returns for Purely Peptides Hub research materials.',
     canonical: '/faq/',
     active: null,
     body,
@@ -516,7 +516,7 @@ function shipping() {
     sections: [
       {
         h: 'Despatch',
-        body: `<p>Orders placed before 14:00 ET on a business day are despatched the same day from our Massachusetts facility. Orders placed later, or at a weekend, are despatched on the next business day.</p>
+        body: `<p>Orders placed before 14:00 ET on a business day are despatched the same day from our US facility. Orders placed later, or at a weekend, are despatched on the next business day.</p>
         <p>Tracking is issued on despatch and recorded against the order in your account. Where an order contains a material awaiting a lot release, we contact you before splitting the shipment.</p>`,
       },
       {
@@ -553,18 +553,155 @@ function shipping() {
 
 function terms() {
   return policyPage({
-    title: 'Terms of sale',
+    title: 'Terms and conditions of purchase',
     slug: 'terms',
-    updated: '1 September 2026',
-    note: '<strong>Draft template.</strong> This page is design placeholder copy and must be replaced with terms drafted and reviewed by qualified legal counsel before the site goes live.',
-    intro: 'The conditions under which Purely Peptides supplies research materials.',
+    updated: '12 September 2026',
+    note:
+      '<strong>Awaiting legal review.</strong> The ACH web authorisation sections below are reproduced from our payment processor&rsquo;s required template and should not be reworded. The remaining sections are drafting copy and must be reviewed by qualified counsel before launch.',
+    intro: 'The conditions under which Purely Peptides Hub supplies research materials.',
     sections: [
-      { h: 'Who we sell to', body: '<p>Materials are supplied to laboratories, research institutions and organisations conducting in-vitro research. Placing an order confirms that you are authorised to purchase on behalf of such an organisation and that the material will be used exclusively for laboratory research.</p><p>We may decline or cancel any order, and may request evidence of research context before releasing an order.</p>' },
-      { h: 'Orders and pricing', body: '<p>An order is an offer to purchase and is accepted when the order is despatched. Prices are those displayed at the time of order. Account pricing, where applicable, is applied automatically at checkout.</p><p>Where a pricing or specification error is discovered before despatch, we will contact you and either correct the order with your agreement or cancel it without charge.</p>' },
-      { h: 'Documentation', body: '<p>Analytical documentation describes testing performed on the stated production lot. It is a record of that testing and is not a warranty of fitness for any particular purpose or application.</p>' },
-      { h: 'Delivery and risk', body: '<p>Risk passes on delivery to the address given at checkout. Delivery estimates are estimates, not guarantees.</p>' },
-      { h: 'Limitation of liability', body: '<p>To the extent permitted by law, our liability in relation to any order is limited to the price paid for the material concerned. We are not liable for experimental outcomes, consequential loss or any use of the material outside laboratory research.</p>' },
-      { h: 'Governing law', body: '<p>These terms are governed by the laws of the Commonwealth of Massachusetts, United States.</p>' },
+      {
+        h: 'Your use of this website',
+        body: `<p>Your use of this website is governed by these terms and conditions together with our <a class="link" href="/privacy/">privacy policy</a>, which is incorporated here by reference. In using this website you are prohibited from modifying, distributing, transmitting, reproducing, publishing, licensing, transferring or selling any information, products or services obtained or viewed on it. You may display, download or print copies of material on this website for your own internal, non-commercial use, provided you do not modify the content or remove any copyright, trademark or other proprietary notice.</p>
+        <p>All ACH / e-check payments are made payable to <strong>Purely Peptides Hub</strong>.</p>`,
+      },
+      {
+        h: 'Who we sell to',
+        body: `<p>Materials are supplied to laboratories, research institutions and companies conducting laboratory, academic or institutional research. An account is required; we do not offer guest checkout. Placing an order confirms that you are authorised to purchase on behalf of the organisation named on the account and that the material will be used exclusively for research.</p>
+        <p>You must be 21 years of age or older to use this website or to place an order. We may decline or cancel any order, and may ask for evidence of research context before an order is released.</p>`,
+      },
+      {
+        h: 'Product and sale limitations',
+        body: `<p>All products currently listed on this site are for research purposes only. They are not drugs, foods, dietary supplements, cosmetics or medical devices, and they are not intended for human dosing, injection or ingestion, nor for administration to animals.</p>
+        <p>Materials may not be resold, repackaged or supplied onward for human or veterinary use, for compounding, or to any med spa, gym, weight-loss clinic or similar operation. Orders that appear to be for such a purpose will be cancelled and refunded.</p>
+        <p>Certain materials cannot be despatched to every destination. Restrictions are applied at checkout before payment is taken.</p>`,
+      },
+      {
+        h: 'ACH debit authorisation for order payment',
+        id: 'ach',
+        body: `<p>Each time I (the customer) place an ACH / e-check order by clicking the &ldquo;Place Order&rdquo; button, I am authorising purelypeptideshub.com to initiate a single ACH / electronic debit to my account in the amount of my order, from the bank account information provided, on the date of my order. I agree that the ACH transactions I authorise comply with all applicable law. Payments made after 2 PM Eastern time will be applied as of the next business day. To complete the payment process, click the &ldquo;Place Order&rdquo; button. Once payment is authorised, there cannot be any changes or corrections. It is recommended that you print a copy of this authorisation and maintain it for your records.</p>`,
+      },
+      {
+        h: 'ACH authorisation for micro-entries used for account validation',
+        body: `<p>Each time I (the customer) place an ACH / e-check order by clicking the &ldquo;Place Order&rdquo; button, I am authorising purelypeptideshub.com to initiate a one-time ACH / electronic debit and/or credit entry to my account for a micro amount (less than $1) in order to validate the bank account information provided on the date of my order. I also authorise purelypeptideshub.com to initiate an ACH credit to recover the amount of a micro deposit. I agree that such ACH transactions comply with all applicable law. Once you click the &ldquo;Place Order&rdquo; button, you cannot revoke this authorisation. Payments made after 2 PM Eastern time may receive account validation micro entries the next business day. It is recommended that you print a copy of this authorisation and maintain it for your records.</p>`,
+      },
+      {
+        h: 'Prices, payment terms and use of information',
+        body: `<p>Prices are quoted in United States dollars and are those displayed at the time we accept an order. Prices and availability are subject to change without notice. Payment must be received before an order is accepted unless credit terms have been agreed in writing.</p>
+        <p>We reserve the right to correct any inaccuracy or typographical error in information posted on this website and accept no liability for such errors. Information may be changed or updated without notice.</p>`,
+      },
+      {
+        h: 'Refunds and returns',
+        body: `<p>Refunds and returns are governed by our <a class="link" href="/refunds/">refund and returns policy</a>, which forms part of these terms. Disputed payments are governed by our <a class="link" href="/chargebacks/">chargeback policy</a>.</p>`,
+      },
+      {
+        h: 'Documentation',
+        body: `<p>Analytical documentation describes testing performed on the stated production lot. It is a record of that testing and is not a warranty of fitness for any particular purpose or application. Where a certificate has not yet been issued for a lot, the product page says so rather than implying one exists.</p>`,
+      },
+      {
+        h: 'Delivery and risk',
+        body: '<p>Risk passes on delivery to the address given at checkout. Delivery estimates are estimates, not guarantees. We are not liable for delays outside our reasonable control, including carrier delays, customs delays or lost shipments.</p>',
+      },
+      {
+        h: 'Disclaimer of warranties and limitation of liability',
+        body: `<p>The content of this website and the products supplied through it are provided on an &ldquo;as is&rdquo; and &ldquo;as available&rdquo; basis without warranty of any kind, whether express, implied or statutory, including any warranty of merchantability, fitness for a particular purpose or non-infringement.</p>
+        <p>To the extent permitted by law, our aggregate liability arising from or related to any order, regardless of the form of action, is limited to the purchase price of the material concerned. We are not liable for experimental outcomes, consequential, incidental, special or punitive loss, or for any use of the material outside laboratory research.</p>`,
+      },
+      {
+        h: 'Indemnity',
+        body: '<p>You agree to indemnify and hold harmless Purely Peptides Hub and its officers, directors, agents, partners, vendors (including payment providers) and employees from any claim or demand, including reasonable legal fees, arising out of your use of this website, your breach of these terms, your use or onward supply of any material purchased, or your violation of the rights of any third party.</p>',
+      },
+      {
+        h: 'Governing law',
+        body: '<p>These terms are governed by the laws of the State of <strong>[to be confirmed]</strong>, United States, without regard to its conflict of law principles. <em>This clause is pending confirmation of the registered state of the business.</em></p>',
+      },
+      {
+        h: 'Entire agreement and severability',
+        body: '<p>These terms, together with the policies referred to in them, are the entire agreement between you and Purely Peptides Hub relating to your use of this website. If any part is found unenforceable, that part is limited or removed to the minimum extent necessary and the remainder stays in full force.</p><p>By ticking &ldquo;I agree&rdquo; when placing your order, you accept all of these terms and conditions together with our shipping, refund and chargeback policies.</p>',
+      },
+    ],
+  });
+}
+
+/* --------------------------------------------------- refunds & chargebacks
+   Both pages are a condition of the merchant account: the processor requires
+   terms, privacy, shipping, refund, returns and chargeback policies to be
+   published and linked before underwriting. */
+
+function refunds() {
+  return policyPage({
+    title: 'Refund and returns policy',
+    slug: 'refunds',
+    updated: '12 September 2026',
+    note:
+      '<strong>Awaiting client confirmation.</strong> The return window, restocking terms and refund method below are drafting defaults and must be confirmed before launch.',
+    intro: 'When material can be returned, how a refund is issued, and what cannot be returned.',
+    sections: [
+      {
+        h: 'Returns window',
+        body: `<p>Unopened material in its original, sealed packaging may be returned within <strong>14 days</strong> of delivery. Contact us before returning anything so a return reference can be issued; returns sent without a reference cannot be matched to an order.</p>
+        <p>Return shipping is the customer's responsibility unless the return is the result of our error.</p>`,
+      },
+      {
+        h: 'What cannot be returned',
+        body: `<p>Opened vials cannot be returned. Once a seal is broken the chain of custody is broken and the material can no longer be attributed to the tested lot.</p>
+        <p>Materials stored outside the conditions stated on the product page, and materials whose lot label has been removed or defaced, cannot be returned.</p>`,
+      },
+      {
+        h: 'Damaged, incorrect or short shipments',
+        body: `<p>If material arrives damaged, does not match the order, or is short, tell us within <strong>five business days</strong> of delivery with photographs of the outer packaging, the vial and the lot label. We replace or refund at your choice and do not ask for damaged material to be returned.</p>`,
+      },
+      {
+        h: 'How refunds are issued',
+        body: `<p>Approved refunds are returned by ACH credit to the bank account used for the original payment. We do not issue refunds to a different account or by a different method.</p>
+        <p>Refunds are processed within <strong>five business days</strong> of the returned material being received and inspected, or of a damage claim being approved. Funds typically settle within a further three to five business days depending on the receiving bank.</p>
+        <p>Shipping charges are refunded only where the return results from our error.</p>`,
+      },
+      {
+        h: 'Cancellations',
+        body: `<p>An order can be cancelled without charge at any point before it is despatched. Once an ACH debit has been authorised at checkout it cannot be changed or corrected, but the order itself can still be cancelled and refunded by ACH credit if it has not yet shipped.</p>`,
+      },
+      {
+        h: 'How to start a return',
+        body: `<p>Email <a class="link" href="mailto:${brand.email}">${brand.email}</a> with your order number, the product and lot number, and what you would like us to do. We answer return requests within one business day.</p>`,
+      },
+    ],
+  });
+}
+
+function chargebacks() {
+  return policyPage({
+    title: 'Chargeback policy',
+    slug: 'chargebacks',
+    updated: '12 September 2026',
+    note:
+      '<strong>Awaiting legal review.</strong> This page states our position on disputed ACH payments and should be reviewed by counsel alongside the terms of purchase.',
+    intro: 'What to do if you do not recognise a payment, and how we handle disputed ACH debits.',
+    sections: [
+      {
+        h: 'Contact us first',
+        body: `<p>If you do not recognise a charge, or something about your order is wrong, contact us before raising a dispute with your bank. Email <a class="link" href="mailto:${brand.email}">${brand.email}</a> with the order number and the amount. Almost every disputed payment we see is a billing-descriptor question or a delivery problem that we can resolve the same day.</p>
+        <p>Payments from this website appear on your bank statement as <strong>PURELY PEPTIDES HUB</strong>.</p>`,
+      },
+      {
+        h: 'Authorised ACH debits',
+        body: `<p>Each order is settled by a single ACH debit that you authorise at checkout by ticking the ACH debit authorisation and clicking Place Order. We retain a timestamped record of that authorisation, the account it applied to, the order it relates to, and the IP address it was given from.</p>
+        <p>An additional entry of less than $1 may appear alongside a first order. That is the account-validation micro-entry described in the <a class="link" href="/terms/#ach">terms of purchase</a>, and it is reversed automatically.</p>`,
+      },
+      {
+        h: 'How we respond to a dispute',
+        body: `<p>Where a dispute is raised with your bank, we provide the payment processor with the order record, the ACH authorisation record, the research-use acknowledgement given at checkout, proof of despatch and carrier tracking, and the certificate of analysis issued for the lot supplied.</p>
+        <p>We do not contest disputes where material was not delivered, arrived damaged, or did not match the order. Those are refunds, and we would rather issue them directly.</p>`,
+      },
+      {
+        h: 'Disputes we do contest',
+        body: `<p>We contest disputes where the order was delivered and accepted as ordered, where the dispute is raised after the return window has closed, or where material has been opened and cannot be returned to inventory.</p>
+        <p>Repeated disputes raised without first contacting us may result in an account being closed and future orders declined.</p>`,
+      },
+      {
+        h: 'Unauthorised activity',
+        body: `<p>If you believe an ACH debit was taken from your account without authorisation, contact your bank immediately and tell us at the same time. We will place the account on hold, stop any further debits and cooperate fully with your bank's investigation.</p>`,
+      },
     ],
   });
 }
@@ -592,7 +729,7 @@ function researchUsePolicy() {
     title: 'Research use policy',
     slug: 'research-use-policy',
     updated: '1 September 2026',
-    intro: 'Every material supplied by Purely Peptides is for laboratory research use only. This page explains what that means and what it excludes.',
+    intro: 'Every material supplied by Purely Peptides Hub is for laboratory research use only. This page explains what that means and what it excludes.',
     sections: [
       {
         h: 'Scope',
@@ -601,7 +738,7 @@ function researchUsePolicy() {
       },
       {
         h: 'Excluded uses',
-        body: `<p>Materials supplied by Purely Peptides must not be used for:</p>
+        body: `<p>Materials supplied by Purely Peptides Hub must not be used for:</p>
         <ul>
           <li>administration to humans, in any form, in any quantity;</li>
           <li>administration to animals outside an approved research protocol;</li>
@@ -656,4 +793,4 @@ function notFound() {
   return page({ title: 'Page not found', description: 'The requested page could not be found.', canonical: '/404/', active: null, body });
 }
 
-module.exports = { quality, applications, about, contact, faq, shipping, terms, privacy, researchUsePolicy, notFound };
+module.exports = { quality, applications, about, contact, faq, shipping, terms, refunds, chargebacks, privacy, researchUsePolicy, notFound };

@@ -79,8 +79,9 @@ const qualityMenu = {
       links: [
         { label: 'Research use policy', href: '/research-use-policy/' },
         { label: 'Shipping & handling', href: '/shipping/' },
-        { label: 'Returns', href: '/shipping/#returns' },
-        { label: 'Terms of sale', href: '/terms/' },
+        { label: 'Refunds & returns', href: '/refunds/' },
+        { label: 'Chargeback policy', href: '/chargebacks/' },
+        { label: 'Terms & conditions', href: '/terms/' },
       ],
     },
     {
@@ -179,18 +180,14 @@ function header(active) {
 
 <header class="site-header" data-header>
   <div class="wrap masthead">
+    <!-- The supplied lockup sets "PURELY" in white, so it disappears on a light
+         ground. The mark is used as artwork and the wordmark is set in type,
+         which keeps the header legible on paper and crisp at every density.
+         The full colour lockup is used on the dark footer, where it works. -->
     <a class="logo" href="/">
-      <span class="logo__mark" aria-hidden="true">
-        <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-          <rect width="34" height="34" rx="9" fill="#378189"/>
-          <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-                stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
-                stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-        </svg>
-      </span>
+      <img class="logo__mark" src="/img/brand/mark.png" width="40" height="40" alt="" aria-hidden="true">
       <span class="logo__word">
-        <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+        <span class="logo__name">Purely<span class="logo__name2">Peptides Hub</span></span>
         <span class="logo__sub">Research materials</span>
       </span>
     </a>
@@ -253,7 +250,7 @@ function mobileNav() {
   return `
 <div class="mobile-nav" data-mobile-nav data-open="false" role="dialog" aria-modal="true" aria-label="Site menu">
   <div class="mobile-nav__head">
-    <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
+    <span class="logo__name">Purely<span class="logo__name2">Peptides Hub</span></span>
     <button class="iconbtn" type="button" data-mobile-close aria-label="Close menu">${icons.close}</button>
   </div>
   <div class="mobile-nav__body">
@@ -292,8 +289,8 @@ const footerColumns = [
     title: 'Products',
     links: [
       { label: 'All products', href: '/products/' },
-      { label: 'Research peptides', href: '/products/category/research-peptides/' },
-      { label: 'Blends', href: '/products/category/blends/' },
+      // Derived, so a category that is not built cannot be linked from here.
+      ...categories.slice(0, 2).map((c) => ({ label: c.name, href: `/products/category/${c.slug}/` })),
       { label: 'New materials', href: '/products/?sort=newest' },
     ],
   },
@@ -319,7 +316,7 @@ const footerColumns = [
     title: 'Ordering',
     links: [
       { label: 'Shipping', href: '/shipping/' },
-      { label: 'Returns', href: '/shipping/#returns' },
+      { label: 'Refunds & returns', href: '/refunds/' },
       { label: 'Wholesale', href: '/wholesale/' },
       { label: 'Order tracking', href: '/orders/' },
     ],
@@ -329,8 +326,9 @@ const footerColumns = [
     links: [
       { label: 'About', href: '/about/' },
       { label: 'Contact', href: '/contact/' },
-      { label: 'Terms', href: '/terms/' },
+      { label: 'Terms & conditions', href: '/terms/' },
       { label: 'Privacy', href: '/privacy/' },
+      { label: 'Chargeback policy', href: '/chargebacks/' },
       { label: 'Research use policy', href: '/research-use-policy/' },
     ],
   },
@@ -360,20 +358,9 @@ function footer() {
 
     <div class="footer__grid">
       <div class="footer__brand">
-        <a class="logo" href="/">
-          <span class="logo__mark" aria-hidden="true">
-            <svg width="36" height="36" viewBox="0 0 34 34" fill="none" aria-hidden="true">
-              <rect width="34" height="34" rx="9" fill="#6DB9C1"/>
-              <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-                    stroke="#071112" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M10.6 21.2h2.1l1.2-4.4 1.6 7 1.4-4.2 1 1.8 1-1.1h4.4"
-                    stroke="#071112" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/>
-            </svg>
-          </span>
-          <span class="logo__word">
-            <span class="logo__name">Purely<span class="logo__name2">Peptides</span></span>
-            <span class="logo__sub">Research materials</span>
-          </span>
+        <!-- Dark ground, so the supplied full-colour lockup is used as-is. -->
+        <a class="logo logo--full" href="/">
+          <img src="/img/brand/logo-ondark.png" width="210" height="213" alt="${esc(brand.name)} - ${esc(brand.tagline)}">
         </a>
         <address class="footer__addr">
           ${brand.address.map(esc).join('<br>')}<br>
@@ -395,18 +382,21 @@ function footer() {
         .join('')}
     </div>
 
+    <!-- First sentence is the exact wording required by our payment
+         processor's research-use-only site rules. Do not reword it. -->
     <p class="footer__disclaimer">
-      <strong>Research use only.</strong> All materials supplied by ${esc(brand.legal)} are intended exclusively for
-      laboratory research and in-vitro investigation by qualified professionals. They are not drugs, foods, cosmetics
-      or medical devices, and are not for human or veterinary use, diagnostic use, or any form of consumption.
-      Nothing on this site is a claim of therapeutic effect. Purchasers are responsible for compliance with all
+      <strong>${esc(brand.footerDisclaimer)}</strong>
+      Materials supplied by ${esc(brand.legal)} are for laboratory, academic and institutional research by
+      qualified professionals. They are not drugs, foods, dietary supplements, cosmetics or medical devices,
+      and are not for human or animal consumption, diagnostic use or clinical application. Nothing on this site
+      is a claim of therapeutic, performance or health effect. Purchasers are responsible for compliance with all
       applicable laws and institutional requirements governing the handling and disposal of research materials.
     </p>
 
     <div class="footer__legal">
       <span>© ${new Date().getFullYear()} ${esc(brand.legal)}. All rights reserved.</span>
-      <span class="row" style="gap:20px">
-        <a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/research-use-policy/">Research use policy</a>
+      <span class="row" style="gap:20px;flex-wrap:wrap">
+        <a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/shipping/">Shipping</a><a href="/refunds/">Refunds &amp; returns</a><a href="/chargebacks/">Chargebacks</a><a href="/research-use-policy/">Research use policy</a>
       </span>
     </div>
   </div>
@@ -488,34 +478,29 @@ function overlays() {
 
 <div class="toast-region" data-toasts aria-live="polite" aria-atomic="false"></div>
 
-<!-- Age + intended-use gate. Rendered hidden and revealed by script, so it
-     never blocks a crawler or a no-JS reader from the content behind it -
-     it is a declaration of intent, not a security control, and pretending
-     otherwise would be the wrong kind of theatre. -->
+<!-- 21+ age and intended-use gate, shown before the site can be used. Our
+     payment processor requires a 21+ verification popup ahead of entry, so
+     this is a condition of the merchant account, not decoration. It renders
+     hidden and is revealed by script so it never blocks a crawler or a
+     no-JS reader; it is a declaration of intent, not a security control. -->
 <div class="agegate" data-agegate hidden role="dialog" aria-modal="true" aria-labelledby="agegate-title">
   <div class="agegate__card">
-    <span class="agegate__mark" aria-hidden="true">
-      <svg width="40" height="40" viewBox="0 0 34 34" fill="none">
-        <rect width="34" height="34" rx="9" fill="#378189"/>
-        <path d="M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5"
-              stroke="#FFFFFF" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </span>
-    <span class="eyebrow">Before you continue</span>
-    <h2 id="agegate-title">Laboratory research use only</h2>
+    <img class="agegate__mark" src="/img/brand/mark.png" width="56" height="56" alt="" aria-hidden="true">
+    <span class="eyebrow">Before you enter</span>
+    <h2 id="agegate-title">You must be 21 or over</h2>
     <p>
-      ${esc(brand.legal)} supplies materials for in-vitro laboratory research by qualified
-      professionals. Nothing on this site is a drug, food, cosmetic or medical device, and nothing
-      here is for human or veterinary use, diagnostic use, or consumption of any kind.
+      ${esc(brand.legal)} supplies materials for laboratory, academic and institutional research by
+      qualified professionals. Nothing on this site is a drug, food, dietary supplement, cosmetic or
+      medical device, and nothing here is for human dosing, injection or ingestion.
     </p>
     <ul class="agegate__list">
-      <li>${icons.check}I am 18 years of age or older</li>
-      <li>${icons.check}I am purchasing for laboratory research purposes</li>
+      <li>${icons.check}I am <strong>21 years of age or older</strong></li>
+      <li>${icons.check}I am purchasing for laboratory research purposes only</li>
       <li>${icons.check}I will not administer these materials to humans or animals</li>
     </ul>
     <div class="agegate__actions">
-      <button class="btn btn--primary btn--lg" type="button" data-agegate-accept>I confirm - enter the site</button>
-      <a class="btn btn--secondary btn--lg" href="https://www.nih.gov/" rel="noopener">I do not confirm</a>
+      <button class="btn btn--primary btn--lg" type="button" data-agegate-accept>I am 21 or over - enter</button>
+      <a class="btn btn--secondary btn--lg" href="https://www.nih.gov/" rel="noopener">I am under 21 - exit</a>
     </div>
     <p class="agegate__fine">
       Your confirmation is stored in this browser so you are not asked again. See our
@@ -536,12 +521,12 @@ function page({ title, description, body, active, schema, canonical, bodyClass =
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${esc(title)} | ${esc(brand.name)}</title>
 <meta name="description" content="${esc(description)}">
-<link rel="canonical" href="https://purelypeptides.com${canonical || '/'}">
+<link rel="canonical" href="https://${brand.domain}${canonical || '/'}">
 <meta property="og:title" content="${esc(title)} | ${esc(brand.name)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
-<meta name="theme-color" content="#378189">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 34'%3E%3Crect width='34' height='34' rx='8' fill='%23378189'/%3E%3Cpath d='M11 8.5h12M12.5 8.5v5.4L9.2 22a2.4 2.4 0 0 0 2.2 3.5h11.2a2.4 2.4 0 0 0 2.2-3.5l-3.3-8.1V8.5' stroke='white' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#051214">
+<link rel="icon" type="image/png" href="/img/brand/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap">

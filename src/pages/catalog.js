@@ -178,7 +178,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Products' }])}
 
   return page({
     title: 'Research materials catalogue',
-    description: 'Browse Purely Peptides research peptides and related materials. Specifications, purity data and lot-specific certificates published for every product.',
+    description: 'Browse Purely Peptides Hub research peptides and related materials. Specifications, purity data and lot-specific certificates published for every product.',
     canonical: '/products/',
     active: 'Products',
     body,
@@ -226,7 +226,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Products', href: '/products/
 
   return page({
     title: cat.name,
-    description: `${cat.blurb} Browse the ${cat.name.toLowerCase()} catalogue at Purely Peptides.`,
+    description: `${cat.blurb} Browse the ${cat.name.toLowerCase()} catalogue at Purely Peptides Hub.`,
     canonical: `/products/category/${cat.slug}/`,
     active: 'Products',
     body,
@@ -305,7 +305,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Search' }])}
 
   return page({
     title: 'Search',
-    description: 'Search Purely Peptides research materials, batch documentation and technical articles by name, CAS number, SKU or lot.',
+    description: 'Search Purely Peptides Hub research materials, batch documentation and technical articles by name, CAS number, SKU or lot.',
     canonical: '/search/',
     active: null,
     body,

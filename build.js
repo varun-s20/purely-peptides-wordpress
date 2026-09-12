@@ -50,6 +50,8 @@ const routes = [
   ['/contact/', 'contact.html', S.contact()],
   ['/faq/', 'faq.html', S.faq()],
   ['/shipping/', 'shipping.html', S.shipping()],
+  ['/refunds/', 'refunds.html', S.refunds()],
+  ['/chargebacks/', 'chargebacks.html', S.chargebacks()],
   ['/terms/', 'terms.html', S.terms()],
   ['/privacy/', 'privacy.html', S.privacy()],
   ['/research-use-policy/', 'research-use-policy.html', S.researchUsePolicy()],
@@ -62,7 +64,9 @@ categories.forEach((c) =>
   routes.push([`/products/category/${c.slug}/`, `category-${c.slug}.html`, catalog.categoryPage(c)])
 );
 products.forEach((p) => routes.push([`/products/${p.slug}/`, `product-${p.slug}.html`, productPage(p)]));
-lots.forEach((l) => {
+// Only lots we actually hold a certificate for get a certificate page. A page
+// for a lot with no document would be a certificate that certifies nothing.
+lots.filter((l) => l.doc).forEach((l) => {
   const id = l.lot.toLowerCase();
   routes.push([`/certificates/${id}/`, `certificate-${id}.html`, certificates.coaDetail(l)]);
 });
@@ -115,7 +119,7 @@ function copyDir(from, to) {
 function sitemap() {
   const urls = routes
     .filter(([url]) => url !== '/404/')
-    .map(([url]) => `  <url><loc>https://veridianbio.com${url}</loc></url>`)
+    .map(([url]) => `  <url><loc>https://purelypeptideshub.com${url}</loc></url>`)
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`;
 }
@@ -131,10 +135,11 @@ copyDir(path.join(__dirname, 'public'), OUT);
    never server-rendered with, so they need the catalogue client-side. Emitted
    from the same src/data.js the pages use, so the two cannot drift. */
 {
-  const { products, lots } = require('./src/data');
   const { productShotName } = require('./src/art');
+  // Only a lot with a certificate on file counts as the current lot, so the
+  // cart never links a COA page that was never generated.
   const currentLot = (slug) => {
-    const l = lots.find((x) => x.slug === slug);
+    const l = lots.find((x) => x.slug === slug && x.doc);
     return l ? l.lot : null;
   };
   const catalogue = products.map((p) => ({
@@ -168,7 +173,7 @@ for (const [, file, html] of routes) {
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap(), 'utf8');
 fs.writeFileSync(
   path.join(OUT, 'robots.txt'),
-  'User-agent: *\nAllow: /\nSitemap: https://veridianbio.com/sitemap.xml\n',
+  'User-agent: *\nAllow: /\nSitemap: https://purelypeptideshub.com/sitemap.xml\n',
   'utf8'
 );
 
