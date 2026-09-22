@@ -1,0 +1,203 @@
+[
+  {
+    "slug": "reading-an-hplc-purity-result",
+    "title": "How to read an HPLC purity result",
+    "category": "Methods",
+    "date": "2026-08-14",
+    "date_label": "14 August 2026",
+    "read_time": "9 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "A purity figure is a summary of a chromatogram, not a substitute for it. What the integration actually measures, and where the number can mislead.",
+    "abstract": "Reversed-phase HPLC is the default purity method for synthetic peptides, and a single percentage is the number most often quoted from it. That percentage is an area-normalised ratio derived from a specific detection wavelength, gradient and column. This article explains how the figure is produced, which impurities it can and cannot see, and what to check on the chromatogram before accepting the number at face value.",
+    "tags": [
+      "HPLC",
+      "Purity",
+      "Analytical"
+    ],
+    "featured": true,
+    "refs": [
+      "Mant CT, Chen Y, Hodges RS. Reversed-phase high-performance liquid chromatography of peptides. Journal of Chromatography A, 2007.",
+      "European Pharmacopoeia, general chapter on liquid chromatography, current edition.",
+      "Snyder LR, Kirkland JJ, Dolan JW. Introduction to Modern Liquid Chromatography, 3rd edition."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-hplc.jpg\" alt=\"Amber autosampler vials on an analytical bench\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "reading-an-hplc-purity-result.html",
+    "bytes": 9139
+  },
+  {
+    "slug": "what-a-certificate-of-analysis-contains",
+    "title": "What a certificate of analysis actually contains",
+    "category": "Quality",
+    "date": "2026-07-29",
+    "date_label": "29 July 2026",
+    "read_time": "7 min",
+    "author": "Quality Systems",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Certificates vary widely between suppliers. The fields that carry real information, and the ones that carry none.",
+    "abstract": "A certificate of analysis is a record of what was tested, by whom, when, and against which specification. Documents that omit any of those four elements are difficult to use. This article walks through each field of a peptide COA and explains how to evaluate one you have been sent.",
+    "tags": [
+      "COA",
+      "Documentation",
+      "Quality"
+    ],
+    "featured": true,
+    "refs": [
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories.",
+      "United States Pharmacopeia, general notices on certificates of analysis, current edition."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-coa.jpg\" alt=\"A printed analytical report on a desk\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "what-a-certificate-of-analysis-contains.html",
+    "bytes": 2404
+  },
+  {
+    "slug": "storage-and-reconstitution-of-lyophilised-peptides",
+    "title": "Storage and reconstitution of lyophilised peptides",
+    "category": "Storage",
+    "date": "2026-06-30",
+    "date_label": "30 June 2026",
+    "read_time": "11 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Temperature, moisture and freeze-thaw cycles account for most avoidable loss of peptide integrity in the laboratory.",
+    "abstract": "Lyophilised peptides are stable for extended periods when stored correctly, and degrade quickly when they are not. This article summarises the physical mechanisms behind peptide degradation in storage and the laboratory handling practices that address each one.",
+    "tags": [
+      "Storage",
+      "Handling",
+      "Stability"
+    ],
+    "featured": true,
+    "refs": [
+      "Manning MC, Chou DK, Murphy BM, et al. Stability of protein pharmaceuticals: an update. Pharmaceutical Research, 2010.",
+      "Carpenter JF, Chang BS, Garzon-Rodriguez W, Randolph TW. Rational design of stable lyophilized protein formulations."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-storage.jpg\" alt=\"A gloved hand retrieving a vial from cold storage\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "storage-and-reconstitution-of-lyophilised-peptides.html",
+    "bytes": 2597
+  },
+  {
+    "slug": "mass-spectrometry-as-an-identity-check",
+    "title": "Mass spectrometry as an identity check",
+    "category": "Methods",
+    "date": "2026-05-21",
+    "date_label": "21 May 2026",
+    "read_time": "8 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "HPLC tells you how much of one thing is present. MS tells you whether that thing is what the label says.",
+    "abstract": "Purity and identity are separate questions requiring separate methods. This article explains why an HPLC result alone cannot confirm identity, and how MALDI and LC-MS data on a certificate should be interpreted.",
+    "tags": [
+      "Mass spectrometry",
+      "Identity",
+      "Analytical"
+    ],
+    "featured": false,
+    "refs": [
+      "European Pharmacopoeia, general chapters on chromatographic separation techniques, current edition.",
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-massspec.jpg\" alt=\"An analyst operating an instrument in a controlled area\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "mass-spectrometry-as-an-identity-check.html",
+    "bytes": 6400
+  },
+  {
+    "slug": "lot-traceability-in-research-procurement",
+    "title": "Lot traceability in research procurement",
+    "category": "Industry",
+    "date": "2026-04-16",
+    "date_label": "16 April 2026",
+    "read_time": "6 min",
+    "author": "Quality Systems",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Reproducibility problems are often supply problems. Recording lot numbers alongside experimental data closes a common gap.",
+    "abstract": "When an experiment fails to reproduce, the material is rarely the first suspect and often should be. This article makes the case for treating lot numbers as experimental metadata and outlines a minimal record-keeping practice.",
+    "tags": [
+      "Traceability",
+      "Reproducibility",
+      "Procurement"
+    ],
+    "featured": false,
+    "refs": [
+      "European Pharmacopoeia, general chapters on chromatographic separation techniques, current edition.",
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-traceability.jpg\" alt=\"Archived record cards filed in a drawer\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "lot-traceability-in-research-procurement.html",
+    "bytes": 6415
+  },
+  {
+    "slug": "peptide-solubility-a-practical-guide",
+    "title": "Peptide solubility in laboratory solvents",
+    "category": "Methods",
+    "date": "2026-03-05",
+    "date_label": "5 March 2026",
+    "read_time": "10 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Sequence charge and hydrophobicity predict most solubility behaviour. A decision path for choosing a laboratory solvent.",
+    "abstract": "Difficulty dissolving a peptide is usually predictable from its sequence. This guide sets out a decision path based on net charge and hydrophobic residue content, and covers the common laboratory solvents and their trade-offs for in-vitro work.",
+    "tags": [
+      "Solubility",
+      "Handling",
+      "Method"
+    ],
+    "featured": false,
+    "refs": [
+      "European Pharmacopoeia, general chapters on chromatographic separation techniques, current edition.",
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-solubility.jpg\" alt=\"A pipette delivering solvent into a small vial\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "peptide-solubility-a-practical-guide.html",
+    "bytes": 6433
+  },
+  {
+    "slug": "endotoxin-testing-when-it-matters",
+    "title": "Endotoxin testing: when it matters",
+    "category": "Quality",
+    "date": "2026-02-12",
+    "date_label": "12 February 2026",
+    "read_time": "7 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Endotoxin limits are irrelevant to some assays and decisive in others. How to tell which situation you are in.",
+    "abstract": "Bacterial endotoxin contamination can confound cell-based assays at concentrations far below those that matter elsewhere. This article covers the LAL method, typical limits and the experimental contexts in which endotoxin data should be requested.",
+    "tags": [
+      "Endotoxin",
+      "Cell culture",
+      "Quality"
+    ],
+    "featured": false,
+    "refs": [
+      "European Pharmacopoeia, general chapters on chromatographic separation techniques, current edition.",
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-endotoxin.jpg\" alt=\"A gloved hand holding a culture plate up for inspection\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "endotoxin-testing-when-it-matters.html",
+    "bytes": 6436
+  },
+  {
+    "slug": "comparing-synthesis-routes-for-short-peptides",
+    "title": "Comparing synthesis routes for short peptides",
+    "category": "Research",
+    "date": "2026-01-23",
+    "date_label": "23 January 2026",
+    "read_time": "12 min",
+    "author": "Analytical Services",
+    "role": "Purely Peptides Hub",
+    "excerpt": "Solid-phase and solution-phase synthesis leave different impurity signatures. Reading the route from the chromatogram.",
+    "abstract": "The impurity profile of a synthetic peptide carries information about how it was made. This article compares Fmoc solid-phase synthesis with solution-phase approaches and describes the characteristic by-products of each.",
+    "tags": [
+      "Synthesis",
+      "SPPS",
+      "Impurities"
+    ],
+    "featured": false,
+    "refs": [
+      "European Pharmacopoeia, general chapters on chromatographic separation techniques, current edition.",
+      "ISO/IEC 17025:2017, General requirements for the competence of testing and calibration laboratories."
+    ],
+    "lead_html": "<img src=\"/wp-content/themes/pph-child/assets/img/art-synthesis.jpg\" alt=\"A chemist working at a fume hood in full protective gear\" width=\"760\" height=\"420\" loading=\"lazy\" decoding=\"async\">",
+    "file": "comparing-synthesis-routes-for-short-peptides.html",
+    "bytes": 6409
+  }
+]

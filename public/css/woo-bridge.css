@@ -1,0 +1,237 @@
+/* =========================================================================
+   Purely Peptides - WooCommerce default-template bridge.
+
+   Checkout (and, if it is ever left un-overridden, My Account) render through
+   WooCommerce's own bundled templates, deliberately not rewritten - see
+   inc/checkout.php's file header for why a from-scratch checkout markup
+   rewrite is the one place in this build too risky to do without live
+   testing. This file does the other half of "keep the real engine, make it
+   look like ours": every selector below is WooCommerce's own default class
+   name, restyled with this site's actual tokens (colours, type, spacing,
+   radii from styles.css) rather than Woo's defaults. No markup changes, so
+   nothing here can break the checkout flow itself - worst case is a visual
+   miss, not a broken order.
+
+   Loaded only on cart/checkout/account (see functions.php) - everywhere else
+   already has its own fully custom template and needs none of this.
+   ========================================================================= */
+
+.woocommerce form .form-row {
+  margin-bottom: var(--s-3);
+}
+.woocommerce form .form-row label {
+  display: block;
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.woocommerce form .form-row .required {
+  color: var(--warn, #A8501A);
+  text-decoration: none;
+}
+.woocommerce form .input-text,
+.woocommerce form select,
+.woocommerce form textarea,
+.woocommerce-checkout select {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1px solid var(--rule-input);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--t-body);
+}
+.woocommerce form .input-text:focus,
+.woocommerce form select:focus,
+.woocommerce form textarea:focus {
+  outline: 2px solid var(--teal);
+  outline-offset: 1px;
+  border-color: var(--teal);
+}
+.woocommerce form .select2-container .select2-selection--single {
+  height: auto;
+  padding: 10px 14px;
+  border: 1px solid var(--rule-input);
+  border-radius: var(--r-sm);
+}
+
+/* Section headings Woo prints as plain <h3> - match the rest of the site's
+   fieldset legends rather than a bare heading with no visual separation. */
+.woocommerce-billing-fields > h3,
+.woocommerce-shipping-fields > h3,
+.woocommerce-additional-fields > h3,
+#order_review_heading {
+  font-family: var(--slab);
+  font-size: var(--t-h4);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--teal-deep);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: var(--s-1);
+  margin: var(--s-5) 0 var(--s-3);
+}
+.woocommerce-billing-fields > h3:first-child { margin-top: 0; }
+
+.woocommerce-billing-fields__field-wrapper,
+.woocommerce-shipping-fields__field-wrapper,
+.woocommerce-additional-fields__field-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--s-3);
+}
+.woocommerce-billing-fields__field-wrapper .form-row-wide,
+.woocommerce-shipping-fields__field-wrapper .form-row-wide,
+.woocommerce-additional-fields__field-wrapper .form-row-wide {
+  grid-column: 1 / -1;
+}
+@media (max-width: 640px) {
+  .woocommerce-billing-fields__field-wrapper,
+  .woocommerce-shipping-fields__field-wrapper,
+  .woocommerce-additional-fields__field-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The three required acknowledgements plus Woo's own optional terms checkbox
+   (inc/checkout.php, checkout/terms.php) - styled like the rest of the
+   site's compliance notices, since that is exactly what they are, not an
+   ordinary form field. .check already gives the label its flex/checkbox
+   layout (same class used everywhere else on the site); .pph-ack only adds
+   the highlighted card look on top, on the label itself now rather than a
+   separate wrapper. */
+label.pph-ack {
+  background: var(--mist);
+  border-left: 3px solid var(--warn, #A8501A);
+  border-radius: var(--r-sm);
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+/* Shipping method row - wc_cart_totals_shipping_html() renders its own
+   <tr>/<td> internally (a per-package method list, not a single price), so
+   it is left un-wrapped in review-order.php rather than reproduced from
+   memory. This makes that bare <tr> lay out like the .trow rows around it. */
+.checkout__totals tr.woocommerce-shipping-totals {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-small);
+}
+.checkout__totals tr.woocommerce-shipping-totals th {
+  font-weight: 400;
+  color: var(--ink);
+}
+.checkout__totals tr.woocommerce-shipping-totals td {
+  text-align: right;
+}
+ul.woocommerce-shipping-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+ul.woocommerce-shipping-methods li {
+  margin-bottom: 6px;
+}
+
+/* Order review table - `table.` prefix on every selector in this block is
+   load-bearing. checkout/review-order.php is overridden and now emits a <div>
+   carrying this same class (it has to: WC_AJAX keys its fragment by this exact
+   selector), and a bordered card look applied to that div would sit a second
+   box inside .checkout__summary, which is already the card. These rules are the
+   fallback for Woo's real <table>, wherever it still renders. */
+table.woocommerce-checkout-review-order-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--paper);
+}
+table.woocommerce-checkout-review-order-table th,
+table.woocommerce-checkout-review-order-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--rule);
+  font-size: var(--t-small);
+  text-align: left;
+}
+table.woocommerce-checkout-review-order-table thead th {
+  background: var(--mist);
+  font-weight: 600;
+  color: var(--ink);
+}
+table.woocommerce-checkout-review-order-table .product-total,
+table.woocommerce-checkout-review-order-table td.total {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+table.woocommerce-checkout-review-order-table tfoot tr.order-total th,
+table.woocommerce-checkout-review-order-table tfoot tr.order-total td {
+  font-weight: 700;
+  font-size: var(--t-h4);
+  border-bottom: 0;
+}
+
+/* Payment methods */
+ul.wc_payment_methods {
+  list-style: none;
+  margin: var(--s-4) 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+ul.wc_payment_methods li.wc_payment_method {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+}
+ul.wc_payment_methods li.wc_payment_method:last-child { border-bottom: 0; }
+ul.wc_payment_methods label {
+  font-weight: 600 !important;
+  color: var(--ink);
+}
+.woocommerce div.payment_box {
+  background: var(--mist);
+  border-radius: var(--r-sm);
+  padding: 12px 14px;
+  margin-top: 10px;
+  font-size: var(--t-small);
+  color: var(--body-ink);
+}
+.woocommerce div.payment_box::before { display: none; }
+
+/* Place Order button - checkout/payment.php renders it with the site's real
+   .btn.btn--primary.btn--lg.btn--block classes now, so the approximation that
+   used to live here has been deleted rather than left to out-specify them
+   (an id beats any of those class rules, including their hover states).
+   Only the top margin, which is layout rather than button styling, remains. */
+#place_order { margin-top: var(--s-3); }
+
+/* Notices */
+.woocommerce-error,
+.woocommerce-message,
+.woocommerce-info {
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 14px 16px;
+  border-radius: var(--r-sm);
+  font-size: var(--t-small);
+  background: var(--mist);
+  border-left: 3px solid var(--teal);
+}
+.woocommerce-error { border-left-color: var(--warn, #A8501A); }
+
+.woocommerce-terms-and-conditions-wrapper .woocommerce-terms-and-conditions {
+  background: var(--mist);
+  border-radius: var(--r-sm);
+  padding: var(--s-2);
+  font-size: var(--t-small);
+  max-height: 240px;
+  overflow-y: auto;
+}

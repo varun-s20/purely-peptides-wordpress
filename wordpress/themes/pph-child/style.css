@@ -1,0 +1,11 @@
+/*
+Theme Name: Purely Peptides Hub
+Theme URI: https://purelypeptideshub.com/
+Description: Child theme for Purely Peptides Hub. Carries the site's own stylesheet, scripts and chrome. The real stylesheet is assets/css/styles.css, enqueued from functions.php - this file only exists because WordPress requires it.
+Author: Digital Heroes
+Template: hello-elementor
+Version: 0.1.0
+Text Domain: pph-child
+*/
+
+/* Nothing here on purpose. See assets/css/styles.css. */

@@ -4,6 +4,13 @@
 (function () {
   'use strict';
 
+  /* See cart.js's identical guard - this file runs once per page no matter
+     how many times its <script> tag is printed. Without it, a duplicated tag
+     means every toast() call, every mega-menu binding and every [data-toast]
+     click fires twice. */
+  if (window.PPH_LOADED && window.PPH_LOADED.script) return;
+  (window.PPH_LOADED = window.PPH_LOADED || {}).script = true;
+
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -309,6 +316,9 @@
 
   // store.js has no toast of its own; this is the bridge.
   window.PP.toast = toast;
+  // cart.js opens the drawer after a real add-to-cart; it owns the cart data,
+  // this file still owns the drawer's own open/close chrome.
+  window.PP.openCart = setCart;
 
   $$('[data-toast]').forEach(function (b) {
     b.addEventListener('click', function () { toast(b.getAttribute('data-toast')); });
@@ -325,23 +335,13 @@
 
   /* ------------------------------------------------------ search suggest */
 
-  var SUGGEST = {
-    products: [
-      { label: 'BPC-157', meta: '10 mg · PP-1001', href: '/products/bpc-157/' },
-      { label: 'TB-500', meta: '5 mg · PP-1002', href: '/products/tb-500/' },
-      { label: 'GHK-Cu', meta: '50 mg · PP-1003', href: '/products/ghk-cu/' },
-      { label: 'Semax', meta: '10 mg · PP-1004', href: '/products/semax/' },
-      { label: 'MOTS-c', meta: '5 mg · PP-1010', href: '/products/mots-c/' }
-    ],
-    documentation: [
-      { label: 'Lot BP-260910', meta: 'BPC-157 · 99.4%', href: '/certificates/bp-260910/' },
-      { label: 'Lot GH-260803', meta: 'GHK-Cu · 99.6%', href: '/certificates/gh-260803/' }
-    ],
-    research: [
-      { label: 'How to read an HPLC purity result', meta: 'Methods', href: '/research/reading-an-hplc-purity-result/' },
-      { label: 'What a certificate of analysis contains', meta: 'Quality', href: '/research/what-a-certificate-of-analysis-contains/' }
-    ]
-  };
+  /* window.PP_SUGGEST is generated live (inc/catalogue.php pph_suggest_js())
+     from real products, certificates and articles. The hand-written sample
+     data this used to hold - five products, two lots, two articles, always
+     the same ones - was never real, even on the static site; this is the
+     first time the search box actually knows about everything in the
+     catalogue. */
+  var SUGGEST = window.PP_SUGGEST || { products: [], documentation: [], research: [] };
 
   var input = $('[data-suggest]');
   var panel = $('#suggest-panel');

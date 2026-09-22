@@ -6,3 +6,13 @@ node_modules/
 # are copied into public/doc/ and tracked from there.
 mdnjuan/
 mdnjuan.pdf
+
+# Generated copies of assets that already live in public/. Both are rebuilt by
+# `node tools/export-wp-theme.js`, and the hero video is 20 MB - it is already
+# tracked twice (public/ and site/) and does not need a third copy.
+wordpress/themes/pph-child/assets/
+wordpress/uploads/
+branch_structure.json
+temp_auto_push.bat
+temp_interactive_push.bat
+.gitignore

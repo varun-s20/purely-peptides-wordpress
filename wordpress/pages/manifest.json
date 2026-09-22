@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "about",
+    "title": "About Purely Peptides Hub",
+    "description": "Purely Peptides Hub supplies research materials to laboratories with lot-level analytical documentation as a default, not an add-on.",
+    "file": "about.html",
+    "bytes": 6166
+  },
+  {
+    "slug": "quality",
+    "title": "Quality & testing",
+    "description": "How Purely Peptides Hub tests and documents research materials: RP-HPLC purity, mass spectrometry identity, published method conditions and lot-level certificates.",
+    "file": "quality.html",
+    "bytes": 30069
+  },
+  {
+    "slug": "applications",
+    "title": "Research areas & applications",
+    "description": "Purely Peptides Hub research materials grouped by research area: metabolism, cell signalling, cellular repair, inflammatory research, neuroscience and endocrine research.",
+    "file": "applications.html",
+    "bytes": 15983
+  },
+  {
+    "slug": "faq",
+    "title": "Frequently asked questions",
+    "description": "Answers on ordering, documentation, storage, shipping and returns for Purely Peptides Hub research materials.",
+    "file": "faq.html",
+    "bytes": 9383
+  },
+  {
+    "slug": "contact",
+    "title": "Contact",
+    "description": "Contact Purely Peptides Hub for product specifications, order support, documentation requests or wholesale enquiries.",
+    "file": "contact.html",
+    "bytes": 5803
+  },
+  {
+    "slug": "wholesale",
+    "title": "Wholesale & institutional ordering",
+    "description": "Account-based ordering for research organisations: tiered pricing, bulk quantities, purchase orders and documentation access.",
+    "file": "wholesale.html",
+    "bytes": 8241
+  },
+  {
+    "slug": "wholesale/apply",
+    "title": "Wholesale application",
+    "description": "Apply for a Purely Peptides Hub wholesale account: organisation details, research context and purchasing preferences.",
+    "file": "wholesale--apply.html",
+    "bytes": 8158
+  },
+  {
+    "slug": "shipping",
+    "title": "Shipping & returns",
+    "description": "Despatch times, delivery services, packaging and the conditions under which material can be returned.",
+    "file": "shipping.html",
+    "bytes": 3678
+  },
+  {
+    "slug": "refunds",
+    "title": "Refund and returns policy",
+    "description": "When material can be returned, how a refund is issued, and what cannot be returned.",
+    "file": "refunds.html",
+    "bytes": 4039
+  },
+  {
+    "slug": "chargebacks",
+    "title": "Chargeback policy",
+    "description": "What to do if you do not recognise a payment, and how we handle disputed ACH debits.",
+    "file": "chargebacks.html",
+    "bytes": 4023
+  },
+  {
+    "slug": "terms",
+    "title": "Terms and conditions of purchase",
+    "description": "The conditions under which Purely Peptides Hub supplies research materials.",
+    "file": "terms.html",
+    "bytes": 9399
+  },
+  {
+    "slug": "privacy",
+    "title": "Privacy policy",
+    "description": "What information we collect, why we collect it, and the choices you have.",
+    "file": "privacy.html",
+    "bytes": 3210
+  },
+  {
+    "slug": "research-use-policy",
+    "title": "Research use policy",
+    "description": "Every material supplied by Purely Peptides Hub is for laboratory research use only. This page explains what that means and what it excludes.",
+    "file": "research-use-policy.html",
+    "bytes": 3457
+  },
+  {
+    "slug": "404",
+    "title": "Page not found",
+    "description": "The requested page could not be found.",
+    "file": "404.html",
+    "bytes": 5989
+  }
+]

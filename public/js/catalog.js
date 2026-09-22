@@ -10,6 +10,11 @@
 (function () {
   'use strict';
 
+  /* See cart.js's identical guard - this file runs once per page no matter
+     how many times its <script> tag is printed. */
+  if (window.PPH_LOADED && window.PPH_LOADED.catalog) return;
+  (window.PPH_LOADED = window.PPH_LOADED || {}).catalog = true;
+
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
 

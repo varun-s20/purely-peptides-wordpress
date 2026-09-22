@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "metabolic-research",
+    "name": "Metabolic Research",
+    "description": "Incretin analogues and mitochondrial peptides used in energy-substrate and adipocyte models."
+  },
+  {
+    "slug": "growth-factor-research",
+    "name": "Growth Factor Research",
+    "description": "GHRH analogues and secretagogue ligands used in receptor-binding and stability studies."
+  },
+  {
+    "slug": "cell-signalling-research",
+    "name": "Cell Signalling Research",
+    "description": "Peptides characterised in matrix, cytokine and cell-migration literature."
+  },
+  {
+    "slug": "cognitive-research",
+    "name": "Cognitive Research",
+    "description": "Neuropeptides used in receptor and neurotrophic-expression model studies."
+  },
+  {
+    "slug": "melanocortin-research",
+    "name": "Melanocortin Research",
+    "description": "Melanocortin and kisspeptin receptor ligands used in binding and selectivity assays."
+  },
+  {
+    "slug": "cofactors",
+    "name": "Cofactors & Nucleotides",
+    "description": "Non-peptide reference materials supplied to the same documentation standard."
+  },
+  {
+    "slug": "blends",
+    "name": "Blends",
+    "description": "Fixed-ratio combinations prepared and documented as a single production lot."
+  }
+]

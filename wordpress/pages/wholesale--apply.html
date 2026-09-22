@@ -1,0 +1,106 @@
+<nav class="crumbs" aria-label="Breadcrumb"><div class="wrap"><ol>
+    <li><a href="/">Home</a></li><li class="sep" aria-hidden="true">/</li><li><a href="/wholesale/">Wholesale</a></li><li class="sep" aria-hidden="true">/</li><li aria-current="page">Apply</li>
+  </ol></div></nav>
+
+<div class="pagehead">
+  <div class="wrap">
+    <span class="eyebrow">Wholesale application</span>
+    <h1>Apply for a wholesale account</h1>
+    <p>Four steps. Your progress is saved as you go, and you can return to an unfinished application from the same link.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-block:32px 96px;max-width:960px">
+  <ol class="stepper" style="list-style:none;padding:0;margin:0 0 40px">
+    <li class="stepper__step" data-state="done"><span class="stepper__n"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span><span class="stepper__label">Organisation</span></li>
+    <li class="stepper__step" data-state="current"><span class="stepper__n">2</span><span class="stepper__label">Research information</span></li>
+    <li class="stepper__step" data-state="todo"><span class="stepper__n">3</span><span class="stepper__label">Purchasing</span></li>
+    <li class="stepper__step" data-state="todo"><span class="stepper__n">4</span><span class="stepper__label">Review</span></li>
+  </ol>
+
+  <form data-validate data-success="Application received. A confirmation has been sent to your email.">
+    <fieldset class="fieldset">
+      <legend>Organisation</legend>
+      <div class="form-grid">
+        <label class="field"><span class="field__label">Organisation name<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="Kendall Institute"></label>
+        <label class="field"><span class="field__label">Website</span><input class="input" type="url" placeholder="https://" value="https://kendall-institute.org"></label>
+        <label class="field field--full"><span class="field__label">Business address<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="77 Binney Street, Cambridge, MA 02142"></label>
+        <label class="field"><span class="field__label">Contact person<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="Dr. Amara Osei"></label>
+        <label class="field"><span class="field__label">Role</span><input class="input" value="Principal Investigator"></label>
+        <label class="field"><span class="field__label">Email<span class="field__req" aria-hidden="true">*</span></span><input class="input" type="email" required value="a.osei@kendall-institute.org"><span class="field__hint">An institutional address speeds up verification.</span></label>
+        <label class="field"><span class="field__label">Phone<span class="field__req" aria-hidden="true">*</span></span><input class="input" type="tel" required></label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <legend>Research information</legend>
+      <div class="form-grid">
+        <label class="field"><span class="field__label">Organisation type<span class="field__req" aria-hidden="true">*</span></span>
+          <select class="select" required>
+            <option value="">Select a type</option>
+            <option selected>Academic research institution</option><option>Hospital or clinical research unit</option>
+            <option>Contract research organisation</option><option>Commercial R&amp;D laboratory</option>
+            <option>Government or public laboratory</option><option>Other</option>
+          </select>
+        </label>
+        <label class="field"><span class="field__label">Primary research field<span class="field__req" aria-hidden="true">*</span></span>
+          <select class="select" required>
+            <option value="">Select a field</option><option selected>Cell biology</option><option>Biochemistry</option>
+            <option>Neuroscience</option><option>Immunology</option><option>Endocrinology</option><option>Analytical chemistry</option><option>Other</option>
+          </select>
+        </label>
+        <fieldset class="field field--full" style="border:0;padding:0;margin:0 0 24px">
+          <legend class="field__label" style="padding:0">Expected product categories</legend>
+          <div class="grid grid-3" style="gap:0 24px">
+            <label class="check"><input type="checkbox" checked><span>Research peptides</span></label><label class="check"><input type="checkbox" checked><span>Protein research</span></label><label class="check"><input type="checkbox"><span>Metabolic research</span></label><label class="check"><input type="checkbox"><span>Cellular research</span></label><label class="check"><input type="checkbox"><span>Cognitive research</span></label><label class="check"><input type="checkbox"><span>Blends</span></label>
+          </div>
+        </fieldset>
+        <label class="field field--full"><span class="field__label">Intended research use<span class="field__req" aria-hidden="true">*</span></span>
+          <textarea class="textarea" required placeholder="A short description of the work these materials will support."></textarea>
+          <span class="field__hint">Used to confirm research context. It is not shared outside the review team.</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <legend>Purchasing</legend>
+      <div class="form-grid">
+        <label class="field"><span class="field__label">Estimated monthly spend</span>
+          <select class="select"><option>Under $1,000</option><option selected>$1,000 – $4,999</option><option>$5,000 – $14,999</option><option>$15,000 +</option></select>
+        </label>
+        <label class="field"><span class="field__label">Preferred payment method</span>
+          <select class="select"><option>Card at checkout</option><option selected>Purchase order, net 30</option><option>Bank transfer</option></select>
+        </label>
+        <label class="field field--full"><span class="field__label">Comments</span>
+          <textarea class="textarea" placeholder="Anything else the review team should know - existing order history, procurement requirements, specific materials."></textarea>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fieldset">
+      <legend>Confirmation</legend>
+      <div class="card" style="padding:20px;border-left:3px solid var(--warn)">
+        <label class="check"><input type="checkbox" required><span><strong>Research use confirmation.</strong> I confirm this organisation will use these materials exclusively for laboratory research, and not for human or veterinary use.</span></label>
+        <label class="check"><input type="checkbox" required><span>I am authorised to open a purchasing account on behalf of this organisation, and accept the <a class="link" href="/terms/">terms of sale</a>.</span></label>
+      </div>
+    </fieldset>
+
+    <div class="row" style="justify-content:space-between;gap:12px">
+      <button class="btn btn--secondary" type="button">Back</button>
+      <div class="row" style="gap:12px">
+        <button class="btn btn--ghost" type="submit" formnovalidate data-toast="Application saved. Return any time from the link in your email.">Save and finish later</button>
+        <button class="btn btn--primary btn--lg" type="submit">Submit application</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="card" style="padding:24px;margin-top:48px;background:var(--mist)">
+    <h2 style="font-size:var(--t-h4);margin-bottom:8px">After you submit</h2>
+    <p class="small muted" style="max-width:64ch">
+      You will see a confirmation on screen and receive an email recording the application. The review team
+      verifies the organisation and research context, and may email one or two follow-up questions. Once the
+      account is active, tiered pricing applies automatically at checkout and previous order history is linked
+      to the organisation where it exists.
+    </p>
+  </div>
+</div>
