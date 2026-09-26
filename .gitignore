@@ -12,7 +12,3 @@ mdnjuan.pdf
 # tracked twice (public/ and site/) and does not need a third copy.
 wordpress/themes/pph-child/assets/
 wordpress/uploads/
-branch_structure.json
-temp_auto_push.bat
-temp_interactive_push.bat
-.gitignore
