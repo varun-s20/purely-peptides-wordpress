@@ -4,6 +4,13 @@
 (function () {
   'use strict';
 
+  /* See cart.js's identical guard - this file runs once per page no matter
+     how many times its <script> tag is printed. Without it, a duplicated tag
+     means every toast() call, every mega-menu binding and every [data-toast]
+     click fires twice. */
+  if (window.PPH_LOADED && window.PPH_LOADED.script) return;
+  (window.PPH_LOADED = window.PPH_LOADED || {}).script = true;
+
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -170,8 +177,9 @@
     var input = $('input', wrap);
     $$('button', wrap).forEach(function (b) {
       b.addEventListener('click', function () {
-        var next = (parseInt(input.value, 10) || 1) + parseInt(b.getAttribute('data-step'), 10);
-        input.value = Math.max(1, Math.min(999, next));
+        var min = parseInt(input.min, 10) || 1;
+        var next = (parseInt(input.value, 10) || min) + parseInt(b.getAttribute('data-step'), 10);
+        input.value = Math.max(min, Math.min(999, next));
         input.dispatchEvent(new Event('change', { bubbles: true }));
       });
     });
@@ -192,6 +200,9 @@
   var SUB_RATE = 0.10;
 
   var buybox = $('.pdp__buybox');
+  if (buybox && $('[data-wholesale]', buybox)) {
+    VOLUME_TIERS.forEach(function (t) { t.rate = 0; });
+  }
   if (buybox) {
     var unit = parseFloat(($('[data-size][aria-pressed="true"]', buybox) || {}).getAttribute
       ? $('[data-size][aria-pressed="true"]', buybox).getAttribute('data-value')
@@ -206,6 +217,17 @@
       return 0;
     }
     function money(n) { return '$' + n.toFixed(2); }
+
+    /* The main gallery image follows the selected size when that size has its
+       own photograph. srcset goes too, or the browser keeps the old file. */
+    function showSizePhoto(btn) {
+      var src = btn && btn.getAttribute('data-img');
+      var img = $('.pdp__main img');
+      if (!src || !img || img.getAttribute('src') === src) return;
+      img.removeAttribute('srcset');
+      img.removeAttribute('sizes');
+      img.src = src;
+    }
 
     function recalc() {
       var qty = Math.max(1, parseInt(qtyInput && qtyInput.value, 10) || 1);
@@ -263,9 +285,11 @@
         var el = $('[data-price]'), per = $('[data-per]');
         if (el) el.textContent = money(unit);
         if (per) per.textContent = 'per ' + sizeLabel + ' vial';
+        showSizePhoto(btn);
         recalc();
       });
     });
+    showSizePhoto($('[data-size][aria-pressed="true"]', buybox));
     $$('[data-buymode]').forEach(function (r) { r.addEventListener('change', recalc); });
     var freq = $('[data-sub-freq]');
     if (freq) freq.addEventListener('change', recalc);
@@ -611,7 +635,7 @@
      progressed - the cart and the checkout - rather than only warned about
      at the end, which is where it would waste the most of their time. */
 
-  var RESTRICTED = ['CA', 'NY', 'LA'];
+  var RESTRICTED = window.PP_RESTRICTED || [];
   var KEY_REGION = 'pp.ship-region';
   /* Destination-based rates. Real figures come from the carrier and the tax
      service; these are the shape the UI has to hold, and they are shown before

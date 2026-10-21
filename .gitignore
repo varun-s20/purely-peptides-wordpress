@@ -12,3 +12,9 @@ mdnjuan.pdf
 # tracked twice (public/ and site/) and does not need a third copy.
 wordpress/themes/pph-child/assets/
 wordpress/uploads/
+
+# Client drops from the 21 Sept 2026 chat (product photos, Canva banners and the
+# updated inventory sheet). Raw source - the images that ship are optimised and
+# copied into public/.
+mdnjuan-attachments/
+mdnjuan-attachments (1)/

@@ -11,11 +11,10 @@
  * / `brand.footerDisclaimer` in the original build; keep this copy in sync if
  * that wording is ever revised (it should not be, without AllayPay's say-so).
  *
- * NOT YET WIRED TO THE THEME: header.php / footer.php still show the literal
- * placeholder phone, address and email baked in when the theme was generated
- * from src/data.js. This screen stores real values for when that gets wired
- * up (a small follow-up, not done here) and is where phase 9's pricing logic
- * will read its discount percentages from once it exists.
+ * Contact details here are NOT read by the theme: header.php / footer.php and
+ * the imported pages carry the address and email baked in from src/data.js
+ * (client-supplied, 21 Sep 2026). Change them there and regenerate. The
+ * pricing thresholds, research fields and restricted states ARE live.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -26,13 +25,13 @@ define( 'PPH_SETTINGS_OPTION', 'pph_settings' );
 
 function pph_settings_defaults() {
 	return array(
-		'support_email'           => 'support@purelypeptideshub.com',
-		'procurement_email'       => 'orders@purelypeptideshub.com',
-		'phone'                   => '+1 (000) 000-0000',
-		'address_line1'           => 'Address line 1',
-		'address_line2'           => 'City, State ZIP',
+		'support_email'           => 'purelypeptideshubcs@gmail.com',
+		'procurement_email'       => 'purelypeptideshubcs@gmail.com',
+		'phone'                   => '',
+		'address_line1'           => '8605 Santa Monica Blvd #156069',
+		'address_line2'           => 'West Hollywood, CA 90069',
 		'address_country'         => 'United States',
-		'hours'                   => 'Monday-Friday, 09:00-17:00 ET',
+		'hours'                   => '',
 		'research_fields'         => implode(
 			"\n",
 			array(
@@ -46,7 +45,8 @@ function pph_settings_defaults() {
 				'Other institutional research',
 			)
 		),
-		'restricted_states'       => "CA\nNY\nLA",
+		/* None by default - the client has named no restricted states. */
+		'restricted_states'       => '',
 		'free_shipping_threshold' => '250',
 		'volume_discount_5'       => '8',
 		'volume_discount_10'      => '16',
@@ -144,7 +144,7 @@ function pph_render_settings_page() {
 			<table class="form-table" role="presentation">
 				<?php
 				pph_settings_row( 'research_fields', 'Research field options', 'textarea', 'One per line. Shown as the required dropdown at checkout.' );
-				pph_settings_row( 'restricted_states', 'Restricted states', 'textarea', 'One per line, or comma separated. Orders shipping to these states are blocked at cart.' );
+				pph_settings_row( 'restricted_states', 'Restricted states', 'textarea', 'Two-letter codes, one per line or comma separated. Checkout is blocked for a visitor who picks one of these as their shipping region.' );
 				?>
 			</table>
 

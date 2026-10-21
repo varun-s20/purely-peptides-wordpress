@@ -37,7 +37,7 @@ const regionBlock = `
     ${icons.alert}
     <div>
       <strong>We cannot ship to <span data-region-label>this state</span>.</strong>
-      These materials are restricted for despatch to California, New York and Louisiana.
+      Shipment of these materials to this state is restricted.
       Choose another destination, or <a class="link" href="/contact/?topic=shipping">contact us</a>
       about institutional delivery.
     </div>

@@ -13,6 +13,15 @@
 (function () {
   'use strict';
 
+  /* Guards against this file executing twice on one page - a caching/
+     minification layer on the live host duplicating the <script> tag is a
+     real failure mode (WP only enqueues it once; a proxy or cache combining
+     assets can still print it twice), and a second run means a second
+     `document.addEventListener('click', ...)` below - every add-to-cart and
+     every toast then fires twice per click. */
+  if (window.PPH_LOADED && window.PPH_LOADED.cart) return;
+  (window.PPH_LOADED = window.PPH_LOADED || {}).cart = true;
+
   if (typeof window.PPH_CART === 'undefined') return;
 
   var $ = function (s, r) { return (r || document).querySelector(s); };
@@ -93,8 +102,28 @@
     }
   }
 
+  /* Every cart action below (refresh/add/update/remove/restore) is its own
+     independent fetch, and nothing stops two of them being in flight at once
+     - the page-load refresh() and a click on "Add to order" a moment later,
+     for instance. Network responses do not have to arrive in the order they
+     were sent; if an OLDER request's response arrives after a NEWER one's,
+     applying it blindly overwrites the correct, current state with a stale
+     one - the exact bug this was: the badge visibly increments on a real add,
+     then reverts because a leftover refresh() response from page load shows
+     up a moment later still describing the cart from before that add.
+     nextCartRequest()/isCurrentCartRequest() is "last request wins, not last
+     response": each call below stamps its own sequence number before firing,
+     and only applies its response if nothing newer has started since. */
+  var cartRequestSeq = 0;
+  function nextCartRequest() { return ++cartRequestSeq; }
+  function isCurrentCartRequest( seq ) { return seq === cartRequestSeq; }
+
   function refresh() {
-    return request('cart').then(applyState).catch(function () { /* stale UI beats a broken page */ });
+    var seq = nextCartRequest();
+    return request('cart').then(function (state) {
+      if (isCurrentCartRequest(seq)) applyState(state);
+      return state;
+    }).catch(function () { /* stale UI beats a broken page */ });
   }
 
   /* ------------------------------------------------------------ mutations */
@@ -115,12 +144,13 @@
   function addToCart(item) {
     var resolved = resolveLegacyItem(item);
     if (!resolved) return Promise.reject(new Error('That item is no longer available.'));
+    var seq = nextCartRequest();
     return request('cart/add', {
       productId: resolved.productId,
       variationId: resolved.variationId || 0,
       quantity: resolved.quantity || 1
     }).then(function (state) {
-      applyState(state);
+      if (isCurrentCartRequest(seq)) applyState(state);
       return state;
     });
   }
@@ -128,13 +158,35 @@
   window.PP.addToCart = addToCart;
 
   function updateQty(key, qty) {
-    return request('cart/update', { key: key, quantity: qty }).then(applyState).catch(function (e) {
+    var seq = nextCartRequest();
+    return request('cart/update', { key: key, quantity: qty }).then(function (state) {
+      if (isCurrentCartRequest(seq)) applyState(state);
+    }).catch(function (e) {
       toast(e.message);
       refresh();
     });
   }
   function removeLine(key) {
-    return request('cart/remove', { key: key }).then(applyState);
+    var seq = nextCartRequest();
+    return request('cart/remove', { key: key }).then(function (state) {
+      if (isCurrentCartRequest(seq)) applyState(state);
+    });
+  }
+
+  /* --------------------------------------------------------- saved orders */
+
+  function saveOrder() {
+    return request('cart/save', {});
+  }
+  function restoreSavedOrder(id) {
+    var seq = nextCartRequest();
+    return request('cart/saved/restore', { id: id }).then(function (state) {
+      if (isCurrentCartRequest(seq)) applyState(state);
+      return state;
+    });
+  }
+  function removeSavedOrder(id) {
+    return request('cart/saved/remove', { id: id });
   }
 
   /* ---------------------------------------------------------------- events */
@@ -186,7 +238,16 @@
     }
 
     var rm = e.target.closest('[data-line-remove]');
-    if (rm) { removeLine(rm.getAttribute('data-line-remove')).then(function () { toast('Removed from your order'); }); return; }
+    if (rm) {
+      /* Same success/failure split as the add-to-order handler above - without
+         the .catch, a failed request (stale nonce on a cached page, a network
+         blip) rejected silently: nothing was removed, no error shown, and the
+         button looked like it just did not work. */
+      removeLine(rm.getAttribute('data-line-remove'))
+        .then(function () { toast('Removed from your order'); })
+        .catch(function (err) { toast(err.message); refresh(); });
+      return;
+    }
 
     var step = e.target.closest('[data-line-step]');
     if (step) {
@@ -195,6 +256,50 @@
       var next = Math.max(1, (parseInt(input.value, 10) || 1) + parseInt(step.getAttribute('data-line-step'), 10));
       input.value = next;
       updateQty(wrap.getAttribute('data-qty-line'), next);
+      return;
+    }
+
+    /* /cart/'s "Save this order" - real account storage now (inc/cart-api.php),
+       not the static build's fake toast. The button only renders for a
+       signed-in visitor (cart.php checks is_user_logged_in() server-side,
+       same gate checkout itself already uses) - a guest sees a "Sign in to
+       save this order" link instead, so this handler never has to guess
+       whether it will be allowed. */
+    var save = e.target.closest('[data-save-order]');
+    if (save) {
+      saveOrder()
+        .then(function () { toast('Order saved to your account. Find it on your account page.'); })
+        .catch(function (err) { toast(err.message); });
+      return;
+    }
+
+    /* Account page's Saved orders section (inc/account.php) - restore adds
+       every line back into the live cart via the same applyState() the rest
+       of the cart uses, so the drawer/badge update immediately; remove drops
+       the row from the page without a full reload. */
+    var restore = e.target.closest('[data-saved-restore]');
+    if (restore) {
+      restoreSavedOrder(restore.getAttribute('data-saved-restore'))
+        .then(function (state) {
+          var note = state.skipped
+            ? state.added + (state.added === 1 ? ' item' : ' items') + ' added - ' + state.skipped + (state.skipped === 1 ? ' line is' : ' lines are') + ' no longer available.'
+            : 'Saved order added to your cart.';
+          toast(note);
+          openDrawer();
+        })
+        .catch(function (err) { toast(err.message); });
+      return;
+    }
+
+    var removeSaved = e.target.closest('[data-saved-remove]');
+    if (removeSaved) {
+      var row = removeSaved.closest('[data-saved-order]');
+      removeSavedOrder(removeSaved.getAttribute('data-saved-remove'))
+        .then(function () {
+          if (row && row.parentNode) row.parentNode.removeChild(row);
+          toast('Saved order removed.');
+        })
+        .catch(function (err) { toast(err.message); });
     }
   });
 
@@ -204,6 +309,15 @@
     updateQty(wrap.getAttribute('data-qty-line'), Math.max(1, parseInt(e.target.value, 10) || 1));
   });
 
+  /* One refresh() call, not two. This file is loaded with `defer` (see
+     functions.php), which guarantees it runs after the DOM is parsed but
+     BEFORE the DOMContentLoaded event fires - so a `DOMContentLoaded`
+     listener registered here always catches an event that has not fired
+     yet, and always runs a moment after this same refresh() already did.
+     That second, redundant GET was the other half of the race explained
+     above: nothing on the page changes between "this script ran" and "the
+     DOMContentLoaded event fires" that would justify asking the server
+     again, and every extra in-flight request is one more chance for a
+     stale response to arrive late. */
   refresh();
-  document.addEventListener('DOMContentLoaded', refresh);
 })();

@@ -235,3 +235,401 @@ ul.wc_payment_methods label {
   max-height: 240px;
   overflow-y: auto;
 }
+
+/* =========================================================================
+   My Account, order-received and the logged-out sign-in page.
+
+   These render through WooCommerce's own templates with no override at all
+   (PROGRESS.md's "explicitly deferred" note), and functions.php dequeues
+   WooCommerce's own stylesheets site-wide - so until this block existed the
+   account nav was a bare bulleted list, the sign-in form ran edge to edge,
+   and the thank-you page a customer sees straight after paying had no
+   container at all. Same rule as the checkout block above: WooCommerce's own
+   class names only, no markup rewritten, so nothing here can break an order.
+   ========================================================================= */
+
+/* ---------------------------------------------------------- the container
+   Our own pages carry their own .wrap; WooCommerce's shortcode output does
+   not, which is what put every one of these pages flush against the viewport
+   edge. */
+.woocommerce-account .woocommerce,
+.woocommerce-order,
+.woocommerce-cart .cart-empty,
+.woocommerce-cart .return-to-shop,
+.woocommerce-lost-password .woocommerce {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.woocommerce-account .woocommerce,
+.woocommerce-order {
+  padding-block: var(--s-5) var(--s-6);
+}
+.woocommerce-cart .cart-empty { padding-top: var(--s-6); }
+.woocommerce-cart .return-to-shop { padding-bottom: var(--s-6); }
+
+/* Headings inside Woo's own templates - match the site's scale. */
+.woocommerce-account h2,
+.woocommerce-order h2,
+.woocommerce-MyAccount-content h3,
+.woocommerce-order h3 {
+  font-family: var(--slab);
+  font-size: var(--t-h3);
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 var(--s-2);
+}
+.woocommerce-order h2 { margin-top: var(--s-5); }
+
+/* ------------------------------------------------------- account layout
+   Two columns on desktop, stacked on mobile - the layout WooCommerce's own
+   woocommerce-layout.css would have provided. */
+/* .logged-in matters: logged OUT, /my-account/ is the sign-in page and has no
+   navigation column - without this the <h2>Login</h2> and the form become the
+   two grid children and the form lands in the content column on its own. */
+@media (min-width: 900px) {
+  .logged-in.woocommerce-account .woocommerce {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: var(--s-5);
+    align-items: start;
+  }
+  /* Everything we add through woocommerce_account_dashboard (wishlist, saved
+     orders, wholesale status) sits inside .woocommerce-MyAccount-content, so
+     the grid only ever has these two children. */
+  .logged-in.woocommerce-account .woocommerce > .woocommerce-notices-wrapper {
+    grid-column: 1 / -1;
+  }
+}
+
+.woocommerce-MyAccount-navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--paper);
+}
+.woocommerce-MyAccount-navigation li + li { border-top: 1px solid var(--rule); }
+.woocommerce-MyAccount-navigation li a {
+  display: block;
+  padding: 12px 16px;
+  font-size: var(--t-small);
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+}
+.woocommerce-MyAccount-navigation li a:hover { background: var(--mist); }
+.woocommerce-MyAccount-navigation li.is-active a {
+  background: var(--mist);
+  box-shadow: inset 3px 0 0 var(--verdigris);
+  color: var(--teal-deep);
+}
+.woocommerce-MyAccount-content > p:first-child { margin-top: 0; }
+
+/* ------------------------------------------------------------- buttons
+   Woo prints raw <button class="button"> / <a class="button">. Give them the
+   site's pill button without touching the markup. */
+.woocommerce .button,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce .woocommerce-Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 11px 26px;
+  border: 1px solid var(--verdigris);
+  border-radius: var(--r-pill);
+  background: var(--verdigris);
+  color: #FFFFFF;
+  font-family: var(--sans);
+  font-size: var(--t-small);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+}
+.woocommerce .button:hover,
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce .woocommerce-Button:hover {
+  background: var(--verdigris-deep);
+  border-color: var(--verdigris-deep);
+  color: #FFFFFF;
+}
+/* The secondary actions in an orders table row and on the addresses screen. */
+.woocommerce .woocommerce-orders-table__cell a.button,
+.woocommerce .woocommerce-Address .edit {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: var(--rule-strong);
+}
+.woocommerce .woocommerce-orders-table__cell a.button:hover,
+.woocommerce .woocommerce-Address .edit:hover {
+  background: var(--mist);
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------- tables
+   Orders list, order details, downloads - the site's .dtable, applied to
+   Woo's own table classes. */
+.woocommerce table.shop_table,
+.woocommerce table.woocommerce-orders-table,
+.woocommerce table.woocommerce-table--order-details,
+.woocommerce table.woocommerce-table--order-downloads {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--t-small);
+  margin-bottom: var(--s-4);
+}
+.woocommerce table.shop_table th,
+.woocommerce table.shop_table td {
+  padding: 13px 16px;
+  text-align: left;
+  vertical-align: top;
+}
+.woocommerce table.shop_table thead th {
+  font-family: var(--mono);
+  font-size: var(--t-nano);
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border-bottom: 1px solid var(--ink);
+  white-space: nowrap;
+}
+.woocommerce table.shop_table tbody tr { border-bottom: 1px solid var(--rule); }
+.woocommerce table.shop_table tfoot th,
+.woocommerce table.shop_table tfoot td {
+  border-top: 1px solid var(--rule);
+  font-weight: 600;
+}
+.woocommerce table.shop_table tfoot tr:last-child th,
+.woocommerce table.shop_table tfoot tr:last-child td {
+  border-top: 1px solid var(--ink);
+  font-size: var(--t-body);
+}
+
+/* ------------------------------------------------- order-received summary
+   Woo's order overview is a list of bullets by default. */
+.woocommerce ul.woocommerce-order-overview,
+.woocommerce ul.woocommerce-thankyou-order-details {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-5);
+  margin: 0 0 var(--s-5);
+  padding: var(--s-3);
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--mist);
+}
+.woocommerce ul.woocommerce-order-overview li {
+  font-family: var(--mono);
+  font-size: var(--t-nano);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--slate);
+  border: 0;
+  padding: 0;
+}
+.woocommerce ul.woocommerce-order-overview li strong {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: var(--t-body);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--ink);
+}
+.woocommerce-thankyou-order-received,
+p.woocommerce-notice--success {
+  font-family: var(--slab);
+  font-size: var(--t-h2);
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0 0 var(--s-4);
+}
+
+/* ------------------------------------------------------------- addresses */
+.woocommerce .woocommerce-Addresses {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+}
+@media (min-width: 720px) {
+  .woocommerce .woocommerce-Addresses { grid-template-columns: 1fr 1fr; }
+}
+.woocommerce .woocommerce-Address {
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  background: var(--paper);
+}
+.woocommerce .woocommerce-Address-title { margin-bottom: var(--s-2); }
+.woocommerce .woocommerce-Address-title h2,
+.woocommerce .woocommerce-Address-title h3 { margin: 0 0 var(--s-2); }
+.woocommerce .woocommerce-Address address,
+.woocommerce .woocommerce-customer-details address {
+  font-style: normal;
+  font-size: var(--t-small);
+  line-height: 1.7;
+  color: var(--slate);
+  border: 0;
+  padding: 0;
+}
+.woocommerce .woocommerce-columns--addresses {
+  display: grid;
+  gap: var(--s-3);
+  margin-top: var(--s-3);
+}
+@media (min-width: 720px) {
+  .woocommerce .woocommerce-columns--addresses { grid-template-columns: 1fr 1fr; }
+}
+
+/* ------------------------------------------------ sign-in / account forms
+   /my-account/ logged out is the site's Sign in page - the inputs are already
+   styled by the checkout block above, but the form itself needs a card and a
+   readable measure rather than running the full width of the viewport. */
+.woocommerce form.woocommerce-form-login,
+.woocommerce form.woocommerce-form-register,
+.woocommerce form.woocommerce-ResetPassword,
+.woocommerce form.edit-account,
+.woocommerce .woocommerce-EditAccountForm,
+.woocommerce form.woocommerce-address-fields,
+.woocommerce .woocommerce-address-fields {
+  max-width: 560px;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  padding: var(--s-4);
+}
+.woocommerce-account:not(.logged-in) .woocommerce > h2,
+.woocommerce-lost-password .woocommerce > h2 { max-width: 560px; }
+.woocommerce form.woocommerce-form-login .woocommerce-form-login__rememberme,
+.woocommerce form .woocommerce-form__label-for-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: var(--t-small);
+  color: var(--slate);
+}
+.woocommerce form .woocommerce-form__input-checkbox { width: auto; margin: 0; }
+.woocommerce .woocommerce-LostPassword { margin-top: var(--s-2); font-size: var(--t-small); }
+/* Account screens only. Checkout's own fieldsets carry the site's .fieldset
+   class (border: 0), and a bare `.woocommerce fieldset` selector out-ranks it
+   - which would put a box round every checkout section. */
+.woocommerce-account fieldset {
+  border: 1px solid var(--rule);
+  border-radius: var(--r-md);
+  padding: var(--s-3);
+  margin-top: var(--s-4);
+}
+.woocommerce-account fieldset legend {
+  padding: 0 8px;
+  font-family: var(--slab);
+  font-size: var(--t-h4);
+  color: var(--teal-deep);
+}
+.woocommerce .woocommerce-privacy-policy-text { font-size: var(--t-small); color: var(--slate); }
+
+/* --------------------------------------------------------------- notices
+   .woocommerce-info and .woocommerce-error are styled in the checkout block;
+   the success message is the one Woo shows after saving an address or a
+   password, and on the empty cart. */
+.woocommerce-message,
+.woocommerce .woocommerce-message {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+  list-style: none;
+  margin: 0 0 var(--s-3);
+  padding: 14px 18px;
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--ok);
+  border-radius: var(--r-md);
+  background: var(--paper);
+  font-size: var(--t-small);
+  color: var(--ink);
+}
+.woocommerce-message .button { margin-left: auto; }
+.woocommerce .woocommerce-info { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }
+.woocommerce .woocommerce-info .button { margin-left: auto; }
+
+/* Pagination on the orders list. */
+.woocommerce .woocommerce-pagination ul {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: var(--s-3) 0 0;
+}
+.woocommerce .woocommerce-pagination a,
+.woocommerce .woocommerce-pagination span {
+  display: inline-flex;
+  min-width: 38px;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--rule);
+  border-radius: var(--r-sm);
+  font-size: var(--t-small);
+  text-decoration: none;
+  color: var(--ink);
+}
+.woocommerce .woocommerce-pagination span.current {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #FFFFFF;
+}
+
+/* ------------------------------------------------- password reveal toggle
+   Woo wraps every password field as
+   <span class="password-input"><input><button class="show-password-input"></button></span>
+   and its own stylesheet turns that button into an eye icon sitting inside
+   the field. With Woo's CSS dequeued it renders as a 16x6px grey browser
+   button below the input, which is the small stray box that showed up under
+   every password field (sign in, account details, checkout registration). */
+.woocommerce .password-input {
+  position: relative;
+  display: block;
+}
+.woocommerce .password-input .input-text { padding-right: 46px; }
+.woocommerce .show-password-input {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: var(--r-sm);
+  background: transparent no-repeat center / 20px 20px;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C6E71' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E");
+  cursor: pointer;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+.woocommerce .show-password-input:hover { background-color: var(--mist); }
+.woocommerce .show-password-input.display-password {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230E7B90' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cline x1='3' y1='21' x2='21' y2='3'/%3E%3C/svg%3E");
+}
+
+/* Woo marks the order number, date and status with <mark>, which without its
+   stylesheet gets the browser's highlighter-pen yellow. */
+.woocommerce mark,
+.woocommerce-order mark {
+  background: transparent;
+  color: var(--ink);
+  font-weight: 600;
+}

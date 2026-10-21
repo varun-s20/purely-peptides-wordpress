@@ -175,7 +175,7 @@ function pph_rest_cart_add( $request ) {
 
 	$product_id   = absint( $request->get_param( 'productId' ) );
 	$variation_id = absint( $request->get_param( 'variationId' ) );
-	$quantity     = max( 1, absint( $request->get_param( 'quantity' ) ) );
+	$quantity     = pph_wholesale_clamp_qty( $variation_id, max( 1, absint( $request->get_param( 'quantity' ) ) ) );
 
 	if ( ! $product_id ) {
 		return new WP_REST_Response( array( 'message' => 'No product specified.' ), 400 );
@@ -213,6 +213,7 @@ function pph_rest_cart_update( $request ) {
 	if ( ! $key || ! isset( WC()->cart->get_cart()[ $key ] ) ) {
 		return new WP_REST_Response( array( 'message' => 'That line is no longer in your order.' ), 404 );
 	}
+	$qty = pph_wholesale_clamp_qty( WC()->cart->get_cart()[ $key ]['variation_id'], $qty );
 	WC()->cart->set_quantity( $key, $qty, true );
 
 	return new WP_REST_Response( pph_cart_payload(), 200 );
@@ -428,8 +429,9 @@ function pph_cart_line_facts( $key, $item ) {
 		'qty'        => (int) $item['quantity'],
 		'lineTotal'  => (float) $item['line_total'] + (float) $item['line_tax'],
 		'permalink'  => get_permalink( $parent_id ),
-		'imageId'    => get_post_thumbnail_id( $parent_id ),
-		'volumeRate' => pph_volume_rate_for_qty( $item['quantity'] ),
+		// The size's own photograph; a variation without one inherits the parent's.
+		'imageId'    => $product->get_image_id(),
+		'volumeRate' => pph_volume_rate_for_qty( $item['quantity'], $variation_id ),
 	);
 }
 
@@ -484,7 +486,13 @@ function pph_render_cart_rows_html() {
 					<?php endif; ?>
 				</p>
 				<p class="cart-row__meta">One-time purchase</p>
-				<?php if ( $f['volumeRate'] > 0 ) : ?>
+				<?php if ( null !== pph_wholesale_line_price( $item['variation_id'] ) ) : ?>
+					<?php if ( $f['qty'] < PPH_WHOLESALE_MIN ) : ?>
+						<div class="notice notice--warn" style="margin-top:8px"><?php echo pph_icon( 'alert' ); ?><div>Wholesale pricing needs at least <?php echo (int) PPH_WHOLESALE_MIN; ?> of this size. Raise the quantity to check out.</div></div>
+					<?php else : ?>
+						<div class="volume-note">Wholesale price</div>
+					<?php endif; ?>
+				<?php elseif ( $f['volumeRate'] > 0 ) : ?>
 					<div class="volume-note">Volume pricing applied - <?php echo (int) $f['volumeRate']; ?>% off</div>
 				<?php else : ?>
 					<div class="cart-row__hint">Order 5 or more vials of this size for volume pricing</div>

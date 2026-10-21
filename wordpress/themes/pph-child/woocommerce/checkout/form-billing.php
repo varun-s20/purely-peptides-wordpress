@@ -13,9 +13,8 @@ defined( 'ABSPATH' ) || exit;
 
 $fields        = $checkout->get_checkout_fields( 'billing' );
 $account_field = $checkout->get_checkout_fields( 'account' );
-$research      = isset( $checkout->get_checkout_fields( 'order' )['pph_research_field'] )
-	? array( 'pph_research_field' => $checkout->get_checkout_fields( 'order' )['pph_research_field'] )
-	: array();
+/* Research field, plus the PO number a wholesale buyer gets (inc/wholesale.php). */
+$research      = array_intersect_key( $checkout->get_checkout_fields( 'order' ), array_flip( array( 'pph_research_field', 'pph_po_number' ) ) );
 
 /* Full name from first/last, company, research field last - matches the
    static design's field order without needing two separate name inputs

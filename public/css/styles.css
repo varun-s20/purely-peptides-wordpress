@@ -327,10 +327,20 @@ a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 2px; 
 }
 .skip-link:focus { top: var(--s-2); }
 
-.visually-hidden {
+/* .screen-reader-text is WordPress's and WooCommerce's own name for the same
+   thing. Normally the parent theme or Woo's stylesheet defines it, and this
+   build dequeues both - so without this rule every "Required", "Search for:"
+   and similar screen-reader-only string WooCommerce prints renders as a
+   visible box on the page. */
+.visually-hidden,
+.screen-reader-text {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.screen-reader-text:focus {
+  position: static; width: auto; height: auto;
+  margin: 0; overflow: visible; clip: auto; white-space: normal;
 }
 
 /* ----------------------------------------------------------------- layout */

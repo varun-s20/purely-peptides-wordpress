@@ -3,6 +3,12 @@
 const { page, esc } = require('../layout');
 const C = require('../components');
 const { icons, photo } = require('../art');
+const { categories, researchFields } = require('../data');
+
+/* The minimum order per size for a wholesale account - the client's own rule
+   (inventory sheet, 21 Sep 2026). pph-core's inc/wholesale.php enforces the
+   same number at checkout; keep the two in step. */
+const WHOLESALE_MIN = 10;
 
 /* ------------------------------------------------------------- wholesale */
 
@@ -16,8 +22,8 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
       <span class="eyebrow">For labs &amp; procurement teams</span>
       <h1 class="hero__title" style="font-size:var(--t-h1)">Research procurement at scale.</h1>
       <p class="hero__lede">
-        Approved research organisations order on account with bulk quantities, consolidated invoicing
-        and a named contact who knows your standing catalogue.
+        Approved research organisations buy every catalogue size at wholesale prices, applied
+        automatically once the account is active.
       </p>
       <div class="hero__cta">
         <a class="btn btn--primary btn--lg" href="/wholesale/apply/">Apply for a wholesale account</a>
@@ -32,15 +38,15 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
 
 <section class="section">
   <div class="wrap">
-    ${C.sectionHead({ title: 'What an account changes', body: 'Ordering, documentation and payment terms adapt to institutional purchasing.' })}
+    ${C.sectionHead({ title: 'What an account changes', body: 'Ordering and documentation adapt to institutional purchasing.' })}
     <div class="grid grid-3">
       ${[
-        ['Tiered pricing', 'Rates are applied automatically at checkout based on your account tier and order volume. No quote request needed for standard catalogue items.', icons.chart],
-        ['Bulk quantities', 'Gram-scale fills and quantities beyond the published sizes are quoted directly, with the same lot documentation as catalogue material.', icons.box],
-        ['Purchase orders', 'Order against a PO with net terms. Invoices are issued per order or consolidated monthly.', icons.doc],
-        ['Order history', 'Complete reorder history retained against the organisation rather than the individual, so team changes do not lose it.', icons.refresh],
-        ['Documentation access', 'Certificates for every lot your organisation has received stay retrievable from the account.', icons.checkCircle],
-        ['Named contact', 'Specification and supply questions go to a person who already knows your catalogue.', icons.user],
+        ['Wholesale pricing', 'Every catalogue size has a wholesale price. Once approved, you see it on every product page and it is applied at checkout - no quote request needed.', icons.chart],
+        ['Minimum order', `Wholesale prices apply from ${WHOLESALE_MIN} vials of each size in the order.`, icons.box],
+        ['Purchase orders', 'Add your purchase order number at checkout. It is recorded against the order for your accounts team.', icons.doc],
+        ['Order history', 'Every order stays in your account, with the lot number of each vial you received.', icons.refresh],
+        ['Documentation access', 'Certificates for every lot you have received stay retrievable from the certificate library.', icons.checkCircle],
+        ['Saved orders', 'Save a standing order from the cart and add it back in one step when you restock.', icons.user],
       ]
         .map(
           ([t, b, icon]) => `<div class="icard">
@@ -55,19 +61,16 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
 
 <section class="section section--mist">
   <div class="wrap">
-    ${C.sectionHead({ title: 'Volume pricing', body: 'Indicative tiers for catalogue materials. Exact rates are confirmed on account approval.' })}
+    ${C.sectionHead({ title: 'How wholesale pricing works', body: 'One price list, applied automatically to approved accounts.' })}
     <table class="dtable dtable--zebra dtable--stack" style="max-width:840px">
-      <thead><tr><th>Tier</th><th>Monthly volume</th><th>Catalogue discount</th><th>Payment terms</th></tr></thead>
+      <thead><tr><th>Term</th><th>Detail</th></tr></thead>
       <tbody>
-        <tr><td data-label="Tier">Standard</td><td data-label="Monthly volume" class="mono">Under $1,000</td><td data-label="Discount" class="mono">List price</td><td data-label="Terms">Card at checkout</td></tr>
-        <tr><td data-label="Tier">Tier 1</td><td data-label="Monthly volume" class="mono">$1,000 – $4,999</td><td data-label="Discount" class="mono">−5%</td><td data-label="Terms">PO, net 30</td></tr>
-        <tr><td data-label="Tier">Tier 2</td><td data-label="Monthly volume" class="mono">$5,000 – $14,999</td><td data-label="Discount" class="mono">−8%</td><td data-label="Terms">PO, net 30</td></tr>
-        <tr><td data-label="Tier">Tier 3</td><td data-label="Monthly volume" class="mono">$15,000 +</td><td data-label="Discount" class="mono">Quoted</td><td data-label="Terms">PO, net 45</td></tr>
+        <tr><td data-label="Term">Pricing</td><td data-label="Detail">A wholesale price on every catalogue size, shown once your account is approved.</td></tr>
+        <tr><td data-label="Term">Minimum order</td><td data-label="Detail" class="mono">${WHOLESALE_MIN} vials per size</td></tr>
+        <tr><td data-label="Term">Volume discounts</td><td data-label="Detail">Retail volume discounts do not stack with wholesale prices.</td></tr>
+        <tr><td data-label="Term">Purchase orders</td><td data-label="Detail">Optional PO reference at checkout, recorded on the order.</td></tr>
       </tbody>
     </table>
-    <p class="small muted" style="margin-top:16px;max-width:64ch">
-      Tiers are reviewed quarterly against actual ordering. Moving between tiers does not require a new application.
-    </p>
   </div>
 </section>
 
@@ -75,9 +78,9 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
   <div class="wrap">
     ${C.sectionHead({ title: 'How approval works', body: 'We verify that materials are going to a research setting. It is a short process, not a sales cycle.' })}
     <div class="steps" style="max-width:820px">
-      <div class="step"><span class="step__n">01</span><div><h3>Apply</h3><p>Four short steps covering your organisation, research context and expected purchasing.</p></div></div>
+      <div class="step"><span class="step__n">01</span><div><h3>Apply</h3><p>One short form covering your organisation, research context and expected purchasing.</p></div></div>
       <div class="step"><span class="step__n">02</span><div><h3>Review</h3><p>We confirm the organisation and the research-use context. We may ask one or two follow-up questions by email.</p></div></div>
-      <div class="step"><span class="step__n">03</span><div><h3>Activate</h3><p>Your account tier, payment terms and named contact are set up, and existing order history is linked where it exists.</p></div></div>
+      <div class="step"><span class="step__n">03</span><div><h3>Activate</h3><p>Your account switches to wholesale pricing and we let you know by email.</p></div></div>
     </div>
     <div class="notice" style="margin-top:32px;max-width:820px">
       ${icons.info}
@@ -89,7 +92,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
 <section class="section on-dark">
   <div class="wrap center" style="display:grid;place-items:center;gap:20px">
     <h2 style="max-width:20ch">Ready to order on account?</h2>
-    <p style="max-width:52ch">The application takes about ten minutes. You can save and return to it at any point.</p>
+    <p style="max-width:52ch">The application takes a few minutes.</p>
     <div class="row" style="gap:12px;justify-content:center">
       <a class="btn btn--onDark btn--lg" href="/wholesale/apply/">Start an application</a>
       <a class="btn btn--outlineDark btn--lg" href="/contact/?topic=wholesale">Talk to procurement support</a>
@@ -99,16 +102,23 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale' }])}
 
   return page({
     title: 'Wholesale & institutional ordering',
-    description: 'Account-based ordering for research organisations: tiered pricing, bulk quantities, purchase orders and documentation access.',
+    description: 'Wholesale pricing for approved research organisations: every catalogue size, minimum 10 vials per size, purchase order references and lot documentation.',
     canonical: '/wholesale/',
     active: 'Wholesale',
     body,
   });
 }
 
-/* -------------------------------------------------------------- application */
+/* -------------------------------------------------------------- application
+
+   One form, used by both builds. The static build shows its data-success
+   toast. The WordPress export (tools/export-wp-pages.js) adds
+   data-native-submit, so once forms.js has validated it the form posts to
+   pph-core's inc/wholesale.php, which creates or upgrades the account. Field
+   names are that handler's contract - rename one in both places or neither. */
 
 function apply() {
+  const opt = (v) => `<option>${esc(v)}</option>`;
   const body = `
 ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesale/' }, { label: 'Apply' }])}
 
@@ -116,29 +126,26 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
   <div class="wrap">
     <span class="eyebrow">Wholesale application</span>
     <h1>Apply for a wholesale account</h1>
-    <p>Four steps. Your progress is saved as you go, and you can return to an unfinished application from the same link.</p>
+    <p>Tell us about your organisation and the research these materials will support. We review every application individually.</p>
   </div>
 </div>
 
 <div class="wrap" style="padding-block:32px 96px;max-width:960px">
-  <ol class="stepper" style="list-style:none;padding:0;margin:0 0 40px">
-    <li class="stepper__step" data-state="done"><span class="stepper__n">${icons.check}</span><span class="stepper__label">Organisation</span></li>
-    <li class="stepper__step" data-state="current"><span class="stepper__n">2</span><span class="stepper__label">Research information</span></li>
-    <li class="stepper__step" data-state="todo"><span class="stepper__n">3</span><span class="stepper__label">Purchasing</span></li>
-    <li class="stepper__step" data-state="todo"><span class="stepper__n">4</span><span class="stepper__label">Review</span></li>
-  </ol>
+  <form method="post" data-validate data-wholesale-apply data-success="Application received. We will be in touch by email.">
+    <input type="hidden" name="pph_wholesale_apply" value="1">
+    <div class="visually-hidden" aria-hidden="true"><label>Leave this field empty<input name="pph_hp" tabindex="-1" autocomplete="off"></label></div>
 
-  <form data-validate data-success="Application received. A confirmation has been sent to your email.">
     <fieldset class="fieldset">
       <legend>Organisation</legend>
       <div class="form-grid">
-        <label class="field"><span class="field__label">Organisation name<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="Kendall Institute"></label>
-        <label class="field"><span class="field__label">Website</span><input class="input" type="url" placeholder="https://" value="https://kendall-institute.org"></label>
-        <label class="field field--full"><span class="field__label">Business address<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="77 Binney Street, Cambridge, MA 02142"></label>
-        <label class="field"><span class="field__label">Contact person<span class="field__req" aria-hidden="true">*</span></span><input class="input" required value="Dr. Amara Osei"></label>
-        <label class="field"><span class="field__label">Role</span><input class="input" value="Principal Investigator"></label>
-        <label class="field"><span class="field__label">Email<span class="field__req" aria-hidden="true">*</span></span><input class="input" type="email" required value="a.osei@kendall-institute.org"><span class="field__hint">An institutional address speeds up verification.</span></label>
-        <label class="field"><span class="field__label">Phone<span class="field__req" aria-hidden="true">*</span></span><input class="input" type="tel" required></label>
+        <label class="field"><span class="field__label">Organisation name<span class="field__req" aria-hidden="true">*</span></span><input class="input" name="org" required autocomplete="organization"></label>
+        <label class="field"><span class="field__label">Website</span><input class="input" name="website" type="url" placeholder="https://"></label>
+        <label class="field field--full"><span class="field__label">Business address<span class="field__req" aria-hidden="true">*</span></span><input class="input" name="address" required autocomplete="street-address"></label>
+        <label class="field"><span class="field__label">Contact person<span class="field__req" aria-hidden="true">*</span></span><input class="input" name="contact" required autocomplete="name"></label>
+        <label class="field"><span class="field__label">Role</span><input class="input" name="role" autocomplete="organization-title"></label>
+        <label class="field"><span class="field__label">Email<span class="field__req" aria-hidden="true">*</span></span><input class="input" name="email" type="email" required autocomplete="email"><span class="field__hint">An institutional address speeds up verification.</span></label>
+        <label class="field"><span class="field__label">Phone<span class="field__req" aria-hidden="true">*</span></span><input class="input" name="phone" type="tel" required autocomplete="tel"></label>
+        <label class="field field--full"><span class="field__label">Create a password</span><input class="input" name="password" type="password" minlength="8" autocomplete="new-password"><span class="field__hint">At least 8 characters. Needed if you do not have an account with us yet - leave it blank if you are already signed in.</span></label>
       </div>
     </fieldset>
 
@@ -146,29 +153,25 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
       <legend>Research information</legend>
       <div class="form-grid">
         <label class="field"><span class="field__label">Organisation type<span class="field__req" aria-hidden="true">*</span></span>
-          <select class="select" required>
+          <select class="select" name="org_type" required>
             <option value="">Select a type</option>
-            <option selected>Academic research institution</option><option>Hospital or clinical research unit</option>
-            <option>Contract research organisation</option><option>Commercial R&amp;D laboratory</option>
-            <option>Government or public laboratory</option><option>Other</option>
+            ${['Academic research institution', 'Hospital or clinical research unit', 'Contract research organisation', 'Commercial R&D laboratory', 'Government or public laboratory', 'Other'].map(opt).join('')}
           </select>
         </label>
         <label class="field"><span class="field__label">Primary research field<span class="field__req" aria-hidden="true">*</span></span>
-          <select class="select" required>
-            <option value="">Select a field</option><option selected>Cell biology</option><option>Biochemistry</option>
-            <option>Neuroscience</option><option>Immunology</option><option>Endocrinology</option><option>Analytical chemistry</option><option>Other</option>
+          <select class="select" name="research_field" required>
+            <option value="">Select a field</option>
+            ${researchFields.map(opt).join('')}
           </select>
         </label>
         <fieldset class="field field--full" style="border:0;padding:0;margin:0 0 24px">
           <legend class="field__label" style="padding:0">Expected product categories</legend>
           <div class="grid grid-3" style="gap:0 24px">
-            ${['Research peptides', 'Protein research', 'Metabolic research', 'Cellular research', 'Cognitive research', 'Blends']
-              .map((c, i) => `<label class="check"><input type="checkbox"${i < 2 ? ' checked' : ''}><span>${esc(c)}</span></label>`)
-              .join('')}
+            ${categories.map((c) => `<label class="check"><input type="checkbox" name="categories[]" value="${esc(c.name)}"><span>${esc(c.name)}</span></label>`).join('')}
           </div>
         </fieldset>
         <label class="field field--full"><span class="field__label">Intended research use<span class="field__req" aria-hidden="true">*</span></span>
-          <textarea class="textarea" required placeholder="A short description of the work these materials will support."></textarea>
+          <textarea class="textarea" name="intended_use" required placeholder="A short description of the work these materials will support."></textarea>
           <span class="field__hint">Used to confirm research context. It is not shared outside the review team.</span>
         </label>
       </div>
@@ -178,13 +181,13 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
       <legend>Purchasing</legend>
       <div class="form-grid">
         <label class="field"><span class="field__label">Estimated monthly spend</span>
-          <select class="select"><option>Under $1,000</option><option selected>$1,000 – $4,999</option><option>$5,000 – $14,999</option><option>$15,000 +</option></select>
+          <select class="select" name="spend">${['Under $1,000', '$1,000 – $4,999', '$5,000 – $14,999', '$15,000 +'].map(opt).join('')}</select>
         </label>
-        <label class="field"><span class="field__label">Preferred payment method</span>
-          <select class="select"><option>Card at checkout</option><option selected>Purchase order, net 30</option><option>Bank transfer</option></select>
+        <label class="field"><span class="field__label">Orders against a purchase order?</span>
+          <select class="select" name="po">${['No', 'Yes, usually'].map(opt).join('')}</select>
         </label>
         <label class="field field--full"><span class="field__label">Comments</span>
-          <textarea class="textarea" placeholder="Anything else the review team should know - existing order history, procurement requirements, specific materials."></textarea>
+          <textarea class="textarea" name="comments" placeholder="Anything else the review team should know - procurement requirements, specific materials, expected quantities."></textarea>
         </label>
       </div>
     </fieldset>
@@ -192,27 +195,23 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Wholesale', href: '/wholesal
     <fieldset class="fieldset">
       <legend>Confirmation</legend>
       <div class="card" style="padding:20px;border-left:3px solid var(--warn)">
-        <label class="check"><input type="checkbox" required><span><strong>Research use confirmation.</strong> I confirm this organisation will use these materials exclusively for laboratory research, and not for human or veterinary use.</span></label>
-        <label class="check"><input type="checkbox" required><span>I am authorised to open a purchasing account on behalf of this organisation, and accept the <a class="link" href="/terms/">terms of sale</a>.</span></label>
+        <label class="check"><input type="checkbox" name="ack_ruo" value="1" required><span><strong>Research use confirmation.</strong> I confirm this organisation will use these materials exclusively for laboratory research, and not for human or veterinary use.</span></label>
+        <label class="check"><input type="checkbox" name="ack_auth" value="1" required><span>I am authorised to open a purchasing account on behalf of this organisation, and accept the <a class="link" href="/terms/">terms of sale</a>.</span></label>
       </div>
     </fieldset>
 
-    <div class="row" style="justify-content:space-between;gap:12px">
-      <button class="btn btn--secondary" type="button">Back</button>
-      <div class="row" style="gap:12px">
-        <button class="btn btn--ghost" type="submit" formnovalidate data-toast="Application saved. Return any time from the link in your email.">Save and finish later</button>
-        <button class="btn btn--primary btn--lg" type="submit">Submit application</button>
-      </div>
+    <div class="row" style="justify-content:flex-end;gap:12px">
+      <button class="btn btn--primary btn--lg" type="submit">Submit application</button>
     </div>
   </form>
 
   <div class="card" style="padding:24px;margin-top:48px;background:var(--mist)">
     <h2 style="font-size:var(--t-h4);margin-bottom:8px">After you submit</h2>
     <p class="small muted" style="max-width:64ch">
-      You will see a confirmation on screen and receive an email recording the application. The review team
-      verifies the organisation and research context, and may email one or two follow-up questions. Once the
-      account is active, tiered pricing applies automatically at checkout and previous order history is linked
-      to the organisation where it exists.
+      Your account is created (or your existing one is used) and the application is recorded against it.
+      The review team verifies the organisation and research context, and may email one or two follow-up
+      questions. Once approved, wholesale prices show on every product page and apply automatically at
+      checkout, from ${WHOLESALE_MIN} vials of each size.
     </p>
   </div>
 </div>`;

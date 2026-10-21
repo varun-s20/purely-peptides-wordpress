@@ -26,12 +26,17 @@
   },
   {
     "slug": "cofactors",
-    "name": "Cofactors & Nucleotides",
-    "description": "Non-peptide reference materials supplied to the same documentation standard."
+    "name": "Cofactors & Redox Standards",
+    "description": "NAD+, glutathione and other redox reference materials, documented to the same lot-level standard."
   },
   {
     "slug": "blends",
     "name": "Blends",
     "description": "Fixed-ratio combinations prepared and documented as a single production lot."
+  },
+  {
+    "slug": "lab-supplies",
+    "name": "Laboratory Supplies",
+    "description": "Diluents and consumables for preparing research materials at the bench."
   }
 ]

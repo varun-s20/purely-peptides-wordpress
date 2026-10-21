@@ -105,7 +105,7 @@ ${C.crumbs([
       <div class="optset" role="group" aria-labelledby="size-label">
         ${p.sizes
           .map(
-            (s, i) => `<button class="opt" type="button" aria-pressed="${i === 0}" data-size data-value="${s.price}" data-label="${esc(s.label)}"${s.stock === 'backorder' ? ' data-backorder="true"' : ''}>
+            (s, i) => `<button class="opt" type="button" aria-pressed="${i === 0}" data-size data-value="${s.price}" data-label="${esc(s.label)}"${s.img ? ` data-img="img/${s.img}.jpg"` : ''}${s.stock === 'backorder' ? ' data-backorder="true"' : ''}>
           <span class="opt__size">${esc(s.label)}</span>
           <span class="opt__price">${money(s.price)}</span>
           <span class="opt__stock">${s.stock === 'in-stock' ? 'In stock' : 'To order'}</span>

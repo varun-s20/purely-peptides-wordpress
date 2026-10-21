@@ -419,7 +419,15 @@ Still open, and not ours to settle:
 
 ## 15. Blocked on the client
 
-Carried from `STATUS.md`, unchanged, all still outstanding:
+**Update 22 Sep 2026** - received 21 Sep: **prices** (retail + wholesale, all 82 sizes, catalogue now
+51 products), **business address** (8605 Santa Monica Blvd #156069, West Hollywood, CA 90069) and
+**email** (purelypeptideshubcs@gmail.com), wholesale terms (column-I price, minimum 10 per size),
+product photography for 30 of 51 products. Restricted states: none named, so the CA/NY/LA assumption
+was removed. Still outstanding from the list below: phone (optional now - address + email are the
+two published contacts), legal entity, hosting credentials, weights, AllayPay, and photos for 21
+products.
+
+Carried from `STATUS.md` (14 Sep):
 
 **Blocking launch**
 - **Prices — never supplied, for any SKU.** One table in `src/data.js` keyed `slug|size`; the build

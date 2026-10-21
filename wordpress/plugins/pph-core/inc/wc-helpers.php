@@ -28,6 +28,7 @@ function pph_category_photo_file( $slug ) {
 		'melanocortin-research'   => 'cat-peptides',
 		'cofactors'               => 'cat-protein',
 		'blends'                  => 'cat-blends',
+		'lab-supplies'            => 'cat-metabolic',
 	);
 	return isset( $map[ $slug ] ) ? $map[ $slug ] : 'cat-peptides';
 }
@@ -475,11 +476,13 @@ function pph_product_variation_rows( $product ) {
 			continue;
 		}
 		$attrs  = $v->get_variation_attributes();
+		$image  = $v->get_image_id( 'edit' ); // the size's own photo only, never the parent's
 		$rows[] = array(
 			'id'    => $vid,
 			'label' => isset( $attrs['attribute_size'] ) ? $attrs['attribute_size'] : '',
 			'price' => (float) $v->get_price(),
 			'stock' => 'instock' === $v->get_stock_status() ? 'in-stock' : 'backorder',
+			'img'   => $image ? wp_get_attachment_image_url( $image, 'large' ) : '',
 		);
 	}
 	return $rows;
@@ -487,13 +490,16 @@ function pph_product_variation_rows( $product ) {
 
 /**
  * The product gallery - main shot plus the four-thumb strip from
- * src/pages/product.js. There is only one photograph per product (the static
- * build rotates three shared vial shots across the catalogue), so the second
- * thumb repeats it exactly as the original did.
+ * src/pages/product.js. The second thumb is the next size's photograph when
+ * the product has one, else the main shot again, as the original did. The
+ * main image follows the selected size (script.js, data-img on the size
+ * buttons).
  */
 function pph_product_gallery( $product ) {
-	$id    = $product->get_id();
-	$thumb = get_post_thumbnail_id( $id );
+	$id      = $product->get_id();
+	$thumb   = get_post_thumbnail_id( $id );
+	$gallery = $product->get_gallery_image_ids();
+	$second  = $gallery ? $gallery[0] : $thumb;
 	$alt   = $product->get_name() . ' supplied as lyophilised powder in a sealed glass vial';
 
 	ob_start();
@@ -502,7 +508,7 @@ function pph_product_gallery( $product ) {
 		<div class="pdp__main"><?php echo wp_get_attachment_image( $thumb, 'large', false, array( 'alt' => esc_attr( $alt ) ) ); ?></div>
 		<div class="pdp__thumbs">
 			<button class="pdp__thumb" type="button" aria-pressed="true" aria-label="Vial, front"><?php echo wp_get_attachment_image( $thumb, 'thumbnail' ); ?></button>
-			<button class="pdp__thumb" type="button" aria-label="Vial, second view"><?php echo wp_get_attachment_image( $thumb, 'thumbnail' ); ?></button>
+			<button class="pdp__thumb" type="button" aria-label="Vial, second view"><?php echo wp_get_attachment_image( $second, 'thumbnail' ); ?></button>
 			<button class="pdp__thumb" type="button" aria-label="Chromatogram for the current lot" style="display:grid;place-items:center;padding:8px" data-graph><?php echo pph_chromatogram_svg( 120, 70 ); ?></button>
 			<button class="pdp__thumb" type="button" aria-label="Certificate preview" style="display:grid;place-items:center;color:var(--slate)"><?php echo pph_icon( 'doc' ); ?></button>
 		</div>
@@ -552,6 +558,13 @@ function pph_render_purchase_box( $product ) {
 	$v10 = (float) pph_setting( 'volume_discount_10' );
 	$sub = (float) pph_setting( 'subscription_discount' );
 
+	/* An approved wholesale buyer sees wholesale prices (the variation price
+	   is already filtered - inc/wholesale.php), starts at the minimum
+	   quantity, and gets no volume ladder or subscription block: neither
+	   applies to a wholesale line. data-wholesale tells script.js the same. */
+	$wholesale = pph_product_is_wholesale( $product );
+	$min_qty   = $wholesale ? PPH_WHOLESALE_MIN : 1;
+
 	ob_start();
 	?>
 	<div class="pdp__price">
@@ -573,7 +586,7 @@ function pph_render_purchase_box( $product ) {
 	   targets `form.variations_form`, which we do not use since we drive
 	   variation selection ourselves via woo.js. */
 	?>
-	<form class="pph-buybox-form" method="post" enctype="multipart/form-data" data-pph-cart>
+	<form class="pph-buybox-form" method="post" enctype="multipart/form-data" data-pph-cart<?php echo $wholesale ? ' data-wholesale' : ''; ?>>
 		<input type="hidden" name="add-to-cart" value="<?php echo absint( $product->get_id() ); ?>">
 		<input type="hidden" name="variation_id" value="<?php echo absint( $lead['id'] ); ?>" data-pph-variation>
 		<input type="hidden" name="attribute_size" value="<?php echo esc_attr( $lead['label'] ); ?>" data-pph-attr>
@@ -588,6 +601,7 @@ function pph_render_purchase_box( $product ) {
 						data-value="<?php echo esc_attr( $r['price'] ); ?>"
 						data-label="<?php echo esc_attr( $r['label'] ); ?>"
 						data-variation-id="<?php echo absint( $r['id'] ); ?>"
+						<?php echo $r['img'] ? 'data-img="' . esc_url( $r['img'] ) . '"' : ''; ?>
 						<?php echo 'backorder' === $r['stock'] ? ' data-backorder="true"' : ''; ?>>
 						<span class="opt__size"><?php echo esc_html( $r['label'] ); ?></span>
 						<span class="opt__price"><?php echo wc_price( $r['price'] ); ?></span>
@@ -601,11 +615,17 @@ function pph_render_purchase_box( $product ) {
 			<label class="field__label" for="qty">Quantity</label>
 			<div class="qty" data-qty>
 				<button type="button" aria-label="Decrease quantity" data-step="-1">&minus;</button>
-				<input id="qty" name="quantity" type="number" value="1" min="1" max="999" aria-label="Quantity">
+				<input id="qty" name="quantity" type="number" value="<?php echo (int) $min_qty; ?>" min="<?php echo (int) $min_qty; ?>" max="999" aria-label="Quantity">
 				<button type="button" aria-label="Increase quantity" data-step="1">+</button>
 			</div>
 		</div>
 
+		<?php if ( $wholesale ) : ?>
+		<div class="notice notice--accent" style="margin-bottom:14px">
+			<?php echo pph_icon( 'info' ); ?>
+			<div><strong>Wholesale price.</strong> Minimum <?php echo (int) PPH_WHOLESALE_MIN; ?> of each size. Retail volume discounts do not apply.</div>
+		</div>
+		<?php else : ?>
 		<div class="field">
 			<span class="field__label" id="buy-mode-label">Purchase options</span>
 			<div class="buymode" role="radiogroup" aria-labelledby="buy-mode-label">
@@ -640,6 +660,7 @@ function pph_render_purchase_box( $product ) {
 				<div class="volume__price"><?php echo wc_price( $lead['price'] * ( 1 - $v10 / 100 ) ); ?></div>
 			</div>
 		</div>
+		<?php endif; ?>
 
 		<div class="pricecalc" data-pricecalc hidden>
 			<div class="pricecalc__row"><span>List price</span><span class="mono" data-calc-list></span></div>

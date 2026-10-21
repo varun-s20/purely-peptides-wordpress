@@ -41,7 +41,7 @@ WC()->payment_gateways()->set_current_gateway( $available_gateways );
    inc/checkout.php's pph_add_acknowledgement_fields(). Rendered here, right
    before Place Order, matching the static design. */
 $order_fields = $checkout->get_checkout_fields( 'order' );
-unset( $order_fields['pph_research_field'], $order_fields['order_comments'] );
+unset( $order_fields['pph_research_field'], $order_fields['pph_po_number'], $order_fields['order_comments'] );
 ?>
 <div id="payment" class="woocommerce-checkout-payment">
 

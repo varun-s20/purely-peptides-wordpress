@@ -147,7 +147,7 @@ const valueProps = [
   },
   {
     title: 'Answers from the analytical team',
-    body: 'Technical questions route to the people who ran the assay. ' + brand.hours + '.',
+    body: 'Technical questions route to the people who ran the assay.' + (brand.hours ? ' ' + brand.hours + '.' : ''),
     art: () => photo('vp-team', 'Two scientists discussing a result over a clipboard', 800, 600),
   },
 ];
@@ -389,7 +389,7 @@ ${C.trustBar()}
   <div class="wrap">
     ${C.sectionHead({
       title: 'Need help finding the right material?',
-      body: 'Technical questions reach the analytical team, not a general inbox. ' + esc(brand.hours) + '.',
+      body: 'Technical questions reach the analytical team, not a general inbox.' + (brand.hours ? ' ' + esc(brand.hours) + '.' : ''),
       action: { label: 'All contact routes', href: '/contact/' },
     })}
     ${C.supportCards()}
@@ -403,7 +403,7 @@ ${C.trustBar()}
       <h2>Looking for on-demand scientific support?</h2>
       <p>
         Specification, handling and documentation questions go to the analytical team that released
-        the lot - not to a general inbox. ${esc(brand.hours)}.
+        the lot - not to a general inbox.${brand.hours ? ' ' + esc(brand.hours) + '.' : ''}
       </p>
     </div>
     <a class="btn btn--onDark btn--lg" href="/contact/?topic=technical">Contact technical support</a>
@@ -423,14 +423,14 @@ ${C.trustBar()}
       name: brand.legal,
       url: 'https://purelypeptideshub.com',
       email: brand.email,
-      telephone: brand.phone,
+      ...(brand.phone ? { telephone: brand.phone } : {}),
       address: {
         '@type': 'PostalAddress',
-        streetAddress: brand.address[0],
-        addressLocality: 'Cambridge',
-        addressRegion: 'MA',
-        postalCode: '02142',
-        addressCountry: 'US',
+        streetAddress: brand.postal.street,
+        addressLocality: brand.postal.locality,
+        addressRegion: brand.postal.region,
+        postalCode: brand.postal.code,
+        addressCountry: brand.postal.country,
       },
     },
   });

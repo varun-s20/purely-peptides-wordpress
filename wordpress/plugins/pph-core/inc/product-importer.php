@@ -1,7 +1,12 @@
 <?php
 /**
- * Imports the 7 product categories and 25 products (41 variations) exported
- * by tools/export-wp-products.js.
+ * Imports the product categories and products (one variation per size)
+ * exported by tools/export-wp-products.js.
+ *
+ * Re-running it applies a new inventory sheet: prices, wholesale prices, lot
+ * numbers and on-hand quantities are all overwritten from products.json. That
+ * is the point - but it also means a quantity edited by hand in wp-admin since
+ * the last import is replaced by the sheet's figure.
  *
  * Used by both the WP-CLI script (tools/import-wp-products.php) and the
  * in-admin zip uploader (Tools -> Import PPH Products), same pattern as
@@ -24,8 +29,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Attach a copy of an image from the theme's assets folder as a product's
- * featured image.
+ * A Media Library attachment for an image in the theme's assets folder,
+ * returning its ID (0 if the file is missing).
  *
  * This DOES copy the file into wp-content/uploads/pph-products/, rather than
  * pointing the attachment straight at the theme's copy. That was the original
@@ -43,10 +48,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * under the uploads directory - is deleted and recreated correctly rather
  * than left broken.
  */
-function pph_attach_theme_image( $product_id, $relative_path ) {
+function pph_theme_image_attachment( $relative_path ) {
 	$source_path = trailingslashit( get_stylesheet_directory() ) . 'assets/' . ltrim( $relative_path, '/' );
 	if ( ! file_exists( $source_path ) ) {
-		return false;
+		return 0;
 	}
 
 	$existing = get_posts(
@@ -90,7 +95,7 @@ function pph_attach_theme_image( $product_id, $relative_path ) {
 			0
 		);
 		if ( is_wp_error( $attach_id ) ) {
-			return false;
+			return 0;
 		}
 		update_post_meta( $attach_id, '_pph_source_file', $relative_path );
 
@@ -98,12 +103,11 @@ function pph_attach_theme_image( $product_id, $relative_path ) {
 		wp_update_attachment_metadata( $attach_id, wp_generate_attachment_metadata( $attach_id, $dest_path ) );
 	}
 
-	set_post_thumbnail( $product_id, $attach_id );
-	return true;
+	return (int) $attach_id;
 }
 
 /**
- * Create or update the 7 product categories.
+ * Create or update the product categories.
  *
  * @return array{slug: string => term_id: int}
  */
@@ -169,6 +173,14 @@ function pph_upsert_product( array $row, array $category_ids ) {
 		$product->set_category_ids( array( $category_ids[ $row['category_slug'] ] ) );
 	}
 
+	/* Lead photograph as the featured image, the other sizes' photographs as
+	   the gallery. Each variation also gets its own below, so the cart line
+	   and the product page show the vial for the size actually chosen. */
+	if ( ! empty( $row['image'] ) ) {
+		$product->set_image_id( pph_theme_image_attachment( $row['image'] ) );
+	}
+	$product->set_gallery_image_ids( array_filter( array_map( 'pph_theme_image_attachment', isset( $row['gallery'] ) ? $row['gallery'] : array() ) ) );
+
 	$product_id = $product->save();
 	if ( ! $product_id ) {
 		return array( 'error' => $row['slug'] . ': product save failed' );
@@ -179,11 +191,7 @@ function pph_upsert_product( array $row, array $category_ids ) {
 	}
 	update_post_meta( $product_id, '_pph_verify', $row['verify'] ? '1' : '' );
 
-	if ( ! empty( $row['image'] ) ) {
-		pph_attach_theme_image( $product_id, $row['image'] );
-	}
-
-	foreach ( $row['sizes'] as $size ) {
+	foreach ( $row['sizes'] as $position => $size ) {
 		$var_id    = wc_get_product_id_by_sku( $size['sku'] );
 		$variation = ( $var_id && 'product_variation' === get_post_type( $var_id ) )
 			? wc_get_product( $var_id )
@@ -193,12 +201,27 @@ function pph_upsert_product( array $row, array $category_ids ) {
 		$variation->set_sku( $size['sku'] );
 		$variation->set_attributes( array( 'size' => $size['label'] ) );
 		$variation->set_regular_price( $size['price'] );
-		$variation->set_manage_stock( false );
-		$variation->set_stock_status( 'in-stock' === $size['stock'] ? 'instock' : 'onbackorder' );
+		/* Sizes are listed smallest first in src/data.js; without an explicit
+		   order a size added later (BPC-157 15 mg) sorts after the old ones. */
+		$variation->set_menu_order( $position );
+		$variation->set_image_id( empty( $size['image'] ) ? 0 : pph_theme_image_attachment( $size['image'] ) );
+
+		/* Stocked sizes track their real quantity and fall back to backorder -
+		   the "To order" state every unstocked size already shows - when they
+		   sell through. Unstocked sizes stay orderable on backorder. */
+		if ( 'in-stock' === $size['stock'] && ! empty( $size['qty'] ) ) {
+			$variation->set_manage_stock( true );
+			$variation->set_stock_quantity( (int) $size['qty'] );
+			$variation->set_backorders( 'notify' );
+		} else {
+			$variation->set_manage_stock( false );
+			$variation->set_stock_status( 'in-stock' === $size['stock'] ? 'instock' : 'onbackorder' );
+		}
 		$variation->set_status( 'publish' );
 		$variation->save();
 
 		update_post_meta( $variation->get_id(), '_pph_lot', $size['lot'] );
+		update_post_meta( $variation->get_id(), '_pph_wholesale_price', null === $size['wholesale'] ? '' : wc_format_decimal( $size['wholesale'] ) );
 	}
 
 	/* Recalculates the parent's cached price range and stock status from the

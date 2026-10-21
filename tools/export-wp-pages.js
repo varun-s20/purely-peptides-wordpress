@@ -91,7 +91,13 @@ for (const [slug, fn] of PAGES) {
   const full = fn();
   const title = tag(full, /<title>([^<]*)<\/title>/, `title in ${slug}`).split(' | ')[0].trim();
   const description = tag(full, /<meta name="description" content="([^"]*)"/, `description in ${slug}`);
-  const body = rewriteAssets(between(full, '<main id="main">', '</main>')).trim();
+  let body = rewriteAssets(between(full, '<main id="main">', '</main>')).trim();
+  /* WordPress has a real handler for the wholesale application (pph-core
+     inc/wholesale.php); the static build keeps its demo toast. */
+  if (slug === 'wholesale/apply') {
+    body = body.replace('<form method="post" data-validate data-wholesale-apply', '<form method="post" data-validate data-native-submit data-wholesale-apply');
+    if (!body.includes('data-native-submit')) throw new Error('wholesale/apply: application form not found');
+  }
 
   const file = slug.replace(/\//g, '--') + '.html';
   fs.writeFileSync(path.join(OUT, file), body + '\n', 'utf8');

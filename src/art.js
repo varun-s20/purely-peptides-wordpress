@@ -115,6 +115,11 @@ const PRODUCT_SHOTS = ['prod-a', 'prod-b', 'prod-c'];
  *  the same answer into the client catalogue - the cart renders products the
  *  page was never server-rendered with, and the photo must not change. */
 function productShotName(sku, variant = 0) {
+  // The client's own per-size photographs win; `variant` steps through them.
+  // Required lazily: data.js is loaded by everything, art.js by data's users.
+  const p = require('./data').products.find((x) => x.sku === sku);
+  const own = p ? p.sizes.map((s) => s.img).filter(Boolean) : [];
+  if (own.length) return own[variant % own.length];
   // Not rng(): SKUs run PP-1001..PP-1020 and that generator maps 18 of the
   // 20 onto the same shot. A plain rolling hash spreads sequential keys evenly.
   let h = 0;
@@ -138,6 +143,7 @@ const CATEGORY_PHOTOS = {
   'melanocortin-research': ['cat-peptides', 'A tray of sealed glass vials awaiting labelling'],
   cofactors: ['cat-protein', 'A researcher pipetting a sample into glassware at the bench'],
   blends: ['cat-blends', 'A solution being dispensed into a vial during blending'],
+  'lab-supplies': ['cat-metabolic', 'A plate reader and pipette tips set out for an assay run'],
 };
 
 function categoryPhoto(slug) {

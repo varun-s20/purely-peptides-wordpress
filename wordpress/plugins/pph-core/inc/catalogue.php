@@ -73,7 +73,10 @@ function pph_catalogue_data() {
 }
 
 function pph_catalogue_js() {
-	return 'window.PP_CATALOGUE = ' . wp_json_encode( pph_catalogue_data() ) . ';';
+	/* PP_RESTRICTED: the states PPH Settings blocks at cart - script.js's
+	   region gate reads it instead of a hardcoded list. */
+	return 'window.PP_CATALOGUE = ' . wp_json_encode( pph_catalogue_data() ) . ';'
+		. 'window.PP_RESTRICTED = ' . wp_json_encode( array_map( 'strtoupper', pph_setting_list( 'restricted_states' ) ) ) . ';';
 }
 
 /**

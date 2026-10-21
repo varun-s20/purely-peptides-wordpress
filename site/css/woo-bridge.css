@@ -94,33 +94,58 @@
   }
 }
 
-/* The three required acknowledgements (inc/checkout.php) - styled like the
-   rest of the site's compliance notices, since that is exactly what they
-   are, not an ordinary form field. */
-.pph-ack {
+/* The three required acknowledgements plus Woo's own optional terms checkbox
+   (inc/checkout.php, checkout/terms.php) - styled like the rest of the
+   site's compliance notices, since that is exactly what they are, not an
+   ordinary form field. .check already gives the label its flex/checkbox
+   layout (same class used everywhere else on the site); .pph-ack only adds
+   the highlighted card look on top, on the label itself now rather than a
+   separate wrapper. */
+label.pph-ack {
   background: var(--mist);
   border-left: 3px solid var(--warn, #A8501A);
   border-radius: var(--r-sm);
   padding: 14px 16px;
   margin-bottom: 10px;
 }
-.pph-ack label {
-  display: flex !important;
-  gap: 10px;
+
+/* Shipping method row - wc_cart_totals_shipping_html() renders its own
+   <tr>/<td> internally (a per-package method list, not a single price), so
+   it is left un-wrapped in review-order.php rather than reproduced from
+   memory. This makes that bare <tr> lay out like the .trow rows around it. */
+.checkout__totals tr.woocommerce-shipping-totals {
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  font-weight: 400 !important;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rule);
   font-size: var(--t-small);
-  color: var(--body-ink);
 }
-.pph-ack input[type="checkbox"] {
-  margin-top: 3px;
-  flex: none;
-  width: 18px;
-  height: 18px;
+.checkout__totals tr.woocommerce-shipping-totals th {
+  font-weight: 400;
+  color: var(--ink);
+}
+.checkout__totals tr.woocommerce-shipping-totals td {
+  text-align: right;
+}
+ul.woocommerce-shipping-methods {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+ul.woocommerce-shipping-methods li {
+  margin-bottom: 6px;
 }
 
-/* Order review table */
-.woocommerce-checkout-review-order-table {
+/* Order review table - `table.` prefix on every selector in this block is
+   load-bearing. checkout/review-order.php is overridden and now emits a <div>
+   carrying this same class (it has to: WC_AJAX keys its fragment by this exact
+   selector), and a bordered card look applied to that div would sit a second
+   box inside .checkout__summary, which is already the card. These rules are the
+   fallback for Woo's real <table>, wherever it still renders. */
+table.woocommerce-checkout-review-order-table {
   width: 100%;
   border-collapse: collapse;
   border: 1px solid var(--rule);
@@ -128,25 +153,25 @@
   overflow: hidden;
   background: var(--paper);
 }
-.woocommerce-checkout-review-order-table th,
-.woocommerce-checkout-review-order-table td {
+table.woocommerce-checkout-review-order-table th,
+table.woocommerce-checkout-review-order-table td {
   padding: 12px 16px;
   border-bottom: 1px solid var(--rule);
   font-size: var(--t-small);
   text-align: left;
 }
-.woocommerce-checkout-review-order-table thead th {
+table.woocommerce-checkout-review-order-table thead th {
   background: var(--mist);
   font-weight: 600;
   color: var(--ink);
 }
-.woocommerce-checkout-review-order-table .product-total,
-.woocommerce-checkout-review-order-table td.total {
+table.woocommerce-checkout-review-order-table .product-total,
+table.woocommerce-checkout-review-order-table td.total {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
-.woocommerce-checkout-review-order-table tfoot tr.order-total th,
-.woocommerce-checkout-review-order-table tfoot tr.order-total td {
+table.woocommerce-checkout-review-order-table tfoot tr.order-total th,
+table.woocommerce-checkout-review-order-table tfoot tr.order-total td {
   font-weight: 700;
   font-size: var(--t-h4);
   border-bottom: 0;
@@ -181,22 +206,12 @@ ul.wc_payment_methods label {
 }
 .woocommerce div.payment_box::before { display: none; }
 
-/* Place Order button - match .btn.btn--primary.btn--lg without duplicating
-   its full rule set, since we cannot add that class to Woo's own template. */
-#place_order,
-.woocommerce #payment #place_order {
-  width: 100%;
-  padding: 16px 24px;
-  font-size: var(--t-body);
-  font-weight: 600;
-  color: var(--ink);
-  background: var(--orange, #C7E119);
-  border: 0;
-  border-radius: var(--r-sm);
-  cursor: pointer;
-  margin-top: var(--s-3);
-}
-#place_order:hover { background: var(--orange-deep, #B2CA12); }
+/* Place Order button - checkout/payment.php renders it with the site's real
+   .btn.btn--primary.btn--lg.btn--block classes now, so the approximation that
+   used to live here has been deleted rather than left to out-specify them
+   (an id beats any of those class rules, including their hover states).
+   Only the top margin, which is layout rather than button styling, remains. */
+#place_order { margin-top: var(--s-3); }
 
 /* Notices */
 .woocommerce-error,

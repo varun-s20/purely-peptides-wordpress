@@ -123,7 +123,7 @@ get_header();
       </div><div class="vprop">
         <div class="vprop__media"><img src="/wp-content/themes/pph-child/assets/img/vp-team.jpg" alt="Two scientists discussing a result over a clipboard" width="800" height="600" loading="lazy" decoding="async"></div>
         <h3>Answers from the analytical team</h3>
-        <p>Technical questions route to the people who ran the assay. Monday–Friday, 09:00–17:00 ET.</p>
+        <p>Technical questions route to the people who ran the assay.</p>
       </div>
     </div>
   </div>
@@ -165,8 +165,8 @@ get_header();
     <a class="link-arrow" href="/products/"><span>View catalogue</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
     <div class="grid grid-4" data-reveal-stagger>
-      <article class="pcard" data-slug="semaglutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="65" data-name="Semaglutide" data-sku="PPH-1001" data-cas="910463-68-2" data-added="2026-06-25" data-sizes="5 mg|10 mg|20 mg|30 mg|50 mg">
-    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/prod-c.jpg" alt="Semaglutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+      <article class="pcard" data-slug="semaglutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="60" data-name="Semaglutide" data-sku="PPH-1001" data-cas="910463-68-2" data-added="2026-06-25" data-sizes="5 mg|10 mg|20 mg|30 mg|50 mg">
+    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/products/semaglutide-5-mg.jpg" alt="Semaglutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
       <button class="wishdot" type="button" data-wish-toggle="semaglutide" data-wish-label="Semaglutide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
@@ -185,12 +185,12 @@ get_header();
       </div>
       <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$65.00<small>/ 5 mg</small></span>
+        <span class="pcard__price">$60.00<small>/ 5 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard" data-slug="tirzepatide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="135" data-name="Tirzepatide" data-sku="PPH-1002" data-cas="2023788-19-2" data-added="2026-06-17" data-sizes="10 mg|20 mg|30 mg|60 mg|100 mg">
-    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/prod-a.jpg" alt="Tirzepatide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+  </article><article class="pcard" data-slug="tirzepatide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="100" data-name="Tirzepatide" data-sku="PPH-1002" data-cas="2023788-19-2" data-added="2026-06-17" data-sizes="10 mg|20 mg|30 mg|60 mg|100 mg">
+    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/products/tirzepatide-10-mg.jpg" alt="Tirzepatide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
       <button class="wishdot" type="button" data-wish-toggle="tirzepatide" data-wish-label="Tirzepatide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
@@ -209,12 +209,12 @@ get_header();
       </div>
       <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$135.00<small>/ 10 mg</small></span>
+        <span class="pcard__price">$100.00<small>/ 10 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard" data-slug="retatrutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="160" data-name="Retatrutide" data-sku="PPH-1003" data-cas="2381089-83-2" data-added="2026-06-25" data-sizes="10 mg|20 mg|30 mg">
-    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/prod-b.jpg" alt="Retatrutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+  </article><article class="pcard" data-slug="retatrutide" data-cat="metabolic-research" data-area="Metabolism" data-form="Lyophilised powder" data-stock="in-stock" data-price="105" data-name="Retatrutide" data-sku="PPH-1003" data-cas="2381089-83-2" data-added="2026-06-25" data-sizes="10 mg|20 mg|30 mg|48 mg|60 mg">
+    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/products/retatrutide-10-mg.jpg" alt="Retatrutide supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
       <button class="wishdot" type="button" data-wish-toggle="retatrutide" data-wish-label="Retatrutide" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
@@ -229,16 +229,16 @@ get_header();
       <h3 class="pcard__name"><a href="/products/retatrutide/">Retatrutide</a></h3>
       <div class="pcard__meta">
         <span>CAS 2381089-83-2</span>
-        <span>10 mg · 20 mg · 30 mg</span>
+        <span>10 mg · 20 mg · 30 mg · 48 mg · 60 mg</span>
       </div>
       <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$160.00<small>/ 10 mg</small></span>
+        <span class="pcard__price">$105.00<small>/ 10 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
-  </article><article class="pcard" data-slug="tesamorelin" data-cat="growth-factor-research" data-area="Endocrine Research" data-form="Lyophilised powder" data-stock="in-stock" data-price="120" data-name="Tesamorelin" data-sku="PPH-2001" data-cas="218949-48-5" data-added="2026-08-17" data-sizes="10 mg">
-    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/prod-a.jpg" alt="Tesamorelin supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
+  </article><article class="pcard" data-slug="tesamorelin" data-cat="growth-factor-research" data-area="Endocrine Research" data-form="Lyophilised powder" data-stock="in-stock" data-price="165" data-name="Tesamorelin" data-sku="PPH-2001" data-cas="218949-48-5" data-added="2026-08-17" data-sizes="10 mg|20 mg">
+    <div class="pcard__media"><img src="/wp-content/themes/pph-child/assets/img/products/tesamorelin-10-mg.jpg" alt="Tesamorelin supplied as lyophilised powder in a sealed glass vial" width="900" height="900" loading="lazy" decoding="async">
       <button class="wishdot" type="button" data-wish-toggle="tesamorelin" data-wish-label="Tesamorelin" aria-pressed="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 5.6a5 5 0 0 0-7.1 0L12 6.9l-1.3-1.3a5 5 0 0 0-7.1 7.1l8.4 8.4 8.4-8.4a5 5 0 0 0 0-7.1Z"/></svg></button>
       <div class="pcard__quick">
         <button class="btn btn--primary btn--sm btn--block" type="button"
@@ -253,11 +253,11 @@ get_header();
       <h3 class="pcard__name"><a href="/products/tesamorelin/">Tesamorelin</a></h3>
       <div class="pcard__meta">
         <span>CAS 218949-48-5</span>
-        <span>10 mg</span>
+        <span>10 mg · 20 mg</span>
       </div>
       <div class="row" style="gap:6px"><span class="status status--ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>In stock</span><span class="status status--flat"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg>Lab report</span></div>
       <div class="pcard__foot">
-        <span class="pcard__price">$120.00<small>/ 10 mg</small></span>
+        <span class="pcard__price">$165.00<small>/ 10 mg</small></span>
         <span class="link-arrow"><span>View</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
       </div>
     </div>
@@ -282,7 +282,7 @@ get_header();
     <h3 class="cat-panel__title">Metabolic Research</h3>
     <p class="cat-panel__blurb">Incretin analogues and mitochondrial peptides used in energy-substrate and adipocyte models.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">7 materials</span>
+      <span class="cat-panel__count">9 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/growth-factor-research/">
@@ -290,7 +290,7 @@ get_header();
     <h3 class="cat-panel__title">Growth Factor Research</h3>
     <p class="cat-panel__blurb">GHRH analogues and secretagogue ligands used in receptor-binding and stability studies.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">4 materials</span>
+      <span class="cat-panel__count">5 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/cell-signalling-research/">
@@ -298,7 +298,7 @@ get_header();
     <h3 class="cat-panel__title">Cell Signalling Research</h3>
     <p class="cat-panel__blurb">Peptides characterised in matrix, cytokine and cell-migration literature.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">5 materials</span>
+      <span class="cat-panel__count">14 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/cognitive-research/">
@@ -306,7 +306,7 @@ get_header();
     <h3 class="cat-panel__title">Cognitive Research</h3>
     <p class="cat-panel__blurb">Neuropeptides used in receptor and neurotrophic-expression model studies.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">2 materials</span>
+      <span class="cat-panel__count">8 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/melanocortin-research/">
@@ -314,15 +314,15 @@ get_header();
     <h3 class="cat-panel__title">Melanocortin Research</h3>
     <p class="cat-panel__blurb">Melanocortin and kisspeptin receptor ligands used in binding and selectivity assays.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">3 materials</span>
+      <span class="cat-panel__count">4 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/cofactors/">
     <div class="cat-panel__art"><img src="/wp-content/themes/pph-child/assets/img/cat-protein.jpg" alt="A researcher pipetting a sample into glassware at the bench" width="880" height="400" loading="lazy" decoding="async"></div>
-    <h3 class="cat-panel__title">Cofactors &amp; Nucleotides</h3>
-    <p class="cat-panel__blurb">Non-peptide reference materials supplied to the same documentation standard.</p>
+    <h3 class="cat-panel__title">Cofactors &amp; Redox Standards</h3>
+    <p class="cat-panel__blurb">NAD+, glutathione and other redox reference materials, documented to the same lot-level standard.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">1 materials</span>
+      <span class="cat-panel__count">2 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a><a class="cat-panel" href="/products/category/blends/">
@@ -330,7 +330,15 @@ get_header();
     <h3 class="cat-panel__title">Blends</h3>
     <p class="cat-panel__blurb">Fixed-ratio combinations prepared and documented as a single production lot.</p>
     <div class="cat-panel__foot">
-      <span class="cat-panel__count">3 materials</span>
+      <span class="cat-panel__count">8 materials</span>
+      <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
+    </div>
+  </a><a class="cat-panel" href="/products/category/lab-supplies/">
+    <div class="cat-panel__art"><img src="/wp-content/themes/pph-child/assets/img/cat-metabolic.jpg" alt="A plate reader and pipette tips set out for an assay run" width="880" height="400" loading="lazy" decoding="async"></div>
+    <h3 class="cat-panel__title">Laboratory Supplies</h3>
+    <p class="cat-panel__blurb">Diluents and consumables for preparing research materials at the bench.</p>
+    <div class="cat-panel__foot">
+      <span class="cat-panel__count">1 materials</span>
       <span class="link-arrow"><span>Explore</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></span>
     </div>
   </a>
@@ -368,7 +376,7 @@ get_header();
         <a href="/products/tb-500/">TB-500</a>
         <a href="/products/ghk-cu/">GHK-Cu</a>
         <a href="/certificates/bp10-0318/">BP10-0318</a>
-        <a href="/products/category/blends/">Blends</a>
+        <a href="/products/category/lab-supplies/">Laboratory Supplies</a>
       </div>
     </div>
   </div>
@@ -581,7 +589,7 @@ get_header();
     <div class="section-head" data-reveal>
     <div class="section-head__text">
       <h2>Need help finding the right material?</h2>
-      <p>Technical questions reach the analytical team, not a general inbox. Monday–Friday, 09:00–17:00 ET.</p>
+      <p>Technical questions reach the analytical team, not a general inbox.</p>
     </div>
     <a class="link-arrow" href="/contact/"><span>All contact routes</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" width="15" height="15"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
@@ -614,7 +622,7 @@ get_header();
       <h2>Looking for on-demand scientific support?</h2>
       <p>
         Specification, handling and documentation questions go to the analytical team that released
-        the lot - not to a general inbox. Monday–Friday, 09:00–17:00 ET.
+        the lot - not to a general inbox.
       </p>
     </div>
     <a class="btn btn--onDark btn--lg" href="/contact/?topic=technical">Contact technical support</a>

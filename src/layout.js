@@ -364,8 +364,8 @@ function footer() {
         </a>
         <address class="footer__addr">
           ${brand.address.map(esc).join('<br>')}<br>
-          <a href="mailto:${brand.email}">${brand.email}</a><br>
-          <a href="tel:${brand.phone.replace(/[^+\d]/g, '')}">${brand.phone}</a>
+          <a href="mailto:${brand.email}">${brand.email}</a>${brand.phone ? `<br>
+          <a href="tel:${brand.phone.replace(/[^+\d]/g, '')}">${brand.phone}</a>` : ''}
         </address>
         <div class="footer__social">
           ${socials.map(([label, href, svg]) => `<a href="${href}" rel="noopener" aria-label="${label}">${svg}</a>`).join('')}
@@ -447,26 +447,22 @@ function overlays() {
     <div class="modal__body">
       <div class="grid grid-2" style="gap:0 24px">
         ${[
-          ['MA', 'Massachusetts', false],
-          ['TX', 'Texas', false],
-          ['FL', 'Florida', false],
-          ['IL', 'Illinois', false],
-          ['CA', 'California', true],
-          ['NY', 'New York', true],
-          ['LA', 'Louisiana', true],
-          ['WA', 'Washington', false],
+          ['MA', 'Massachusetts'],
+          ['TX', 'Texas'],
+          ['FL', 'Florida'],
+          ['IL', 'Illinois'],
+          ['CA', 'California'],
+          ['NY', 'New York'],
+          ['LA', 'Louisiana'],
+          ['WA', 'Washington'],
         ]
           .map(
-            ([code, name, restricted]) => `<label class="check">
+            ([code, name]) => `<label class="check">
               <input type="radio" name="region" value="${code}" data-region-set>
-              <span>${name}<span class="check__count">${restricted ? 'Restricted' : code}</span></span>
+              <span>${name}<span class="check__count">${code}</span></span>
             </label>`
           )
           .join('')}
-      </div>
-      <div class="notice" style="margin-top:16px">
-        ${icons.info}
-        <div>Three states currently restrict shipment of these materials: <strong>California, New York and Louisiana</strong>. Selecting one of them blocks checkout rather than failing after payment.</div>
       </div>
     </div>
     <div class="modal__foot">

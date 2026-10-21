@@ -3,7 +3,13 @@
 **Purpose:** the resume document. If a conversation, a session or a laptop dies, this file plus
 `CONVERSION-PLAN.md` is enough to pick the work up cold.
 
-**Last updated:** 16 September 2026 (sixth pass — root-caused and fixed the real bug behind BOTH the
+**Last updated:** 22 September 2026 - client's 21 Sep drop applied: real retail + wholesale prices
+for all 82 sizes (catalogue 25 -> 51 products), 57 per-size vial photos, stock quantities, business
+address + email, and phase 10 (wholesale) built. Verified against a real WordPress + WooCommerce in
+Docker (see "22 Sep 2026" under Done so far). **Not yet deployed to Hostinger staging** - steps in
+Next actions, section G.
+
+**Previous update:** 16 September 2026 (sixth pass — root-caused and fixed the real bug behind BOTH the
 add-then-revert badge and the empty-cart-on-navigation symptoms: the custom `/pph/v1/cart*` REST API was
 being LiteSpeed-cached publicly for a week, confirmed with an actual Network tab capture; also fixed a
 cart.js race condition, the region-compliance gate, dead account/orders/login links, added the wishlist
@@ -27,6 +33,7 @@ Coming Soon, remove this line.
 
 ## Read in this order
 
+0. `DEPLOY.md` — how a finished pass gets onto the live site, step by step.
 1. `CONVERSION-PLAN.md` — the plan. Route, URL map, content model, plugin stack, phase order.
 2. This file — what is actually done, what broke, what is next.
 3. `STATUS.md` — the static build's own status, and the full client-blocked list.
@@ -44,13 +51,15 @@ Phases are from `CONVERSION-PLAN.md` §13.
 | 1 | `pph-child`: CSS/JS, Elementor neutralised, chrome | **done and verified** |
 | 2 | Static prose pages | **done — 13 pages imported, 404 in the theme** |
 | 3 | `pph-core`: CPTs, meta boxes, templates, settings | **done and deployed** — PPH Settings confirmed live in the admin sidebar |
-| 4 | Product import from `src/data.js` | **done and deployed** — 25 products, 7 categories confirmed live, one image-attachment bug found and fixed |
-| 5 | Product / category / search templates | **done** — shop, category and single-product deployed and confirmed matching the static design; search page built this pass. Not yet deployed. |
+| 4 | Product import from `src/data.js` | **done and deployed 23 Sep** — 51 products / 82 sizes / 8 categories live with real prices, photos, stock and lots. Verified on the live site. |
+| 5 | Product / category / search templates | **done and deployed** — shop, category, single-product and search all live and verified. |
 | 6 | Certificates (12) | **done — 12 imported, live, diff-checked against the static build** |
 | 7 | Research articles (8) | **done — 8 imported, live, diff-checked; one real bug found and fixed (see below)** |
-| 8 | Cart, checkout, compliance layer | **built this pass, not yet deployed or tested live.** Real cart (drawer, badge, `/cart/`), account-required checkout with research field + timestamped acknowledgements, real order creation. Payment is a placeholder (WooCommerce's own BACS gateway, relabelled) until AllayPay integrates (phase 15). My Account / order-view pages left as WooCommerce defaults for now. |
+| 8 | Cart, checkout, compliance layer | **done and deployed.** Live; a real end-to-end test order has still not been placed on the live site (see Next actions).
+
+Original note: Real cart (drawer, badge, `/cart/`), account-required checkout with research field + timestamped acknowledgements, real order creation. Payment is a placeholder (WooCommerce's own BACS gateway, relabelled) until AllayPay integrates (phase 15). My Account / order-view pages left as WooCommerce defaults for now. |
 | 9 | Volume ladder + subscription engine | **Volume ladder done** (`inc/pricing.php`, real at checkout, reads PPH Settings). Subscription engine still blocked — AllayPay tokenisation. Subscribe & Save renders disabled on the product page until it exists. |
-| 10 | Wholesale | not started |
+| 10 | Wholesale | **done and deployed 23 Sep** — roles, column-I prices, min 10 per size, application, approval, PO field. Live; the approve-and-buy round trip has not been walked through on the live site yet. |
 | 11 | Shipping + tax | blocked — weights, nexus |
 | 12 | Forms, SMTP, branded email | blocked — sender domain |
 | 13 | SEO, schema, coming-soon | not started |
@@ -59,7 +68,27 @@ Phases are from `CONVERSION-PLAN.md` §13.
 | 16 | Migration to his hosting | blocked — hosting credentials |
 | 17 | Verification, handover docs, ownership transfer | not started |
 
-**On prices and phase 4:** `PRICING` in `src/data.js` already holds placeholder values for all 41
+**Outstanding from the client, as of 23 Sep 2026** (everything in his 21 Sep message is built and
+live except where noted):
+
+- **Photographs for 21 of 51 products** - he said he is still designing them. Those products show the
+  generic vial shot: SS-31, Humanin, IGF-1 LR3, Thymosin Alpha-1, Thymalin, Vilon, Vesugen, Testagen,
+  Prostamax, Snap-8, Pinealon, Dihexa, PE-22-28, P21, PT-141, Bacteriostatic Water and the five blends.
+  Adding them later is a `tools/product-photos.py` run plus a theme upload and a product re-import.
+- **Shipping weights and box dimensions** - he said "later on when I get more inventory". Phase 11
+  cannot start without them, so shipping is still a flat/unconfigured rate.
+- **AllayPay** - he was chasing them for a callback. Blocks the real gateway (phase 15) and the
+  subscription engine (phase 9). Payment is still WooCommerce's BACS gateway relabelled "ACH / bank
+  transfer".
+- **Seven answers to the questions raised on 22 Sep** - IGF-1 LR3 purity ("<95%"), whether "Sema/Sela"
+  is the Semax/Selank blend, the missing CJC-1295/GHRP-6 wholesale price, whether to add ARA-290 16 mg
+  (he sent a photo but no sheet row), restricted states, a phone number, and the remaining photos.
+- **His feedback on the demo** - he said he would look and come back.
+
+**My Account / sign-in / thank-you pages:** styled 23 Sep 2026 (CSS only, templates still WooCommerce's own) - see Done so far. `DEPLOY.md` has the three-file upload for it.
+
+**On prices and phase 4 (22 Sep):** real prices arrived 21 Sep - `PRICING` now holds `[retail, wholesale]`
+for all 82 sizes from the sheet. Historical note, kept for context: `PRICING` in `src/data.js` held placeholder values for all 41
 size-SKUs, and the build refuses to run if any size is unpriced. So products can be imported and
 every template built now; only the final price table waits on the client. Re-importing prices later
 is one script against one table. Prices block **launch**, not the build — the earlier
@@ -68,6 +97,139 @@ is one script against one table. Prices block **launch**, not the build — the 
 ---
 
 ## Done so far
+
+**23 Sep 2026 - My Account, sign-in and thank-you pages styled (the deferred item, closed)**
+
+Reported as "the My Account page has no CSS". Root cause was not a missing file: `functions.php`
+dequeues WooCommerce's own stylesheets site-wide (`woocommerce_enqueue_styles` ->
+`__return_empty_array`, added when Woo's CSS was fighting the checkout), and `woo-bridge.css`
+only ever covered checkout. Every page still rendering WooCommerce's own templates therefore had
+no layout CSS at all. That was **more pages than the one reported**:
+
+| Page | State before |
+|---|---|
+| `/my-account/` dashboard + all tabs | nav a bare bulleted list, no columns, content full-bleed |
+| `/my-account/` **logged out - the site's Sign in page** | inputs edge to edge, raw browser "Log in" button |
+| `/checkout/order-received/` - **the thank-you page after paying** | no container, bullet list, unstyled tables |
+| `/cart/` **when empty** (Woo's own `cart-empty.php`, not our `cart.php`) | no container |
+| Lost password / reset password | same as sign-in |
+
+Fixed in CSS only - no WooCommerce template overridden, so nothing here can affect an order.
+~330 lines appended to `public/css/woo-bridge.css`, all of it WooCommerce's own class names mapped
+onto this site's tokens: container and two-column account layout, nav list, `.shop_table` variants,
+order-overview summary strip, address cards, sign-in/account form cards, `.woocommerce-message`,
+pagination, and the Woo `.button` family as the site's pill button.
+
+Three smaller bugs surfaced while testing this and were fixed too:
+
+- **`.screen-reader-text` was not defined anywhere in the build.** WordPress and WooCommerce both
+  emit it, and normally the parent theme or Woo's stylesheet defines it - this build dequeues both.
+  Every screen-reader-only string Woo printed ("Required", "Search for:") rendered as a visible box.
+  Added next to `.visually-hidden` in `styles.css`, so the fix applies site-wide, not just here.
+- **The password reveal toggle** (`button.show-password-input`, which Woo's CSS turns into an eye
+  icon inside the field) rendered as a 16x6px grey browser button under every password field -
+  sign in, account details, and checkout registration. Now an inline SVG eye, positioned in the field.
+- **`<mark>`** on the order page (Woo wraps the order number, date and status in it) came out in the
+  browser's highlighter yellow.
+
+**One regression caught before it shipped:** `.woocommerce fieldset` (specificity 0,1,1) out-ranks
+the site's own `.fieldset` (0,1,0), which every checkout section uses - a plain `.woocommerce
+fieldset` rule would have drawn a box round all of them. Scoped to `.woocommerce-account`. The
+checkout render was re-shot afterwards to confirm: no fieldset borders, Place Order still the teal
+pill. `woo-bridge.css` is now also enqueued on `is_cart()`, for the empty-cart state only.
+
+**Verified** on a clean WordPress + WooCommerce in Docker with a real order: before/after
+screenshots of all 10 WooCommerce-rendered pages, the 25-check HTTP suite and the wholesale
+backstop still passing, and no entries in WP_DEBUG's debug.log.
+
+**Still deliberately not done:** the account pages are still WooCommerce's own templates. This makes
+them look like the rest of the site; it does not rebuild them. Restyling beats rewriting here for
+the same reason checkout was never rewritten.
+
+**22 Sep 2026 - client's 21 Sep drop (inventory sheet v2, 61 photos, address, email)**
+
+Source files: `mdnjuan-attachments/` and `mdnjuan-attachments (1)/` (both now gitignored - raw
+client drop; what ships is in `public/img/products/`).
+
+- **Catalogue: 25 -> 51 products, 41 -> 82 sizes, 7 -> 8 categories** - exactly the sheet's 82 rows.
+  `PRICING` is now `'slug|size': [retail, wholesale]` (col G, col I). 26 new products plus new sizes
+  on existing ones (Retatrutide 48/60, BPC-157 15/100, Cagrilintide 16, Tesamorelin 20, Ipamorelin 5,
+  CJC-1295 10, 5-Amino-1MQ 10). New category `lab-supplies` (Bacteriostatic Water - listed at the
+  user's call; the RUO/underwriting risk was raised with them first). `cofactors` renamed
+  "Cofactors & Redox Standards" (it now holds glutathione, a tripeptide). New SKUs follow the
+  existing `PPH-<category><seq>` scheme; no existing SKU changed, so re-import updates in place.
+  Retatrutide keeps its name although its vials are labelled "GLP 3R-" (user's decision).
+- **Specs for new products:** formula and MW are *computed from the residue sequence* (a script, not
+  memory); CAS only where the registry number is unambiguous; everything else `null` -> "On request"
+  with `verify: true`. The same computation re-checked the existing hand-entered values: all agree
+  except **KPV, which was wrong** (`C16H29N5O4 / 355.43` matches no structure; Lys-Pro-Val is
+  `C16H30N4O4 / 342.43`) - fixed. Cartalax gained a computed formula/MW.
+- **Stock:** sizes marked in stock on the sheet carry their real quantity (`qty`); the importer turns
+  on WooCommerce stock management for those with backorders allowed, so a sold-out size falls back
+  to the same "To order" state every unstocked size already shows. Re-importing overwrites
+  quantities with the sheet's - by design, that is how a new weekly sheet is applied.
+- **Photos:** `tools/product-photos.py` (Pillow) maps each client file to `slug|size`, crops the
+  centre 80% and writes 900px JPEGs named `public/img/products/<slug>-<size>.jpg` (~55 KB each).
+  57 used, 5 skipped (4 alternate-label duplicates, 1 ARA-290 16 mg with no sheet row) - both lists
+  live in the script. `src/data.js` finds a size's photo by file name and `productShotName()` in
+  `src/art.js` prefers it, so every existing template picks the real photo up unchanged. 21
+  products have no photo yet and keep the shared vial shots. In WordPress: featured image = first
+  size's photo, gallery = the rest, **each variation gets its own image** (so the cart line shows
+  the right vial), and the product page's main image swaps to the selected size (`data-img` on the
+  size buttons, handled in `script.js` for both builds).
+- **Contact details:** `8605 Santa Monica Blvd #156069, West Hollywood, CA 90069` and
+  `purelypeptideshubcs@gmail.com` (support and procurement). `brand.phone` / `brand.hours` are now
+  `null` and every template skips them - the placeholder phone and hours are gone from the site. The
+  Organization JSON-LD was hardcoded to a Cambridge, MA placeholder; it now reads `brand.postal`.
+- **Restricted states cleared.** CA/NY/LA was an assumption the client never confirmed, and the
+  business is in CA. Per the user: client-supplied information stands, placeholders go.
+  `script.js` now reads `window.PP_RESTRICTED` (emitted by `inc/catalogue.php` from PPH Settings,
+  default empty), so states the client adds in wp-admin are actually enforced - before this the
+  settings field did nothing and the list was hardcoded in JS.
+- **Phase 10 - wholesale, `inc/wholesale.php`.** The model is the client's own sentence: column-I
+  price for approved accounts, minimum 10 of each size.
+  - Two roles: *Wholesale applicant* (`pph_wholesale_pending`) and *Wholesale buyer*
+    (`pph_wholesale`). Approval = Users -> applicant -> Role -> Wholesale buyer -> Update User. The
+    application shows on that profile screen; the buyer is emailed on approval.
+  - Price: `woocommerce_product_variation_get_price` / `_regular_price` filtered to the variation's
+    `_pph_wholesale_price` for approved buyers only, so product page, catalogue feed, cart and
+    checkout agree with no template changes. A size with no wholesale price (CJC-1295/GHRP-6 - blank
+    on the sheet) is a plain retail line.
+  - No stacking: `pph_volume_rate_for_qty()` returns 0 for a wholesale line.
+  - Minimum: the cart REST add/update raise a wholesale line to 10; `woocommerce_check_cart_items`
+    blocks checkout for anything that slipped past (approved with a cart already open, a restored
+    saved order). The reason shows on the cart row and on WooCommerce's checkout error page, which
+    does not print notices by itself - found in testing, fixed with one hook.
+  - Product page in wholesale mode: quantity starts and bottoms at 10, volume ladder and
+    Subscribe & Save hidden, one notice instead. `data-wholesale` tells `script.js` to zero its ladder.
+  - Application: `/wholesale/apply/` form, single source in `src/pages/wholesale.js` (demo prefill
+    "Kendall Institute", fake stepper and "save and finish later" removed). The WordPress export adds
+    `data-native-submit`; `forms.js` posts natively once valid; the handler on `template_redirect`
+    creates the account (or uses the signed-in one), stores the application, moves only plain
+    customer accounts into the applicant role (an admin testing it keeps their role) and emails the
+    admin. No nonce by design (cacheable page); honeypot field instead. Errors return as
+    `?wholesale_error=` and render above the form.
+  - PO number field at checkout for buyers, saved on the order and shown in admin.
+  - `/wholesale/` copy rewritten to the real terms (placeholder tier table -5%/-8%, net-30 and
+    "named contact" claims removed).
+- **Admin editability:** each variation now has **Wholesale price** and **Current lot number**
+  fields (Products -> Variations). The lot was never editable in wp-admin before, and it changes
+  with every restock.
+- **Prose pages no longer need WP-CLI (23 Sep).** The page import logic moved into the plugin
+  (`inc/pages-importer.php`), and **Tools -> Import PPH Pages** (`inc/admin-import-pages.php`) takes
+  a zip of `wordpress/pages/` - the same three-piece pattern the certificate/article and product
+  importers already use, so `tools/import-wp-pages.php` and the screen run identical code. Tested by
+  uploading the real zip through wp-admin: 13 created on a clean site, 13 updated and 0 duplicates on
+  a second run, `data-*` attributes intact through kses, `/wholesale/apply/` still posting, Yoast
+  meta descriptions written, `404` still skipped. Remove this screen at handover with the other two.
+- **Verification - run, not balance-checked.** PHP syntax via `php-parser` (43 files, 0 errors).
+  Then a throwaway WordPress + WooCommerce + Hello Elementor stack in Docker with this theme and
+  plugin mounted: real product import (8 / 51 / 82), 32 data and pricing assertions via
+  `wp eval-file`, 25 HTTP-level checks (shop/category/product render, anonymous vs buyer pricing,
+  REST cart clamp 1 -> 10 at $35, retail 10 x $70 at -16% = $588, application
+  create / duplicate email / short password / honeypot, PO field), the checkout backstop, Playwright
+  screenshots, and **no entries at all in WP_DEBUG's debug.log**.
+  `tools/check-checkout-fragments.js` still passes.
 
 **14 Sept 2026**
 
@@ -959,6 +1121,24 @@ is one script against one table. Prices block **launch**, not the build — the 
   originally described. Functionally the same 6 things (add products, payments, customize store,
   tax, shipping) - all optional, none block anything. Skip the whole checklist; go straight to
   Settings → General (store address/currency), the LiteSpeed exclusion, and Permalinks.
+- **Dequeuing WooCommerce's stylesheets is site-wide, and so is the hole it leaves.**
+  `woocommerce_enqueue_styles` -> `__return_empty_array` in `functions.php` was added for checkout,
+  but it removes Woo's layout CSS from *every* page that still renders a WooCommerce template -
+  My Account, the sign-in page, the thank-you page, the empty cart. Any page left on a Woo default
+  template needs a matching block in `woo-bridge.css` or it renders as raw HTML. Same trap applies
+  to `.screen-reader-text`, which the dequeued stylesheets used to define.
+- **A fresh WooCommerce install starts in "Coming soon" mode** (`woocommerce_coming_soon` =
+  `yes`), which serves "Great things are on the horizon" to every logged-out visitor and makes the
+  whole catalogue look empty. WooCommerce -> Settings -> Site visibility -> Live, or
+  `wp option update woocommerce_coming_soon no`. Staging is already live; this matters at migration
+  to his hosting, and it cost half an hour of chasing a catalogue that was importing perfectly.
+- **A fresh WooCommerce install creates Cart and Checkout as blocks**, not the `[woocommerce_cart]` /
+  `[woocommerce_checkout]` shortcodes. Every template override here assumes the shortcodes. On a new
+  install - his hosting at migration - replace those two pages' content with the shortcodes or
+  `/checkout/` renders the block checkout with none of our fields.
+- **Scripting the REST cart as a signed-in user** needs the page-baked `PPH_CART.nonce` on the first
+  GET, exactly as `cart.js` sends it. Without it WordPress treats the call as logged out and the next
+  POST fails `rest_cookie_invalid_nonce`. Not a site bug - a trap for anyone writing tests.
 - **The product/category import does not prune removed variations.** If a size is ever deleted from
   `src/data.js`, its WooCommerce variation stays behind and needs removing by hand in wp-admin. Not
   worth the extra code for something that has not happened once in this catalogue's history — add it
@@ -975,6 +1155,32 @@ far" and "Gotchas" above - not repeated here now that it is finished. Two things
 way still need action; both are in "Known open items" below.
 
 ## Next actions, in order
+
+### G. Deploy the 22 Sep catalogue + wholesale pass (do this first)
+
+**`DEPLOY.md` is the full runbook** - every step below in click-by-click form, with the
+verification list and what to do when something looks wrong. Summary:
+
+1. Exports are already regenerated for this pass. Re-run only if `src/` changes again:
+   `node build.js && node tools/export-wp-theme.js && node tools/export-wp-pages.js && node tools/export-wp-products.js`
+2. Re-upload `wordpress/themes/pph-child/` in full (57 new images under `assets/img/products/`,
+   regenerated header/footer/front page with the new address and 8th category, `script.js`,
+   `forms.js`).
+3. Re-upload `wordpress/plugins/pph-core/` in full (new `inc/wholesale.php`; changes to pricing,
+   cart-api, catalogue, product-meta, product-importer, settings, wc-helpers).
+4. Tools -> Import PPH Products with a fresh zip of `wordpress/content/`. Expect 8 categories,
+   51 products.
+5. **Tools -> Import PPH Pages** with a zip of `wordpress/pages/` - new screen, added 23 Sep so
+   this no longer needs SSH. Expect "0 created, 13 updated". 12 of the 13 bodies changed: the new
+   email is on every legal page, plus the wholesale copy and the live application form.
+   (`wp eval-file tools/import-wp-pages.php --user=1` runs the identical code over SSH.)
+6. **PPH Settings -> Restricted states: clear it and Save** if it still reads CA/NY/LA - a saved
+   option overrides the new empty default. Put the real email in the contact fields while there.
+7. Purge LiteSpeed if it has been re-enabled. Logged out, check `/products/` (51), a product page
+   (clicking a size swaps the photo), `/products/category/lab-supplies/`, the footer address.
+8. Wholesale: submit `/wholesale/apply/` in a private window, confirm the user appears under
+   Users -> Wholesale applicant, set them to Wholesale buyer, sign in as them, confirm $35.00 on
+   BPC-157 5 mg with quantity 10.
 
 ### F. Deploy phase 5's search page and all of phase 8
 
@@ -1046,6 +1252,7 @@ wp eval-file tools/import-wp-pages.php --user=1     # import the pages (or Tools
 wp eval-file tools/import-wp-content.php --user=1   # import certificates + articles (or zip)
 wp eval-file tools/import-wp-products.php --user=1  # import categories + products (or zip) - needs WooCommerce active
 node tools/diff-wp.js <url> <static-file>        # check a WP page against the static one
+python tools/product-photos.py <client-folder>...  # client vial photos -> public/img/products/ (add MAP lines first)
 ONLY_DOCUMENTED=1 node build.js                  # fallback build: 10 documented products only
 ```
 
@@ -1057,7 +1264,7 @@ ONLY_DOCUMENTED=1 node build.js                  # fallback build: 10 documented
   gateway (phase 15) and the subscription engine (phase 9).
 - **AllayPay tokenisation for automatic rebilling** — raised with the client 27 Aug, never confirmed.
   If no, Subscribe & Save is a discount code plus a reminder email, and that needs saying in writing.
-- **Prices** — never supplied, for any SKU. Nothing past phase 3 ships without them.
+- ~~**Prices**~~ — supplied 21 Sep 2026: retail and wholesale, all 82 sizes.
 - Full client-blocked list: `CONVERSION-PLAN.md` §15.
 
 ---

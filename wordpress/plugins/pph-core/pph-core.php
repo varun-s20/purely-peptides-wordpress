@@ -23,6 +23,7 @@ require_once PPH_CORE_DIR . 'inc/settings.php';
 require_once PPH_CORE_DIR . 'inc/cpt.php';
 require_once PPH_CORE_DIR . 'inc/templates.php';
 require_once PPH_CORE_DIR . 'inc/importer.php';
+require_once PPH_CORE_DIR . 'inc/pages-importer.php';
 
 /* WooCommerce product spec fields (CAS, formula, purity...) and the product/
    category importer. Both guard their WooCommerce calls at run time, not load
@@ -32,6 +33,7 @@ require_once PPH_CORE_DIR . 'inc/product-meta.php';
 require_once PPH_CORE_DIR . 'inc/product-importer.php';
 require_once PPH_CORE_DIR . 'inc/wc-helpers.php';
 require_once PPH_CORE_DIR . 'inc/pricing.php';
+require_once PPH_CORE_DIR . 'inc/wholesale.php';
 require_once PPH_CORE_DIR . 'inc/catalogue.php';
 require_once PPH_CORE_DIR . 'inc/cart-api.php';
 require_once PPH_CORE_DIR . 'inc/checkout.php';
@@ -42,6 +44,7 @@ require_once PPH_CORE_DIR . 'inc/account.php';
    see admin-import.php's header. */
 require_once PPH_CORE_DIR . 'inc/admin-import.php';
 require_once PPH_CORE_DIR . 'inc/admin-import-products.php';
+require_once PPH_CORE_DIR . 'inc/admin-import-pages.php';
 
 /**
  * The post types register their own rewrite rules, and WordPress only rebuilds

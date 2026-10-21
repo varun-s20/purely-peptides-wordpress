@@ -324,9 +324,9 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'About' }])}
       <h2 style="max-width:18ch">Where we are</h2>
       <address class="footer__addr" style="color:#B5BCBD;font-size:var(--t-body)">
         ${brand.address.map(esc).join('<br>')}<br><br>
-        <a href="mailto:${brand.email}" style="color:#FFF">${brand.email}</a><br>
-        <a href="tel:${brand.phone.replace(/[^+\d]/g, '')}" style="color:#FFF">${brand.phone}</a><br>
-        <span style="color:#97A5A7">${esc(brand.hours)}</span>
+        <a href="mailto:${brand.email}" style="color:#FFF">${brand.email}</a>
+        ${brand.phone ? `<br><a href="tel:${brand.phone.replace(/[^+\d]/g, '')}" style="color:#FFF">${brand.phone}</a>` : ''}
+        ${brand.hours ? `<br><span style="color:#97A5A7">${esc(brand.hours)}</span>` : ''}
       </address>
     </div>
     <div class="row" style="gap:12px">
@@ -349,7 +349,7 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
   <div class="wrap">
     <span class="eyebrow">Support</span>
     <h1>Contact the team</h1>
-    <p>Technical questions reach the analytical team directly. ${esc(brand.hours)}.</p>
+    <p>Technical questions reach the analytical team directly.${brand.hours ? ' ' + esc(brand.hours) + '.' : ''}</p>
   </div>
 </div>
 
@@ -394,9 +394,9 @@ ${C.crumbs([{ label: 'Home', href: '/' }, { label: 'Contact' }])}
       <span class="label">Direct contact</span>
       <ul style="list-style:none;padding:0;margin:16px 0 0;display:grid;gap:14px">
         <li class="row" style="gap:10px;color:var(--slate)">${icons.mail}<a class="link" href="mailto:${brand.email}">${brand.email}</a></li>
-        <li class="row" style="gap:10px;color:var(--slate)">${icons.building}<a class="link" href="mailto:${brand.procurement}">${brand.procurement}</a></li>
-        <li class="row" style="gap:10px;color:var(--slate)">${icons.phone}<a class="link" href="tel:${brand.phone.replace(/[^+\d]/g, '')}">${brand.phone}</a></li>
-        <li class="row" style="gap:10px;color:var(--slate)">${icons.clock}<span class="small">${esc(brand.hours)}</span></li>
+        ${brand.procurement !== brand.email ? `<li class="row" style="gap:10px;color:var(--slate)">${icons.building}<a class="link" href="mailto:${brand.procurement}">${brand.procurement}</a></li>` : ''}
+        ${brand.phone ? `<li class="row" style="gap:10px;color:var(--slate)">${icons.phone}<a class="link" href="tel:${brand.phone.replace(/[^+\d]/g, '')}">${brand.phone}</a></li>` : ''}
+        ${brand.hours ? `<li class="row" style="gap:10px;color:var(--slate)">${icons.clock}<span class="small">${esc(brand.hours)}</span></li>` : ''}
       </ul>
     </div>
     <div class="card" style="padding:24px">
@@ -422,7 +422,7 @@ function faq() {
       items: [
         { q: 'Who can order from Purely Peptides Hub?', a: 'We supply laboratories, research institutions and organisations conducting in-vitro research. A research-use confirmation is required at checkout, and we do not sell to consumers.' },
         { q: 'Do I need an account to order?', a: 'Yes. An account is required and we do not offer guest checkout. Orders are released only to identified research accounts, and your order history and lot documentation stay attached to the account. You create one during checkout.' },
-        { q: 'Can I order against a purchase order?', a: 'Yes, on an approved wholesale account. <a class="link" href="/wholesale/apply/">Apply for an account</a> to enable PO ordering and net terms.' },
+        { q: 'Can I order against a purchase order?', a: 'Yes, on an approved wholesale account. <a class="link" href="/wholesale/apply/">Apply for an account</a> to order at wholesale prices and add a purchase order reference to each order.' },
         { q: 'Is there a minimum order?', a: 'No minimum. Volume pricing applies automatically from ten vials of the same size.' },
       ],
     },

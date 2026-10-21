@@ -182,7 +182,11 @@ function pph_enqueue_assets() {
 	   This restyles Woo's own class names to match everywhere else, without
 	   touching the template itself. Not needed elsewhere: every other page on
 	   the site already has a fully custom template. */
-	if ( function_exists( 'is_checkout' ) && ( is_checkout() || is_account_page() ) ) {
+	/* is_cart() is here for the EMPTY cart only: a cart with items renders
+	   through our own woocommerce/cart/cart.php, but when it is empty
+	   WooCommerce falls back to its own cart-empty.php, which has no
+	   container of its own. */
+	if ( function_exists( 'is_checkout' ) && ( is_checkout() || is_account_page() || is_cart() ) ) {
 		wp_enqueue_style(
 			'pph-woo-bridge',
 			pph_asset_uri( 'assets/css/woo-bridge.css' ),

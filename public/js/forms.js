@@ -173,6 +173,13 @@
       var box = summaryFor(form);
       box.hidden = true;
 
+      // A form with a real server behind it posts once it is valid.
+      // form.submit() fires no submit event, so this handler does not loop.
+      if (form.hasAttribute('data-native-submit')) {
+        form.submit();
+        return;
+      }
+
       var msg = form.getAttribute('data-success');
       if (msg && window.PP && window.PP.toast) window.PP.toast(msg);
 

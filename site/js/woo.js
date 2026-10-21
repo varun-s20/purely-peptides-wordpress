@@ -13,6 +13,11 @@
 (function () {
   'use strict';
 
+  /* See cart.js's identical guard - this file runs once per page no matter
+     how many times its <script> tag is printed. */
+  if (window.PPH_LOADED && window.PPH_LOADED.woo) return;
+  (window.PPH_LOADED = window.PPH_LOADED || {}).woo = true;
+
   var form = document.querySelector('[data-pph-cart]');
   if (!form) return;
 
@@ -37,9 +42,16 @@
      be reachable since one size is always pre-selected server-side. */
   form.addEventListener('submit', function (e) {
     if (!variationInput.value) {
-      e.preventDefault();
       var first = form.querySelector('[data-size]');
-      if (first) { sync(first); form.submit(); }
+      if (first) { sync(first); }
+      /* No preventDefault() + form.submit() here - HTMLFormElement.submit()
+         does not fire a 'submit' event, so that used to skip cart.js's own
+         document-level submit listener (the REST add-to-cart call) entirely
+         and fall through to a real native POST/page-reload instead, while the
+         ORIGINAL event - preventDefault or not - still bubbled up to that
+         same listener afterwards with the now-synced value, adding the item a
+         second time. Simplest fix: sync the value and let this one event keep
+         bubbling to cart.js, exactly like every other submit. */
     }
   });
 })();

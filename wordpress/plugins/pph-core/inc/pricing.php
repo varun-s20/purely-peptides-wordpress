@@ -24,8 +24,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * The discount rate, as a percentage, for a given line quantity.
  * Tier boundaries (5 and 10) mirror the ladder the product page prints.
+ * A wholesale line (inc/wholesale.php) already has its own price and takes
+ * no volume discount - the two do not stack.
  */
-function pph_volume_rate_for_qty( $qty ) {
+function pph_volume_rate_for_qty( $qty, $variation_id = 0 ) {
+	if ( function_exists( 'pph_wholesale_line_price' ) && null !== pph_wholesale_line_price( $variation_id ) ) {
+		return 0.0;
+	}
 	$qty = (int) $qty;
 	if ( $qty >= 10 ) {
 		return (float) pph_setting( 'volume_discount_10' );
@@ -53,7 +58,7 @@ function pph_apply_volume_pricing( $cart ) {
 		if ( empty( $item['data'] ) ) {
 			continue;
 		}
-		$rate = pph_volume_rate_for_qty( $item['quantity'] );
+		$rate = pph_volume_rate_for_qty( $item['quantity'], $item['variation_id'] );
 		if ( $rate <= 0 ) {
 			continue;
 		}
@@ -74,7 +79,7 @@ function pph_apply_volume_pricing( $cart ) {
  */
 add_filter( 'woocommerce_get_item_data', 'pph_show_volume_discount_on_line', 10, 2 );
 function pph_show_volume_discount_on_line( $item_data, $cart_item ) {
-	$rate = pph_volume_rate_for_qty( isset( $cart_item['quantity'] ) ? $cart_item['quantity'] : 0 );
+	$rate = pph_volume_rate_for_qty( isset( $cart_item['quantity'] ) ? $cart_item['quantity'] : 0, isset( $cart_item['variation_id'] ) ? $cart_item['variation_id'] : 0 );
 	if ( $rate > 0 ) {
 		$item_data[] = array(
 			'key'   => 'Volume discount',

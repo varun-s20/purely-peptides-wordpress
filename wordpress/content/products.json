@@ -18,44 +18,65 @@
     "date": "2026-06-25",
     "summary": "Acylated GLP-1 receptor agonist analogue used as a reference ligand in incretin receptor research.",
     "overview": "Semaglutide is a structurally modified analogue of glucagon-like peptide-1 carrying an alpha-aminoisobutyric acid substitution at position 8 and a C18 diacid side chain attached through a short spacer at lysine 26. Those modifications are described in the literature as the basis of its resistance to dipeptidyl peptidase-4 and its albumin binding. It is supplied as a lyophilised powder and is used in laboratory work on GLP-1 receptor binding, signalling assays and peptide stability.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/semaglutide-5-mg.jpg",
+    "gallery": [
+      "img/products/semaglutide-10-mg.jpg",
+      "img/products/semaglutide-20-mg.jpg",
+      "img/products/semaglutide-30-mg.jpg",
+      "img/products/semaglutide-50-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/semaglutide-sds.pdf",
     "sds_ref": "SDS-AP-SEMAGLUTIDE",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-1001-5-MG",
-        "price": 65,
+        "price": 60,
+        "wholesale": 30,
         "stock": "in-stock",
-        "lot": "SEMA5-0616"
+        "qty": 10,
+        "lot": "SEMA5-0616",
+        "image": "img/products/semaglutide-5-mg.jpg"
       },
       {
         "label": "10 mg",
         "sku": "PPH-1001-10-MG",
-        "price": 110,
+        "price": 90,
+        "wholesale": 45,
         "stock": "in-stock",
-        "lot": "SEMA10-0616"
+        "qty": 10,
+        "lot": "SEMA10-0616",
+        "image": "img/products/semaglutide-10-mg.jpg"
       },
       {
         "label": "20 mg",
         "sku": "PPH-1001-20-MG",
-        "price": 195,
+        "price": 160,
+        "wholesale": 80,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/semaglutide-20-mg.jpg"
       },
       {
         "label": "30 mg",
         "sku": "PPH-1001-30-MG",
-        "price": 275,
+        "price": 210,
+        "wholesale": 105,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/semaglutide-30-mg.jpg"
       },
       {
         "label": "50 mg",
         "sku": "PPH-1001-50-MG",
-        "price": 430,
+        "price": 300,
+        "wholesale": 150,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/semaglutide-50-mg.jpg"
       }
     ]
   },
@@ -78,44 +99,65 @@
     "date": "2026-06-17",
     "summary": "Dual GIP and GLP-1 receptor agonist used in comparative incretin receptor studies.",
     "overview": "Tirzepatide is a 39-amino-acid synthetic peptide engineered from the GIP sequence and reported in the literature to act at both the GIP and GLP-1 receptors. A C20 fatty diacid conjugated through a spacer at lysine 20 is described as extending its circulating half-life. Supplied lyophilised for in-vitro receptor pharmacology and analytical method work.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/tirzepatide-10-mg.jpg",
+    "gallery": [
+      "img/products/tirzepatide-20-mg.jpg",
+      "img/products/tirzepatide-30-mg.jpg",
+      "img/products/tirzepatide-60-mg.jpg",
+      "img/products/tirzepatide-100-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/tirzepatide-sds.pdf",
     "sds_ref": "SDS-AP-TIRZEPATIDE",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-1002-10-MG",
-        "price": 135,
+        "price": 100,
+        "wholesale": 50,
         "stock": "in-stock",
-        "lot": "TIR10-0528"
+        "qty": 10,
+        "lot": "TIR10-0528",
+        "image": "img/products/tirzepatide-10-mg.jpg"
       },
       {
         "label": "20 mg",
         "sku": "PPH-1002-20-MG",
-        "price": 245,
+        "price": 170,
+        "wholesale": 100,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tirzepatide-20-mg.jpg"
       },
       {
         "label": "30 mg",
         "sku": "PPH-1002-30-MG",
-        "price": 345,
+        "price": 240,
+        "wholesale": 120,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tirzepatide-30-mg.jpg"
       },
       {
         "label": "60 mg",
         "sku": "PPH-1002-60-MG",
-        "price": 650,
+        "price": 390,
+        "wholesale": 190,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tirzepatide-60-mg.jpg"
       },
       {
         "label": "100 mg",
         "sku": "PPH-1002-100-MG",
-        "price": 1050,
+        "price": 428,
+        "wholesale": 225,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tirzepatide-100-mg.jpg"
       }
     ]
   },
@@ -138,30 +180,65 @@
     "date": "2026-06-25",
     "summary": "Triple-agonist peptide reported to act at the GIP, GLP-1 and glucagon receptors.",
     "overview": "Retatrutide is a synthetic 39-residue peptide described in the literature as an agonist at three receptors - GIP, GLP-1 and glucagon. It is used as a reference material in comparative receptor-selectivity assays and in analytical method development, where its close structural relationship to other incretin analogues makes it a useful separation challenge.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/retatrutide-10-mg.jpg",
+    "gallery": [
+      "img/products/retatrutide-20-mg.jpg",
+      "img/products/retatrutide-30-mg.jpg",
+      "img/products/retatrutide-48-mg.jpg",
+      "img/products/retatrutide-60-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/retatrutide-sds.pdf",
     "sds_ref": "SDS-AP-RETATRUTIDE",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-1003-10-MG",
-        "price": 160,
+        "price": 105,
+        "wholesale": 52.5,
         "stock": "in-stock",
-        "lot": "RETA10-0616"
+        "qty": 20,
+        "lot": "RETA10-0616",
+        "image": "img/products/retatrutide-10-mg.jpg"
       },
       {
         "label": "20 mg",
         "sku": "PPH-1003-20-MG",
-        "price": 295,
+        "price": 200,
+        "wholesale": 100,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/retatrutide-20-mg.jpg"
       },
       {
         "label": "30 mg",
         "sku": "PPH-1003-30-MG",
-        "price": 420,
+        "price": 275,
+        "wholesale": 132.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/retatrutide-30-mg.jpg"
+      },
+      {
+        "label": "48 mg",
+        "sku": "PPH-1003-48-MG",
+        "price": 400,
+        "wholesale": 200,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/retatrutide-48-mg.jpg"
+      },
+      {
+        "label": "60 mg",
+        "sku": "PPH-1003-60-MG",
+        "price": 500,
+        "wholesale": 250,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/retatrutide-60-mg.jpg"
       }
     ]
   },
@@ -184,16 +261,32 @@
     "date": "2026-09-01",
     "summary": "Amylin receptor analogue used in calcitonin and amylin receptor binding research.",
     "overview": "Cagrilintide is a synthetic long-acting analogue of human amylin. Published work characterises it as a ligand at the amylin and calcitonin receptor families, and it is used in laboratory receptor-binding and selectivity studies. Identity data for this material is being confirmed with the supplier and will be published here with the first release lot.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/cagrilintide-10-mg.jpg",
+    "gallery": [
+      "img/products/cagrilintide-16-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-1004-10-MG",
-        "price": 150,
+        "price": 200,
+        "wholesale": 100,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/cagrilintide-10-mg.jpg"
+      },
+      {
+        "label": "16 mg",
+        "sku": "PPH-1004-16-MG",
+        "price": 250,
+        "wholesale": 125,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/cagrilintide-16-mg.jpg"
       }
     ]
   },
@@ -216,23 +309,32 @@
     "date": "2026-08-17",
     "summary": "C-terminal hGH(176-191) fragment analogue used in adipocyte model research.",
     "overview": "AOD-9604 corresponds to residues 176 to 191 of human growth hormone with an added N-terminal tyrosine. It appears in adipocyte and lipolysis model literature and is supplied here as a lyophilised research material with lot-specific chromatographic data.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/aod-9604-5-mg.jpg",
+    "gallery": [
+      "img/products/aod-9604-10-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/aod-9604-sds.pdf",
     "sds_ref": "SDS-AP-AOD9604",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-1005-5-MG",
-        "price": 55,
+        "price": 75,
+        "wholesale": 37.5,
         "stock": "in-stock",
-        "lot": "AOD5-0803"
+        "qty": 10,
+        "lot": "AOD5-0803",
+        "image": "img/products/aod-9604-5-mg.jpg"
       },
       {
         "label": "10 mg",
         "sku": "PPH-1005-10-MG",
-        "price": 95,
+        "price": 105,
+        "wholesale": 52.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/aod-9604-10-mg.jpg"
       }
     ]
   },
@@ -255,23 +357,32 @@
     "date": "2026-09-01",
     "summary": "Mitochondrial-derived peptide used in AMPK signalling and metabolic model research.",
     "overview": "MOTS-c is a 16-amino-acid peptide encoded within the mitochondrial 12S rRNA region. The literature describes it as a regulator of metabolic homeostasis acting through the AMPK pathway, and it is used as a reference material in mitochondrial and metabolic signalling studies.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/mots-c-10-mg.jpg",
+    "gallery": [
+      "img/products/mots-c-40-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-1006-10-MG",
-        "price": 75,
+        "price": 125,
+        "wholesale": 67.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/mots-c-10-mg.jpg"
       },
       {
         "label": "40 mg",
         "sku": "PPH-1006-40-MG",
-        "price": 235,
+        "price": 250,
+        "wholesale": 125,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/mots-c-40-mg.jpg"
       }
     ]
   },
@@ -294,16 +405,124 @@
     "date": "2026-09-01",
     "summary": "Small-molecule NNMT inhibitor used in methyltransferase enzyme assays.",
     "overview": "5-Amino-1-methylquinolinium is a small-molecule quinolinium salt described in the literature as an inhibitor of nicotinamide N-methyltransferase. It is supplied as a reference material for enzyme inhibition and methylation assay work. This material is not a peptide. Identity data is being confirmed with the supplier and will be published with the first release lot.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/5-amino-1mq-10-mg.jpg",
+    "gallery": [
+      "img/products/5-amino-1mq-50-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
+        "label": "10 mg",
+        "sku": "PPH-1007-10-MG",
+        "price": 60,
+        "wholesale": 30,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/5-amino-1mq-10-mg.jpg"
+      },
+      {
         "label": "50 mg",
         "sku": "PPH-1007-50-MG",
-        "price": 90,
+        "price": 100,
+        "wholesale": 50,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/5-amino-1mq-50-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-1008",
+    "slug": "ss-31",
+    "name": "SS-31",
+    "category_slug": "metabolic-research",
+    "area": "Metabolism",
+    "cas": "736992-21-5",
+    "formula": "C32H49N9O5",
+    "mw": "639.80 g/mol",
+    "sequence": "D-Arg-Dmt-Lys-Phe-NH2 (Dmt = 2′,6′-dimethyltyrosine)",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Mitochondria-targeted tetrapeptide used in cardiolipin and bioenergetics research.",
+    "overview": "SS-31, also described in the literature as elamipretide, is a synthetic aromatic-cationic tetrapeptide. Published work describes its selective association with cardiolipin in the inner mitochondrial membrane, and it is used as a reference material in mitochondrial bioenergetics, electron-transport and oxidative-stress model research. Supplied lyophilised for laboratory use.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-1008-10-MG",
+        "price": 90,
+        "wholesale": 45,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      },
+      {
+        "label": "30 mg",
+        "sku": "PPH-1008-30-MG",
+        "price": 200,
+        "wholesale": 135,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      },
+      {
+        "label": "50 mg",
+        "sku": "PPH-1008-50-MG",
+        "price": 300,
+        "wholesale": 175,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-1009",
+    "slug": "humanin",
+    "name": "Humanin",
+    "category_slug": "metabolic-research",
+    "area": "Metabolism",
+    "cas": "On request",
+    "formula": "C119H204N34O32S2",
+    "mw": "2687.27 g/mol",
+    "sequence": "Met-Ala-Pro-Arg-Gly-Phe-Ser-Cys-Leu-Leu-Leu-Leu-Thr-Ser-Glu-Ile-Asp-Leu-Pro-Val-Lys-Arg-Arg-Ala",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Mitochondrial-derived 24-residue peptide used in cell-survival and stress-signalling research.",
+    "overview": "Humanin is a 24-amino-acid peptide encoded by a short open reading frame within the mitochondrial 16S rRNA gene. The literature groups it with MOTS-c among the mitochondrial-derived peptides and describes its activity in apoptosis and cellular stress-response models. Supplied lyophilised for in-vitro research.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-1009-10-MG",
+        "price": 200,
+        "wholesale": 100,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   },
@@ -326,16 +545,32 @@
     "date": "2026-08-17",
     "summary": "Stabilised GHRH(1-44) analogue used in endocrine receptor research.",
     "overview": "Tesamorelin is a synthetic analogue of human growth hormone releasing hormone (1-44) carrying an N-terminal trans-3-hexenoyl group, which the literature describes as slowing enzymatic degradation. It is used in laboratory research on GHRH receptor binding and peptide stability.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/tesamorelin-10-mg.jpg",
+    "gallery": [
+      "img/products/tesamorelin-20-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/tesamorelin-sds.pdf",
     "sds_ref": "SDS-AP-TESAMORELIN",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-2001-10-MG",
-        "price": 120,
+        "price": 165,
+        "wholesale": 87.5,
         "stock": "in-stock",
-        "lot": "TESA10-0803"
+        "qty": 10,
+        "lot": "TESA10-0803",
+        "image": "img/products/tesamorelin-10-mg.jpg"
+      },
+      {
+        "label": "20 mg",
+        "sku": "PPH-2001-20-MG",
+        "price": 220,
+        "wholesale": 120,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tesamorelin-20-mg.jpg"
       }
     ]
   },
@@ -358,16 +593,20 @@
     "date": "2026-04-03",
     "summary": "GHRH(1-29) amide - the shortest fully active GHRH fragment.",
     "overview": "Sermorelin is the amidated 1-29 fragment of growth hormone releasing hormone, described in the literature as the shortest sequence retaining full GHRH receptor activity. Used as a reference peptide in receptor-binding and peptide-stability research.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/sermorelin-5-mg.jpg",
+    "gallery": [],
     "sds_url": "/wp-content/uploads/pph/doc/sds/sermorelin-sds.pdf",
     "sds_ref": "SDS-AP-SERMORELIN",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-2002-5-MG",
-        "price": 50,
+        "price": 80,
+        "wholesale": 40,
         "stock": "in-stock",
-        "lot": "SERMO5-0318"
+        "qty": 10,
+        "lot": "SERMO5-0318",
+        "image": "img/products/sermorelin-5-mg.jpg"
       }
     ]
   },
@@ -390,16 +629,32 @@
     "date": "2026-09-01",
     "summary": "Selective GHS-R1a agonist pentapeptide used in receptor-binding studies.",
     "overview": "Ipamorelin is a synthetic pentapeptide characterised in the literature as a selective agonist at the growth hormone secretagogue receptor GHS-R1a. It is used as a reference ligand in receptor binding, selectivity and signalling assays.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/ipamorelin-5-mg.jpg",
+    "gallery": [
+      "img/products/ipamorelin-10-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
+        "label": "5 mg",
+        "sku": "PPH-2003-5-MG",
+        "price": 55,
+        "wholesale": 27.5,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/ipamorelin-5-mg.jpg"
+      },
+      {
         "label": "10 mg",
         "sku": "PPH-2003-10-MG",
-        "price": 60,
+        "price": 85,
+        "wholesale": 42.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/ipamorelin-10-mg.jpg"
       }
     ]
   },
@@ -422,16 +677,68 @@
     "date": "2026-09-01",
     "summary": "Tetra-substituted GHRH(1-29) analogue used in receptor and stability research.",
     "overview": "CJC-1295 without drug affinity complex is a tetra-substituted analogue of GHRH(1-29). The substitutions are reported to reduce enzymatic degradation, which makes it a common reference material in peptide-stability and GHRH receptor studies.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/cjc-1295-5-mg.jpg",
+    "gallery": [
+      "img/products/cjc-1295-10-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-2004-5-MG",
-        "price": 55,
+        "price": 85,
+        "wholesale": 42.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/cjc-1295-5-mg.jpg"
+      },
+      {
+        "label": "10 mg",
+        "sku": "PPH-2004-10-MG",
+        "price": 110,
+        "wholesale": 60,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/cjc-1295-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-2005",
+    "slug": "igf-1-lr3",
+    "name": "IGF-1 LR3",
+    "category_slug": "growth-factor-research",
+    "area": "Endocrine Research",
+    "cas": "On request",
+    "formula": "On request",
+    "mw": "On request",
+    "sequence": "Long R3 IGF-I: 83-residue IGF-I analogue, Arg3 substitution plus a 13-residue N-terminal extension",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Long-chain IGF-I analogue with reduced binding-protein affinity, used in cell-culture and receptor research.",
+    "overview": "IGF-1 LR3 (Long R3 IGF-I) is an analogue of insulin-like growth factor I carrying an arginine substitution at position 3 and a 13-amino-acid N-terminal extension. The literature describes both modifications as reducing its affinity for IGF-binding proteins, which is why it is used as a cell-culture supplement and as a reference ligand in IGF-1 receptor studies. Identity data is being confirmed with the supplier and will be published with the first release lot.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "1 mg",
+        "sku": "PPH-2005-1-MG",
+        "price": 105,
+        "wholesale": 52.5,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   },
@@ -454,23 +761,54 @@
     "date": "2026-04-03",
     "summary": "Synthetic pentadecapeptide used as a reference material in fibroblast and angiogenesis models.",
     "overview": "BPC-157 is a synthetic 15-amino-acid peptide corresponding to a partial sequence of body protection compound isolated from gastric juice. It is supplied as a lyophilised powder for in-vitro laboratory research. Published work covers fibroblast migration, angiogenesis and connective-tissue models. Each lot is supplied with RP-HPLC purity and mass-spectrometry identity data.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/bpc-157-5-mg.jpg",
+    "gallery": [
+      "img/products/bpc-157-10-mg.jpg",
+      "img/products/bpc-157-15-mg.jpg",
+      "img/products/bpc-157-100-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/bpc-157-sds.pdf",
     "sds_ref": "SDS-AP-BPC157",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-3001-5-MG",
-        "price": 45,
+        "price": 70,
+        "wholesale": 35,
         "stock": "in-stock",
-        "lot": "BP5-0318"
+        "qty": 10,
+        "lot": "BP5-0318",
+        "image": "img/products/bpc-157-5-mg.jpg"
       },
       {
         "label": "10 mg",
         "sku": "PPH-3001-10-MG",
-        "price": 75,
+        "price": 90,
+        "wholesale": 45,
         "stock": "in-stock",
-        "lot": "BP10-0318"
+        "qty": 10,
+        "lot": "BP10-0318",
+        "image": "img/products/bpc-157-10-mg.jpg"
+      },
+      {
+        "label": "15 mg",
+        "sku": "PPH-3001-15-MG",
+        "price": 150,
+        "wholesale": 75,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/bpc-157-15-mg.jpg"
+      },
+      {
+        "label": "100 mg",
+        "sku": "PPH-3001-100-MG",
+        "price": 350,
+        "wholesale": 175,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/bpc-157-100-mg.jpg"
       }
     ]
   },
@@ -493,23 +831,32 @@
     "date": "2026-04-03",
     "summary": "Synthetic thymosin beta-4 analogue used in actin-binding and cell-migration research.",
     "overview": "TB-500 is a synthetic peptide corresponding to the active region of thymosin beta-4, a naturally occurring actin-sequestering protein. It is used in laboratory research examining actin polymerisation, cell migration and extracellular matrix interaction. Supplied lyophilised with lot-specific analytical documentation.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/tb-500-5-mg.jpg",
+    "gallery": [
+      "img/products/tb-500-10-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "5 mg",
         "sku": "PPH-3002-5-MG",
-        "price": 55,
+        "price": 100,
+        "wholesale": 50,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/tb-500-5-mg.jpg"
       },
       {
         "label": "10 mg",
         "sku": "PPH-3002-10-MG",
-        "price": 95,
+        "price": 125,
+        "wholesale": 62.5,
         "stock": "in-stock",
-        "lot": "TB10-0318"
+        "qty": 10,
+        "lot": "TB10-0318",
+        "image": "img/products/tb-500-10-mg.jpg"
       }
     ]
   },
@@ -532,23 +879,32 @@
     "date": "2026-06-25",
     "summary": "Copper-binding tripeptide complex studied in matrix remodelling and gene-expression research.",
     "overview": "GHK-Cu is the copper(II) complex of the tripeptide glycyl-L-histidyl-L-lysine. It is extensively characterised in the literature for its copper affinity and appears in matrix metalloproteinase and fibroblast gene-expression studies. The blue colour is a normal characteristic of the copper complex and is not an indicator of purity.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/ghk-cu-50-mg.jpg",
+    "gallery": [
+      "img/products/ghk-cu-100-mg.jpg"
+    ],
     "sds_url": "/wp-content/uploads/pph/doc/sds/ghk-cu-sds.pdf",
     "sds_ref": "SDS-AP-GHKCU",
     "sizes": [
       {
         "label": "50 mg",
         "sku": "PPH-3003-50-MG",
-        "price": 45,
+        "price": 75,
+        "wholesale": 37.5,
         "stock": "in-stock",
-        "lot": "GHK50-0616"
+        "qty": 10,
+        "lot": "GHK50-0616",
+        "image": "img/products/ghk-cu-50-mg.jpg"
       },
       {
         "label": "100 mg",
         "sku": "PPH-3003-100-MG",
-        "price": 75,
+        "price": 100,
+        "wholesale": 50,
         "stock": "in-stock",
-        "lot": "GHK100-0616"
+        "qty": 10,
+        "lot": "GHK100-0616",
+        "image": "img/products/ghk-cu-100-mg.jpg"
       }
     ]
   },
@@ -559,8 +915,8 @@
     "category_slug": "cell-signalling-research",
     "area": "Inflammatory Research",
     "cas": "67727-97-3",
-    "formula": "C16H29N5O4",
-    "mw": "355.43 g/mol",
+    "formula": "C16H30N4O4",
+    "mw": "342.43 g/mol",
     "sequence": "Lys-Pro-Val",
     "form": "Lyophilised powder",
     "purity": "Reported on the lot certificate",
@@ -571,16 +927,20 @@
     "date": "2026-09-01",
     "summary": "C-terminal alpha-MSH tripeptide used in cytokine and NF-κB pathway research.",
     "overview": "KPV is the C-terminal tripeptide fragment of alpha-melanocyte-stimulating hormone. Published cell-culture work examines its effect on NF-κB translocation and pro-inflammatory cytokine expression. Supplied lyophilised for laboratory research.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/kpv-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-3004-10-MG",
-        "price": 40,
+        "price": 70,
+        "wholesale": 35,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/kpv-10-mg.jpg"
       }
     ]
   },
@@ -591,8 +951,8 @@
     "category_slug": "cell-signalling-research",
     "area": "Cell Signalling",
     "cas": "On request",
-    "formula": "On request",
-    "mw": "On request",
+    "formula": "C17H26N4O9",
+    "mw": "430.41 g/mol",
     "sequence": "Ala-Glu-Asp-Pro",
     "form": "Lyophilised powder",
     "purity": "Reported on the lot certificate",
@@ -603,16 +963,356 @@
     "date": "2026-09-01",
     "summary": "Short synthetic tetrapeptide used in gene-expression and chondrocyte model research.",
     "overview": "Cartalax is a synthetic tetrapeptide (Ala-Glu-Asp-Pro) belonging to the short regulatory peptide series described in Russian-language gerontology literature. It is used in cell-culture work on gene expression and connective-tissue models. Identity data is being confirmed with the supplier and will be published with the first release lot.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/cartalax-20-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "20 mg",
         "sku": "PPH-3005-20-MG",
-        "price": 65,
+        "price": 85,
+        "wholesale": 42.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/cartalax-20-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3006",
+    "slug": "ara-290",
+    "name": "ARA-290",
+    "category_slug": "cell-signalling-research",
+    "area": "Inflammatory Research",
+    "cas": "On request",
+    "formula": "C51H84N16O21",
+    "mw": "1257.32 g/mol",
+    "sequence": "pGlu-Glu-Gln-Leu-Glu-Arg-Ala-Leu-Asn-Ser-Ser",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Erythropoietin-derived 11-residue peptide used in innate repair receptor research.",
+    "overview": "ARA-290, also described in the literature as cibinetide, is a linear 11-amino-acid peptide modelled on the helix B surface of erythropoietin. Published work characterises it as a ligand of the innate repair receptor without activity at the classical erythropoietic receptor, and it is used in tissue-protection and inflammatory signalling models. Supplied lyophilised for laboratory research.",
+    "image": "img/products/ara-290-10-mg.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-3006-10-MG",
+        "price": 92,
+        "wholesale": 45,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/ara-290-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3007",
+    "slug": "thymosin-alpha-1",
+    "name": "Thymosin Alpha-1",
+    "category_slug": "cell-signalling-research",
+    "area": "Inflammatory Research",
+    "cas": "62304-98-7",
+    "formula": "C129H215N33O55",
+    "mw": "3108.32 g/mol",
+    "sequence": "Ac-Ser-Asp-Ala-Ala-Val-Asp-Thr-Ser-Ser-Glu-Ile-Thr-Thr-Lys-Asp-Leu-Lys-Glu-Lys-Lys-Glu-Val-Val-Glu-Glu-Ala-Glu-Asn-OH",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "N-acetylated 28-residue thymic peptide used in immune-signalling and T-cell model research.",
+    "overview": "Thymosin alpha-1 is a 28-amino-acid, N-terminally acetylated peptide originally isolated from thymic tissue. The literature describes its activity in T-cell maturation and toll-like receptor signalling models, and it is used as a reference material in immunology and cytokine-expression research. Supplied lyophilised for in-vitro use.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-3007-10-MG",
+        "price": 135,
+        "wholesale": 65,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3008",
+    "slug": "thymalin",
+    "name": "Thymalin",
+    "category_slug": "cell-signalling-research",
+    "area": "Inflammatory Research",
+    "cas": "On request",
+    "formula": "On request",
+    "mw": "On request",
+    "sequence": "Thymus-derived polypeptide complex",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Thymic polypeptide preparation used in immune-regulation and bioregulator research.",
+    "overview": "Thymalin is a polypeptide preparation of thymic origin described in Russian-language immunology and gerontology literature, where it is studied alongside the short synthetic bioregulator peptides. It is used in laboratory work on immune-cell differentiation and cytokine expression. Composition and identity data are being confirmed with the supplier and will be published with the first release lot.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "20 mg",
+        "sku": "PPH-3008-20-MG",
+        "price": 80,
+        "wholesale": 40,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3009",
+    "slug": "epitalon",
+    "name": "Epitalon",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "307297-39-8",
+    "formula": "C14H22N4O9",
+    "mw": "390.35 g/mol",
+    "sequence": "Ala-Glu-Asp-Gly",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic tetrapeptide studied in telomerase and gene-expression research.",
+    "overview": "Epitalon (also written epithalon) is the synthetic tetrapeptide Ala-Glu-Asp-Gly, developed from studies of a pineal gland extract. Published work, much of it in Russian-language gerontology literature, examines telomerase activity and gene expression in cell-culture models. Supplied lyophilised for laboratory research.",
+    "image": "img/products/epitalon-10-mg.jpg",
+    "gallery": [
+      "img/products/epitalon-50-mg.jpg"
+    ],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-3009-10-MG",
+        "price": 70,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/epitalon-10-mg.jpg"
+      },
+      {
+        "label": "50 mg",
+        "sku": "PPH-3009-50-MG",
+        "price": 130,
+        "wholesale": 60,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/epitalon-50-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3010",
+    "slug": "vilon",
+    "name": "Vilon",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "On request",
+    "formula": "C11H21N3O5",
+    "mw": "275.31 g/mol",
+    "sequence": "Lys-Glu",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic dipeptide bioregulator used in immune-cell and gene-expression research.",
+    "overview": "Vilon is the synthetic dipeptide Lys-Glu, one of the short regulatory peptides described in Russian-language bioregulator literature. Published cell-culture work examines its effect on lymphocyte differentiation and chromatin structure. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "20 mg",
+        "sku": "PPH-3010-20-MG",
+        "price": 70,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3011",
+    "slug": "vesugen",
+    "name": "Vesugen",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "On request",
+    "formula": "C15H26N4O8",
+    "mw": "390.39 g/mol",
+    "sequence": "Lys-Glu-Asp",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic tripeptide bioregulator used in vascular endothelial cell research.",
+    "overview": "Vesugen is the synthetic tripeptide Lys-Glu-Asp, described in the short regulatory peptide literature in connection with vascular tissue. It is used in endothelial cell-culture work on gene expression and proliferation. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "20 mg",
+        "sku": "PPH-3011-20-MG",
+        "price": 70,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3012",
+    "slug": "testagen",
+    "name": "Testagen",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "On request",
+    "formula": "C17H29N5O9",
+    "mw": "447.44 g/mol",
+    "sequence": "Lys-Glu-Asp-Gly",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic tetrapeptide bioregulator used in tissue-specific gene-expression research.",
+    "overview": "Testagen is the synthetic tetrapeptide Lys-Glu-Asp-Gly from the short regulatory peptide series described in Russian-language bioregulator literature. It is used in cell-culture work on tissue-specific gene expression. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "20 mg",
+        "sku": "PPH-3012-20-MG",
+        "price": 70,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3013",
+    "slug": "prostamax",
+    "name": "Prostamax",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "On request",
+    "formula": "C20H33N5O9",
+    "mw": "487.51 g/mol",
+    "sequence": "Lys-Glu-Asp-Pro",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic tetrapeptide bioregulator used in prostate-tissue cell model research.",
+    "overview": "Prostamax is the synthetic tetrapeptide Lys-Glu-Asp-Pro, one of the short regulatory peptides described in bioregulator literature in connection with prostate tissue. It is used in cell-culture work on gene expression and chromatin organisation. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "20 mg",
+        "sku": "PPH-3013-20-MG",
+        "price": 70,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-3014",
+    "slug": "snap-8",
+    "name": "Snap-8",
+    "category_slug": "cell-signalling-research",
+    "area": "Cell Signalling",
+    "cas": "On request",
+    "formula": "C41H70N16O16S",
+    "mw": "1075.17 g/mol",
+    "sequence": "Ac-Glu-Glu-Met-Gln-Arg-Arg-Ala-Asp-NH2",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Acetylated octapeptide used in SNARE-complex and vesicle-fusion assays.",
+    "overview": "Snap-8 (acetyl octapeptide-3) is a synthetic octapeptide modelled on the N-terminal end of SNAP-25. The literature describes it as competing for position in the SNARE complex, and it is used in in-vitro assays of vesicle fusion and neurotransmitter release. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-3014-10-MG",
+        "price": 55,
+        "wholesale": 30,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   },
@@ -635,16 +1335,20 @@
     "date": "2026-09-01",
     "summary": "Tuftsin-derived heptapeptide used in GABAergic and immunomodulatory model research.",
     "overview": "Selank is a synthetic analogue of the endogenous immunomodulatory tetrapeptide tuftsin, extended with a Pro-Gly-Pro sequence that the literature reports as increasing enzymatic stability. Published research covers GABA receptor interaction, monoamine turnover and cytokine expression in animal models.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/selank-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-4001-10-MG",
-        "price": 55,
+        "price": 75,
+        "wholesale": 37.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/selank-10-mg.jpg"
       }
     ]
   },
@@ -667,16 +1371,246 @@
     "date": "2026-09-01",
     "summary": "Synthetic ACTH(4-10) analogue used in neuropeptide and BDNF expression research.",
     "overview": "Semax is a synthetic heptapeptide analogue of the ACTH(4-10) fragment, extended with a Pro-Gly-Pro tail reported to increase enzymatic stability. It appears in neuroscience literature in studies of neurotrophic factor expression and receptor binding.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/semax-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-4002-10-MG",
-        "price": 55,
+        "price": 75,
+        "wholesale": 37.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/semax-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4003",
+    "slug": "dsip",
+    "name": "DSIP",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "62568-57-4",
+    "formula": "C35H48N10O15",
+    "mw": "848.82 g/mol",
+    "sequence": "Trp-Ala-Gly-Gly-Asp-Ala-Ser-Gly-Glu",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Delta sleep-inducing nonapeptide used in neuropeptide and sleep-regulation model research.",
+    "overview": "Delta sleep-inducing peptide is a nonapeptide first isolated from rabbit cerebral venous blood during slow-wave sleep. The literature describes it as a modulator in several neuroendocrine systems, and it is used as a reference material in neuropeptide and sleep-regulation model studies. Supplied lyophilised for laboratory research.",
+    "image": "img/products/dsip-5-mg.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5 mg",
+        "sku": "PPH-4003-5-MG",
+        "price": 55,
+        "wholesale": 27.5,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/dsip-5-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4004",
+    "slug": "pinealon",
+    "name": "Pinealon",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "On request",
+    "formula": "C15H26N6O8",
+    "mw": "418.41 g/mol",
+    "sequence": "Glu-Asp-Arg",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Synthetic tripeptide bioregulator used in neuronal cell and oxidative-stress research.",
+    "overview": "Pinealon is the synthetic tripeptide Glu-Asp-Arg, described in the short regulatory peptide literature. Published cell-culture work examines neuronal viability and reactive oxygen species under oxidative stress. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-4004-10-MG",
+        "price": 85,
+        "wholesale": 42.5,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      },
+      {
+        "label": "20 mg",
+        "sku": "PPH-4004-20-MG",
+        "price": 105,
+        "wholesale": 55,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4005",
+    "slug": "adamax",
+    "name": "Adamax",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "On request",
+    "formula": "On request",
+    "mw": "On request",
+    "sequence": "Semax-derived analogue - structure reported on the lot certificate",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Semax-derived peptide analogue used in neuropeptide research.",
+    "overview": "Adamax is a synthetic analogue derived from Semax, the ACTH(4-10)-based heptapeptide. It is supplied for laboratory work comparing the stability and receptor activity of Semax-family peptides. Identity data is being confirmed with the supplier and will be published with the first release lot.",
+    "image": "img/products/adamax-10-mg.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-4005-10-MG",
+        "price": 92,
+        "wholesale": 45,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/adamax-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4006",
+    "slug": "dihexa",
+    "name": "Dihexa",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "On request",
+    "formula": "C27H44N4O5",
+    "mw": "504.67 g/mol",
+    "sequence": "N-hexanoyl-Tyr-Ile-(6)-aminohexanoic amide",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Angiotensin IV-derived oligopeptide used in HGF / c-Met signalling research.",
+    "overview": "Dihexa is an oligopeptide derived from angiotensin IV, built on an N-hexanoyl tyrosine-isoleucine core with a 6-aminohexanoic amide terminus. The literature describes it as binding hepatocyte growth factor and potentiating c-Met signalling, and it is used in synaptogenesis and neurotrophic cell-culture models. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5 mg",
+        "sku": "PPH-4006-5-MG",
+        "price": 140,
+        "wholesale": 70,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4007",
+    "slug": "pe-22-28",
+    "name": "PE-22-28",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "On request",
+    "formula": "C35H55N11O9",
+    "mw": "773.89 g/mol",
+    "sequence": "Gly-Val-Ser-Trp-Gly-Leu-Arg",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Spadin-derived heptapeptide used in TREK-1 potassium channel research.",
+    "overview": "PE-22-28 is a seven-residue peptide corresponding to positions 22 to 28 of the sortilin propeptide, and a shortened analogue of spadin. Published work describes it as an inhibitor of the TREK-1 potassium channel, and it is used in ion-channel and neuronal signalling models. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-4007-10-MG",
+        "price": 150,
+        "wholesale": 75,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-4008",
+    "slug": "p21",
+    "name": "P21",
+    "category_slug": "cognitive-research",
+    "area": "Neuroscience",
+    "cas": "On request",
+    "formula": "On request",
+    "mw": "On request",
+    "sequence": "CNTF-derived peptidomimetic (P021) - structure reported on the lot certificate",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": true,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "CNTF-derived peptidomimetic used in neurogenesis and neurotrophic signalling research.",
+    "overview": "P21 (also referenced as P021) is a small peptidomimetic compound derived from an active region of ciliary neurotrophic factor. The literature describes its use in models of neurogenesis and neurotrophic signalling. Identity data is being confirmed with the supplier and will be published with the first release lot.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5 mg",
+        "sku": "PPH-4008-5-MG",
+        "price": 150,
+        "wholesale": 75,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   },
@@ -699,16 +1633,20 @@
     "date": "2026-09-01",
     "summary": "Linear alpha-MSH analogue used as a reference ligand at MC1R.",
     "overview": "Melanotan-I is a linear 13-residue analogue of alpha-melanocyte-stimulating hormone carrying norleucine and D-phenylalanine substitutions. It is a characterised reference ligand at the melanocortin-1 receptor and is used in receptor binding and selectivity assays.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/melanotan-1-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-5001-10-MG",
-        "price": 70,
+        "price": 65,
+        "wholesale": 32.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/melanotan-1-10-mg.jpg"
       }
     ]
   },
@@ -731,16 +1669,20 @@
     "date": "2026-09-01",
     "summary": "Cyclic melanocortin agonist used in MC1R and MC4R binding studies.",
     "overview": "Melanotan-II is a cyclic heptapeptide analogue of alpha-MSH and a well characterised non-selective agonist across the melanocortin receptor family. It is used as a reference ligand in receptor selectivity and competitive binding assays.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/melanotan-2-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10 mg",
         "sku": "PPH-5002-10-MG",
-        "price": 60,
+        "price": 65,
+        "wholesale": 32.5,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/melanotan-2-10-mg.jpg"
       }
     ]
   },
@@ -763,7 +1705,8 @@
     "date": "2026-09-01",
     "summary": "C-terminal kisspeptin decapeptide used as a KISS1R reference ligand.",
     "overview": "Kisspeptin-10 is the C-terminal decapeptide fragment of kisspeptin-54 and the shortest sequence retaining full activity at the KISS1 receptor. It is widely used in neuroendocrine receptor signalling and GnRH regulation research.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/kisspeptin-10-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
@@ -771,8 +1714,47 @@
         "label": "10 mg",
         "sku": "PPH-5003-10-MG",
         "price": 70,
+        "wholesale": 35,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/kisspeptin-10-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-5004",
+    "slug": "pt-141",
+    "name": "PT-141",
+    "category_slug": "melanocortin-research",
+    "area": "Receptor Pharmacology",
+    "cas": "189691-06-3",
+    "formula": "C50H68N14O10",
+    "mw": "1025.18 g/mol",
+    "sequence": "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "RP-HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Cyclic melanocortin agonist used in MC3R and MC4R binding studies.",
+    "overview": "PT-141, also described in the literature as bremelanotide, is a cyclic heptapeptide melanocortin analogue that differs from Melanotan-II by a C-terminal carboxylic acid in place of the amide. It is used as a reference ligand in melanocortin-3 and melanocortin-4 receptor binding and selectivity assays. Supplied lyophilised for laboratory research.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10 mg",
+        "sku": "PPH-5004-10-MG",
+        "price": 75,
+        "wholesale": 35,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   },
@@ -795,23 +1777,80 @@
     "date": "2026-01-21",
     "summary": "Oxidised nicotinamide adenine dinucleotide, supplied as a redox assay reference standard.",
     "overview": "NAD+ is the oxidised form of nicotinamide adenine dinucleotide, the principal electron-carrying cofactor in cellular redox metabolism. It is supplied as a lyophilised powder for use as a reference standard in enzymatic assays, dehydrogenase kinetics and analytical method work. This material is not a peptide; it is documented to the same lot-level standard as the rest of the catalogue.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/nad-500-mg.jpg",
+    "gallery": [
+      "img/products/nad-1000-mg.jpg"
+    ],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "500 mg",
         "sku": "PPH-6001-500-MG",
-        "price": 95,
+        "price": 150,
+        "wholesale": 75,
         "stock": "in-stock",
-        "lot": "ND5-011726"
+        "qty": 21,
+        "lot": "ND5-011726",
+        "image": "img/products/nad-500-mg.jpg"
       },
       {
         "label": "1000 mg",
         "sku": "PPH-6001-1000-MG",
-        "price": 170,
+        "price": 300,
+        "wholesale": 150,
         "stock": "in-stock",
-        "lot": "NAD1000-0803"
+        "qty": 10,
+        "lot": "NAD1000-0803",
+        "image": "img/products/nad-1000-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-6002",
+    "slug": "glutathione",
+    "name": "L-Glutathione",
+    "category_slug": "cofactors",
+    "area": "Redox & Cofactor",
+    "cas": "70-18-8",
+    "formula": "C10H17N3O6S",
+    "mw": "307.32 g/mol",
+    "sequence": "γ-Glu-Cys-Gly (reduced form)",
+    "form": "Lyophilised powder",
+    "purity": "Reported on the lot certificate",
+    "method": "HPLC / MS",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Reduced glutathione tripeptide supplied as a redox and thiol assay reference standard.",
+    "overview": "Glutathione is the tripeptide γ-L-glutamyl-L-cysteinyl-glycine, the principal low-molecular-weight thiol in cellular redox metabolism. It is supplied in its reduced form as a reference standard for enzymatic assays, thiol quantification and oxidative-stress model work.",
+    "image": "img/products/glutathione-600-mg.jpg",
+    "gallery": [
+      "img/products/glutathione-1500-mg.jpg"
+    ],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "600 mg",
+        "sku": "PPH-6002-600-MG",
+        "price": 110,
+        "wholesale": 55,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/glutathione-600-mg.jpg"
+      },
+      {
+        "label": "1500 mg",
+        "sku": "PPH-6002-1500-MG",
+        "price": 200,
+        "wholesale": 100,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": "img/products/glutathione-1500-mg.jpg"
       }
     ]
   },
@@ -834,16 +1873,20 @@
     "date": "2026-09-01",
     "summary": "Fixed-ratio combination of GHK-Cu, BPC-157 and TB-500 documented as one lot.",
     "overview": "GLOW combines GHK-Cu, BPC-157 and TB-500 at a fixed mass ratio in a single vial. Blend lots carry chromatographic data for each component so the ratio can be confirmed before use. Supplied for laboratory research only.",
-    "image": "img/prod-c.jpg",
+    "image": "img/products/glow-50-10-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "50/10/10 mg",
         "sku": "PPH-7001-50-10-10-MG",
-        "price": 145,
+        "price": 150,
+        "wholesale": 75,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/glow-50-10-10-mg.jpg"
       }
     ]
   },
@@ -866,16 +1909,20 @@
     "date": "2026-09-01",
     "summary": "Four-component fixed-ratio blend documented as a single production lot.",
     "overview": "KLOW combines GHK-Cu, BPC-157, TB-500 and KPV at a fixed mass ratio in a single vial. As with every blend, the lot certificate reports each component separately so the ratio can be verified prior to use.",
-    "image": "img/prod-a.jpg",
+    "image": "img/products/klow-50-10-10-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "50/10/10/10 mg",
         "sku": "PPH-7002-50-10-10-10-MG",
-        "price": 175,
+        "price": 200,
+        "wholesale": 100,
         "stock": "backorder",
-        "lot": ""
+        "qty": null,
+        "lot": "",
+        "image": "img/products/klow-50-10-10-10-mg.jpg"
       }
     ]
   },
@@ -898,16 +1945,246 @@
     "date": "2026-03-18",
     "summary": "Equal-mass combination of BPC-157 and TB-500 in a single vial.",
     "overview": "This blend combines BPC-157 and TB-500 at a 1:1 mass ratio. Each blend lot carries chromatographic data for both components, allowing the ratio to be confirmed before use. Supplied for laboratory research only.",
-    "image": "img/prod-b.jpg",
+    "image": "img/products/bpc-tb-10-10-mg.jpg",
+    "gallery": [],
     "sds_url": "",
     "sds_ref": "",
     "sizes": [
       {
         "label": "10/10 mg",
         "sku": "PPH-7003-10-10-MG",
-        "price": 130,
+        "price": 195,
+        "wholesale": 87.5,
         "stock": "in-stock",
-        "lot": "BPCTB20-0318"
+        "qty": 10,
+        "lot": "BPCTB20-0318",
+        "image": "img/products/bpc-tb-10-10-mg.jpg"
+      }
+    ]
+  },
+  {
+    "sku": "PPH-7004",
+    "slug": "ipa-cjc",
+    "name": "Ipamorelin / CJC-1295 Blend",
+    "category_slug": "blends",
+    "area": "Endocrine Research",
+    "cas": "Mixture - see components",
+    "formula": "Mixture",
+    "mw": "Not applicable (mixture)",
+    "sequence": "Ipamorelin + CJC-1295 (no DAC), 1:1 by mass, single vial",
+    "form": "Lyophilised powder",
+    "purity": "Per component, reported on the lot certificate",
+    "method": "RP-HPLC (per component)",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Equal-mass combination of ipamorelin and CJC-1295 (no DAC) in a single vial.",
+    "overview": "This blend combines ipamorelin, a selective GHS-R1a agonist, with CJC-1295 without DAC, a tetra-substituted GHRH(1-29) analogue, at a 1:1 mass ratio. Blend lots carry chromatographic data for each component so the ratio can be confirmed before use. Supplied for laboratory research only.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5/5 mg",
+        "sku": "PPH-7004-5-5-MG",
+        "price": 90,
+        "wholesale": 45,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      },
+      {
+        "label": "10/10 mg",
+        "sku": "PPH-7004-10-10-MG",
+        "price": 150,
+        "wholesale": 75,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-7005",
+    "slug": "tesa-ipa",
+    "name": "Tesamorelin / Ipamorelin Blend",
+    "category_slug": "blends",
+    "area": "Endocrine Research",
+    "cas": "Mixture - see components",
+    "formula": "Mixture",
+    "mw": "Not applicable (mixture)",
+    "sequence": "Tesamorelin 10 mg + Ipamorelin 5 mg, single vial",
+    "form": "Lyophilised powder",
+    "purity": "Per component, reported on the lot certificate",
+    "method": "RP-HPLC (per component)",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Fixed-ratio combination of tesamorelin and ipamorelin in a single vial.",
+    "overview": "This blend combines tesamorelin, a stabilised GHRH(1-44) analogue, with the GHS-R1a agonist ipamorelin at a fixed 2:1 mass ratio. Each blend lot reports both components separately so the ratio can be verified prior to use. Supplied for laboratory research only.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "10/5 mg",
+        "sku": "PPH-7005-10-5-MG",
+        "price": 160,
+        "wholesale": 80,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-7006",
+    "slug": "cjc-ghrp6",
+    "name": "CJC-1295 / GHRP-6 Blend",
+    "category_slug": "blends",
+    "area": "Endocrine Research",
+    "cas": "Mixture - see components",
+    "formula": "Mixture",
+    "mw": "Not applicable (mixture)",
+    "sequence": "CJC-1295 (no DAC) 5 mg + GHRP-6 5 mg, single vial",
+    "form": "Lyophilised powder",
+    "purity": "Per component, reported on the lot certificate",
+    "method": "RP-HPLC (per component)",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Equal-mass combination of CJC-1295 (no DAC) and GHRP-6 in a single vial.",
+    "overview": "This blend combines CJC-1295 without DAC, a GHRH(1-29) analogue, with GHRP-6, a synthetic hexapeptide ghrelin-receptor agonist, at a 1:1 mass ratio. Blend lots carry chromatographic data for each component. Supplied for laboratory research only.",
+    "image": "img/prod-b.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5/5 mg",
+        "sku": "PPH-7006-5-5-MG",
+        "price": 100,
+        "wholesale": null,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-7007",
+    "slug": "reta-cagri",
+    "name": "Retatrutide / Cagrilintide Blend",
+    "category_slug": "blends",
+    "area": "Metabolism",
+    "cas": "Mixture - see components",
+    "formula": "Mixture",
+    "mw": "Not applicable (mixture)",
+    "sequence": "Retatrutide 12.5 mg + Cagrilintide 2.5 mg, single vial",
+    "form": "Lyophilised powder",
+    "purity": "Per component, reported on the lot certificate",
+    "method": "RP-HPLC (per component)",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Fixed-ratio combination of retatrutide and cagrilintide in a single vial.",
+    "overview": "This blend combines retatrutide, a triple GIP / GLP-1 / glucagon receptor agonist, with the long-acting amylin analogue cagrilintide at a 5:1 mass ratio. Each blend lot reports both components separately so the ratio can be confirmed before use. Supplied for laboratory research only.",
+    "image": "img/prod-c.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "12.5/2.5 mg",
+        "sku": "PPH-7007-12-5-2-5-MG",
+        "price": 300,
+        "wholesale": 150,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-7008",
+    "slug": "semax-selank",
+    "name": "Semax / Selank Blend",
+    "category_slug": "blends",
+    "area": "Neuroscience",
+    "cas": "Mixture - see components",
+    "formula": "Mixture",
+    "mw": "Not applicable (mixture)",
+    "sequence": "Semax 5 mg + Selank 5 mg, single vial",
+    "form": "Lyophilised powder",
+    "purity": "Per component, reported on the lot certificate",
+    "method": "RP-HPLC (per component)",
+    "storage": "−20 °C, desiccated, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Equal-mass combination of Semax and Selank in a single vial.",
+    "overview": "This blend combines Semax, an ACTH(4-10) analogue, and Selank, a tuftsin analogue, at a 1:1 mass ratio. Both carry the Pro-Gly-Pro extension the literature describes as increasing enzymatic stability. Blend lots report each component separately. Supplied for laboratory research only.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "5/5 mg",
+        "sku": "PPH-7008-5-5-MG",
+        "price": 100,
+        "wholesale": 50,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
+      }
+    ]
+  },
+  {
+    "sku": "PPH-8001",
+    "slug": "bac-water",
+    "name": "Bacteriostatic Water",
+    "category_slug": "lab-supplies",
+    "area": "Laboratory Supplies",
+    "cas": "Not applicable (solution)",
+    "formula": "Not applicable",
+    "mw": "Not applicable",
+    "sequence": "Sterile water with 0.9% benzyl alcohol as a preservative - not a peptide",
+    "form": "Solution",
+    "purity": "Reported on the lot certificate",
+    "method": "Not applicable",
+    "storage": "Controlled room temperature, sealed, protected from light",
+    "verify": false,
+    "featured": false,
+    "date": "2026-09-21",
+    "summary": "Preserved sterile water used as a laboratory diluent for reconstituting lyophilised materials.",
+    "overview": "Bacteriostatic water is sterile water containing 0.9% benzyl alcohol, which inhibits bacterial growth after the vial is first opened and allows repeated withdrawal. It is supplied as a laboratory diluent for reconstituting lyophilised research materials for in-vitro work. Not for human or veterinary use.",
+    "image": "img/prod-a.jpg",
+    "gallery": [],
+    "sds_url": "",
+    "sds_ref": "",
+    "sizes": [
+      {
+        "label": "30 ml",
+        "sku": "PPH-8001-30-ML",
+        "price": 35,
+        "wholesale": 20,
+        "stock": "backorder",
+        "qty": null,
+        "lot": "",
+        "image": ""
       }
     ]
   }

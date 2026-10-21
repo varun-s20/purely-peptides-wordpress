@@ -1,13 +1,14 @@
 'use strict';
 /**
- * Exports the 7 product categories and 25 products (41 size-variations) for
- * import into WooCommerce.
+ * Exports the product categories and products (one variation per size) for
+ * import into WooCommerce. Counts are whatever src/data.js holds - 8
+ * categories, 51 products, 82 sizes as of the 21 Sep 2026 inventory sheet.
  *
  *   node tools/export-wp-products.js
  *
  * Output:
- *   wordpress/content/categories.json   7 categories
- *   wordpress/content/products.json     25 products, each with its sizes[]
+ *   wordpress/content/categories.json   categories
+ *   wordpress/content/products.json     products, each with its sizes[]
  *
  * `cas` / `formula` / `mw` / `purity` are exported exactly as `src/data.js`
  * already resolves them - including the literal "On request" string for the
@@ -74,6 +75,9 @@ const prods = products.map((p) => {
     summary: p.summary,
     overview: p.overview,
     image: 'img/' + productShotName(p.sku) + '.jpg',
+    /* Every other size photograph, for the product gallery. */
+    gallery: p.sizes.filter((s) => s.img).map((s) => 'img/' + s.img + '.jpg')
+      .filter((img) => img !== 'img/' + productShotName(p.sku) + '.jpg'),
     sds_url: sds ? sds.doc.replace(/^\/doc\//, '/wp-content/uploads/pph/doc/') : '',
     sds_ref: sds ? sds.ref : '',
     sizes: p.sizes.map((s) => ({
@@ -82,8 +86,11 @@ const prods = products.map((p) => {
          because it is built from the already-unique parent SKU. */
       sku: p.sku + '-' + slug(s.label).toUpperCase(),
       price: s.price,
+      wholesale: s.wholesale, // null = no wholesale price, account pays retail
       stock: s.stock, // 'in-stock' | 'backorder'
+      qty: s.qty, // units on hand for in-stock sizes, else null
       lot: s.lot || '',
+      image: s.img ? 'img/' + s.img + '.jpg' : '',
     })),
   };
 });
@@ -95,8 +102,6 @@ fs.writeFileSync(path.join(CONTENT, 'products.json'), JSON.stringify(prods, null
 const bad = [];
 const seenVariationSkus = new Set();
 
-if (cats.length !== 7) bad.push(`expected 7 categories, got ${cats.length}`);
-if (prods.length !== 25) bad.push(`expected 25 products, got ${prods.length}`);
 
 const catSlugs = new Set(cats.map((c) => c.slug));
 let variationCount = 0;
@@ -111,13 +116,15 @@ for (const p of prods) {
     seenVariationSkus.add(s.sku);
     if (!s.price && s.price !== 0) bad.push(`${p.slug} ${s.label}: no price`);
     if (!['in-stock', 'backorder'].includes(s.stock)) bad.push(`${p.slug} ${s.label}: unknown stock state ${s.stock}`);
+    if (s.stock === 'in-stock' && !(s.qty > 0)) bad.push(`${p.slug} ${s.label}: in stock with no quantity`);
+    if (s.wholesale !== null && !(s.wholesale > 0 && s.wholesale <= s.price)) bad.push(`${p.slug} ${s.label}: wholesale ${s.wholesale} not between 0 and retail ${s.price}`);
+    if (s.image && !fs.existsSync(path.join(ROOT, 'public', s.image))) bad.push(`${p.slug} ${s.label}: image not found at public/${s.image}`);
   }
 
   const imgFile = path.join(ROOT, 'public', p.image);
   if (!fs.existsSync(imgFile)) bad.push(`product ${p.slug}: image not found at public/${p.image}`);
 }
 
-if (variationCount !== 41) bad.push(`expected 41 size-variations total, got ${variationCount}`);
 
 if (bad.length) {
   console.error('Product export failed:\n  ' + bad.join('\n  '));
